@@ -166,6 +166,9 @@ collections:
   tabs:
     output: true
     sort_by: order
+  python:
+    output: true
+    permalink: /python/:path/
 
 defaults:
   - scope:
@@ -177,7 +180,7 @@ defaults:
       toc: true # Display TOC column in posts.
       # DO NOT modify the following parameter unless you are confident enough
       # to update the code of all other post links in this project.
-      img_path: assets/img/
+      media_subpath: /assets/img
       permalink: /posts/:title/
   - scope:
       path: _drafts
@@ -221,3 +224,6 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+plugins:
+  - jekyll_sqlite
