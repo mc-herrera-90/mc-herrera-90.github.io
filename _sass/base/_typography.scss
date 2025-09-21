@@ -180,6 +180,8 @@ main {
         @include mx.ml-mr(-1rem);
 
         border-radius: 0;
+        border-right: 0;
+        border-left: 0;
         max-width: none;
       }
     }

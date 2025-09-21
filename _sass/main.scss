@@ -2,3 +2,39 @@
 @forward 'components';
 @forward 'layout';
 @forward 'pages';
+
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+
+  svg {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease, fill 0.3s ease, opacity 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);   /* un zoom suave */
+      opacity: 0.9;           /* un poquito de transparencia */
+      fill: #4dabf7;          /* cambia el color del trazo/relleno */
+    }
+  }
+}
+.icon-wrapper svg:active {
+  transform: rotate(15deg) scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* Contenedor de la tabla con scroll elegante */
+.table-wrapper {
+  overflow-y: auto;
+  border-radius: 6px;
+
+	& table {
+	 margin: auto;
+	}
+}
+
+
+

@@ -2,7 +2,11 @@
   color-scheme: dark;
 
   /* Framework color */
-  --main-bg: rgb(27, 27, 30);
+  // --main-bg: rgb(27, 27, 30);
+
+  --main-bg: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03)) , /* lux diagonal */
+      linear-gradient(220deg, rgba(10,12,20,0.65) 0%, rgba(20,24,30,0.45) 40%, rgba(28,32,40,0.6) 100%),
+      #0f1720;
   --mask-bg: rgb(68, 69, 70);
   --main-border-color: rgb(44, 45, 45);
 
@@ -34,7 +38,8 @@
   /* Sidebar */
   --site-title-color: #717070;
   --site-subtitle-color: #868686;
-  --sidebar-bg: #1e1e1e;
+  // --sidebar-bg: #1e1e1e;
+  --sidebar-bg: #17191f;
   --sidebar-border-color: #292929;
   --sidebar-muted-color: #868686;
   --sidebar-active-color: rgb(255, 255, 255, 0.95);
@@ -65,7 +70,8 @@
   --footnote-target-bg: rgb(63, 81, 181);
   --btn-share-color: #6c757d;
   --btn-share-hover-color: #bfc1ca;
-  --card-bg: #1e1e1e;
+  // --card-bg: #1e1e1e;
+  --card-bg: rgb(23, 25, 31);
   --card-hovor-bg: #464d51;
   --card-shadow: rgb(21, 21, 21, 0.72) 0 6px 18px 0,
     rgb(137, 135, 135, 0.24) 0 0 0 1px;
@@ -73,7 +79,8 @@
   --kbd-text-color: #d3d3d3;
   --kbd-bg-color: #242424;
   --prompt-text-color: rgb(216, 212, 212, 0.75);
-  --prompt-tip-bg: rgb(22, 60, 36, 0.64);
+  --prompt-tip-bg: rgba(36, 50, 42, 0.64);
+  --prompt-tip-border: rgb(15, 164, 15, 0.81);
   --prompt-tip-icon-color: rgb(15, 164, 15, 0.81);
   --prompt-info-bg: rgb(7, 59, 104, 0.8);
   --prompt-info-icon-color: #0075d1;
@@ -100,7 +107,8 @@
 
   /* Code highlight colors */
   --language-border-color: #2d2d2d;
-  --highlight-bg-color: #151515;
+  // --highlight-bg-color: #151515;
+  --highlight-bg-color: #151a21; 
   --highlighter-rouge-color: #c9def1;
   --highlight-lineno-color: #808080;
   --inline-code-bg: rgba(255, 255, 255, 0.05);
@@ -171,7 +179,11 @@
   .highlight,
   .highlight .w {
     color: #d0d0d0;
-    background-color: #151515;
+    // background-color: #151515;
+    // background-color: var(--highlight-bg-color);
+    background-color: #15171c;
+    padding-bottom: 4px;
+    padding-top: 4px;
   }
 
   .highlight .err {
