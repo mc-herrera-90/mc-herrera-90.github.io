@@ -5,7 +5,7 @@ order: 4
 ---
 
 {% include about-me.html 
-    image="/assets/img/iam.webp" 
+    image="/assets/media/iam.webp" 
     author="@mcherrera" 
     subtitle="Tu aliado tecnológico" 
     tag="web" 
