@@ -1,0 +1,60 @@
+<div class="extension-card">
+  <div class="card-header">
+    <img src="{{ include.logo }}" alt="{{ include.name }} Logo" class="card-logo" />
+    <h3>{{ include.name }}</h3>
+  </div>
+  <p class="card-description">
+    {{ include.description }}
+  </p>
+  <a href="{{ include.url }}" target="_blank" class="card-btn">
+    Ver extensión
+  </a>
+</div>
+<style>
+.extension-card {
+  width: 300px;
+  padding: 1rem 1.2rem;
+  background-color: var(--sidebar-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 15px auto;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.card-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+}
+.card-header h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.card-btn {
+  align-self: flex-start;
+  padding: 0.4rem 0.8rem;
+  background-color: #e74c3c;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.card-btn:hover {
+  background-color: #c0392b;
+}
+</style>
