@@ -1,0 +1,247 @@
+<link id="hljs-style" rel="stylesheet">
+
+<div class="file-viewer editor-container">
+  <!-- Árbol de archivos -->
+  <div class="file-tree">
+    <ul id="file-tree-root" data-name="{{ include.name }}"></ul>
+  </div>
+
+  <!-- Panel de código -->
+  <div class="code-panel" id="panel-code-{{ include.name }}">
+    <div style="background: var(--sidebar-bg)" class="sticky-top">
+        <span id="{{ include.name }}-filename" class="p-2" style="background: var(--highlight-bg-color); font-size: 0.8rem; color: var(--toc-highlight)">Sin archivo x</span>
+    </div>
+    {% for file in include.files %}
+      <pre id="{{ include.name }}-file-{{ forloop.index0 }}" class="file-content"><code class="hljs-{{ file.language | downcase }}">{{ file.content | replace: '<', '&lt;' | replace: '>', '&gt;' }}</code></pre>
+    {% endfor %}
+    <p id="default-msg" class="p-3" data-name="{{ include.name }}">Selecciona un archivo para ver su contenido</p>
+  </div>
+</div>
+
+<style>
+.file-viewer.editor-container { 
+    display:flex;
+    flex-direction:row;
+    max-height: 500px;
+    max-width:900px;
+    margin:20px auto;
+    border-radius:6px;
+    border:1px solid var(--main-border-color);
+    overflow:hidden;
+}
+.file-viewer .file-tree {
+    width:28%;
+    border-right:1px solid var(--main-border-color);
+    background:var(--sidebar-bg);
+    overflow-y:auto;
+    padding: 0;
+    user-select: none;
+    -moz-user-select: none;
+    font-size: 0.9rem;
+}
+.file-tree::before {
+    content: "FOLDERS";
+    position: absolute;
+    padding: 3px 10px;
+    font-size: 0.6rem;
+}
+
+#file-tree-root {
+    padding: 20px 10px;
+}
+.file-tree ul { 
+    list-style:none;
+    padding-left: 5px !important;
+    margin:0;
+}
+.file-tree li { margin:3px 0; }
+.file-tree .folder, .file-tree .file { cursor:pointer; display:block; padding:2px 5px; border-radius:4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.file-tree .folder:hover, .file-tree .file:hover { 
+    background:var(--tag-hover);
+}
+
+.file-tree .folder {
+  color: var(--prompt-warning-icon-color);
+}
+.file-viewer .code-panel { 
+    width:100%;
+    background: var(--highlight-bg-color);
+    overflow: auto;
+}
+.file-viewer pre { margin:0;  word-break: break-word; display:none; }
+.hljs { 
+  background: var(--highlight-bg-color);
+    height: 100%;  
+}
+.file-content {
+    height: 100%;  
+}
+
+@media (max-width:768px) { 
+    .file-viewer.editor-container {
+        flex-direction:column;
+    } 
+    .file-viewer .file-tree, .file-viewer .code-panel { 
+        width:100%;
+        height: 50%;
+    }
+    .code-panel {
+      height: 50%;
+      max-height: 30%;
+    }
+    .file-tree {
+        border: 0;
+        height: 50%;
+        border-bottom: 1px solid var(--main-border-color);
+    }
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/html.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/json.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // const viewer = document.querySelector('.file-viewer');
+  const viewer = document.getElementById('panel-code-{{ include.name }}');
+  const allPre = viewer.querySelectorAll('.file-content');
+
+  // Detectar modo
+  const htmlTag = document.documentElement;
+  const hljsStyle = document.getElementById('hljs-style');
+  function updateTheme() {
+    const isDark = htmlTag.getAttribute('data-mode') === 'dark';
+    hljsStyle.href = isDark 
+      ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css'
+      : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css';
+  }
+  updateTheme();
+
+  // Resaltar todos los bloques
+  viewer.querySelectorAll('.file-content code').forEach(el => hljs.highlightElement(el));
+
+  // Ocultar todos los bloques al inicio
+  allPre.forEach(pre => pre.style.display = 'none');
+  viewer.querySelector('#default-msg').style.display = 'block';
+
+  // Construir árbol de carpetas/archivos
+  const treeRoot = document.querySelector('[data-name="{{ include.name }}"]');
+
+  const files = {{ include.files | jsonify }};
+
+  function buildTree(files, prefix) {
+    const root = {};
+    files.forEach((file, index) => {
+      const parts = file.name.split('/');
+      let current = root;
+      parts.forEach((part, i) => {
+        if (!current[part]) {
+          current[part] = (i === parts.length - 1)
+            ? { __file: true, data: file, id: `${prefix}-file-${index}` }
+            : {};
+        }
+        current = current[part];
+      });
+    });
+    return root;
+  }
+
+
+  function renderTree(node, parentUl) {
+    Object.keys(node).forEach(key => {
+      const value = node[key];
+      const li = document.createElement('li');
+
+      if (value.__file) {
+        // Detectar extensión y asignar icono + color
+        const ext = key.split('.').pop().toLowerCase();
+        let iconClass = "fa-regular fa-file";
+        let iconColor = "#aaa";
+
+        switch (ext) {
+          case "js":
+            iconClass = "fa-brands fa-js";
+            iconColor = "#f7df1e";
+            break;
+          case "json":
+            iconClass = "vscode-icons--file-type-json-official";
+            iconColor = "#3c873a";
+            break;
+          case "html":
+            iconClass = "fa-brands fa-html5";
+            iconColor = "#e34f26";
+            break;
+          case "css":
+            iconClass = "fa-brands fa-css3-alt";
+            iconColor = "#264de4";
+            break;
+          case "md":
+            iconClass = "fa-solid fa-book-open";
+            iconColor = "#6a737d";
+            break;
+          case "txt":
+            iconClass = "fa-regular fa-file-lines";
+            iconColor = "#999";
+            break;
+        }
+
+        // Mostrar nombre truncado solo si es muy largo, mantener ícono
+        li.innerHTML = `<span class="file" data-id="${value.id}" title="${key}">
+                          <i class="${iconClass}" style="color:${iconColor}"></i> ${key}
+                        </span>`;
+        const spanFile = li.querySelector('.file');
+        spanFile.style.display = "inline-block";
+        spanFile.style.maxWidth = "calc(100% - 24px)"; // Dejar espacio para ícono
+        spanFile.style.overflow = "hidden";
+        spanFile.style.textOverflow = "ellipsis";
+        spanFile.style.verticalAlign = "middle";
+
+      } else {
+        li.innerHTML = `<span class="folder"><i class="fa-solid fa-folder"></i> ${key}</span>`;
+        const ul = document.createElement('ul');
+        ul.style.display = "none";
+        renderTree(value, ul);
+        li.appendChild(ul);
+
+        // Toggle de carpeta
+        li.querySelector('.folder').addEventListener('click', () => {
+          ul.style.display = ul.style.display === "none" ? "block" : "none";
+        });
+      }
+
+      // Evento click en archivo
+      if (value.__file) {
+        li.addEventListener('click', () => {
+          allPre.forEach(fc => fc.style.display='none');
+          viewer.querySelector('#default-msg').style.display='none';
+          const block = viewer.querySelector('#' + value.id);
+          console.log(block);
+          console.log(value);
+          if(block) {
+            block.style.display='block';
+            hljs.highlightElement(block.querySelector('code'));
+          }
+
+          // 🔹 Mostrar nombre completo con truncado y tooltip
+          const parts = value.data.name.split('/');
+          const filename = parts[parts.length - 1];
+          const filenameSpan = document.getElementById('{{ include.name }}-filename');
+          filenameSpan.title = filename;
+          filenameSpan.innerText = filename;
+        });
+      }
+
+      parentUl.appendChild(li);
+    });
+  }
+
+  const tree = buildTree(files, treeRoot.dataset.name);
+  renderTree(tree, treeRoot);
+
+  // Escuchar cambios de modo dinámico
+  const observer = new MutationObserver(updateTheme);
+  observer.observe(htmlTag, { attributes: true, attributeFilter: ['data-mode'] });
+});
+</script>
