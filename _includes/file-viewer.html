@@ -26,7 +26,6 @@
     <p id="default-msg" class="p-3" data-name="{{ include.name }}">Selecciona un archivo para ver su contenido</p>
   </div>
 </div>
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const viewer = document.getElementById('panel-code-{{ include.name }}');
@@ -112,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
           case "eml":
             iconClass = "fa-solid fa-envelope-open-text text-danger";
+            iconColor = "";
             break;
         }
 
@@ -143,21 +143,17 @@ document.addEventListener('DOMContentLoaded', () => {
           allPre.forEach(fc => fc.style.display='none');
           viewer.querySelector('#default-msg').style.display='none';
           const block = viewer.querySelector('#' + value.id);
-          console.log(value);
           if(block) {
             block.style.display='block';
             hljs.highlightElement(block.querySelector('code'));
           }
-
           const parts = value.data.name.split('/');
           const filename = parts[parts.length - 1];
           const filenameSpan = document.getElementById('{{ include.name }}-filename');
           filenameSpan.title = filename;
           filenameSpan.innerText = filename;
         });
-
       }
-
       parentUl.appendChild(li);
     });
   }
@@ -167,8 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const observer = new MutationObserver(updateTheme);
   observer.observe(htmlTag, { attributes: true, attributeFilter: ['data-mode'] });
 
-});
-  document.querySelectorAll('.file-viewer.editor-container').forEach(container => {
+    document.querySelectorAll('.file-viewer.editor-container').forEach(container => {
     const fileTree = container.querySelector('.file-tree');
     const codePanel = container.querySelector('.code-panel');
     let isResizing = false;
@@ -241,4 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+});
+
 </script>
