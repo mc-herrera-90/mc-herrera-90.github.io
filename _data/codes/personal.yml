@@ -1,0 +1,91 @@
+files:
+  - name: "about.md"
+    language: "md"
+    content: |
+      # Acerca de mí
+      Soy un desarrollador Fullstack que disfruta transformar ideas en experiencias digitales.
+
+      - Creo interfaces atractivas y fáciles de usar.
+      - Backend sólido y eficiente, siempre optimizando.
+      - Automatización y buenas prácticas forman parte de mi día a día.
+      - Aprender nuevas tecnologías es mi motor constante.
+
+  - name: "web.md"
+    language: "md"
+    content: |
+      # Desarrollo Web
+      Me apasiona construir aplicaciones que la gente disfrute usar.
+
+      - HTML, CSS y JavaScript son mis herramientas de creación.
+      - Experiencia con React, Next.js y Tailwind CSS.
+      - Interfaces responsive y accesibles para todos.
+      - Cada línea de código busca eficiencia y claridad.
+
+  - name: "cloud.md"
+    language: "md"
+    content: |
+      # Nube y DevOps
+      Llevar proyectos a la nube me permite combinar escalabilidad y creatividad.
+
+      - Despliegues en AWS y Firebase.
+      - Flujos CI/CD para eficiencia continua.
+      - Monitoreo y optimización de apps en producción.
+      - Seguridad y escalabilidad siempre presentes.
+
+  - name: "creative.md"
+    language: "md"
+    content: |
+      # Creatividad
+      La programación es también un espacio para la imaginación.
+
+      - Diseño de soluciones innovadoras.
+      - Experimentación con nuevas librerías y frameworks.
+      - Prototipos rápidos que enseñan y muestran ideas.
+      - Combino lógica y creatividad en cada proyecto.
+
+  - name: "skills.md"
+    language: "md"
+    content: |
+      # Habilidades
+      Mis herramientas y tecnologías favoritas:
+
+      - **Frontend:** HTML, CSS, JS, React, Next.js, Tailwind
+      - **Backend:** Node.js, Express, SQL, MongoDB
+      - **DevOps / Cloud:** AWS, Firebase, Docker, CI/CD
+      - **Extras:** Git, Testing, Buenas prácticas, Resolución de problemas
+
+  - name: "projects.md"
+    language: "md"
+    content: |
+      # Proyectos
+      Algunos de mis trabajos más recientes:
+
+      - **Portfolio interactivo:** React + Tailwind, mostrando mis habilidades y proyectos.
+      - **Sistema bancario simulado:** Python, manejo de validaciones y operaciones.
+      - **Dashboard en la nube:** AWS + Node.js, integración de APIs y monitoreo.
+      - Cada proyecto refleja eficiencia, aprendizaje y creatividad.
+
+  - name: "contact.eml"
+    language: "text"
+    download: true
+    content: |
+      From: [Tu correo aquí]
+      To: contacto@mcherrera.dev
+      Subject: Me gustaría conectar contigo
+      MIME-Version: 1.0
+      Content-Type: text/plain; charset=UTF-8
+
+      Hola Marco 👋,
+
+      Mi nombre es [Tu nombre] y me encontré con tu portfolio.  
+      Estoy interesado en [colaborar contigo / aprender de tus proyectos / discutir una idea / otra razón].
+
+      Me encantaría poder hablar contigo sobre [describir el motivo o proyecto].  
+      Aquí están mis datos de contacto:  
+      - Email: [Tu correo]  
+      - LinkedIn / GitHub / Portfolio: [opcional]
+
+      Espero tu respuesta y muchas gracias por tu tiempo.
+
+      Saludos,  
+      [Tu nombre]
