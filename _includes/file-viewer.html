@@ -13,9 +13,6 @@
       <pre id="{{ include.name }}-file-{{ forloop.index0 }}" class="file-content pt-0">
         <code class="hljs-{{ file.language | downcase }} pt-0" contenteditable="true" spellcheck="false">{{ file.content | replace: '<', '&lt;' | replace: '>', '&gt;' }}</code>
       </pre>
-      {% if file.download == true %}
-        <a href="{{ file.download_url | default:'#' }}" class="download-link" id="download-{{ forloop.index0 }}">Descargar {{ file.name }}</a>
-      {% endif %}
     {% endfor %}
     <p id="default-msg" class="p-3" data-name="{{ include.name }}">Selecciona un archivo para ver su contenido</p>
   </div>
@@ -144,13 +141,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Detectar modo
   const htmlTag = document.documentElement;
-  const hljsStyle = document.getElementById('hljs-style');
+  const hljsStyle = document.createElement('link');
+  hljsStyle.rel = 'stylesheet';
+  const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
   function updateTheme() {
-    const isDark = htmlTag.getAttribute('data-mode') === 'dark';
+    const isDark = htmlTag.getAttribute('data-mode') === 'dark' || 
+      (htmlTag.getAttribute('data-mode') === 'auto' && darkMode) ||
+      (!htmlTag.getAttribute('data-mode') && darkMode);
     hljsStyle.href = isDark 
-      ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css'
-      : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css';
+    ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css'
+    : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css';
   }
+  document.head.appendChild(hljsStyle);
   updateTheme();
 
   // Resaltar todos los bloques

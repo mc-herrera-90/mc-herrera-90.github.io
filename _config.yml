@@ -145,6 +145,7 @@ pwa:
 
 paginate: 6
 paginate_path: "/blog/page:num/"
+slugify_mode: latin
 
 # The base URL of your site
 baseurl: ""
