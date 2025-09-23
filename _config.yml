@@ -13,8 +13,8 @@ timezone:
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
-title: Mi Blog Personal
-tagline: Pensamientos, código y café
+title: "@mcherrera"
+tagline: "- Ideas, knowledge"
 description: Un blog sobre desarrollo y curiosidades
 url: "https://mc-herrera-90.github.io"
 author:
@@ -143,7 +143,8 @@ pwa:
     deny_paths:
       # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 
-paginate: 10
+paginate: 6
+paginate_path: "/blog/page:num/"
 
 # The base URL of your site
 baseurl: ""
