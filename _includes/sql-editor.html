@@ -1,0 +1,213 @@
+<!-- Contenedor botones + editor -->
+<div style="display:flex; flex-direction:column; gap:0;">
+  <!-- Botones de filtro como tabs -->
+  <div id="category-buttons" class="d-flex gap-1 flex-column flex-md-row">
+    <button class="filter-btn" data-category="Frontend">Frontend</button>
+    <button class="filter-btn" data-category="Backend">Backend</button>
+    <button class="filter-btn" data-category="Bases de Datos">Bases de datos</button>
+  </div>
+
+  <!-- Editor + botones ejecutar + tamaño fuente -->
+  <div style="position:relative; width:100%; margin-top:0;">
+    <div id="monaco-editor" style="width:100%; height:240px; border:1px solid var(--main-border-color);"></div>
+    <!-- Botón ejecutar circular -->
+    <button id="run-query" title="Ejecutar" style="
+      position:absolute;
+      top:8px;
+      right:8px;
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      border:none;
+      color:#fff;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
+      transition:0.2s;
+    " class="bg-success">
+      <i class="fas fa-play"></i>
+    </button>
+
+    <!-- Botones de tamaño fuente debajo del ejecutar -->
+    <div style="position:absolute; top:52px; right:8px; display:flex; flex-direction:column; gap:4px;">
+      <button id="font-increase" title="Aumentar fuente"
+        style="width:32px; height:32px; border-radius:50%; border:none; background:#2d2d2d; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:bold;">A+</button>
+      <button id="font-decrease" title="Disminuir fuente"
+        style="width:32px; height:32px; border-radius:50%; border:none; background:#2d2d2d; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:bold;">A-</button>
+    </div>
+  </div>
+</div>
+
+<!-- Tabla de resultados -->
+<table id="sql-results" class="rounded-0"></table>
+
+<!-- Monaco Editor desde CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+
+<!-- SQL.js desde CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
+
+<script>
+  require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
+
+  require(['vs/editor/editor.main'], function () {
+    let fontSize = 18;
+
+    // función para detectar el tema
+    function getTheme() {
+      const html = document.documentElement;
+      const mode = html.getAttribute("data-mode");
+      if (mode === "dark") return "vs-dark";
+      if (mode === "light") return "vs";
+      // fallback al sistema
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "vs-dark" : "vs";
+    }
+
+    // inicializar editor
+    const editor = monaco.editor.create(document.getElementById('monaco-editor'), {
+      value: "SELECT skill, category FROM skills;",
+      language: 'sql',
+      theme: getTheme(),
+      automaticLayout: true,
+      minimap: { enabled: false },
+      fontSize
+    });
+
+    // observar cambios de data-mode
+    const observer = new MutationObserver(() => {
+      monaco.editor.setTheme(getTheme());
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-mode"] });
+
+    // también escuchar cambios del sistema
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+      monaco.editor.setTheme(getTheme());
+    });
+
+    // SQL.js
+    initSqlJs({ locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/${file}` })
+      .then(async SQL => {
+        const response = await fetch("db/perfil.db");
+        const buffer = await response.arrayBuffer();
+        const db = new SQL.Database(new Uint8Array(buffer));
+        const table = document.getElementById("sql-results");
+
+        function runSQL(query) {
+          try {
+            const res = db.exec(query);
+            table.innerHTML = "";
+            if (res.length > 0) {
+              const thead = document.createElement("thead");
+              const trHeader = document.createElement("tr");
+              thead.classList.add("sticky-top");
+              thead.style.background = 'var(--sidebar-bg, #000)';
+
+              // Encabezado de número de fila
+              const thIndex = document.createElement("th");
+              thIndex.textContent = "#";
+              thIndex.style.width = "30px";
+              thIndex.style.textAlign = "center";
+              trHeader.appendChild(thIndex);
+
+              res[0].columns.forEach(c => {
+                const th = document.createElement("th");
+                th.textContent = c;
+                th.style.textAlign = "left";
+                trHeader.appendChild(th);
+              });
+              thead.appendChild(trHeader);
+              table.appendChild(thead);
+
+              const tbody = document.createElement("tbody");
+              res[0].values.forEach((row, index) => {
+                const tr = document.createElement("tr");
+
+                // Columna número de registro
+                const tdIndex = document.createElement("td");
+                tdIndex.textContent = index + 1;
+                tdIndex.style.width = "30px";
+                tdIndex.style.textAlign = "center";
+                tr.appendChild(tdIndex);
+
+                row.forEach(cell => {
+                  const td = document.createElement("td");
+                  td.textContent = cell;
+                  tr.appendChild(td);
+                });
+
+                tbody.appendChild(tr);
+              });
+              table.appendChild(tbody);
+            }
+          } catch (e) {
+            alert("Error en la query: " + e.message);
+          }
+        }
+
+        table.parentElement.style.maxHeight = '250px';
+
+        // Botón ejecutar
+        document.getElementById("run-query").addEventListener("click", () => {
+          runSQL(editor.getValue());
+        });
+
+        // Botones de filtro
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        filterBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+            const cat = btn.getAttribute("data-category");
+            editor.setValue(`SELECT skill, category FROM skills WHERE category = '${cat}';`);
+
+            // Resaltar activo
+            filterBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+          });
+        });
+
+        // Botones de tamaño fuente
+        document.getElementById("font-increase").addEventListener("click", () => {
+          fontSize += 1;
+          editor.updateOptions({ fontSize });
+        });
+        document.getElementById("font-decrease").addEventListener("click", () => {
+          fontSize = Math.max(8, fontSize - 1);
+          editor.updateOptions({ fontSize });
+        });
+      });
+  });
+</script>
+
+<style>
+  .filter-btn {
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    transition: 0.2s;
+  }
+
+  .filter-btn+.filter-btn {
+  }
+
+  .filter-btn:hover {
+    background: #0078d7;
+  }
+
+  .filter-btn.active {
+    background: #0078d7;
+  }
+
+  #sql-results th,
+  #sql-results td {
+    padding: 6px 8px;
+    border-bottom: 1px solid #555;
+  }
+
+  #sql-results tr:hover {
+    background: rgba(0, 120, 215, 0.1);
+  }
+</style>
