@@ -101,6 +101,12 @@
 
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
 
+  {% if page.scripts %}
+    {% for script in page.scripts %}
+      <script src="{{ script | relative_url }}"></script>
+    {% endfor %}
+  {% endif %}
+  
   {% include js-selector.html lang=lang %}
 
   {% if jekyll.environment == 'production' %}

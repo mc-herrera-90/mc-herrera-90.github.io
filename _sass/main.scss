@@ -69,3 +69,85 @@ dt {
   color: var(--heading-color-title);
   font-weight: normal;
 }
+
+
+[contenteditable="true"]:focus {
+  outline: none !important; 
+}
+
+.file-viewer {
+  & .code-panel { 
+    width:78%;
+    background: var(--highlight-bg-color);
+    overflow: auto;
+    white-space: nowrap;
+    &-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    } 
+    & pre {
+        margin:0; 
+        display:none; 
+        overflow: visible;
+        height: fit-content;
+        & code {
+          overflow: visible;
+          &.hljs { 
+            background: var(--highlight-bg-color);
+          }
+        }
+    }
+  }  
+
+  & .file-tree {
+    width:22%;
+    background:var(--sidebar-bg);
+    user-select: none;
+    -moz-user-select: none;
+    font-size: 0.89rem;
+    padding-top: 1.5rem;
+
+      &::before {
+        content: "FOLDERS";
+        position: absolute;
+        padding: 3px 10px;
+        font-size: 0.6rem;
+      }
+      & ul {
+        margin:0;
+        list-style: none;
+        padding-left: 8px !important;
+      }
+      & .file {
+        cursor:pointer;
+        display:block;
+        padding:2px 5px;
+        border-radius:4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &:hover {
+            background:var(--tag-hover);
+        }
+      }
+  }
+}
+@media (max-width:768px) { 
+    .file-viewer.editor-container {
+        flex-direction:column;
+    } 
+    .file-viewer .file-tree, .file-viewer .code-panel { 
+        width:100%;
+    }
+    .code-panel {
+      height: 100%;
+    }
+    .file-tree {
+        border: 0;
+        height: 50%;
+        width: 100%;
+        border-bottom: 1px solid var(--main-border-color);
+    }
+}

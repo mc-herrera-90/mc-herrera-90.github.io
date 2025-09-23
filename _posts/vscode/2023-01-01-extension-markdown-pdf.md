@@ -2,6 +2,8 @@
 title: "Markdown a PDF"
 categories: [Vscode, Extensiones]
 icon: icon/md_pdf.svg
+scripts:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ex1:
   - name: ".vscode/settings.json"
     language: "json"
@@ -187,7 +189,7 @@ Algo realmente destacable de esta extensión es que permite personalizar el esti
 
 Esto se debe **ajustar en el archivo** `settings.json` para que se cargue la hoja de estilo correspondiente al exportar el PDF:  
 
-{% include file-viewer.html files=page.ex1 %}
+{% include file-viewer.html files=page.ex1 name="demo1" %}
 
 > Para ver más opciones de los estilos y cómo se interpretan las rutas revisalo [aquí](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf#markdown-pdf.styles){:target='_blank'}
 {: .prompt-tip }

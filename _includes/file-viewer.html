@@ -1,134 +1,31 @@
-<div class="file-viewer editor-container">
+<div class="
+      file-viewer
+      editor-container
+      d-flex
+      position-relative
+      rounded shadow-sm
+      overflow-hidden
+      mb-4
+      "
+    style="
+      border:1px solid var(--main-border-color);
+      height: {{ include.height | default: '510px' }}; max-height: {{ include.height | default: '510px' }};
+      ">
   <div class="file-tree">
-    <ul data-name="{{ include.name }}" class="file-tree-root"></ul>
+    <ul data-name="{{ include.name }}" class="file-tree-root pt-4"></ul>
   </div>
   <div class="code-panel" id="panel-code-{{ include.name }}">
     <div style="background: var(--sidebar-bg);" class="code-panel-header">
         <span id="{{ include.name }}-filename" class="p-2" style="background: var(--highlight-bg-color); font-size: 0.8rem; color: var(--toc-highlight)">Sin archivo x</span>
     </div>
     {% for file in include.files %}
-      <pre id="{{ include.name }}-file-{{ forloop.index0 }}" class="file-content pt-0">
+      <pre id="{{ include.name }}-file-{{ forloop.index0 }}" class="file-content pt-0 list-unstyled">
         <code class="hljs-{{ file.language | downcase }} pt-0" contenteditable="true" spellcheck="false">{{ file.content | replace: '<', '&lt;' | replace: '>', '&gt;' }}</code>
       </pre>
     {% endfor %}
     <p id="default-msg" class="p-3" data-name="{{ include.name }}">Selecciona un archivo para ver su contenido</p>
   </div>
 </div>
-
-<style>
-.file-viewer.editor-container { 
-    display:flex;
-    position: relative;
-    flex-direction:row;
-    height: 510px;
-    max-height: 510px;
-    margin:20px auto;
-    border-radius: 11px;
-    border:1px solid var(--main-border-color);
-    overflow:hidden;
-    box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.07),
-      0 2px 4px rgba(0, 0, 0, 0.07),
-      0 4px 8px rgba(0, 0, 0, 0.07);
-}
-
-code[contenteditable="true"]:focus {
-  outline: none !important; 
-}
-
-.file-viewer .file-tree {
-    width:22%;
-    border-right:1px solid var(--main-border-color);
-    background:var(--sidebar-bg);
-    user-select: none;
-    -moz-user-select: none;
-    font-size: 0.89rem;
-    padding-top: 1.5rem;
-}
-.file-tree::before {
-    content: "FOLDERS";
-    position: absolute;
-    padding: 3px 10px;
-    font-size: 0.6rem;
-}
-
-.file-tree-root {
-    padding: 20px 10px;
-}
-
-.file-tree ul { 
-    padding-left: 10px !important;
-    list-style: none;
-    margin:0;
-}
-.file-tree li { margin:2px 0; }
-.file-tree .folder,
-.file-tree .file { 
-    cursor:pointer;
-    display:block;
-    padding:2px 5px;
-    border-radius:4px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.file-tree .folder:hover, .file-tree .file:hover { 
-    background:var(--tag-hover);
-}
-
-.file-viewer .code-panel { 
-    width:78%;
-    background: var(--highlight-bg-color);
-    overflow: auto;
-    white-space: nowrap;
-}
-
-.file-viewer pre {
-  margin:0; 
-  display:none; 
-  overflow: visible;
-  height: fit-content;
-}
-.file-viewer pre code {
-  overflow: visible;
-}
-
-.code-panel-header {
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
-
-code.hljs { 
-  background: var(--highlight-bg-color);
-  height: 100%;
-}
-.file-content {
-    height: 100%;  
-}
-
-@media (max-width:768px) { 
-    .file-viewer.editor-container {
-        flex-direction:column;
-    } 
-    .file-viewer .file-tree, .file-viewer .code-panel { 
-        width:100%;
-    }
-    .code-panel {
-      height: 100%;
-    }
-    .file-tree {
-        border: 0;
-        height: 50%;
-        width: 100%;
-        border-bottom: 1px solid var(--main-border-color);
-    }
-    
-}
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -150,15 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   document.head.appendChild(hljsStyle);
   updateTheme();
-
-  // Resaltar todos los bloques
   viewer.querySelectorAll('.file-content code').forEach(el => hljs.highlightElement(el));
-
-  // Ocultar todos los bloques al inicio
   allPre.forEach(pre => pre.style.display = 'none');
   viewer.querySelector('#default-msg').style.display = 'block';
 
-  // Construir árbol de carpetas/archivos
   const treeRoot = document.querySelector('[data-name="{{ include.name }}"]');
 
   const files = {{ include.files | jsonify }};
@@ -179,8 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     return root;
   }
-
-
   function renderTree(node, parentUl) {
     Object.keys(node).forEach(key => {
       const value = node[key];
@@ -271,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
       parentUl.appendChild(li);
     });
   }
-
   const tree = buildTree(files, treeRoot.dataset.name);
   renderTree(tree, treeRoot);
 
@@ -279,9 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(htmlTag, { attributes: true, attributeFilter: ['data-mode'] });
 
 });
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.file-viewer.editor-container').forEach(container => {
     const fileTree = container.querySelector('.file-tree');
     const codePanel = container.querySelector('.code-panel');
@@ -355,6 +241,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-});
-
 </script>
