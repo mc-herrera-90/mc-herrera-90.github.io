@@ -1,18 +1,21 @@
-<link id="hljs-style" rel="stylesheet">
-
 <div class="file-viewer editor-container">
   <!-- Árbol de archivos -->
   <div class="file-tree">
-    <ul id="file-tree-root" data-name="{{ include.name }}"></ul>
+    <ul data-name="{{ include.name }}" class="file-tree-root"></ul>
   </div>
 
   <!-- Panel de código -->
   <div class="code-panel" id="panel-code-{{ include.name }}">
-    <div style="background: var(--sidebar-bg)" class="sticky-top">
+    <div style="background: var(--sidebar-bg);" class="code-panel-header">
         <span id="{{ include.name }}-filename" class="p-2" style="background: var(--highlight-bg-color); font-size: 0.8rem; color: var(--toc-highlight)">Sin archivo x</span>
     </div>
     {% for file in include.files %}
-      <pre id="{{ include.name }}-file-{{ forloop.index0 }}" class="file-content"><code class="hljs-{{ file.language | downcase }}">{{ file.content | replace: '<', '&lt;' | replace: '>', '&gt;' }}</code></pre>
+      <pre id="{{ include.name }}-file-{{ forloop.index0 }}" class="file-content pt-0">
+        <code class="hljs-{{ file.language | downcase }} pt-0" contenteditable="true" spellcheck="false">{{ file.content | replace: '<', '&lt;' | replace: '>', '&gt;' }}</code>
+      </pre>
+      {% if file.download == true %}
+        <a href="{{ file.download_url | default:'#' }}" class="download-link" id="download-{{ forloop.index0 }}">Descargar {{ file.name }}</a>
+      {% endif %}
     {% endfor %}
     <p id="default-msg" class="p-3" data-name="{{ include.name }}">Selecciona un archivo para ver su contenido</p>
   </div>
@@ -21,23 +24,32 @@
 <style>
 .file-viewer.editor-container { 
     display:flex;
+    position: relative;
     flex-direction:row;
-    max-height: 500px;
-    max-width:900px;
+    height: 510px;
+    max-height: 510px;
     margin:20px auto;
-    border-radius:6px;
+    border-radius: 11px;
     border:1px solid var(--main-border-color);
     overflow:hidden;
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.07),
+      0 2px 4px rgba(0, 0, 0, 0.07),
+      0 4px 8px rgba(0, 0, 0, 0.07);
 }
+
+code[contenteditable="true"]:focus {
+  outline: none !important; 
+}
+
 .file-viewer .file-tree {
-    width:28%;
+    width:22%;
     border-right:1px solid var(--main-border-color);
     background:var(--sidebar-bg);
-    overflow-y:auto;
-    padding: 0;
     user-select: none;
     -moz-user-select: none;
-    font-size: 0.9rem;
+    font-size: 0.89rem;
+    padding-top: 1.5rem;
 }
 .file-tree::before {
     content: "FOLDERS";
@@ -46,32 +58,57 @@
     font-size: 0.6rem;
 }
 
-#file-tree-root {
+.file-tree-root {
     padding: 20px 10px;
 }
+
 .file-tree ul { 
-    list-style:none;
-    padding-left: 5px !important;
+    padding-left: 10px !important;
+    list-style: none;
     margin:0;
 }
-.file-tree li { margin:3px 0; }
-.file-tree .folder, .file-tree .file { cursor:pointer; display:block; padding:2px 5px; border-radius:4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.file-tree li { margin:2px 0; }
+.file-tree .folder,
+.file-tree .file { 
+    cursor:pointer;
+    display:block;
+    padding:2px 5px;
+    border-radius:4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .file-tree .folder:hover, .file-tree .file:hover { 
     background:var(--tag-hover);
 }
 
-.file-tree .folder {
-  color: var(--prompt-warning-icon-color);
-}
 .file-viewer .code-panel { 
-    width:100%;
+    width:78%;
     background: var(--highlight-bg-color);
     overflow: auto;
+    white-space: nowrap;
 }
-.file-viewer pre { margin:0;  word-break: break-word; display:none; }
-.hljs { 
+
+.file-viewer pre {
+  margin:0; 
+  display:none; 
+  overflow: visible;
+  height: fit-content;
+}
+.file-viewer pre code {
+  overflow: visible;
+}
+
+.code-panel-header {
+  position: sticky;
+  top: 0;                /* sticky vertical */
+  left: 0;               /* sticky horizontal */
+  z-index: 10;           /* que quede sobre el contenido */
+}
+
+code.hljs { 
   background: var(--highlight-bg-color);
-    height: 100%;  
+  height: 100%;
 }
 .file-content {
     height: 100%;  
@@ -83,24 +120,21 @@
     } 
     .file-viewer .file-tree, .file-viewer .code-panel { 
         width:100%;
-        height: 50%;
     }
     .code-panel {
-      height: 50%;
-      max-height: 30%;
+      height: 100%;
     }
     .file-tree {
         border: 0;
         height: 50%;
+        width: 100%;
         border-bottom: 1px solid var(--main-border-color);
     }
+    
 }
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/html.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/json.min.js"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -178,12 +212,19 @@ document.addEventListener('DOMContentLoaded', () => {
             iconColor = "#264de4";
             break;
           case "md":
-            iconClass = "fa-solid fa-book-open";
+            iconClass = "fa-brands fa-markdown";
             iconColor = "#6a737d";
             break;
           case "txt":
-            iconClass = "fa-regular fa-file-lines";
+            iconClass = "fa-regular fa-file-lines"; 
             iconColor = "#999";
+            break;
+          case "jsx":
+            iconClass = "fa-brands fa-react"; // "fa-brands fa-react"
+            iconColor = "#61DBFB";
+            break;
+          case "eml":
+            iconClass = "fa-solid fa-envelope-open-text text-danger";
             break;
         }
 
@@ -199,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
         spanFile.style.verticalAlign = "middle";
 
       } else {
-        li.innerHTML = `<span class="folder"><i class="fa-solid fa-folder"></i> ${key}</span>`;
+        li.innerHTML = `<span class="folder"><i class="fa-solid fa-folder text-warning"></i> ${key}</span>`;
         const ul = document.createElement('ul');
         ul.style.display = "none";
         renderTree(value, ul);
@@ -213,11 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Evento click en archivo
       if (value.__file) {
+        
         li.addEventListener('click', () => {
           allPre.forEach(fc => fc.style.display='none');
           viewer.querySelector('#default-msg').style.display='none';
           const block = viewer.querySelector('#' + value.id);
-          console.log(block);
           console.log(value);
           if(block) {
             block.style.display='block';
@@ -231,6 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
           filenameSpan.title = filename;
           filenameSpan.innerText = filename;
         });
+
       }
 
       parentUl.appendChild(li);
@@ -243,5 +285,87 @@ document.addEventListener('DOMContentLoaded', () => {
   // Escuchar cambios de modo dinámico
   const observer = new MutationObserver(updateTheme);
   observer.observe(htmlTag, { attributes: true, attributeFilter: ['data-mode'] });
+
 });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.file-viewer.editor-container').forEach(container => {
+    const fileTree = container.querySelector('.file-tree');
+    const codePanel = container.querySelector('.code-panel');
+    let isResizing = false;
+
+    // Crear resizer
+    const resizer = document.createElement('div');
+    resizer.style.position = 'absolute';
+    resizer.style.zIndex = '100';
+    resizer.style.background = 'transparent';
+    container.appendChild(resizer);
+
+    function updateResizer() {
+      const style = window.getComputedStyle(container);
+      const isRow = style.flexDirection === 'row';
+
+      if (isRow) {
+        resizer.style.cursor = 'col-resize';
+        resizer.style.width = '5px';
+        resizer.style.height = '100%';
+        resizer.style.left = fileTree.offsetWidth + 'px';
+        resizer.style.top = '0';
+        fileTree.style.flex = '0 0 auto';
+        codePanel.style.flex = '1 1 auto';
+      } else {
+        resizer.style.cursor = 'row-resize';
+        resizer.style.height = '5px';
+        resizer.style.width = '100%';
+        resizer.style.top = fileTree.offsetHeight + 'px';
+        resizer.style.left = '0';
+        fileTree.style.flex = '0 0 auto';
+        codePanel.style.flex = '1 1 auto';
+      }
+    }
+
+    // Inicializar
+    updateResizer();
+
+    // Detectar cambios de tamaño de ventana
+    window.addEventListener('resize', updateResizer);
+
+    resizer.addEventListener('mousedown', () => {
+      isResizing = true;
+      document.body.style.cursor = resizer.style.cursor;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isResizing) return;
+      const rect = container.getBoundingClientRect();
+      const style = window.getComputedStyle(container);
+      const isRow = style.flexDirection === 'row';
+
+      if (isRow) {
+        let newWidth = e.clientX - rect.left;
+        if (newWidth < 100) newWidth = 100;
+        if (newWidth > rect.width - 100) newWidth = rect.width - 100;
+        fileTree.style.width = newWidth + 'px';
+        codePanel.style.width = `calc(100% - ${newWidth}px)`;
+        resizer.style.left = newWidth + 'px';
+      } else {
+        let newHeight = e.clientY - rect.top;
+        if (newHeight < 50) newHeight = 50;
+        if (newHeight > rect.height - 50) newHeight = rect.height - 50;
+        fileTree.style.height = newHeight + 'px';
+        codePanel.style.height = `calc(100% - ${newHeight}px)`;
+        resizer.style.top = newHeight + 'px';
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (isResizing) {
+        isResizing = false;
+        document.body.style.cursor = 'default';
+      }
+    });
+  });
+});
+
 </script>
