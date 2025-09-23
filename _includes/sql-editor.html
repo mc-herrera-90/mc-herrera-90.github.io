@@ -8,7 +8,6 @@
 
   <div style="position:relative; width:100%; margin-top:0;">
     <div id="monaco-editor" style="width:100%; height:240px; border:1px solid var(--main-border-color);"></div>
-    <!-- Botón ejecutar circular -->
     <button id="run-query" title="Ejecutar" style="
       position:absolute;
       top:8px;
@@ -49,13 +48,11 @@
 
   require(['vs/editor/editor.main'], function () {
     let fontSize = 18;
-
     function getTheme() {
       const html = document.documentElement;
       const mode = html.getAttribute("data-mode");
       if (mode === "dark") return "vs-dark";
       if (mode === "light") return "vs";
-      // fallback al sistema
       return window.matchMedia("(prefers-color-scheme: dark)").matches ? "vs-dark" : "vs";
     }
 
@@ -67,7 +64,6 @@
       minimap: { enabled: false },
       fontSize
     });
-
     const observer = new MutationObserver(() => {
       monaco.editor.setTheme(getTheme());
     });
@@ -146,13 +142,11 @@
             const cat = btn.getAttribute("data-category");
             editor.setValue(`SELECT skill, category FROM skills WHERE category = '${cat}';`);
 
-            // Resaltar activo
             filterBtns.forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
           });
         });
 
-        // Botones de tamaño fuente
         document.getElementById("font-increase").addEventListener("click", () => {
           fontSize += 1;
           editor.updateOptions({ fontSize });
