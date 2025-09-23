@@ -168,9 +168,6 @@ collections:
   tabs:
     output: true
     sort_by: order
-  python:
-    output: true
-    permalink: /python/:path/
 
 defaults:
   - scope:
