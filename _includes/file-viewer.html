@@ -1,10 +1,7 @@
 <div class="file-viewer editor-container">
-  <!-- Árbol de archivos -->
   <div class="file-tree">
     <ul data-name="{{ include.name }}" class="file-tree-root"></ul>
   </div>
-
-  <!-- Panel de código -->
   <div class="code-panel" id="panel-code-{{ include.name }}">
     <div style="background: var(--sidebar-bg);" class="code-panel-header">
         <span id="{{ include.name }}-filename" class="p-2" style="background: var(--highlight-bg-color); font-size: 0.8rem; color: var(--toc-highlight)">Sin archivo x</span>
@@ -98,9 +95,9 @@ code[contenteditable="true"]:focus {
 
 .code-panel-header {
   position: sticky;
-  top: 0;                /* sticky vertical */
-  left: 0;               /* sticky horizontal */
-  z-index: 10;           /* que quede sobre el contenido */
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 code.hljs { 
@@ -135,11 +132,9 @@ code.hljs {
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // const viewer = document.querySelector('.file-viewer');
   const viewer = document.getElementById('panel-code-{{ include.name }}');
   const allPre = viewer.querySelectorAll('.file-content');
 
-  // Detectar modo
   const htmlTag = document.documentElement;
   const hljsStyle = document.createElement('link');
   hljsStyle.rel = 'stylesheet';
@@ -192,7 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const li = document.createElement('li');
 
       if (value.__file) {
-        // Detectar extensión y asignar icono + color
         const ext = key.split('.').pop().toLowerCase();
         let iconClass = "fa-regular fa-file";
         let iconColor = "#aaa";
@@ -223,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             iconColor = "#999";
             break;
           case "jsx":
-            iconClass = "fa-brands fa-react"; // "fa-brands fa-react"
+            iconClass = "fa-brands fa-react";
             iconColor = "#61DBFB";
             break;
           case "eml":
@@ -231,13 +225,12 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
         }
 
-        // Mostrar nombre truncado solo si es muy largo, mantener ícono
         li.innerHTML = `<span class="file" data-id="${value.id}" title="${key}">
                           <i class="${iconClass}" style="color:${iconColor}"></i> ${key}
                         </span>`;
         const spanFile = li.querySelector('.file');
         spanFile.style.display = "inline-block";
-        spanFile.style.maxWidth = "calc(100% - 24px)"; // Dejar espacio para ícono
+        spanFile.style.maxWidth = "calc(100% - 24px)";
         spanFile.style.overflow = "hidden";
         spanFile.style.textOverflow = "ellipsis";
         spanFile.style.verticalAlign = "middle";
@@ -249,13 +242,11 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTree(value, ul);
         li.appendChild(ul);
 
-        // Toggle de carpeta
         li.querySelector('.folder').addEventListener('click', () => {
           ul.style.display = ul.style.display === "none" ? "block" : "none";
         });
       }
 
-      // Evento click en archivo
       if (value.__file) {
         
         li.addEventListener('click', () => {
@@ -268,7 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
             hljs.highlightElement(block.querySelector('code'));
           }
 
-          // 🔹 Mostrar nombre completo con truncado y tooltip
           const parts = value.data.name.split('/');
           const filename = parts[parts.length - 1];
           const filenameSpan = document.getElementById('{{ include.name }}-filename');
@@ -285,7 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const tree = buildTree(files, treeRoot.dataset.name);
   renderTree(tree, treeRoot);
 
-  // Escuchar cambios de modo dinámico
   const observer = new MutationObserver(updateTheme);
   observer.observe(htmlTag, { attributes: true, attributeFilter: ['data-mode'] });
 
