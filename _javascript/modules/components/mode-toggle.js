@@ -10,6 +10,7 @@ export function modeWatcher() {
   }
 
   $toggle.addEventListener('click', () => {
+    alert("watcha preciosa");
     Theme.flip();
   });
 }

@@ -1,60 +1,87 @@
-<div class="extension-card">
-  <div class="card-header">
-    <img src="{{ include.logo }}" alt="{{ include.name }} Logo" class="card-logo" />
-    <h3>{{ include.name }}</h3>
+<div class="vs-card-minimal">
+  <img src="{{ include.logo }}" alt="{{ include.name }} Logo" class="vs-logo" />
+  <div class="vs-content">
+    <h3 class="vs-title">{{ include.name }}</h3>
+    <p class="vs-desc">{{ include.description }}</p>
+    <a href="{{ include.url }}" target="_blank" class="vs-btn">Ver extensión</a>
   </div>
-  <p class="card-description">
-    {{ include.description }}
-  </p>
-  <a href="{{ include.url }}" target="_blank" class="card-btn">
-    Ver extensión
-  </a>
 </div>
+
 <style>
-.extension-card {
-  width: 300px;
-  padding: 1rem 1.2rem;
-  background-color: var(--sidebar-bg);
+.vs-card-minimal {
+  display: flex;
+  flex-direction: row;
+  background-color: #1a1f2b; /* oscuro elegante, pega con Chirpy */
+  border: 1px solid #2c3345; /* borde sutil */
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  overflow: hidden;
+  max-width: 680px;
+  width: 100%;
+}
+
+
+.vs-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 1rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.vs-content {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  margin: 15px auto;
+  justify-content: center;
+  padding: 1rem 1.5rem;
 }
 
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.card-logo {
-  width: 36px;
-  height: 36px;
-  object-fit: cover;
-}
-.card-header h3 {
-  font-size: 1.2rem;
-  margin: 0;
+.vs-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: #60a5fa; /* color azul minimalista */
 }
 
-.card-description {
+.vs-desc {
   font-size: 0.95rem;
+  color: #cbd5e1; /* gris suave */
+  margin-bottom: 1rem;
   line-height: 1.4;
 }
 
-.card-btn {
-  align-self: flex-start;
-  padding: 0.4rem 0.8rem;
-  background-color: #e74c3c;
+.vs-btn {
+  align-self: start;
+  display: inline-block;
+  background: #3b82f6; /* azul moderado */
   color: #fff;
-  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
-.card-btn:hover {
-  background-color: #c0392b;
+
+/* Responsive */
+@media (max-width: 600px) {
+  .vs-card-minimal {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .vs-logo {
+    margin: 1rem 0 0;
+  }
+
+  .vs-content {
+    padding: 1rem;
+  }
+
+  .vs-btn {
+    align-self: center;
+  }
 }
+
 </style>

@@ -1,0 +1,389 @@
+estilos:
+  - name: ".vscode/settings.json"
+    language: "json"
+    content: |
+      {
+        "markdown-pdf.styles": [
+          "style.css"
+        ]
+      }
+  - name: "style.css"
+    language: "css"
+    content: |
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        .cards-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 20px;
+          padding: 10px;
+        }
+        .card {
+          background: white;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+          margin: 20px 0;
+          border: 1px solid #ccc8;
+        }
+        .card-header {
+          background: #3498db;
+          color: white;
+          padding: 15px;
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+        .card-body {
+          padding: 10px;
+        }
+        .command {
+          background: #f8f9fa;
+          border-left: 4px solid #3498db;
+          padding: 8px 10px;
+          margin: 10px 0;
+          border-radius: 0 5px 5px 0;
+          font-family: 'Courier New', monospace;
+          font-size: 0.95rem;
+          color: #2c3e50;
+        }
+        .description {
+          color: #7f8c8d;
+          font-size: 0.7rem;
+          margin-bottom: 12px;
+          line-height: 1.3;
+        }
+        .file-commands .card-header { background: #e74c3c; }
+        .file-commands .command { border-left-color: #e74c3c; }
+        .system-commands .card-header { background: #9b59b6; }
+        .system-commands .command { border-left-color: #9b59b6; }
+        .network-commands .card-header { background: #f39c12; }
+        .network-commands .command { border-left-color: #f39c12; }
+        .permissions-commands .card-header { background: #16a085; }
+        .permissions-commands .command { border-left-color: #16a085; }
+        .process-commands .card-header { background: #d35400; }
+        .process-commands .command { border-left-color: #d35400; }
+        .search-commands .card-header { background: #27ae60; }
+        .search-commands .command { border-left-color: #27ae60; }
+
+  - name: "markdown-pdf_estilos.md"
+    language: "md"
+    content: |
+        <div class="container">
+          <p align="center" style="margin: 90px 0">
+            &lt;img src="logo_linux.png" height="600"/>
+          </p>
+          <p align="center" style="margin: 70px 0">
+            <h2 align="center">Cheatsheet — comandos Linux esenciales</h2>
+            <p align="center">Comandos rápidos para archivos, permisos, procesos, red y búsqueda</p>
+          </p>
+          <div class="cards-grid" style="margin-top: 155px">
+            <div class="card file-commands">
+                <div class="card-header">Comandos de Archivos</div>
+                <div class="card-body">
+                  <div class="command">ls -lha</div>
+                  <div class="description">Listar archivos con detalles y archivos ocultos</div>
+                  <div class="command">cp -r origen destino</div>
+                  <div class="description">Copiar directorios de forma recursiva</div>
+                  <div class="command">rm -rf directorio</div>
+                  <div class="description">Eliminar directorio y su contenido (¡cuidado!)</div>
+                  <div class="command">mv archivo nuevo_nombre</div>
+                  <div class="description">Mover o renombrar archivos</div>
+                  <div class="command">find /ruta -name "*.txt"</div>
+                  <div class="description">Buscar archivos por nombre</div>
+                </div>
+              </div>
+              <div class="card system-commands">
+                <div class="card-header">Sistema y Información</div>
+                <div class="card-body">
+                  <div class="command">top</div>
+                  <div class="description">Monitorizar procesos y uso de recursos</div>
+                  <div class="command">df -h</div>
+                  <div class="description">Mostrar espacio en disco de forma legible</div>
+                  <div class="command">free -h</div>
+                  <div class="description">Mostrar memoria libre y disponible</div>
+                  <div class="command">uname -a</div>
+                  <div class="description">Mostrar información del sistema</div>
+                  <div class="command">history</div>
+                  <div class="description">Mostrar historial de comandos</div>
+                </div>
+              </div>
+              <div class="card network-commands">
+                  <div class="card-header">Red y Conectividad</div>
+                  <div class="card-body">
+                    <div class="command">ping dominio.com</div>
+                    <div class="description">Comprobar conectividad con un host</div>
+                    <div class="command">ifconfig</div>
+                    <div class="description">Mostrar configuración de interfaces de red</div>
+                    <div class="command">netstat -tulpn</div>
+                    <div class="description">Mostrar puertos y conexiones activas</div>
+                    <div class="command">ssh usuario@host</div>
+                    <div class="description">Conectar por SSH a un servidor remoto</div>
+                    <div class="command">wget url</div>
+                    <div class="description">Descargar archivos desde internet</div>
+                  </div>
+              </div>
+              <div class="card permissions-commands">
+                <div class="card-header">Permisos y Propiedad</div>
+                <div class="card-body">
+                  <div class="command">chmod 755 archivo</div>
+                  <div class="description">Cambiar permisos de archivo (rwxr-xr-x)</div>
+                  <div class="command">chown usuario:grupo archivo</div>
+                  <div class="description">Cambiar propietario y grupo de archivo</div>
+                  <div class="command">chmod +x script.sh</div>
+                  <div class="description">Hacer un archivo ejecutable</div>
+                  <div class="command">umask 022</div>
+                  <div class="description">Establecer máscara de permisos por defecto</div>
+                  <div class="command">getfacl archivo</div>
+                  <div class="description">Ver permisos ACL de un archivo</div>
+                </div>
+              </div>
+              <div class="card process-commands">
+                <div class="card-header">Gestión de Procesos</div>
+                <div class="card-body">
+                  <div class="command">ps aux</div>
+                  <div class="description">Listar todos los procesos en ejecución</div>
+                  <div class="command">kill -9 PID</div>
+                  <div class="description">Terminar proceso forzosamente por ID</div>
+                  <div class="command">bg</div>
+                  <div class="description">Reanudar proceso en segundo plano</div>
+                  <div class="command">fg</div>
+                  <div class="description">Traer proceso al primer plano</div>
+                  <div class="command">nohup comando &</div>
+                  <div class="description">Ejecutar comando persistente</div>
+                </div>
+              </div>
+              <div class="card search-commands">
+                <div class="card-header">Búsqueda y Texto</div>
+                <div class="card-body">
+                  <div class="command">grep "texto" archivo</div>
+                  <div class="description">Buscar texto dentro de archivos</div>
+                  <div class="command">awk '{print $1}' archivo</div>
+                  <div class="description">Procesar texto y extraer campos</div>
+                  <div class="command">sed 's/old/new/g' archivo</div>
+                  <div class="description">Reemplazar texto en archivos</div>
+                  <div class="command">sort archivo</div>
+                  <div class="description">Ordenar líneas de texto</div>
+                  <div class="command">uniq archivo</div>
+                  <div class="description">Mostrar líneas únicas</div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+plantuml:
+  - name: ".vscode/settings.json"
+    language: "json"
+    content: |
+      {
+        "markdown-pdf.styles": [
+          "style.css"
+        ]
+      }
+
+  - name: markdown-pdf_plantuml.md"
+    language: "markdown"
+    content: |
+      @startuml
+      skinparam backgroundColor #fefefe
+      skinparam shadowing true
+      skinparam roundcorner 15
+      skinparam componentStyle rectangle
+      skinparam linetype ortho
+
+      title Arquitectura Cloud Moderna
+
+      actor "Usuario/Cliente" as User
+
+      ' Capas horizontales
+      package "CDN / Edge" #D1E8FF {
+          [CDN / Cache] as CDN
+      }
+
+      package "Aplicación / Backend" #FFE4B5 {
+          [Load Balancer] as LB
+          [App Server 1] as App1
+          [App Server 2] as App2
+      }
+
+      package "Microservicios" #FFDAB9 {
+          [Auth Service] as Auth
+          [Payments Service] as Payments
+      }
+
+      package "Base de Datos" #FFDDC1 {
+          [SQL DB] as SQLDB
+          [NoSQL DB] as NoSQLDB
+          [Redis Cache] as Redis
+      }
+
+      package "Almacenamiento" #E0C1FF {
+          [Blob Storage / S3] as Storage
+      }
+
+      package "Monitoreo & Alertas" #FFF1C1 {
+          [Monitoring & Alertas] as Monitor
+      }
+
+      ' Posiciones para mejorar las flechas
+      LB -[hidden]-> Auth
+      LB -[hidden]-> Payments
+      App1 -[hidden]-> SQLDB
+      App2 -[hidden]-> NoSQLDB
+
+      ' Conexiones principales (ortho para líneas rectas)
+      User --> CDN
+      CDN --> LB
+      LB --> App1
+      LB --> App2
+      App1 --> Auth
+      App1 --> Payments
+      App2 --> Auth
+      App2 --> Payments
+      Auth --> SQLDB
+      Payments --> NoSQLDB
+      Payments --> Redis
+      App1 --> Storage
+      App2 --> Storage
+      LB --> Monitor
+      App1 --> Monitor
+      App2 --> Monitor
+      SQLDB --> Monitor
+      NoSQLDB --> Monitor
+
+      @enduml
+
+      [Fuente](https://www.plantuml.com/plantuml/uml/PLDDRjiy4Dtp58C4-F9r4QHs6w3T5B4aU-K4QOsiWYmcrCHYGv4gIRLrYnwfgnuX5oj_J4X4OHZWl3Spxsc6lB8EZHjxoUopK0CQxE4H-VFUw56rjPRQmEaJXTyimtROwcz2xS6PSKx4AgwD8WEBond1TJzeHShjt44I6E8ErLxEQwLGv0u3WJQkqumvuNpcodmPXVFfeq6efHvRkDOj6OMC8NVQmCcT7T48VL5BuGNe1D32dIN3s1dKEFYeqqRyqCgX9Ci6_tcu9pYfcnkuW7MxzoMdpMBzRhE1dmm0u3vHDVAE7a8x7xDVR2fT3L9mvEBbZ_9vbOT9jRxBPhD-MrtcBbkDhISbAauczjbMYLaD0-p8V0rZYeG75lzGoqmj2_5hmOssFaLmeMrKRLRL-wow6bq7kqWdym58r2qUUbBE5dG62uqABK5BqA3B4aszo1AxZrjegbZjZqsLq1izmsEGcK_K2ZiRPupBWSeUEIdimmgr5ro_hXVJFYgf7s7dj0d95x1xaxGJK0v7A-5Xql0Vh2GPXyd-PZ7PF-O8jP-IOiCZ4HgUmQssOS2AB8GB2Zrzzd86f4zyaiGxj6nRmVbz9zgMrCFvXpJf4fl66rPSC6b0ORq5d2SNRgzN_twquEroCQ3qv__Z2qckvCjlHMZJYxAlMBZuSExRX2lh__6yhRohU0ecPkVbqLNsdgF2zRBWboKVu8WaqndtKFwI4aoxduJo3dFd36IJUIMfe0IM1H2r2YJfbzWLgNRivLy0)
+
+
+      @startuml
+      skinparam backgroundColor #fefefe
+      skinparam sequenceArrowThickness 2
+      skinparam sequenceLifeLineBorderColor #555
+      skinparam sequenceLifeLineBackgroundColor #EEE
+      skinparam sequenceMessageAlign center
+      skinparam roundcorner 15
+
+      title Flujo de Autenticación con JWT
+
+      actor "Usuario" as User #FFDDC1
+      participant "Frontend / Cliente" as Frontend #D1E8FF
+      participant "Backend / Servidor" as Backend #FFE4B5
+      participant "Base de Datos" as DB #FFDDC1
+      participant "JWT 🔒" as Token #C1FFD7
+
+      ' Fases
+      == Login ==
+      User -> Frontend : Ingresa usuario y contraseña
+      Frontend -> Backend : POST /login
+      Backend -> DB : Verifica credenciales
+      Backend -> Token : Genera JWT
+      Token --> Frontend : Devuelve JWT
+
+      == Acceso a recursos ==
+      Frontend -> Backend : Solicitud con JWT
+      Backend -> Token : Verifica JWT
+      Backend -> DB : Consulta datos según permisos
+      Backend --> Frontend : Devuelve datos seguros
+
+      @enduml
+
+      [Fuente](https://www.plantuml.com/plantuml/uml/VP5DZXCn48NtFaLfic0r6WNH0Y45JT8_23G8f6HWRToLniHnXIexY6iWzfm1iMER2t44t0uqcQX1KJQkxvM_rxwMe3d4hLEoiNwdMM_XhJQRZYdwjYH739CrzhyJGl13H6zmpamVL--isNWKWViZo8rTfx_71N6B_7jXKHJ_Gy_lh-jw17-18hh3kRET1uC-89zGEM-8FJ9C2wM23GwXSV4zGOimZo4bhD767hwdE7bu_cQbb3Q162vk9MgsT05Qu5OmEJHDLPLJbPQdbDrf7-2YOV9fJGjNK3hR6-J0S3offlMZfhaRwjiTCqlalMs9S-ZFSRgeVh0epZE2lNMb0qd6gyMuKYe1Fxz--PoX5QMLC2cdYNoer3rejA2esGnkgBCUPZELorq--Uly69xvZb4qnECtW4zWqenJzF1Dgm5CeUoSCwzUBbTmvVgjAfzc85ccsMjakxP6Ws5iqHkh7SefbJKJ-1GziixlS3owl2jMuJwYssCc-XPpOr08D32Qo4BIDneNN9ApneRO3ayz8Z2OvlbPZPAyH1SqjFqZW61t-E5XXxorGaEVVpeFgSY9laxJk7M_0000)
+
+
+      @startuml
+      ' Configuración visual
+      skinparam backgroundColor #fefefe
+      skinparam classBorderColor black
+      skinparam classBackgroundColor #D1E8FF
+      skinparam classFontColor #333
+      skinparam classAttributeIconSize 0
+      skinparam shadowing true
+      skinparam roundcorner 15
+      skinparam packageBorderColor #555
+      skinparam packageBackgroundColor #EEE
+      skinparam packageFontColor #222
+
+      title Sistema de Gestión de Biblioteca
+
+      ' Paquetes / Módulos
+      package "Usuarios y Roles" {
+          class Usuario {
+              - id: int
+              - nombre: string
+              - email: string
+              - password: string
+              + login(): bool
+              + logout(): void
+          }
+
+          class Perfil {
+              - avatar: string
+              - bio: string
+              + actualizarPerfil(): void
+          }
+
+          class Rol {
+              - id: int
+              - nombre: string
+              + asignarPermiso(permiso: Permiso): void
+          }
+
+          class Permiso {
+              - id: int
+              - descripcion: string
+          }
+
+          Usuario "1" --> "1" Perfil : tiene >
+          Usuario "*" --> "*" Rol : pertenece a >
+          Rol "*" --> "*" Permiso : incluye >
+      }
+
+      package "Biblioteca" {
+          class Libro {
+              - id: int
+              - titulo: string
+              - autor: string
+              - isbn: string
+              + prestamo(): void
+              + devolver(): void
+          }
+
+          class Categoria {
+              - id: int
+              - nombre: string
+          }
+
+          class Prestamo {
+              - id: int
+              - fechaPrestamo: Date
+              - fechaDevolucion: Date
+              + calcularMulta(): float
+          }
+
+          Libro "*" --> "1" Categoria : pertenece a >
+          Usuario "*" --> "*" Prestamo : realiza >
+          Prestamo "1" --> "1" Libro : sobre >
+      }
+
+      package "Servicios" {
+          class AuthService {
+              + autenticar(usuario: string, password: string): bool
+              + generarJWT(usuario: Usuario): string
+          }
+
+          class BibliotecaService {
+              + registrarLibro(libro: Libro): void
+              + buscarLibro(titulo: string): Libro[]
+              + registrarPrestamo(prestamo: Prestamo): void
+          }
+
+          AuthService --> Usuario
+          BibliotecaService --> Libro
+          BibliotecaService --> Prestamo
+      }
+
+      @enduml
+
+      [Fuente](https://www.plantuml.com/plantuml/uml/dLNTJZCt4BtVfnZbksWeHMr0IDLU87u8LQiYeTAg5rKlPhsJPOHZfsCx22gUYaVWnOgpQyNPtHIrYPIDvXpFd9apSSwTH_5XgOkluCgQ1JT1KF7xcu4rku2wS8ziLYYuX0hLOoCscFhAQYlmPK7ndJ6KHkSkhTGaBQNI7sS6X7wUwzdy-vkRFkt66jyHJavE-kY5zy9LyFIZikQUNmY-ooZk0MlxnAO1Bo5Nk2chh1WIc9rcmEf353QKY_zoUZh6wAkVp-T3LYR--FYuA3nxJN3FpjCIeIRuWPoFOuxVBxdIR3qfB3vikCE_0dboy2tSlh_LGLjNT5bXyfiBA6mTFCClLfERmDy50BGpWGxjOl5r15oNmCPd4MENbL09pWkR9WDeYQn7uYjqxibAFO0EGTk6pVIWXCfQlHktmKTWRRdU0Az5flIEPC5wHoYkqQECbA_OZbH6vGDgVa5fS-sj5GVrloOIYpXkpAR2afsThjfd2LrWNyc4VrAs9gU4LugjIRNpLCdDoMm2HqTdyPdcLe9dCWHdkyIlMs9yngPBM95uCgG8iEF6UCvBIgCsfSDppFbQR1Tkkvkxg_OpL_9PVvvzq7R4KGpUZZdDhZ8ZBgo4dCUbJHPdK4rhgzSa-zs_Ga-D5SR_kWDzIpiHdwHPa7h0n2tX6ZtrqUkeEKJNU_WXADGgQ9JRe3t6dXRQei_5nBbdJiycMOC3lyTtOzjA2KBnDvJ82SXNhgjOWhELzBVZdcJDYctl7he8_g65A1lNOVITZ6U5CWsjhZJlRmQNpF1EQSYGeFpq-w_Rqrrx1_jzsoxmc2AXXfqNb4sNKnq_oxRbuR9LmQd4tDtjW-xC7t-EvKvZdQP5BY65XckR3ozwa5gCMDPCpeYb_mrFnQ9rvsJg-7V_3m00)

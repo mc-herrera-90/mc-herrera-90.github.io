@@ -15,16 +15,23 @@ script_includes:
 {% include toc-status.html %}
 
 <article class="px-1" data-toc="{{ enable_toc }}">
-  <header>
-    <h1 data-toc-skip>{{ page.title }}</h1>
+  <header class="text-center">
+    {% if page.icon %}
+      <div class="icon-wrapper">
+          {% include {{ page.icon }}  %}
+      </div>
+    {% endif %}
+    <h1 data-toc-skip class="mb-3 mt-0"
+      style="color: var(--heading-color-title);" 
+      >{{ page.categories[1] }}<br/>{{ page.title }}</h1>
     {% if page.description %}
       <p class="post-desc fw-light mb-4">{{ page.description }}</p>
     {% endif %}
-
     <div class="post-meta text-muted">
       <!-- published date -->
       <span>
         {{ site.data.locales[lang].post.posted }}
+        <i class="fa-solid fa-calendar"></i>
         {% include datetime.html date=page.date tooltip=true lang=lang %}
       </span>
 
