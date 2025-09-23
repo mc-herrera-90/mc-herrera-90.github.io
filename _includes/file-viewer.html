@@ -287,7 +287,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const codePanel = container.querySelector('.code-panel');
     let isResizing = false;
 
-    // Crear resizer
     const resizer = document.createElement('div');
     resizer.style.position = 'absolute';
     resizer.style.zIndex = '100';
@@ -317,10 +316,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Inicializar
     updateResizer();
 
-    // Detectar cambios de tamaño de ventana
     window.addEventListener('resize', updateResizer);
 
     resizer.addEventListener('mousedown', () => {
