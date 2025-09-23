@@ -9,12 +9,15 @@
       #0f1720;
   --mask-bg: rgb(68, 69, 70);
   --main-border-color: rgb(44, 45, 45);
+  // --main-border-color: rgb(44, 45, 45);
 
   /* Common color */
   --text-color: rgb(175, 176, 177);
   --text-muted-color: #868686;
   --text-muted-highlight-color: #aeaeae;
-  --heading-color: #cccccc;
+  --heading-color: #e4e4e0;
+  --heading-color-title: #89d4c0;
+  --heading-color-title-2: #bbf4ee;
   --label-color: #a7a7a7;
   --blockquote-border-color: rgb(66, 66, 66);
   --blockquote-text-color: #868686;
@@ -106,14 +109,16 @@
   --timeline-year-dot-color: var(--timeline-color);
 
   /* Code highlight colors */
-  --language-border-color: #2d2d2d;
+  // --language-border-color: #2d2d2d;
+  --language-border-color: #21313d;
   // --highlight-bg-color: #151515;
-  --highlight-bg-color: #151a21; 
+  --highlight-bg-color: #0c121b; 
   --highlighter-rouge-color: #c9def1;
   --highlight-lineno-color: #808080;
   --inline-code-bg: rgba(255, 255, 255, 0.05);
   --code-color: #b0b0b0;
-  --code-header-text-color: #6a6a6a;
+  // --code-header-text-color: #6a6a6a;
+  --code-header-text-color: #3f919f;
   --code-header-muted-color: #353535;
   --code-header-icon-color: #565656;
   --clipboard-checked-color: #2bcc2b;

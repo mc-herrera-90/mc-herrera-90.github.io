@@ -6,7 +6,17 @@
 @for $i from 1 through 5 {
   h#{$i} {
     @extend %heading;
-
+    @if $i == 1 {
+      font-weight:800;
+      background: linear-gradient(
+          90deg,
+          var(--heading-color-title),
+          var(--heading-color-title-2)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+    
     @if $i > 1 {
       @extend %anchor;
     }

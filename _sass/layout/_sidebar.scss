@@ -16,9 +16,13 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
   height: 100%;
   overflow-y: auto;
   width: v.$sidebar-width;
-  background: var(--sidebar-bg);
+  background-color: var(--sidebar-bg);
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.02) 2px, transparent 2px),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 1px, transparent 1px, transparent 15px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.01) 1px, transparent 1px, transparent 15px);
+  background-size: 20px 20px, 20px 20px, 20px 20px;
   border-right: 1px solid var(--sidebar-border-color);
-
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -225,7 +229,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
       line-height: $btn-size;
     }
 
-    #mode-toggle {
+    #mode-toggle-theme {
       @extend %button;
       @extend %sidebar-links;
       @extend %sidebar-link-hover;
