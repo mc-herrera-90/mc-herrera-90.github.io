@@ -1,6 +1,8 @@
 ---
 title: "Usar Colecciones"
 categories: [jekyll, Colecciones]
+scripts:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
 
 Si ya te sientes cómodo y entusiasmado utilizando Jekyll y el sistema de `_posts/`, ha llegado el momento de dar el siguiente paso: conocer __las colecciones__.
@@ -91,6 +93,8 @@ Ahora, crea una carpeta en la raíz del proyecto con el nombre de la colección,
 {: .prompt-info }
 
 Dentro de la carpeta, crea archivos con extensión `.md` por ejemplo `_proyectos/nombre-proyecto.md` y define algunos datos en el [front-matter](https://jekyllrb.com/docs/front-matter/){:target='_blank'}. Por ejemplo:
+
+{% include file-viewer.html files=site.data.codes.jekyll.colecciones.files name="ex1" %}
 
 ```markdown
 {% include markdown/innova.md %}

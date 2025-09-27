@@ -92,8 +92,10 @@ dt {
         display:none; 
         overflow: visible;
         height: fit-content;
+        margin-top: -2.2em;   // ajusta el pequeño espacio extra de línea
         & code {
           overflow: visible;
+          font-size: 0.8rem;
           &.hljs { 
             background: var(--highlight-bg-color);
           }
@@ -108,6 +110,7 @@ dt {
     -moz-user-select: none;
     font-size: 0.89rem;
     padding-top: 1.5rem;
+    border-right: 1px solid var(--main-border-color);
 
       &::before {
         content: "FOLDERS";
@@ -115,23 +118,34 @@ dt {
         padding: 3px 10px;
         font-size: 0.6rem;
       }
-      & ul {
-        margin:0;
-        list-style: none;
-        padding-left: 8px !important;
-      }
-      & .file {
-        cursor:pointer;
-        display:block;
-        padding:2px 5px;
-        border-radius:4px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        &:hover {
+      &-root {
+        padding: 0;
+
+        & ul {
+          margin:0;
+          list-style: none;
+          padding: 0;
+        }
+
+        li {
+          cursor: pointer;
+          &.active {
             background:var(--tag-hover);
+          }
+          &:not(:has(ul)):hover {
+            background:var(--tag-hover);
+            filter: brightness(0.88); // <1 oscurece, >1 aclara
+          }
+          > span {
+            display: block;
+            width: 100%;
+            padding-left: 10px !important;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
         }
       }
+ 
   }
 }
 @media (max-width:768px) { 

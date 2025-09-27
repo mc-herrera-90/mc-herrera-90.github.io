@@ -20,7 +20,11 @@
     </div>
     {% for file in include.files %}
       <pre id="{{ include.name }}-file-{{ forloop.index0 }}" class="file-content pt-0 list-unstyled">
-        <code class="hljs-{{ file.language | downcase }} pt-0" contenteditable="true" spellcheck="false">{{ file.content | replace: '<', '&lt;' | replace: '>', '&gt;' }}</code>
+        {% if file.include %}
+          <code class="hljs-{{ file.language | downcase }} pt-0" contenteditable="true" spellcheck="false">{% include {{ file.content_file }} %}</code>
+          {% else %}
+          <code class="hljs-{{ file.language | downcase }} pt-0" contenteditable="true" spellcheck="false">{{ file.content_file | replace: '<', '&lt;' | replace: '>', '&gt;' }}</code>
+        {% endif %}
       </pre>
     {% endfor %}
     <p id="default-msg" class="p-3" data-name="{{ include.name }}">Selecciona un archivo para ver su contenido</p>
@@ -132,6 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTree(value, ul);
         li.appendChild(ul);
 
+        // li.addEventListener('click', () => {
+        //   ul.style.display = ul.style.display === "none" ? "block" : "none";
+        // });
         li.querySelector('.folder').addEventListener('click', () => {
           ul.style.display = ul.style.display === "none" ? "block" : "none";
         });
@@ -152,6 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const filenameSpan = document.getElementById('{{ include.name }}-filename');
           filenameSpan.title = filename;
           filenameSpan.innerText = filename;
+          document.querySelectorAll('li').forEach(el => el.classList.remove('active'));
+          li.classList.add('active');
         });
       }
       parentUl.appendChild(li);

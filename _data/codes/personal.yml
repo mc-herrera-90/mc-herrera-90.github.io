@@ -1,7 +1,7 @@
 files:
   - name: "about.md"
     language: "md"
-    content: |
+    content_file: |
       # Acerca de mí
       Soy un desarrollador Fullstack que disfruta transformar ideas en experiencias digitales.
 
@@ -12,7 +12,7 @@ files:
 
   - name: "web.md"
     language: "md"
-    content: |
+    content_file: |
       # Desarrollo Web
       Me apasiona construir aplicaciones que la gente disfrute usar.
 
@@ -23,7 +23,7 @@ files:
 
   - name: "cloud.md"
     language: "md"
-    content: |
+    content_file: |
       # Nube y DevOps
       Llevar proyectos a la nube me permite combinar escalabilidad y creatividad.
 
@@ -34,7 +34,7 @@ files:
 
   - name: "creative.md"
     language: "md"
-    content: |
+    content_file: |
       # Creatividad
       La programación es también un espacio para la imaginación.
 
@@ -45,7 +45,7 @@ files:
 
   - name: "skills.md"
     language: "md"
-    content: |
+    content_file: |
       # Habilidades
       Mis herramientas y tecnologías favoritas:
 
@@ -56,7 +56,7 @@ files:
 
   - name: "projects.md"
     language: "md"
-    content: |
+    content_file: |
       # Proyectos
       Algunos de mis trabajos más recientes:
 
@@ -68,7 +68,7 @@ files:
   - name: "contact.eml"
     language: "text"
     download: true
-    content: |
+    content_file: |
       From: [Tu correo aquí]
       To: contacto@mcherrera.dev
       Subject: Me gustaría conectar contigo
