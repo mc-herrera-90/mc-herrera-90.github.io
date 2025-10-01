@@ -1,20 +1,8 @@
-<div class="
-      file-viewer
-      editor-container
-      d-flex
-      position-relative
-      rounded shadow-sm
-      overflow-hidden
-      mb-4
-      "
-    style="
-      border:1px solid var(--main-border-color);
-      height: {{ include.height | default: '510px' }}; max-height: {{ include.height | default: '510px' }};
-      ">
+<div class="file-viewer shadow-sm" style="height: {{ include.height | default: '510px' }}; max-height: {{ include.height | default: '510px' }};">
   <div class="file-tree">
     <ul data-name="{{ include.name }}" class="file-tree-root pt-4"></ul>
   </div>
-  <div class="code-panel" id="panel-code-{{ include.name }}">
+  <div class="code-panel" id="panel-code-{{ include.name }}" data-name="{{ include.name }}"> 
     <div style="background: var(--sidebar-bg);" class="code-panel-header">
         <span id="{{ include.name }}-filename" class="p-2" style="background: var(--highlight-bg-color); font-size: 0.8rem; color: var(--toc-highlight)">Sin archivo x</span>
     </div>
@@ -135,10 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ul.style.display = "none";
         renderTree(value, ul);
         li.appendChild(ul);
-
-        // li.addEventListener('click', () => {
-        //   ul.style.display = ul.style.display === "none" ? "block" : "none";
-        // });
+   
         li.querySelector('.folder').addEventListener('click', () => {
           ul.style.display = ul.style.display === "none" ? "block" : "none";
         });

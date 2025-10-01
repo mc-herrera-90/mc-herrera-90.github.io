@@ -32,16 +32,6 @@ files:
       - Monitoreo y optimización de apps en producción.
       - Seguridad y escalabilidad siempre presentes.
 
-  - name: "creative.md"
-    language: "md"
-    content_file: |
-      # Creatividad
-      La programación es también un espacio para la imaginación.
-
-      - Diseño de soluciones innovadoras.
-      - Experimentación con nuevas librerías y frameworks.
-      - Prototipos rápidos que enseñan y muestran ideas.
-      - Combino lógica y creatividad en cada proyecto.
 
   - name: "skills.md"
     language: "md"
