@@ -21,8 +21,8 @@ script_includes:
           {% include {{ page.icon }}  %}
       </div>
     {% endif %}
-    <h1 data-toc-skip class="mb-3 mt-0"
-      style="color: var(--heading-color-title);" 
+    <h1 data-toc-skip class="mb-3 mt-0 fs-1 text-shadow"
+      style="color: var(--heading-color-title); text-shadow: 2px 3px 10px #19193a5f" 
       >{{ page.categories[1] }}<br/>{{ page.title }}</h1>
     {% if page.description %}
       <p class="post-desc fw-light mb-4">{{ page.description }}</p>
