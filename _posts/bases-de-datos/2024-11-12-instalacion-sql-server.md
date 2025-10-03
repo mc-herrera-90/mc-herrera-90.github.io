@@ -47,7 +47,6 @@ En Windows, SQL Server se integra de forma nativa y su instalador nos ofrece var
 
 ![Sql server instalación personalizada](sqlserver/windows-instalacion-personalizada.webp)
 
-
 ### Configurar una nueva instancia
 
 Una vez instalado, se abrirá el asistente (Centro de instalación de SQL Server 2022). Actúa como un lanzador de asistentes (wizards) que guían paso a paso en distintas operaciones relacionadas con el motor de base de datos y sus herramientas. En las opciones que nos muestra el asistente, es precisamente la primera la que nos ayuda a configurar una nueva instancia:
@@ -80,17 +79,24 @@ En entornos de pruebas suele usarse Mixed Mode para tener flexibilidad, pero sie
 
 ## Instalación en Linux (ejemplo con Ubuntu)
 
+> En este proceso, instaremos SQL Server 2022 en Ubuntu 22.04 y se podrá conecar con __sqlcmd__ para crear la primera base de datos.
+{: .prompt-tip }
+
+### Requisitos Previos
+
+- Una máquina con Ubuntu 20.04 o superior instalado.
+- Contar con __al menos 4GB de memoria__.
+
 SQL Server está soportado oficialmente en Linux, pero el enfoque es distinto: aquí todo se gestiona desde la consola.
 
-1. **Registro del repositorio**
-   Antes de instalar, debemos agregar el repositorio de Microsoft para que el sistema encuentre los paquetes correctos. Esto asegura que siempre obtengamos la versión soportada.
+1\. Registro del repositorio
+: Antes de instalar, debemos agregar el repositorio de Microsoft para que el sistema encuentre los paquetes correctos. Esto asegura que siempre obtengamos la versión soportada.
 
-2. **Instalación del motor**
-   Tras actualizar los repositorios, instalamos el paquete `mssql-server`.
-   El servicio se incorpora automáticamente al sistema y puede controlarse con `systemctl`.
+2\. Instalación del motor
+: Tras actualizar los repositorios, instalamos el paquete `mssql-server`. El servicio se incorpora automáticamente al sistema y puede controlarse con `systemctl`.
 
-3. **Configuración inicial**
-   El comando:
+3\. Configuración inicial
+: El comando:
 
    ```terminal
    sudo /opt/mssql/bin/mssql-conf setup
@@ -149,7 +155,7 @@ Ahora podemos conectarnos con el cliente `sqlcmd` usando el siguiente comando:
 /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'TuClaveSegura123' -C
 ```
 
-{% include embed/video.html src="mssql-docker-sqlcmd.mp4" %}
+{% include embed/video.html src="sqlserver/mssql-docker-sqlcmd.mp4" %}
 
 La instalación de SQL Server no se reduce a “dar siguiente”.
 Cada entorno Windows, Linux o macOS plantea distintas decisiones de configuración: desde elegir la edición correcta hasta definir el modo de autenticación o la forma de desplegar el servidor.
