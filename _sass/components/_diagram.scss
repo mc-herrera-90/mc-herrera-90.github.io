@@ -1,0 +1,68 @@
+
+.modelo-er {
+  display: inline-flex;
+  align-items: center;
+  font-family: sans-serif;
+  margin: 8px 0 14px 0;
+  position: relative;
+  // Remueve todos los márgenes y separaciones entre figuras
+  > * {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.entity {
+  border: 2px solid var(--text-color);
+  border-radius: 0;
+  padding: 0.4rem 1rem;
+  font-weight: bold;
+}
+
+.key-attribute,
+.simple-attribute,
+.multivalued {
+  border: 2px solid var(--text-color);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  line-height: 1;
+  font-size: 0.9rem;
+}
+
+.key-attribute {
+  text-decoration: underline;
+}
+
+.simple-attribute {
+  text-decoration: none;
+}
+
+.multivalued {
+  border-style: double;
+}
+
+  .relationship {
+    width: 80px;
+    height: 80px;
+    margin-left: 10px;
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    background-color: var(--main-bg);
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid var(--text-color);
+    text-align: center;
+    > span {
+      transform: rotate(-45deg);
+      display: inline-block;
+    }
+  }
+
+.connector-line {
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-color);
+  display: inline-block;
+  padding: 0;
+}
