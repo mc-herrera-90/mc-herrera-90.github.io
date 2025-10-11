@@ -21,7 +21,6 @@ pin: true
 __Notion es una herramienta todo-en-uno__ que permite gestionar notas, proyectos, crear bases de datos y colaborar en equipo. Su capacidad de adaptación permite que se use tanto para organización personal como para trabajo en equipo. En lugar de cambiar entre diferentes aplicaciones, puedes usar Notion como una única plataforma para gestionar tus proyectos, estudios, etc.
 
 ![web oficial Notion](notion/pagina-principal.webp)
-_Página oficial de Notion_
 
 ### ¿Es Notion gratuito?
 
@@ -54,10 +53,7 @@ En la siguiente tabla, podemos observar las diferencias entre los planes de Noti
 Revisemos las principales __limitaciones__ de Notion en su versión gratuita.
 
 1\. Límite de Bloques en el Plan Gratuito
-: Notion permite hasta **1.000 bloques por espacio de trabajo con más de 2 propietarios** en su versión gratuita. Cada texto, imagen, tabla o cualquier elemento cuenta como un bloque.
-
-> Antiguamente se podía tener hasta cinco invitados en un espacio de trabajo con bloques ilimitados.
-{: .prompt-info }
+: Notion permite hasta **1.000 bloques por espacio de trabajo con más de 2 propietarios** en su versión gratuita. Cada texto, imagen, tabla o cualquier elemento cuenta como un bloque (antiguamente se podía tener hasta cinco invitados en un espacio de trabajo con bloques ilimitados).
 
 2\. Espacio de Almacenamiento Limitado
 : En la versión gratuita solo puedes subir archivos de hasta **5 MB por archivo**, lo que puede ser restrictivo para documentos pesados.
@@ -67,17 +63,15 @@ Revisemos las principales __limitaciones__ de Notion en su versión gratuita.
 
 ## Empezando en Notion
 
-Lo primero que se debe hacer es crear una cuenta. Para esto, se debe ingresar a la [página de registro Notion](https://www.notion.so/signup){: target='_blank'}. Una vez allí, selecciona la opción con la cual te quieres registrar:
+Lo primero que se debe hacer es crear una cuenta. Para esto, se debe ingresar a la [página de registro Notion](https://www.notion.so/signup){: target='_blank'}. Una vez allí, selecciona la opción con la cual te quieres registrar.
 
 ![Registrarse en Notion](notion/register.webp)
-_Página de registro en Notion_ 
 
 Enseguida te llegará un código de registro al correo ingresado, el cual puedes copiar y pegar.
 
 Una vez creamos una cuenta para usar Notion, la primera vez que iniciamos sesión en Notion nos va a ayudar a configurar un espacio de trabajo. Para ello debes seleccionar las opciones que más se adaptan a tus necesidades:
 
 ![Setup notion](notion/seleccionar-uso.webp)
-
 
 ## Personalizar Notion
 
@@ -216,6 +210,22 @@ Estos son algunos ejemplos de propiedades:
 
 > En resumen, una base de datos es una colección de páginas y puede crearse dentro de un bloque o ser una página completa.
 {: .prompt-info }
+
+## Formularios de Notion
+
+Los formularios de Notion permiten recopilar información directamente en tus bases de datos. En Notion el formulario es una __vista especial de una base de datos__ que permite a los usuarios completar campos.
+
+Comenzando, busca el bloque para añadir un nuevo formulario.
+
+![Bloque formulario](notion/bloque-formulario.webp)
+
+Una vez se crea el formulario, podemos ir completando las preguntas y añadir el título, descripción, cambiar o agregar preguntas.
+
+![Nuevo formulario](notion/nuevo-formulario.webp)
+
+> Desde 2024, Notion permite formularios públicos, es decir, cualquier persona con el enlace puede completarlos, aunque no tenga cuenta de Notion siempre que el formulario esté configurado como "público" mediante la opción “Compartir en la web”.
+{: .prompt-tip }
+
 
 ## Publicar Páginas
 

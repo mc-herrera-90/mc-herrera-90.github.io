@@ -85,6 +85,30 @@ layout: compress
 
     <!-- Scripts -->
     <script src="{{ '/assets/js/file-viewer.js' | relative_url }}"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const mainContent = document.querySelector('[aria-label="Main Content"]');
+  if (!mainContent) return;
+
+  // Recorre todos los nodos de texto dentro del contenido principal
+  const walker = document.createTreeWalker(mainContent, NodeFilter.SHOW_TEXT, {
+    acceptNode: node => {
+      // Ignorar los textos dentro de bloques de código
+      if (node.parentNode.closest('pre, code')) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  nodes.forEach(node => {
+    // Reemplaza (texto) → ( texto ), solo si no tiene espacio ya
+    node.textContent = node.textContent.replace(/\((\S.*?)\)/g, '( $1 )');
+  });
+});
+</script>
+
 
   </body>
 </html>

@@ -220,6 +220,7 @@ main {
     @include bp.lg {
       min-width: 70%;
     }
+    border: 1px solid var(--main-border-color);
   }
 } /* .content */
 

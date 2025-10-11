@@ -1,24 +1,108 @@
 ---
 title: "Introducción a Webpack"
 categories: ["Web", "Webpack"]
+setup:
+  - name: "src/index.js"
+    language: "javascript"
+    content_file: |
+      console.log("Webpack funcionando correctamente 👋");
+
+
+  - name: "dist/index.html"
+    language: "html"
+    content_file: |
+      <!DOCTYPE html>
+      <html lang="es">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Mi Proyecto Webpack</title>
+        </head>
+        <body>
+          <h1>Hola desde Webpack</h1>
+          <script src="main.js"><\/script>
+        </body>
+      </html>
+
+  - name: "package.json"
+    language: "json"
+    content_file: |
+      {
+        "name": "01-intro-webpack",
+        "version": "1.0.0",
+        "description": "",
+        "main": "index.js",
+        "scripts": {
+          "test": "echo \"Error: no test specified\" && exit 1"
+        },
+        "keywords": [],
+        "author": "",
+        "license": "ISC",
+        "devDependencies": {
+          "webpack": "^5.102.1",
+          "webpack-cli": "^6.0.1"
+        }
+      }
+
+scripts:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
+
+
+En el desarrollo moderno de aplicaciones web, los proyectos suelen incluir numerosos archivos JavaScript, hojas de estilo, imágenes y librerías externas. Organizar y optimizar todos estos recursos manualmente sería una tarea compleja y propensa a errores.
+Ahí es donde entra Webpack, una potente herramienta que automatiza este proceso, permitiendo empaquetar, transformar y optimizar el código para que las aplicaciones sean más rápidas y fáciles de mantener.
 
 ## ¿Qué es Webpack?
 
-**Webpack** es un empaquetador (*bundler*) de módulos. En términos sencillos, es una herramienta que toma todos los recursos de una aplicación web (JavaScript, CSS, Imágenes, etc.) y los agrupa en un solo archivo (o varios archivos optimizados) para ser usados en el navegador. Webpack no solo empaqueta archivos, sino que también permite realizar tareas de transformación y optimización de esos archivos, como la transpilación de JavaScript con Babel, la minificación de código y la inyección de recursos estáticos como imágenes y fuentes.
+[**Webpack**](https://webpack.js.org/){:target='_blank'} es un empaquetador ( {% include tooltip.html word="bundler" description="Es una herramienta que toma todos los archivos y módulos de un proyecto y los combina en uno o varios archivos optimizados para cargar más fácilmente" %} ) de módulos. Webpack no solo empaqueta archivos, sino que también permite realizar tareas de transformación y optimización de esos archivos, como la transpilación de JavaScript con Babel, la minificación de código y la inyección de recursos estáticos como imágenes y fuentes.
 
-### Instalar Webpack
+{% include assets/bundler.svg %}
 
-Para crear un proyecto que use Webpack, podemos crear un directorio e instalar las dependencias:
+> En términos sencillos, es una herramienta que toma todos los recursos de una aplicación web (JavaScript, CSS, Imágenes, etc.) y los agrupa en un solo archivo (o varios archivos optimizados) para ser usados en el navegador
+{: .prompt-info }
+
+## Preparando nuestro entorno
+
+Antes de comenzar a trabajar con Webpack, es importante tener instalado el entorno básico que permitirá ejecutar y administrar los paquetes de tu proyecto.
+Webpack se ejecuta sobre __Node.js__, por lo que necesitarás tener tanto Node.js como su gestor de paquetes npm (o yarn) instalados en tu sistema.
+
+- [Node.js](https://nodejs.org/en/){:target='_blank'}: Se recomienda la versión Node.js 16 o superior.
+* [npm](https://www.npmjs.com/){:target='_blank'}: Incluido automáticamente al instalar Node.js. Se recomienda la versión **9 o superior**.
+* [Editor de código](https://code.visualstudio.com/){:target='_blank'}: Cualquier editor moderno funcionará, pero **Visual Studio Code** es la opción más utilizada.
+* [Terminal o consola de comandos](https://learn.microsoft.com/es-es/windows/terminal/){:target='_blank'}: Necesaria para ejecutar los comandos de instalación y compilación.
+
+Una vez que tengas instalado Node.js y npm, podemos continuar con la instalación de Webpack y su configuración inicial.
+
+1\. Crear el directorio del proyecto
+: Primero, crea una carpeta para tu proyecto y accede a ella desde la terminal:
 
 ```terminal
-mkdir intro-webpack
-cd intro-webpack
+mkdir 01-intro-webpack
+cd 01-intro-webpack
+```
+
+2\. Inicializar el proyecto con npm
+: Inicializa tu proyecto con un archivo `package.json`, que contendrá la información y dependencias del mismo:
+
+```terminal
 npm init -y
+```
+
+3\. Instalar Webpack y Webpack CLI
+: Ejecuta el siguiente comando para instalar Webpack y su interfaz de línea de comandos como dependencias de desarrollo:
+
+```terminal
 npm install webpack webpack-cli --save-dev
 ```
 
-### Conceptos Básicos de Webpack
+
+4\. Crear la estructura inicial del proyecto
+: Crea los directorios principales de trabajo:
+
+{% include file-viewer.html files=page.setup name="demo1" %}
+
+
+## Conceptos Básicos de Webpack
 
 Para entender cómo funciona Webpack, hay varios conceptos clave que debemos conocer:
 
@@ -37,7 +121,7 @@ Plugins
 Output
 : Es donde Webpack coloca los archivos finales después de haberlos empaquetado. Puedes especificar el nombre y la estructura de los archivos de salida.
 
-#### Configurar Webpack
+### Configuración de Webpack
 
 Creamos un archivo `webpack.config.js` en el directorio raíz del proyecto. Este archivo contiene todas las reglas y configuraciones para que Webpack pueda empaquetar los archivos de la manera que necesites.
 
