@@ -439,20 +439,73 @@ Ahora, podemos revisar como nos quedan los archivos al realizar el _build_:
 
 {% include file-viewer.html files=site.data.codes.webpack.build name="build" %}
 
-Desde Webpack 5, no necesitas instalar un loader para archivos estáticos, ya que la configuración de los **assets modules** permite manejar imágenes, fuentes y otros recursos estáticos de manera más sencilla.
+## Inyectando archivos estáticos
 
-Un ejemplo de configuración de Webpack con **assets modules**:
+Ya tenemos los estilos funcionando, pero ¿cómo agregamos imágenes, íconos o fuentes a nuestro proyecto?
+
+> En versiones anteriores de Webpack, esto requería instalar un loader adicional (`como file-loader` o `url-loader`).
+{: .prompt-info }
+
+Desde Webpack 5, no necesitas instalar un loader para archivos estáticos, ya que la configuración de los [**Asset Modules**](http://webpack.js.org/guides/asset-modules/){:target="_blank"} permite manejar imágenes, fuentes y otros recursos estáticos de manera más sencilla.
+
+Para eso, debemos agregar una nueva regla muy simple como se muestra a continuación:
 
 ```js
 module.exports = {
+  entry: "./src/index.js",
+  output: {...},
+  plugins: [...],
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
         test: /\.(png|jpg?g|gif|svg)$/i,
-        type: 'asset/resource', // Le indicamos que use assets module
+        type: 'asset/resource', // 👈 Le indicamos que use Asset Modules
       }
     ]
   }
 }
 ```
 {: .nolineno file="webpack.config.js" }
+
+Ahora, podemos importar imágenes directamente desde nuestro JavaScript y Webpack se encargará de procesarlas y moverlas a la carpeta final del _build_:
+
+![Importar imagen con Asset Modules](webpack/webpack-import-asset-svg.webp)
+
+Puedes volver a ejecutar `npm run build` y ver como queda el _build_ final, hasta ahora deberíamos tener una estructura de directorios y archivos similar a la siguiente: 
+
+```
+📦 01-intro-webpack/
+├── 📁 dist/                 # El build generado por Webpack
+│   ├── index.html
+│   ├── bundle.js
+│   └── 588f99f9734880c0b645.svg
+│
+├── 📁 src/                  # Código fuente del proyecto
+│   ├── 📁 assets/
+│   │   └── logo.svg          # Imagen usada en index.js
+│   ├── index.html            # Plantilla base del proyecto
+│   ├── index.js              # Punto de entrada principal
+│   └── style.css             # Estilos globales
+│
+├── 📁 node_modules/          # Dependencias instaladas (creadas por npm)
+│
+├── package.json              # Configuración del proyecto y scripts npm
+├── package-lock.json         # Bloqueo de dependencias
+└── webpack.config.js         # Configuración principal de Webpack
+```
+{: .noheader }
+
+## Conclusión
+
+A lo largo de este artículo, configuramos paso a paso un entorno básico con **Webpack 5**, comprendiendo cómo:
+
+* Empaquetar nuestro código JavaScript.
+* Levantar un servidor de desarrollo con recarga en vivo.
+* Inyectar JS y CSS de forma automática en el HTML.
+* Y manejar archivos estáticos sin necesidad de *loaders* externos.
+
+Con esto, ya cuentas con una base sólida para seguir explorando funcionalidades más avanzadas como **optimización, Babel o módulos dinámicos**, las cuales estaré abordando en próxinos artículos.
