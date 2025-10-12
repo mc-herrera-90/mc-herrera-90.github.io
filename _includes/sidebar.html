@@ -84,7 +84,11 @@
             rel="{{ link_types }}"
           {% endunless %}
         >
+          {% if entry.type == 'stack-overflow' %}
+            <img src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-icon.svg" alt="Stack Overflow" style="width:1.25em; height:1.25em; vertical-align:middle;">
+          {% else %}
           <i class="{{ entry.icon }}"></i>
+          {% endif %}
         </a>
       {% endif %}
     {% endfor %}

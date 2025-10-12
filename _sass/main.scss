@@ -229,3 +229,12 @@ dt {
 h2 {
   color: var(--heading-color-title);
 }
+
+.noheader {
+	overflow: hidden;
+	padding-top: 0;
+
+	.code-header {
+   display: none;
+ }
+}
