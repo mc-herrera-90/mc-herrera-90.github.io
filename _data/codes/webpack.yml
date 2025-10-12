@@ -1,0 +1,114 @@
+build:
+  - name: "dist/bundle.js"
+    language: "js"
+    content_file: ()=>{const e=document.getElementById("app"),t=document.createElement("div");t.classList.add("main");const n=document.createElement("h1");n.textContent="¡Hola desde JavaScript! 🚀";const d=document.createElement("p");d.textContent="Este contenido fue generado dinámicamente usando Webpack.",t.appendChild(n),t.appendChild(d),e.appendChild(t),console.log("Renderizado dinámico completado")})();
+
+  - name: "dist/index.html"
+    language: "html"
+    content_file: <!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Demo Webpack</title></head><body><h1>Hola Mundo</h1><div id="app"></div><script defer="defer" src="bundle.js">&lt;/script&gt;</body></html>
+
+  - name: "src/index.html"
+    language: "html"
+    content_file: |
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Demo Webpack</title>
+      </head>
+      <body>
+          <div id="app"></div>
+      </body>
+      </html>
+  - name: "src/index.js"
+    language: "js"
+    content_file: |
+      import './style.css';
+
+      const app = document.getElementById('app');
+
+      const mainContainer = document.createElement('div');
+      mainContainer.classList.add('main');
+
+      const title = document.createElement('h1');
+      title.textContent = '¡Hola desde JavaScript!';
+
+      const description = document.createElement('p');
+      description.textContent = 'Este contenido fue generado dinámicamente usando Webpack.';
+
+      mainContainer.appendChild(title);
+      mainContainer.appendChild(description);
+      app.appendChild(mainContainer);
+
+  - name: "src/style.css"
+    language: "css"
+    content_file: |
+      body {
+        font-family: sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      h1 {
+        color: #222;
+      }
+
+  - name: "package.json"
+    language: "json"
+    content_file: |
+      {
+        "name": "01-intro-webpack",
+        "version": "1.0.0",
+        "description": "",
+        "main": "index.js",
+        "scripts": {
+          "build": "webpack --mode production",
+          "dev": "webpack serve --mode development"
+        },
+        "keywords": [],
+        "author": "",
+        "license": "ISC",
+        "devDependencies": {
+          "css-loader": "^7.1.2",
+          "html-webpack-plugin": "^5.6.4",
+          "style-loader": "^4.0.0",
+          "webpack": "^5.102.1",
+          "webpack-cli": "^6.0.1",
+          "webpack-dev-server": "^5.2.2"
+        }
+      }
+
+  - name: "webpack.config.js"
+    language: "js"
+    content_file: |
+      const path = require("path");
+      const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+      module.exports = {
+        entry: "./src/index.js",
+        output: {
+          filename: "bundle.js",
+          path: path.resolve(__dirname, "dist"),
+          clean: true,
+        },
+        plugins: [
+          new HtmlWebpackPlugin({
+            template: "./src/index.html",
+            filename: "index.html",
+            inject: "body"
+          }),
+        ],
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: ["style-loader", "css-loader"],
+            },
+          ]
+        }
+      };
+  

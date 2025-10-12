@@ -1,6 +1,6 @@
 ---
 title: Entornos virtuales de Python
-categories: [Python, "03. Avanzado"]
+categories: [Python, "Avanzado"]
 tags: [entornos virtuales en python]
 mermaid: true
 image: 

@@ -431,9 +431,13 @@ h1 {
 ```
 {:  file="src/index.css" .nolineno }
 
-> Cuidado, si por algún motivo tu `package.json` tiene `"type": "commonjs"` al intentar usar `import` genera error, en ese caso deberías `require`.
+> Cuidado, si por algún motivo tu `package.json` tiene `"type": "commonjs"` al intentar usar `import` genera error, en ese caso deberías usar `require` o cambiar el valor por `"module"` (recomendado), pero esto nos obliga a cambiar los `require` por `import` en el archivo de configuración.
 ![Cuidado con el type](webpack/webpack-type-commonjs.webp)
 {: .prompt-warning }
+
+Ahora, podemos revisar como nos quedan los archivos al realizar el _build_:
+
+{% include file-viewer.html files=site.data.codes.webpack.build name="build" %}
 
 Desde Webpack 5, no necesitas instalar un loader para archivos estáticos, ya que la configuración de los **assets modules** permite manejar imágenes, fuentes y otros recursos estáticos de manera más sencilla.
 
