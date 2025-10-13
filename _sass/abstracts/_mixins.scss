@@ -54,9 +54,6 @@
     background-color: var(--prompt-#{$type}-bg);
     border: 1px solid var(--prompt-#{$type}-border);
 
-    & strong {
-      color: var(--prompt-#{$type}-border);
-    }
     &::before {
       content: $fa-content;
       color: var(--prompt-#{$type}-icon-color);

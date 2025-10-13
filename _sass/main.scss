@@ -238,3 +238,12 @@ h2 {
    display: none;
  }
 }
+
+.language-powershell .err {
+  background: transparent !important;
+  color: var(--text-color) !important;
+}
+
+.fit-content {
+  width: fit-content;
+}

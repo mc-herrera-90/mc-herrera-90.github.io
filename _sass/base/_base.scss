@@ -133,12 +133,11 @@ main {
   font-size: 1.08rem;
   margin-top: 2rem;
   overflow-wrap: break-word;
-
   @include bp.xl {
     font-size: 1.03rem;
   }
 
-  @include bp.xxl {
+  @include bp.xxxl {
     font-size: 1.19rem;
     code.language-plaintext {
       font-size: 1.09rem;

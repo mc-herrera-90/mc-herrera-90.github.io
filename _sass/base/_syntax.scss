@@ -20,14 +20,12 @@
     @extend %code-snippet-bg;
   }
 
-  @include bp.xxl {
-  }
   pre {
     margin-bottom: 0;
     font-size: v.$code-font-size;
     line-height: 1.4rem;
     word-wrap: normal; /* Fixed Safari overflow-x */
-    @include bp.xxl {
+    @include bp.xxxl {
       font-size: v.$code-font-size-xxl;
       padding: 0.3rem 0;
     }
