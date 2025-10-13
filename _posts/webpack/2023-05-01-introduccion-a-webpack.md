@@ -446,7 +446,7 @@ Ya tenemos los estilos funcionando, pero ¿cómo agregamos imágenes, íconos o 
 > En versiones anteriores de Webpack, esto requería instalar un loader adicional (`como file-loader` o `url-loader`).
 {: .prompt-info }
 
-Desde Webpack 5, no necesitas instalar un loader para archivos estáticos, ya que la configuración de los [**Asset Modules**](http://webpack.js.org/guides/asset-modules/){:target="_blank"} permite manejar imágenes, fuentes y otros recursos estáticos de manera más sencilla.
+Desde Webpack 5, no necesitas instalar un loader para archivos estáticos, ya que la configuración de los [**Asset Modules**](https://webpack.js.org/guides/asset-modules/){:target="_blank"} permite manejar imágenes, fuentes y otros recursos estáticos de manera más sencilla.
 
 Para eso, debemos agregar una nueva regla muy simple como se muestra a continuación:
 
