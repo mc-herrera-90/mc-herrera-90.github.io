@@ -138,6 +138,16 @@ main {
     font-size: 1.03rem;
   }
 
+  @include bp.xxl {
+    font-size: 1.19rem;
+    code.language-plaintext {
+      font-size: 1.09rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
   a {
     &.popup {
       @extend %no-cursor;
