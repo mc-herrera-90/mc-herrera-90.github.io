@@ -192,10 +192,11 @@ div {
   /* the label block */
   span {
     line-height: v.$code-header-height;
-
+        @include bp.xxl {
+          font-size: 1.2rem;
+        }
     /* label icon */
     i {
-      font-size: 1rem;
       width: v.$code-icon-width;
       color: var(--code-header-icon-color);
 
@@ -215,6 +216,9 @@ div {
       font-size: 0.85rem;
       font-weight: 600;
       color: var(--code-header-text-color);
+        @include bp.xxxl {
+          font-size: 1rem;
+        }
     }
   }
 
