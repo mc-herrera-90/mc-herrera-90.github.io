@@ -1,0 +1,29 @@
+<style>
+  .line-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 30px 0;
+}
+/* Estilo de la línea horizontal */
+.line {
+    height: 1px; /* Grosor de la línea */
+    background-color: var(--code-header-muted-color); /* Color de la línea */
+    flex-grow: 1; /* La línea crece para llenar el espacio */
+}
+
+/* Estilo del círculo pequeño */
+.circle {
+    width: 10px; /* Pequeño tamaño del círculo */
+    height: 10px;
+    background-color: var(--text-color); /* Color del círculo */
+    border-radius: 50%; /* Hace que sea redondo */
+    margin: 0 10px; /* Espaciado entre el círculo y las líneas */
+}
+</style>
+<div class="line-container">
+    <div class="line"></div>
+    <div class="circle"></div>
+    <div class="line"></div>
+</div>
