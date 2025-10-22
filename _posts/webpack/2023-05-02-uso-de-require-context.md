@@ -2,6 +2,8 @@
 title: "Cargar archivos dinámicamente"
 categories: ["Desarrollo Web", "Webpack"]
 icon: icon/webpack.svg
+scripts:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
 
 En ocasiones, cuando necesitamos importar varios archivos de una carpeta (por ejemplo, imágenes, íconos o módulos), resulta poco práctico tener que importarlos uno por uno. Para resolverlo, Webpack nos ofrece la función `require.context`, una herramienta poderosa, ya que permite crear contexto dinámico de importación para todos los archivos dentro de una carpeta específica, sin necesidad de importarlos uno por uno.
@@ -163,46 +165,11 @@ Y ahora añadimos la siguiente regla:
 ```
 {: file="config/webpack.common.js" .nolineno }
 
-Cada uno de estos archivos tendría un {% include tooltip.html word="(front matter)" description="Sección de metadatos que aparece al principio de un archivo" %} para sus metadatos. La URL de cada página podría determinarse a partir del nombre del archivo y mapearse. Para modelar la idea usando `require.context`, se podría considerar el siguiente código:
+Cada uno de estos archivos tendría un {% include tooltip.html word="(front matter)" description="Sección de metadatos que aparece al principio de un archivo" %} para sus metadatos. La URL de cada página podría determinarse a partir del nombre del archivo y mapearse. Para modelar la idea usando `require.context`, se podría considerar la siguiente estructura propuesta en el previsualizador de archivos:
 
-```js
-// Procesar páginas mediante `yaml-frontmatter-loader` y `json-loader`
-// El primero extrae el frontmatter y el cuerpo, y el segundo lo convierte en una estructura JSON
-// para su uso posterior. Markdown
-// aún no se ha procesado.
-const req = require.context(
-  "json-loader!yaml-frontmatter-loader!./pages",
-  true, // Cargar archivos recursivamente.
-  /^\.\/.*\.md$/ // MHacer match con archivos que terminan con la extensión .md.
-);
-```
-{: .nolineno }
+{% include file-viewer.html files=site.data.codes.webpack.requirecontext1 name="demo1" %}
 
-> La definición del cargador se puede enviar a la configuración de webpack en el archivo `webpack.config.js`. El formato en línea `"json-loader!yaml-frontmatter-loader!"` se utiliza para minimizar el ejemplo.
-{: .prompt-info }
-
-`require.context` devuelve una función que permite realizar solicitudes de importación (*require*) en un contexto específico. Esta función conoce la identificación de su módulo y proporciona un método `keys()` para determinar el contenido del contexto. Para una mejor comprensión, considere el siguiente ejemplo:
-
-```js
-req.keys(); // ["./demo.md", "./another-demo.md"]
-req.id; // 42
-
-// {title: "Demo", body: "# Demo page\nDemo content\n\n"}
-const demoPage = req("./demo.md");
-```
-{: .nolineno }
-
-
-Esta técnica también puede ser útil para otros fines, como probar o incluir archivos que Webpack debe vigilar. Para ello, se configuraría un `require.context` apuntando a la carpeta de interés, y luego se referenciaría a este contexto desde un archivo de entrada (`entry`) de Webpack.
-
-En resumen `require.context()` permite:
-
-1. **Buscar archivos en una carpeta**: Puedes especificar una carpeta en la que se deben buscar archivos.
-2. **Filtrar archivos por extensión o nombre**: Puedes aplicar filtros para que solo se incluyan los archivos que coincidan con un patrón determinado (por ejemplo solo archivos `.svg` o `.json`).
-3. **Obtener una lista de archivos**: Devuelve una lista de archivos que coinciden con el patrón y te permite hacer un procesamiento dinámico de esos archivos.
-
-
-Para resumir:
+En resumen:
 
 * `require.context` es una característica avanzada que a menudo está oculta tras bastidores. Úsala si necesitas realizar búsquedas entre un gran número de archivos.
 * Una importación dinámica escrita de cierta forma genera una llamada a `require.context`. En este caso, el código se lee un poco mejor.

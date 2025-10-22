@@ -111,4 +111,176 @@ build:
           ]
         }
       };
-  
+
+requirecontext1:
+  - name: "src/content/intro.md"
+    language: "markdown"
+    content_file: |
+      # Introducción  
+      Bienvenido a este sitio generado dinámicamente con Webpack y require.context.
+
+  - name: "src/content/about.md"
+    language: "markdown"
+    content_file: |
+      # Acerca de  
+      Este es un ejemplo educativo para entender cómo cargar archivos Markdown automáticamente.
+
+  - name: "src/styles/markdown.css"
+    language: "css"
+    content_file: |
+      .markdown-list {
+        padding: 20px;
+        max-width: 700px;
+        margin: auto;
+      }
+
+      .markdown-list h1 {
+        color: #003547;
+        margin-bottom: 10px;
+      }
+
+      .markdown-list section {
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+      }
+
+  - name: "src/markdownLoader.js"
+    language: "js"
+    content_file: |
+      // Carga todos los archivos Markdown desde /content
+      const markdownFiles = require.context('./content', false, /\.md$/);
+
+      export default function MarkdownLoader() {
+        const container = document.createElement('div');
+        container.classList.add('markdown-list');
+
+        markdownFiles.keys().forEach((path) => {
+          const section = document.createElement('section');
+          const content = markdownFiles(path);
+          section.innerHTML = content.default || content;
+          container.appendChild(section);
+        });
+
+        return container;
+      }
+
+  - name: "src/index.js"
+    language: "js"
+    content_file: |
+      import './styles/markdown.css';
+      import MarkdownLoader from './markdownLoader.js';
+
+      const root = document.querySelector('#root');
+      root.appendChild(MarkdownLoader());
+
+  - name: "config/webpack.dev.js"
+    language: "js"
+    content_file: |
+      const { merge } = require('webpack-merge');
+      const common = require('./webpack.common');
+
+      /** @type {import('webpack').Configuration} */
+      const devConfig = {
+        mode: 'development',
+        devtool: 'eval-source-map',
+        module: {
+          rules: [
+            {
+              test: /\.css$/,
+              use: ['style-loader', 'css-loader']
+            },
+          ],
+        },
+        devServer: {
+          hot: true,
+          open: true,
+          port: 4000,
+        }
+      };
+
+      module.exports = merge(common, devConfig);
+  - name: "config/webpack.common.js"
+    language: "js"
+    content_file: |
+      const path = require('path');
+      const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+      /** @type {import('webpack').Configuration} */
+      module.exports = {
+        entry: './src/index.js',
+        output: {
+          filename: 'bundle.js',
+          path: path.resolve(__dirname, '../dist'),
+        },
+        plugins: [
+          new HtmlWebpackPlugin({
+            template: './src/index.html',
+          }),
+        ],
+        module: {
+          rules: [
+            {
+              test: /\.js$/,
+              exclude: /node_modules/,
+              use: 'babel-loader',
+            },
+            {
+              test: /\.(png|jpe?g|gif|svg)$/,
+              type: 'asset/resource',
+            },
+            {
+              test: /\.md$/,
+              use: [
+                { loader: 'html-loader' },
+                { loader: 'markdown-loader' }
+              ]
+            }
+          ]
+        },
+        resolve: {
+          extensions: ['.js', '.json'],
+        }
+      }
+  - name: "config/webpack.prod.js"
+    language: "js"
+    content_file: |
+      const { merge } = require('webpack-merge');
+      const common = require('./webpack.common');
+      const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+      /** @type {import('webpack').Configuration} */
+      const prodConfig = {
+        mode: 'production',
+        devtool: 'source-map',
+        plugins: [
+          new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css',
+          }),
+        ],
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: [MiniCssExtractPlugin.loader, "css-loader"],
+            },
+          ],
+        },
+      };
+
+      module.exports = merge(common, prodConfig);
+
+  - name: "src/index.html"
+    language: "html"
+    content_file: |
+      <!doctype html>
+      <html lang="es">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Generador de sitio estático</title>
+        </head>
+        <body>
+          <div id="root"></div>
+        </body>
+      </html>
