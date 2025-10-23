@@ -28,6 +28,11 @@ header {
       @include -dot;
     }
 
+    span {
+      @include bp.xxxl {
+        font-size: 1.1rem;
+      }
+    }
     em,
     time {
       @extend %text-highlight;

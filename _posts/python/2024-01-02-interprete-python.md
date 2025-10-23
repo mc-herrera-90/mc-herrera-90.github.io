@@ -146,7 +146,7 @@ Para funciones matemáticas más avanzadas, tenemos un módulo especializado `ma
 
 El **modo scripts** se usa cuando se necesita ejecutar programas completos almacenados en archivos `.py`. El script se guarda y ejecuta desde una Terminal o símbolo del sistema, resultando en la ejecución del programa y la impresión del resultado en pantalla.
 
----
+{% include circle-line.html %}
 
 Como hemos visto, Python en su **modo interactivo** es una potente herramienta para experimentar, aprender y probar ideas de manera rápida y eficiente. Ya sea que estés trabajando con cálculos simples o explorando conceptos más complejos, este modo te permite interactuar directamente con el lenguaje y ver los resultados de inmediato.
 

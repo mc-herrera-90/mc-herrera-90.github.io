@@ -48,13 +48,15 @@ Existen muchas herramientas para crear diagramas, pero en este artículo vamos a
 1\. Accede a [https://draw.io](https://draw.io){:target='_blank'}
 : Aquí te encontrarás con la pantalla de inicio, donde podrás comenzar a trabajar:
 
-![Pantalla principal de Draw.io](modelado-de-datos/drawio-main.webp){: .rounded }
+![Pantalla principal de Draw.io](modelado-de-datos/drawio-main-light.webp){:.light}
+![Pantalla principal de Draw.io](modelado-de-datos/drawio-main-dark.webp){:.dark}
 _pantalla principal_
 
 2\. Ve al menú izquierdo y selecciona **Relación de la entidad**
 : para trabajar con símbolos de bases de datos. Usa rectángulos para entidades, óvalos para atributos y rombos para relaciones.
 
-![Toolkit de Relación de la entidad](modelado-de-datos/drawio-toolkit-erd.webp){: .rounded }
+![Toolkit de Relación de la entidad](modelado-de-datos/drawio-toolkit-erd-light.webp){:.light}
+![Toolkit de Relación de la entidad](modelado-de-datos/drawio-toolkit-erd-dark.webp){:.dark}
 
 ### Entidades, Atributos y Relaciones
 
@@ -108,11 +110,13 @@ En este ejemplo básico definiremos dos entidades principales __Cliente__ y __Pr
 
 Empezamos por añadir la entidad `Cliente` y `Producto`, buscamos en el cajón de herramientas y si nos ponemos encima del item correcto lo vemos ampliado, clic sobre él y se añade.
 
-![añadir entidades](modelado-de-datos/drawio-entidad.webp){: .rounded }
+![añadir entidades](modelado-de-datos/drawio-entity-light.webp){:.light}
+![añadir entidades](modelado-de-datos/drawio-entity-dark.webp){:.dark}
 
-Ahora añadimos usando un verbo para describir la relación, un cliente ___compra___ un producto:
+Ahora añadimos la relación entre las entidades utilizando un verbo que la describa: un **cliente compra un producto**.
 
-![añadir relación](modelado-de-datos/drawio-relacion.webp){: .rounded }
+![añadir relación](modelado-de-datos/drawio-relationship-light.webp){:.light}
+![añadir relación](modelado-de-datos/drawio-relationship-dark.webp){:.dark}
 
 Ahora unimos con un conector (usando los conectores de relación __uno a uno__ y __uno a muchos__):
 
