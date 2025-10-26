@@ -3,7 +3,7 @@ title: "Comandos Básicos"
 categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 mermaid: true
 image:
-  path: posters/mysql-comandos-basicos.webp
+  path: poster/mysql-comandos-basicos.webp
   lqip: data:image/webp;base64,UklGRoAAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBUAAAABF9D/iAgQZNtMYmi7v88FIvqfSy4AVlA4IEQAAAAQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQAALJSVN7wAA/uqMZSCDGYI3LG5n8dklI+kzvPrch/tg24u7I+SCEAAAAA==
 tags: [Bases de Datos, MySQL]
 ---
@@ -56,8 +56,8 @@ USE tienda;
 > Para que el **prompt de MySQL** muestre el nombre de la base de datos a la que estás conectado, puedes ejecutar el siguiente comando en el cliente mysql (terminal): `prompt \u@\h [\d]>\_`.
 {: .prompt-tip }
 
-![set prompt mysql](mysql/mysql-set-prompt-light.png){: .light }
-![set prompt mysql](mysql/mysql-set-prompt-dark.png){: .dark }
+![set prompt mysql](mysql/mysql-set-prompt-light.webp){: .light }
+![set prompt mysql](mysql/mysql-set-prompt-dark.webp){: .dark }
 
 ### Crear una tabla
 
@@ -88,7 +88,7 @@ DESCRIBE productos;
 {: .nolineno }
 
 ![mysql describe productos](mysql/mysql-describe-productos-light.png){: .light }
-![mysql describe productos](mysql/mysql-describe-productos-dark.png){: .dark }
+![mysql describe productos](mysql/mysql-describe-productos-dark.webp){: .dark }
 
 ### Modificar una tabla
 
@@ -199,8 +199,8 @@ SELECT * FROM productos;
 
 Este comando muestra todos los registros de la tabla `productos`, es decir, todos los productos con `id`, `nombre`, `precio` y `cantidad`.
 
-![mysql select productos](mysql/mysql-select-productos-light.png){: .light }
-![mysql select productos](mysql/mysql-select-productos-dark.png){: .dark }
+![mysql select productos](mysql/mysql-select-productos-light.webp){: .light }
+![mysql select productos](mysql/mysql-select-productos-dark.webp){: .dark }
 
 ### Actualizar información de registros
 
@@ -259,8 +259,8 @@ GRANT ALL PRIVILEGES ON tienda.* TO 'mcherrera'@'localhost';
 
 Este comando concede todos los privilegios sobre la base de datos `tienda` al usuario `mcherrera`.
 
-![Otorgar privilegios a un usuario](mysql/mysql-grant-privileges-dark.png){: .dark }
-![Otorgar privilegios a un usuario](mysql/mysql-grant-privileges-light.png){: .light }
+![Otorgar privilegios a un usuario](mysql/mysql-grant-privileges-dark.webp){: .dark }
+![Otorgar privilegios a un usuario](mysql/mysql-grant-privileges-light.webp){: .light }
 
 ### Revocar Permisos de un usuario
 
