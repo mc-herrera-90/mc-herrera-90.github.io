@@ -60,6 +60,7 @@ main {
   &.col-12 {
     @include bp.xxxl {
       padding-right: 4.5rem !important;
+      padding-left: 3rem !important;
     }
   }
 }

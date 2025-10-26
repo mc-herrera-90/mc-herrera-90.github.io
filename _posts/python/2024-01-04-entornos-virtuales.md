@@ -105,41 +105,31 @@ Al ejecutar el comando `rmvirtualenv` más el nombre del virtualenv, virtualenvw
 rmvirtualenv nombre_entorno
 ```
 
-## ¿Qué es Pipenv?
+## ¿Qué es Pipenv? <i class="fab fa-python"></i>
 
 [Pipenv](https://pipenv-es.readthedocs.io/es/latest/){: target='_blank'} es una gran herramienta que administra entornos virtuales que destaca de las otras introduciendo otras características mucho más flexibles.
 
-Automáticamente crea y maneja un entorno virtual para tus proyectos, también como *agregar/remover* paquetes desde tu archivo **Pipfile.lock**, que es usado para producir un determinado build.
+> __Pipenv__ está destinado principalmente a proporcionar a usuarios y desarrolladores de aplicaciones un método sencillo para configurar un entorno de trabajo.
+{: .prompt-tip }
 
-Pipenv está destinado principalmente a proporcionar a usuarios y desarrolladores de aplicaciones un método sencillo para configurar un entorno de trabajo.
 
-Por defecto, **Pipenv** guarda todos sus entornos virtuales en un solo lugar. Usualmente esto no es un problema, pero si te gustaría cambiarlo para comodidad de desarrollo, o si esta causando *issues* en servidores de construcción puedes setear la variable de entorno **`PIPENV_VENV_IN_PROJECT`** para crear un entorno virtual dentro de la raíz de tu proyecto.
+**Página en pipy y versiones requeridas** 
+- [![PyPi](https://badgen.net/badge/icon/pypi?icon=pypi&label){:style="height: 27px"}](https://pypi.org/project/pipenv/)
+- [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pipenv){:style="height: 27px"}](https://www.python.org/)
+{:style='list-style: none' .d-flex .gap-2 .flex-wrap}
 
-Por defecto, Pipenv inicializará un proyecto usando cualquier versión de python que tenga python3. Además de iniciar un proyecto con las banderas `--three` o `--two`, también puedes setear la variable `PIPENV_DEFAULT_PYTHON_VERSION` para especificar cual versión usa cuando se inicie un proyecto.
+__Pipenv__ automáticamente crea y maneja un entorno virtual para tus proyectos, también como *agregar/remover* paquetes desde tu archivo **Pipfile.lock**, que es usado para producir un determinado build.
 
 ### Instalación
 
-**Versión requerida de Python:** 
-- [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pipenv){:height='25'}](https://www.python.org/)
-{:style='list-style: none'}
-
-**Página en pipy:** 
-- [![PyPi](https://badgen.net/badge/icon/pypi?icon=pypi&label){:height='25'}](https://pypi.org/project/pipenv/)
-{:style='list-style: none'}
-
-En la terminal con el siguiente comando, procedemos a la instalación:
+Para la mayoría de los usuarios, se recomienda instalar Pipenv usando __pip__. Para ello, en una nueva terminal ejecuta el siguiente comando:
 
 ```bash
 pip install --user pipenv
 ```
 {: .nolineno }
 
-> Esto se hace para prevenir romper cualquier paquete de sistema. Si **pipenv** no esta disponible en tu shell después de la instalación, vas a necesitar agregar la carpeta raiz de binarios del usuario a tu **PATH** en mi caso (*windows*) `C:\Users\home\AppData\Roaming\Python\Python38\Scripts`
-{: .prompt-info }
-
-### Instalación con Homebrew
-
-Debes tener instalado [Homebrew](https://brew.sh/){: target='_blank' }, luego ejecuta el siguiente comando en el terminal:
+En el caso de los usuarios de macOS <i class="fa-brands fa-apple"></i>, si tienes [Homebrew](https://brew.sh/){: target='_blank' }  instalado, ejecuta el siguiente comando en el terminal:
 
 ```bash
 brew install pipenv
@@ -153,7 +143,15 @@ brew upgrade pipenv
 ```
 {: .nolineno }
 
-### Administrar entornos virtuales con Pipenv
+Por defecto, Pipenv inicializará un proyecto usando cualquier versión de python que tenga python3. Además de iniciar un proyecto con las banderas `--three` o `--two`, también puedes setear la variable `PIPENV_DEFAULT_PYTHON_VERSION` para especificar cual versión usa cuando se inicie un proyecto.
+
+> Esto se hace para prevenir romper cualquier paquete de sistema. Si **pipenv** no esta disponible en tu shell después de la instalación, vas a necesitar agregar la carpeta raiz de binarios del usuario a tu **PATH**. Por ejemplo, una ruta en windows sería `C:\Users\home\AppData\Roaming\Python\Python38\Scripts`.
+{: .prompt-info }
+
+
+## Administrar Entornos Virtuales con Pipenv
+
+### Crear un entorno virtual
 
 Crea un entorno virtual con la versión 3 de Python:
 
@@ -161,6 +159,9 @@ Crea un entorno virtual con la versión 3 de Python:
 pipenv install --three
 ```
 {: .nolineno }
+
+> Por defecto, **Pipenv** guarda todos sus entornos virtuales en un solo lugar. Si te gustaría cambiarlo para comodidad de desarrollo, o si esta causando *issues* en servidores de construcción puedes setear la variable de entorno **`PIPENV_VENV_IN_PROJECT`** para crear un entorno virtual dentro de la raíz de tu proyecto.
+{: .prompt-info }
 
 Crea un entorno virtual con la versión 2 de Python (debe tener instalado en su sistema python 2.x)
 
@@ -182,6 +183,8 @@ Salir del entorno virtual previamente activado:
 exit
 ```
 {: .nolineno }
+
+
 
 Instalar paquetes:
 

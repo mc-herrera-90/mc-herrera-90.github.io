@@ -107,6 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
     node.textContent = node.textContent.replace(/\((\S.*?)\)/g, '( $1 )');
   });
 });
+// Selecciona todas las imágenes con la clase .no-zoom
+document.querySelectorAll('img.no-zoom').forEach(img => {
+  const parent = img.closest('a'); // busca el <a> que lo envuelve
+  if (parent) {
+    parent.style.pointerEvents = 'none'; // desactiva clic
+    parent.style.cursor = 'default';      // cambia cursor
+  }
+});
+
 </script>
 
 

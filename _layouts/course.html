@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<article class="course">
+  <header>
+    <h1>{{ page.title }}</h1>
+    <p><strong>Categoría:</strong> {{ page.category }}</p>
+    <p><strong>Duración:</strong> {{ page.duration }}</p>
+    <p><strong>Nivel:</strong> {{ page.level }}</p>
+    <p>{{ page.description }}</p>
+  </header>
+
+  <section class="content">
+    {{ content }}
+  </section>
+</article>

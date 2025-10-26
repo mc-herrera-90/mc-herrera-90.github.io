@@ -23,10 +23,8 @@ function updateImages(current, reverse) {
 }
 
 export function imgPopup() {
-  if (document.querySelector('.popup') === null) {
-    return;
-  }
-
+  if (document.querySelector('.popup') === null) return;
+  
   const hasDualImages = !(
     document.querySelector('.popup.light') === null &&
     document.querySelector('.popup.dark') === null

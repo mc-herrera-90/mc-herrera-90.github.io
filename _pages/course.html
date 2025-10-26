@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Cursos"
+permalink: /courses/
+---
+
+<h1>Colección de Cursos</h1>
+<p>Explora los cursos disponibles por categoría.</p>
+
+<div class="courses-grid">
+  {% assign grouped = site.courses | group_by: "category" %}
+  {% for group in grouped %}
+    <section class="course-category">
+      <h2>{{ group.name }}</h2>
+      <div class="course-list">
+        {% for course in group.items %}
+          <a href="{{ course.url | relative_url }}" class="course-card">
+            <h3>{{ course.title }}</h3>
+            <p>{{ course.description }}</p>
+            <span class="course-meta">{{ course.duration }} · {{ course.level }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</div>

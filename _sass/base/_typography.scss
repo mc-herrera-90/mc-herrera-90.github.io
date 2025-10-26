@@ -35,9 +35,12 @@
           }
         }
       }
-
       & {
         font-size: 1rem + (5 - $i) * $size-factor;
+        @include bp.xxl {
+          font-size: 1.3rem + (5 - $i) * $size-factor;
+          font-family: "Metrophobic", sans-serif;
+        }
       }
     } @else {
       font-size: 1.05rem;
