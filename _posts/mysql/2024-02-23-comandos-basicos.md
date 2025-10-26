@@ -87,7 +87,7 @@ DESCRIBE productos;
 ```
 {: .nolineno }
 
-![mysql describe productos](mysql/mysql-describe-productos-light.png){: .light }
+![mysql describe productos](mysql/mysql-describe-productos-light.webp){: .light }
 ![mysql describe productos](mysql/mysql-describe-productos-dark.webp){: .dark }
 
 ### Modificar una tabla
