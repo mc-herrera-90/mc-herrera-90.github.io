@@ -172,7 +172,8 @@ collections:
   courses:
     output: true
     permalink: /:collection/:name/
-
+  documents:
+    output: true
 defaults:
   - scope:
       path: "" # An empty string here means all files in the project

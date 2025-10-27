@@ -1,0 +1,27 @@
+---
+layout: page
+---
+
+{% assign grouped_documents = site.documents | group_by: "category" %}
+
+{% for category in grouped_documents %}
+  <h2>{{ category.name | upcase }}</h2>
+  <div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Enlace</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for document in category.items %}
+        <tr>
+          <td>{{ document.title }}</td>
+          <td><a href="{{ document.url }}">Ver detalles</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endfor %}
