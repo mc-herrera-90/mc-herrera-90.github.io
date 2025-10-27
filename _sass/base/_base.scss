@@ -330,6 +330,11 @@ main {
   @extend %img-caption;
 }
 
+.fit-content {
+  @include bp.md {
+    width: fit-content;
+  }
+}
 /* --- Effects classes --- */
 
 .flex-grow-1 {

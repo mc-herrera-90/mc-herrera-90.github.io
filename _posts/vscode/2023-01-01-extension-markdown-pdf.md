@@ -16,7 +16,7 @@ ex1:
 
   - name: "style.css"
     language: "css"
-    content: |
+    content_file: |
         .container {
           max-width: 1200px;
           margin: 0 auto;
