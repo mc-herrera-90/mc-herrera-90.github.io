@@ -1,6 +1,7 @@
 ---
 layout: page
 # The Category layout
+permalink: categorias
 ---
 
 {% include lang.html %}
@@ -11,10 +12,18 @@ layout: page
     {{ page.title }}
     <span class="lead text-muted ps-2">{{ page.posts | size }}</span>
   </h1>
+  {% assign filtered_posts = "" | split: "" %}
+  {% for post in page.posts %}
+    {% assign first_cat = post.categories | first %}
+    {% if first_cat == page.title %}
+      {% assign filtered_posts = filtered_posts | push: post %}
+    {% endif %}
+  {% endfor %}
 
   <ul class="content ps-0">
-
     {% for post in page.posts  %}
+    {% assign first_cat = post.categories | first %}
+      {{  first_cat }}
       <li class="d-flex justify-content-between px-md-3">
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         <span class="dash flex-grow-1"></span>

@@ -1,7 +1,8 @@
 ---
 title: "Tutorial: Cómo usar el Web Share API"
-categories: ["Tutoriales", "Web"]
-tags: [tutoriales, web]
+categories: ["JavaScript", "Tutorial"]
+category_url: "javascript/tutorial"
+tags: [JavaScript, tutorial]
 image:
   path: posters/tutorial-web-share-api.webp
   lqip: data:image/webp;base64,UklGRowAAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSDMAAAABR6CgbRuGP+L9mUZEhGWEgWratqI3CDyEhzBGkEwGGWR+/wKI6P8EnAufEDRF8R1fDTcAVlA4IDIAAACwAgCdASoUAAwAPzmEuVOvKKWisAgB4CcJYgAAeyAA/umzCIDNnnjebMD7m73QLAAAAA==
@@ -14,7 +15,7 @@ Cuando interactuamos con aplicaciones móviles y usamos los botones para compart
 
 La **Web Share API** es una interfaz que permite a las aplicaciones web acceder al sistema de compartir contenido que normalmente se encuentra disponible en aplicaciones nátivas de dispositivos móviles. Básicamente, permite a los usuarios compartir contenido (textos, enlaces, imágenes, etc.) con otras aplicaciones instaladas en su dispositivo sin tener que copiar y pegar el contenido.
 
-### __¿Cómo funciona la Web Share API?__
+### ¿Cómo funciona la Web Share API?
 
 Cuando se utiliza `navigator.share()`, el navegador muestra una interfaz nativa que permite al usuario elegir con qué aplicación desea compartir el contenido. Esta es la forma en que los usuarios normalmente comparten enlaces en aplicaciones móviles como WhatsAPP, Telegram, Twitter, etc.
 
