@@ -6,7 +6,7 @@ image:
     lqip: data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoUAAsAPzmGulOvKSWisAgB4CcJZQAAXePs9LXwKgyvdhAA/qKO4NLDMIuCmoifxIYMfEXWhxL24JC/CoCfMN3eN9ptb9YzdFAIIj00IeuqlL3kpVgboql+37aBs2iaKAAAAA==
 ---
 
-Cuando trabajamos con las [_medias queries_](https://developer.mozilla.org/es/docs/Web/CSS/CSS_media_queries/Using_media_queries){:target="_blank"} no solo es para adaptar estilos a diferentes tamaños de pantalla, estas también nos permiten tener en cuenta las __preferencias del usuario__ definidas en su sistema operativo o navegador. Estas reglas especiales con `@media` nos permiten personalizar la experiencia según condiciones como el modo oscuro, la reducción de movimiento o el contraste elevado, respetando así las necesidades o gustos del usuario.
+Cuando trabajamos con las [_medias queries_](https://developer.mozilla.org/es/docs/Web/CSS/CSS_media_queries/Using_media_queries){:target="_blank"} no solo es para adaptar estilos a diferentes tamaños de pantalla, estas también nos permiten t![alt text](react-setup.webp)ciales con `@media` nos permiten personalizar la experiencia según condiciones como el modo oscuro, la reducción de movimiento o el contraste elevado, respetando así las necesidades o gustos del usuario.
 
 Veamos algunas reglas de __preferencias de usuario__ que existen:
 
