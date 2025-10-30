@@ -53,7 +53,7 @@ Esto iniciará el servidor de desarrollo y abrirá automáticamente el navegador
 
 ### Usando Vite ( Recomendado )
 
-[**Vite**](https://vite.dev/){: target='_blank' } es una herramienta de desarrollo moderna y rápida que se utiliza para crear proyectos de front-end, y es ideal para trabajar con React debido a su rápida configuración y **hot-reloading** eficiente. Una vez teniendo los [**requsitos previos**](#-requisitos-previos) en nuestro equipo, iremos al directorio donde queramos ubicar nuestro proyecto y realizamos los siguientes pasos:
+[**Vite**](https://vite.dev/){: target='_blank' } es una herramienta de desarrollo moderna y rápida que se utiliza para crear proyectos de front-end, y es ideal para trabajar con React debido a su rápida configuración y **hot-reloading** eficiente. Una vez teniendo los [**requsitos previos**](#requisitos-previos) en nuestro equipo, iremos al directorio donde queramos ubicar nuestro proyecto y realizamos los siguientes pasos:
 
 1. Para ello abrimos una terminal y ejecutamos el siguiente comando:
 
