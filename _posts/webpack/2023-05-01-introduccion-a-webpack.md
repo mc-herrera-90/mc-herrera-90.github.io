@@ -1,6 +1,6 @@
 ---
 title: "Introducción a Webpack"
-categories: ["Web", "Webpack"]
+categories: ["Desarrollo Web", "Webpack"]
 image:
     path: poster/webpack-introduccion.webp
     lqip: data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAwCdASoUAAsAPzmGulOvKKWisAgB4CcJagCdMoR8eCKfc/7SmQAA/NS7TyntEsUoQ6mm9DDWtz4sVzgvk7+eS2yeHroW23Z9+SJkH8WZ2JUBgP8xEg1WNclv/1+5C6kgAA==

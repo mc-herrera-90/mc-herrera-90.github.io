@@ -1,6 +1,6 @@
 ---
 title: "Markdown a PDF"
-categories: [Vscode, Extensiones]
+categories: [Vscode, "Extensiones Vscode"]
 icon: icon/md_pdf.svg
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
@@ -181,7 +181,9 @@ ex1:
 ---
 
 
-Esta extensión permite convertir cualquier archivo escrito en Markdown (`.md`) en un documento PDF, directamente desde el editor. deal para crear documentación profesional, informes, blogs o apuntes académicos sin salir de VSCode. Funciona con atajos de teclado o comandos de la paleta, facilitando la generación de PDFs y también nos da la posibilidad de exportar a otros formatos como __html__, __png__, etc.
+Esta extensión permite convertir cualquier archivo escrito en Markdown (`.md`) en un documento PDF, directamente desde el editor. Ideal para crear documentación profesional, informes, blogs o apuntes académicos sin salir de VSCode. Funciona con atajos de teclado o comandos de la paleta, facilitando la generación de PDFs y también nos da la posibilidad de exportar a otros formatos como __html__, __png__, etc.
+
+{% include vscode-extension.html logo="https://yzane.gallerycdn.vsassets.io/extensions/yzane/markdown-pdf/1.5.0/1694185209938/Microsoft.VisualStudio.Services.Icons.Default" name="Markdown PDF" description="Conversor de Markdown para Visual Studio Code" url="https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf" %}
 
 ### Personalizar PDF
 

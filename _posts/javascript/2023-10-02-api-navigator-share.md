@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Cómo usar el Web Share API"
+title: "Cómo usar el Web Share API"
 categories: ["JavaScript", "Tutorial"]
 category_url: "javascript/tutorial"
 tags: [JavaScript, tutorial]
 image:
-  path: posters/tutorial-web-share-api.webp
+  path: poster/tutorial-web-share-api.webp
   lqip: data:image/webp;base64,UklGRowAAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSDMAAAABR6CgbRuGP+L9mUZEhGWEgWratqI3CDyEhzBGkEwGGWR+/wKI6P8EnAufEDRF8R1fDTcAVlA4IDIAAACwAgCdASoUAAwAPzmEuVOvKKWisAgB4CcJYgAAeyAA/umzCIDNnnjebMD7m73QLAAAAA==
 pin: true
 ---
@@ -26,9 +26,9 @@ __Flujo básico de uso__:
 + [x] El navegador muestra la interfaz de compartir nativa, permitiendo al usuario elegir con qué aplicación compartir el contenido.
 + [x] El contenido se comparte a través de la aplicación seleccionada.
 
-### __¿Cómo usar la Web Share API?__
+### ¿Cómo usar la Web Share API?
 
-Implementar la Web Share API en nuestras páginas web es bastante sencillo. Aquí tenemos un ejemplo de cómo hacerlo:
+Implementar __Web Share API__ en nuestras páginas web es bastante sencillo. Aquí tenemos varios ejemplos de cómo hacerlo:
 
 **Crear un `index.html`**
 
@@ -44,11 +44,11 @@ Definimos una estructura básica de documento **HTML5** y vinculamos el archivo 
   <title>Ejemplo Web Share API</title>
 </head>
 <body>
-	<div class="container">
-		<p id="tip" style="display: none">El navegador no soporta Web Share API!</p>
-		<button id="share">Compartir este artículo</button>
-	</div>
-	<script src="index.js"></script>
+  <div class="container">
+    <p id="tip" style="display: none">El navegador no soporta Web Share API!</p>
+    <button id="share">Compartir este artículo</button>
+  </div>
+  <script src="index.js"></script>
 </body>
 </html>
 ```
@@ -61,23 +61,22 @@ const shareBtn = document.getElementById('share');
 const tip = document.getElementById('tip');
 
 shareBtn.addEventListener('click', (event) => {
-
-	if ("share" in navigator) {
-		navigator
-			.share({
-				// título para la ventana compartir
-				title: "Comparte este recurso en tus plataformas",
-				// Si queremos compartir el recurso actual
-				url: window.location.href
-			})
-			.then(() => {
-				console.log("Recurso compartido");
-			})
-			.catch(console.error)
-	} else {
-		alert("Lo sentimos, este navegador no tiene soporte para recursos compartidos");
-		tip.style.display = "block";
-	}
+  if ("share" in navigator) {
+    navigator
+      .share({
+        // título para la ventana compartir
+        title: "Comparte este recurso en tus plataformas",
+        // Si queremos compartir el recurso actual
+        url: window.location.href
+      })
+      .then(() => {
+        console.log("Recurso compartido");
+      })
+      .catch(console.error)
+    } else {
+      alert("Lo sentimos, este navegador no tiene soporte para recursos compartidos");
+      tip.style.display = "block";
+    }
 });
 ```
 {: file="index.js" }
