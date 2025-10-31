@@ -7,7 +7,8 @@ image:
     lqip: data:image/webp;base64,UklGRpAAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSA8AAAABD9D/iAgMQkT/gwAAAAAAVlA4IFoAAACQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJZwC90AqTAlDqOVAAAP65+XcSQMUd3v2PQu4V5Qko7vhmMyao5vOlxLRfOp27Cwu06unt8eeLYry5OKh5TE7RAAA=
 ---
 
-Cuando inicias en React, tienes que configurar previamente un entorno de desarrollo y con ello poner en marcha tu primer proyecto. Siguiendo unos sencillos paso podemos comenzar a crear aplicaciones modernas y dinámicas en poco tiempo.
+
+Al comenzar con **React**, lo primero es configurar tu **entorno de desarrollo**. Una vez listo, podrás iniciar tu primer proyecto. Con solo unos pasos, estarás listo para dar vida a tus ideas con React.
 
 ## Requisitos Previos
 
@@ -18,11 +19,13 @@ Antes de comenzar, debemos tener instaladas las siguientes herramientas en nuest
 
 ## Formas de crear un proyecto de react
 
-Existen varias maneras de crear y configurar un proyecto de React, sin embargo la forma más tradicional y en su momento era la forma más sencilla es usando el paquete oficial `create-react-app`, que configura todo automáticamente.
+Existen varias maneras de crear y configurar un proyecto de React, sin embargo la forma más tradicional y en su momento era la forma más sencilla es usar el paquete oficial `create-react-app`, que configura todo automáticamente.
 
-### Usando create-react-app ( No recomendado )
+### Con create-react-app (No recomendado)
 
-1. Abrimos una nueva terminal o símbolo de sistema y ejecuta el siguiente comando:
+
+1\. Abrir una terminal
+: En una nueva terminal o símbolo de sistema (en Windows) y ejecuta el siguiente comando:
 
 ```terminal
 npx create-react-app <nombre-proyecto>
@@ -30,21 +33,26 @@ npx create-react-app <nombre-proyecto>
 
 - Este comando creará una carpeta con el nombre del proyecto `<nombre-proyecto>` y descargará todas las dependencias necesarias para empezar.
 
-{: start="2" }
-2. Una vez de haya completado la instalación, navegamos a la carpeta del proyecto generado:
+> Como puedes observar, al momenrto de instalar se nos muestra una serie de __warning__ y que __el paquete está deprecado__:
+> ![warning cra](react/install-cra-light.webp){:.light}
+> ![warning cra](react/install-cra-dark.webp){:.dark}
+{: .prompt-warning }
+
+2\. Entrar al proyecto
+: Una vez de haya completado la instalación, navegamos a la carpeta del proyecto generado:
 
 ```terminal
 cd nombre-proyecto
 ```
 
-{: start="3" }
-3. Para ver el proyecto en acción, ejecutamos el siguiente comando:
+3\. Lanzar el servidor de desarrollo
+: Para ver el proyecto en acción, ejecutamos el siguiente comando:
 
 ```terminal
 npm start
 ```
 
-Esto iniciará el servidor de desarrollo y abrirá automáticamente el navegador en <http://localhost:3000>. Ahora podrás ver los cambios en tiempo real al modificar archivos del proyecto.
+- Este comando iniciará el servidor de desarrollo y abrirá automáticamente el navegador en <http://localhost:3000>. Ahora podrás ver los cambios en tiempo real al modificar archivos del proyecto.
 
 ![Aplicación con create-react-app](react/create-react-app-start.webp)
 
@@ -53,9 +61,10 @@ Esto iniciará el servidor de desarrollo y abrirá automáticamente el navegador
 
 ### Usando Vite ( Recomendado )
 
-[**Vite**](https://vite.dev/){: target='_blank' } es una herramienta de desarrollo moderna y rápida que se utiliza para crear proyectos de front-end, y es ideal para trabajar con React debido a su rápida configuración y **hot-reloading** eficiente. Una vez teniendo los [**requsitos previos**](#requisitos-previos) en nuestro equipo, iremos al directorio donde queramos ubicar nuestro proyecto y realizamos los siguientes pasos:
+[**Vite**](https://vite.dev/){: target='_blank' } es una herramienta de desarrollo moderna y rápida que se utiliza para crear proyectos de front-end, y es ideal para trabajar con React debido a su rápida configuración y **hot-reloading** eficiente. Una vez teniendo los [**requisitos previos**](#requisitos-previos), iremos al directorio donde queramos ubicar nuestro proyecto y realizamos los siguientes pasos:
 
-1. Para ello abrimos una terminal y ejecutamos el siguiente comando:
+1\. Abrir una terminal
+: En una nueva terminal, ejecutamos el siguiente comando:
 
 ```terminal
 npm create vite@latest <nombre-proyecto> -- --template react
@@ -67,16 +76,16 @@ npm create vite@latest <nombre-proyecto> -- --template react
 
 - El comando `npm create vite@latest` descargará y ejecutará la última versión de Vite, y configurará un proyecto con la plantilla de React. Esto significa que habrá creado la estructura de carpetas y configuración necesaria para iniciar nuestro proyecto.
 
-{: start="2" }
-2. A partir de aquí, tendremos que entrar al directorio raíz del proyecto e instalar las dependencias con npm (la instrucción anterior ya nos habrá sugerido estos comandos):
+2\. Entrar al proyecto
+: A partir de aquí, tendremos que entrar al directorio raíz del proyecto e instalar las dependencias con npm (la instrucción anterior ya nos habrá sugerido estos comandos):
 
 ```terminal
 cd <nombre-proyecto>
 npm install
 ```
 
-{: start="3" }
-3. Para ver el proyecto en acción, ejecutamos el siguiente comando:
+3\. Lanzar el servidor de desarrollo
+: Para ver el proyecto en acción, ejecutamos el siguiente comando:
 
 ```terminal
 npm run dev
