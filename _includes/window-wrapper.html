@@ -1,0 +1,18 @@
+<style>
+input[type="number"] {
+  -webkit-appearance: textfield; /* Asegura que los spinners sean visibles */
+  appearance: textfield; /* Para otros navegadores */
+}
+</style>
+
+<div class="window" style="height: {{ include.height | default: '200px' }}; width: {{ include.width | default: '100%' }};">
+<div class="window__header">
+  <span class="window__header-title">{{ include.title | default: "Tkinter" }}</span>
+  {% if include.icon %}
+    {{ include.icon }}
+  {% endif %}
+</div>
+<div class="window__body">
+  {{ include.content_html }}
+</div>
+</div>
