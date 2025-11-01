@@ -87,7 +87,7 @@ messagebox.showinfo("Título del Mensaje", "Este es un mensaje de información."
 - **Propósito**: Mostrar información general.
 - **Botones**: OK
 
-![messagebox info](extras/messagebox-info.png)
+![messagebox info](extras/messagebox-info.webp)
 
 ### Mensajes de advertencia
 
@@ -99,7 +99,7 @@ messagebox.showwarning("Título de Advertencia", "Este es un mensaje de adverten
 - **Propósito**: Advertir al usuario sobre una acción o situación que podría ser problemática.
 - **Botones**: OK
 
-![messagebox warning](extras/messagebox-warning.png)
+![messagebox warning](extras/messagebox-warning.webp)
 
 ### Mensajes de error
 
@@ -111,7 +111,7 @@ messagebox.showerror("Título de Error", "Este es un mensaje de error.")
 - **Propósito**: Informar al usuario sobre un error o problema.
 - **Botones**: OK
 
-![messagebox error](extras/messagebox-error.png)
+![messagebox error](extras/messagebox-error.webp)
 
 ### Mensaje de confirmación
 
