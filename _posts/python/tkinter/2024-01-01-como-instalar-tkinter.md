@@ -29,7 +29,7 @@ Una vez finalizada la instalación, puede iniciar una sesión interactiva de Pyt
 {: .nolineno }
 
 
-![Demo clase Tk en ubuntu](python/ubuntu-clase-tk.webp)
+![Demo clase Tk en ubuntu](python/ubuntu-clase-tk.webp){:w="980" .rounded-4 .border .border-secondary-subtle }
 
 ## Instalar Tkinter en macOS
 
@@ -38,3 +38,7 @@ Para instalar Tkinter en macOS, se recomienda usar [Homebrew](https://brew.sh/){
 ```terminal
 brew install python-tk
 ```
+
+![clase Tk en macos](python/macos-clase-tk-dark.webp){:.dark .bg-secondary .rounded-4 .border .border-secondary-subtle}
+![clase Tk en macos](python/macos-tk-light.webp){:.light .bg-secondary-subtle .rounded .border .border-secondary-subtle}
+

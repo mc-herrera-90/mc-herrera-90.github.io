@@ -492,6 +492,13 @@ header {
   }
 }
 
+
+[aria-label="Main Content"]{
+  @include bp.xxxl {
+    max-width: 1150px;
+  }
+}
+
 h2,
 h3,
 h4 {

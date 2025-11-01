@@ -33,13 +33,13 @@ npx create-react-app <nombre-proyecto>
 
 - Este comando creará una carpeta con el nombre del proyecto `<nombre-proyecto>` y descargará todas las dependencias necesarias para empezar.
 
-> Como puedes observar, al momenrto de instalar se nos muestra una serie de __warning__ y que __el paquete está deprecado__:
+> Como puedes observar, durante la instalación aparecen una serie de __warning__ indicando que __el paquete está obsoleto (deprecated)__:
 > ![warning cra](react/install-cra-light.webp){:.light}
 > ![warning cra](react/install-cra-dark.webp){:.dark}
 {: .prompt-warning }
 
 2\. Entrar al proyecto
-: Una vez de haya completado la instalación, navegamos a la carpeta del proyecto generado:
+: Completada la instalación, navegamos a la carpeta del proyecto generado:
 
 ```terminal
 cd nombre-proyecto
@@ -54,7 +54,7 @@ npm start
 
 - Este comando iniciará el servidor de desarrollo y abrirá automáticamente el navegador en <http://localhost:3000>. Ahora podrás ver los cambios en tiempo real al modificar archivos del proyecto.
 
-![Aplicación con create-react-app](react/create-react-app-start.webp)
+![Aplicación con create-react-app](react/create-react-app-start.webp){:.rounded}
 
 > El comando `create-react-app` fue un proyecto increíblemente útil en su momento, ya que configuraba automáticamente un entorno de desarrollo completo, pero **ha quedado en desuso** de facto para algunas versiones recientes de Node.js, y a menudo tiene problemas de compatibilidad con sus dependencias.
 {: .prompt-warning }
