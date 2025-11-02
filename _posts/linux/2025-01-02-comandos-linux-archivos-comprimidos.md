@@ -2,6 +2,9 @@
 title: Operaciones con archivos comprimidos
 categories: [Linux, Comandos Linux]
 icon: icon/bash.svg
+image:
+  path: poster/linux.webp
+  lqip: data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJagCdMoABtPejOQAA+eMjvq4GFAVxEcsKB8LxxelzQGPmdcV9Zt3/9/oiWNkB7sGT5dRSeRZq4QSKQAA=
 ---
 
 ## Archivos TAR
