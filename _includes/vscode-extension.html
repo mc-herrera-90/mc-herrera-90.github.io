@@ -1,9 +1,9 @@
-<div class="vs-card-minimal">
+<div class="vs-card-minimal shadow-sm">
   <img src="{{ include.logo }}" alt="{{ include.name }} Logo" class="vs-logo" />
   <div class="vs-content">
     <h3 class="vs-title">{{ include.name }}</h3>
     <p class="vs-desc">{{ include.description }}</p>
-    <a href="{{ include.url }}" target="_blank" class="vs-btn">Ver extensión</a>
+    <a href="{{ include.url }}" target="_blank" class="vs-btn" id="vs-btn-link">Marketplace</a>
   </div>
 </div>
 
@@ -11,8 +11,8 @@
 .vs-card-minimal {
   display: flex;
   flex-direction: row;
-  background-color: #1a1f2b; /* oscuro elegante, pega con Chirpy */
-  border: 1px solid #2c3345; /* borde sutil */
+  background-color: var(--sidebar-bg);
+  border: 1px solid var(--main-border-color); /* borde sutil */
   border-radius: 12px;
   overflow: hidden;
   max-width: 680px;
@@ -20,7 +20,6 @@
   margin-right: auto;
   margin-left: auto;
 }
-
 
 .vs-logo {
   width: 100px;
@@ -42,12 +41,12 @@
   font-size: 1.4rem;
   font-weight: 600;
   margin: 0 0 0.5rem;
-  color: #60a5fa; /* color azul minimalista */
+  color: var(--heading-color-title); /* color azul minimalista */
 }
 
 .vs-desc {
   font-size: 0.95rem;
-  color: #cbd5e1; /* gris suave */
+  color: var(--text-color); /* gris suave */
   margin-bottom: 1rem;
   line-height: 1.4;
 }
@@ -55,15 +54,18 @@
 .vs-btn {
   align-self: start;
   display: inline-block;
-  background: #3b82f6; /* azul moderado */
-  color: #fff;
+  background: var(--heading-color-title); 
+  color: var(--sidebar-bg);
   padding: 0.5rem 1rem;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9rem;
 }
-
+#vs-btn-link:hover {
+  color: #fff !important;
+  border-color: var(--sidebar-bg);
+}
 
 /* Responsive */
 @media (max-width: 600px) {

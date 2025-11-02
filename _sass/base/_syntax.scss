@@ -94,6 +94,24 @@ code {
   blockquote & {
     color: inherit;
   }
+  $gap: 8px;
+
+  .hl {
+      position: relative;
+      display: inline-block;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        border-radius: 6px;
+        height: 100%;
+        width: calc(100% + #{$gap});
+        padding: 0 10px;
+        left: -5px; /* Alineación a la izquierda */
+        top: 0; /* Alineación en la parte superior */
+        background: var(--code-hl);
+      }
+    }
 }
 
 td.rouge-code {

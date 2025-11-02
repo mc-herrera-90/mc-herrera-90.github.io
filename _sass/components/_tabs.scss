@@ -1,0 +1,101 @@
+@use '../abstracts/breakpoints' as bp;
+
+.tab {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid var(--main-border-color, #ddd);
+  background: var(--sidebar-bg, #fff);
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border-top: 0.5px solid var(--main-border-color);
+  border-left: 0.5px solid var(--main-border-color);
+  border-right: 0.5px solid var(--main-border-color);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    @include bp.lte(575px) {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+    }
+}
+
+.tab {
+  li {
+    flex: 1 1 auto;
+    text-align: center;
+    border-right: 1px solid var(--main-border-color);
+    transition: background 0.3s ease, color 0.3s ease;
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+
+.tab > * > a {
+  display: block;
+  text-align: center;
+  padding: 10px 0px;
+  color: #999;
+  border-bottom: 2px solid transparent;
+  border-bottom-color: transparent;
+  font-size: calc(1rem - 10%);
+  text-transform: uppercase;
+  transition: color .1s ease-in-out;
+  line-height: 20px;
+}
+
+.tab > .active > a {
+  color: var(--link-color);
+  border-color: #1e87f0;
+}
+
+.tab > li > a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// .tab-content {
+//   padding: 0;
+//   margin: 0;
+//     @include bp.lte(575px) {
+//         margin-left: -1.5rem;
+//         margin-right: -1.5rem;
+//     }
+// }
+
+/* ====== Contenido ====== */
+.tab-content {
+  margin: 0 0 13px 0;
+  padding: 10px 10px 0 10px;
+  background: color-mix(in srgb, var(--sidebar-bg), black 2.3%);
+  border: 1px solid var(--main-border-color);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    @include bp.lte(575px) {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+    }
+}
+
+.tab-content > li {
+  display: none;
+}
+.tab-content > li.active {
+  display: block;
+}
+
+.tab-content > li.active pre,
+.tab-content > li.active code {
+  overflow: visible;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}

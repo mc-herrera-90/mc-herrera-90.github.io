@@ -240,3 +240,4 @@ jekyll-archives:
 
 plugins:
   - jekyll_sqlite
+  - jekyll-tabs
