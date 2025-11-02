@@ -1,8 +1,10 @@
 ---
 title: "Cómo usar el Web Share API"
-categories: ["JavaScript", "Tutorial"]
+categories: ["Tutoriales", "JavaScript"]
 category_url: "javascript/tutorial"
-tags: [JavaScript, tutorial]
+tags: [Tutoriales, JavaScript]
+scripts:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 image:
   path: poster/tutorial-web-share-api.webp
   lqip: data:image/webp;base64,UklGRowAAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSDMAAAABR6CgbRuGP+L9mUZEhGWEgWratqI3CDyEhzBGkEwGGWR+/wKI6P8EnAufEDRF8R1fDTcAVlA4IDIAAACwAgCdASoUAAwAPzmEuVOvKKWisAgB4CcJYgAAeyAA/umzCIDNnnjebMD7m73QLAAAAA==
@@ -104,7 +106,7 @@ shareBtn.addEventListener('click', (event) => {
 });
 </script>
 
-### __¿Qué se puede compartir con la Web Share API?__
+### ¿Qué se puede compartir con la Web Share API?
 
 La __Web Share API__ permite compartir diferentes tipos de datos:
 
@@ -113,125 +115,104 @@ La __Web Share API__ permite compartir diferentes tipos de datos:
 - **Título** (`title`): Un título descriptivo del contenido que se está compartiendo.
 - **Archivos** (`files`): En dispositivos que lo soportan, puedes compartir archivos (por ejemplo, imágenes, documentos).
 
-### __Compartir Archivos__
+## Compartir Archivos
 
 La **Web Share API** también permite compartir archivos como parte del objeto de datos, no solo URLs. Para lograr esto, el archivo debe ser accesible como un **objeto Blob** o **File** (es decir, como un archivo binario en lugar de solo una URL).
 
 Ahora veamos un ejemplo para compartir un archivo (este método es compatible para cualquier tipo de archivo como imágenes, pdf, etc.) con la **Web Share API**. Para ello primero, debes asegurarte que el archivo esté en una carpeta que pueda ser servida públicamente por un servidor web.
 
-#### __Pasos__
 
-**1. Cargar el archivo como un `Blob`**
+### 1. Cargar el archivo como un Blob
 
-Para ello podemos definir una función que se encargará de realizar la carga del archivo (por ejemplo imágenes PNG, PDF, ETC):
+Para ello podemos definir una función que se encargará de realizar la carga del archivo (por ejemplo imágenes PNG, PDF, etc.):
 
 ```javascript
-// Función que carga el archivo desde el directorio de assets
+/**
+ * Carga un archivo desde el directorio `/assets` del sitio web
+ * y lo devuelve como un objeto `File`.
+ *
+ * @param {string} archivo - Nombre del archivo dentro de /assets (por ejemplo, "img/logo.png")
+ * @returns {Promise<File>} Promesa que resuelve con un objeto File listo para usar
+ */
 function loadFile(archivo) {
-	// Ruta relativa al archivo en tu servidor web (debe ser accesible)
-	const relativePath = `/assets/${archivo}`;  // Ruta relativa al archivo
-	const fileType = archivo.endsWith('.png') ? 'image/png' :
-					 archivo.endsWith('.jpg') || archivo.endsWith('.jpeg') ? 'image/jpeg' :
-					 archivo.endsWith('.gif') ? 'image/gif' :
-					 archivo.endsWith('.pdf') ? 'application/pdf' :
-					 'application/octet-stream';  // Default para otros tipos de archivo
+  // Construye la ruta relativa al archivo dentro del directorio de assets
+  const relativePath = `/assets/${archivo}`;
 
-	return fetch(window.location.origin + relativePath)
-            .then(response => response.blob()) // Convierte el archivo en un Blob
-            .then(blob => new File([blob], archivo, { type: fileType })) // Convierte el archivo en un objeto File
-            .catch(error => console.error('Error al cargar el archivo:', error));
+  // Determina el tipo MIME según la extensión del archivo
+  const fileType = archivo.endsWith(".png")
+    ? "image/png"
+    : archivo.endsWith(".jpg") || archivo.endsWith(".jpeg")
+    ? "image/jpeg"
+    : archivo.endsWith(".gif")
+    ? "image/gif"
+    : archivo.endsWith(".pdf")
+    ? "application/pdf"
+    : "application/octet-stream"; // Tipo por defecto para archivos desconocidos
+
+  // Realiza la petición al archivo y lo convierte a un objeto File
+  return fetch(window.location.origin + relativePath)
+    .then((response) => response.blob()) // Convierte la respuesta en un Blob binario
+    .then(
+      (blob) =>
+        new File([blob], archivo, {
+          type: fileType, // Define el tipo MIME del archivo
+        })
+    )
+    .catch((error) =>
+      console.error("❌ Error al cargar el archivo:", error)
+    );
 }
+
 ```
 {: .nolineno }
 
-**2. Usar la Web Share API para compartir**
+### 2. Usar Web Share API para compartir
 
 Para que funcione entonces debemos llamar a la función anterior y especificar el nombre del archivo:
 
 ```javascript
+// Agrega un listener al botón o elemento con id 'share'
 document.getElementById('share').addEventListener('click', function() {
-// Verifica si la Web Share API está disponible
-    if (navigator.share && navigator.canShare) {
-		// Cargar el archivo como un File
-		loadFile("image.png")
-			.then(file => {
-				// Compartir el archivo
-					navigator.share({
-					title: 'Mira este archivo',
-					text: 'Te estoy compartiendo un archivo interesante.',
-					files: [file]  // El archivo como un array de archivos
-			})
-			.then(() => {
-				console.log('Archivo compartido exitosamente');
-			})
-			.catch((error) => {
-				console.error('Error al compartir el archivo:', error);
-			});
-		});
-    } else {
-        alert('La Web Share API no es compatible o no puede compartir archivos en este dispositivo.');
-    }
+  // Verifica si el navegador soporta la Web Share API y la capacidad de compartir archivos
+  if (navigator.share && navigator.canShare) {
+    
+    // Carga el archivo desde el directorio de assets usando la función loadFile
+    loadFile("image.png")
+      .then(file => {
+        // Una vez cargado el archivo, intenta compartirlo con la API nativa del sistema
+        navigator.share({
+          title: 'Mira este archivo', // Título que aparecerá en el diálogo de compartir
+          text: 'Te estoy compartiendo un archivo interesante.', // Texto descriptivo del contenido
+          files: [file] // El archivo a compartir (en formato File)
+        })
+        .then(() => {
+          // Mensaje en consola si la operación de compartir fue exitosa
+          console.log('Archivo compartido exitosamente');
+        })
+        .catch((error) => {
+          // Captura y muestra errores durante el intento de compartir
+          console.error('Error al compartir el archivo:', error);
+        });
+      })
+      .catch(error => {
+        // Captura errores en la carga del archivo antes de compartir
+        console.error('Error al cargar el archivo:', error);
+      });
+
+  } else {
+    // Muestra un aviso si la API no está disponible o no puede compartir archivos
+    alert('La Web Share API no es compatible o no puede compartir archivos en este dispositivo.');
+  }
 });
+
 ```
 {: .nolineno }
 
-#### __Ejemplo Completo__
+### 3. Ejemplo completo
 
-**Crear un `index.html`**
+A continuación puedes revisar el código directamente en el previsualizador del editor.
 
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejemplo Web Share API</title>
-</head>
-<body>
-	<div class="container">
-		<button id="share">Compartir este archivo</button>
-	</div>
-	<script src="index.js"></script>
-</body>
-</html>
-```
-{: file="index.html" }
-
-**Crear un `index.js`**
-
-```javascript
-function loadFile(archivo) {
-	const relativePath = `/assets/${archivo}`;
-
-	return fetch(window.location.origin + relativePath)
-            .then(response => response.blob())
-            .then(blob => new File([blob], archivo))
-            .catch(error => console.error('Error al cargar el archivo:', error));
-}
-
-document.getElementById('share').addEventListener('click', function() {
-    if (navigator.share && navigator.canShare) {
-		loadFile("image.png")
-			.then(file => {
-					navigator.share({
-					title: 'Mira este archivo',
-					text: 'Te estoy compartiendo un archivo interesante.',
-					files: [file]
-			})
-			.then(() => {
-				console.log('Archivo compartido exitosamente');
-			})
-			.catch((error) => {
-				console.error('Error al compartir el archivo:', error);
-			});
-		});
-    } else {
-        alert('La Web Share API no es compatible o no puede compartir archivos en este dispositivo.');
-    }
-});
-```
-{: file="index.js" }
+{% include file-viewer.html files=site.data.codes.js.web_share_api.sample1 name="demo1" %}
 
 <button onclick="shareFile('img/never-stop-learning.png')" class="btn btn-primary">Compartir este archivo PNG</button>
 
@@ -273,7 +254,7 @@ function shareFile(archivo) {
 </script>
 
 
-#### **Otro enfoque simplificado**
+#### Otro enfoque simplificado
 
 ```javascript
 shareButton.onclick = async () => {
@@ -305,9 +286,9 @@ shareButton.onclick = async () => {
 };
 </script>
 
-### **Consideraciones**
+## Consideraciones
 
-#### **Compatibilidad de la Web Share API**
+### 1. Compatibilidad de la Web Share API
 
 La Web Share API no está disponible en todos los navegadores, y su disponibilidad varía según el dispositivo y el sistema operativo. Por ejemplo:
 
@@ -318,6 +299,6 @@ La Web Share API no está disponible en todos los navegadores, y su disponibilid
 
 La Web Share API solo funciona en sitios servidos a través de HTTPS. Si tu web no está usando HTTPS, la API no podrá ejecutarse.
 
-#### **No funciona con archivos locales**
+### 2. No funciona con archivos locales
 
 La **Web Share API** requiere que el archivo esté disponible de forma accesible a través de la web (es decir, debe estar en una URL completa). Los archivos locales dentro del proyecto, como los de una ruta relativa al archivo, no son accesibles por la API, ya que la aplicación necesita que el archivo esté expuesto a través de un servidor web (y no como un recurso local).

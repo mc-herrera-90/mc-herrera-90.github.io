@@ -1,0 +1,80 @@
+- name: "assets/media/iam.webp"
+  language: "webp"
+  url_img: iam.webp
+
+- name: "index.html"
+  language: "html"
+  content_file: |
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Ejemplo Web Share API</title>
+    </head>
+    <body>
+      <div class="container">
+        <button id="share">Compartir este archivo</button>
+      </div>
+      &lt;script src="index.js">&lt;/script&gt;
+    </body>
+    </html>
+
+- name: "index.js"
+  language: "js"
+  content_file: |
+    // --- Función que carga un archivo desde el directorio /assets ---
+    function loadFile(archivo) {
+      // Define la ruta relativa al archivo en el servidor
+      const relativePath = `/assets/${archivo}`;
+
+      // Determina el tipo MIME según la extensión del archivo
+      const fileType =
+        archivo.endsWith('.png') ? 'image/png' :
+        archivo.endsWith('.jpg') || archivo.endsWith('.jpeg') ? 'image/jpeg' :
+        archivo.endsWith('.gif') ? 'image/gif' :
+        archivo.endsWith('.pdf') ? 'application/pdf' :
+        'application/octet-stream'; // Tipo genérico para otros formatos
+
+      // Realiza la petición fetch para obtener el archivo
+      return fetch(window.location.origin + relativePath)
+        .then(response => response.blob()) // Convierte la respuesta en un objeto Blob
+        .then(blob => new File([blob], archivo, { type: fileType })) // Crea un objeto File a partir del Blob
+        .catch(error => {
+          console.error('Error al cargar el archivo:', error);
+          throw error; // Lanza el error para que pueda capturarse más arriba
+        });
+    }
+
+    // --- Evento para compartir el archivo usando la Web Share API ---
+    document.getElementById('share').addEventListener('click', function() {
+      // Verifica compatibilidad con la Web Share API
+      if (navigator.share && navigator.canShare) {
+
+        // Intenta cargar el archivo antes de compartir
+        loadFile("image.png")
+          .then(file => {
+            // Ejecuta la acción de compartir con los datos del archivo
+            navigator.share({
+              title: 'Mira este archivo', // Título mostrado en el diálogo de compartir
+              text: 'Te estoy compartiendo un archivo interesante.', // Texto descriptivo
+              files: [file] // Archivo en un array (requerido por la API)
+            })
+            .then(() => {
+              console.log('Archivo compartido exitosamente');
+            })
+            .catch(error => {
+              console.error('Error al compartir el archivo:', error);
+            });
+          })
+          .catch(error => {
+            console.error('Error al cargar el archivo antes de compartir:', error);
+          });
+
+      } else {
+        // Si no hay compatibilidad, muestra un mensaje al usuario
+        alert('La Web Share API no es compatible o no puede compartir archivos en este dispositivo.');
+      }
+    });
+

@@ -1,0 +1,85 @@
+<div class="upload-section">
+  <p>Sube una imagen en formato PNG, JPG o JPEG:</p>
+  <input type="file" id="upload-image" accept=".png, .jpg, .jpeg" />
+</div>
+<div class="image-grid">
+  <div class="image-container" id="image-container" style="display: none">
+    <p>Imagen subida:</p>
+    <div id="uploaded-image" class="image-box" style="height: 300px; background-size: cover; background-position: center;"></div>
+    <p id="image-size"></p>
+  </div>
+  <div class="image-container" id="webp-container" style="display: none">
+    <p>Imagen convertida a WebP:</p>
+    <div id="webp-image" class="image-box" style="height: 300px; background-size: cover; background-position: center;"></div>
+    <p id="webp-size"></p>
+  </div>
+</div>
+<script>
+  function displayImage(file, containerId, imageId, sizeId) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const img = document.getElementById(imageId);
+      img.style.backgroundImage = `url(${e.target.result})`;
+      const size = (file.size / 1024).toFixed(2);
+      document.getElementById(sizeId).innerText = "Tamaño: " + size + " KB";
+      document.getElementById(containerId).style.display = "block";
+    };
+    reader.readAsDataURL(file);
+  }
+  document
+    .getElementById("upload-image")
+    .addEventListener("change", function (e) {
+      const file = e.target.files[0];
+      if (file && (file.type === "image/png" || file.type === "image/jpeg" || file.type === "image/jpg")) {
+        displayImage(file, "image-container", "uploaded-image", "image-size");
+        const img = new Image();
+        img.onload = function () {
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+          canvas.toBlob(function (blob) {
+            const webpFile = new File(
+              [blob],
+              file.name.replace(/\.(png|jpg|jpeg)$/i, ".webp"),
+              { type: "image/webp" }
+            );
+            displayImage(webpFile, "webp-container", "webp-image", "webp-size");
+          }, "image/webp");
+        };
+        img.src = URL.createObjectURL(file);
+      } else {
+        alert("Por favor, sube una imagen en formato PNG, JPG o JPEG.");
+      }
+    });
+</script>
+
+<style>
+   #webp-size, #image-size {
+    font-weight: bolder;
+   }
+  .upload-section {
+    margin-bottom: 20px;
+  }
+  .image-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 768px) {
+    .image-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .image-container {
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  .image-box {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 4px;
+  }
+</style>

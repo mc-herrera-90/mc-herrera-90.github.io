@@ -5,7 +5,6 @@
 
   display: flex;
   overflow: hidden;
-  position: relative;
   margin-bottom: 1.4rem;
   border-radius: 6px;
   border:1px solid var(--main-border-color);
@@ -44,10 +43,9 @@
     background: var(--sidebar-bg);
     user-select: none;
     -moz-user-select: none;
-    font-size: 0.89rem;
+    font-size: calc(1rem - 1%);
     padding-top: 1.5rem;
     border-right: 1px solid var(--main-border-color);
-
       &::before {
         content: "FOLDERS";
         position: absolute;
@@ -55,18 +53,24 @@
         font-size: 0.6rem;
       }
       &-root {
-        padding: 0;
-
+        padding-left: 0;
+        list-style: none;
         & ul {
           margin:0;
           list-style: none;
           padding: 0;
+          ul {
+            padding: 0;
+            margin: 0;
+          }
         }
 
         li {
           cursor: pointer;
+          width: 100%;
           &.active {
             background:var(--tag-hover);
+            width: 100%;
           }
           &:not(:has(ul)):hover {
             background:var(--tag-hover);
@@ -75,7 +79,7 @@
           > span {
             display: block;
             width: 100%;
-            padding-left: 10px !important;
+            padding-left: 15px !important;
             text-overflow: ellipsis;
             white-space: nowrap;
           }
