@@ -1,7 +1,7 @@
 estilos:
   - name: ".vscode/settings.json"
     language: "json"
-    content: |
+    content_file: |
       {
         "markdown-pdf.styles": [
           "style.css"
@@ -9,7 +9,7 @@ estilos:
       }
   - name: "style.css"
     language: "css"
-    content: |
+    content_file: |
         .container {
           max-width: 1200px;
           margin: 0 auto;
@@ -69,7 +69,7 @@ estilos:
 
   - name: "markdown-pdf_estilos.md"
     language: "md"
-    content: |
+    content_file: |
         <div class="container">
           <p align="center" style="margin: 90px 0">
             &lt;img src="logo_linux.png" height="600"/>

@@ -74,7 +74,6 @@ main {
   @extend %rounded;
 
   &:not(.no-bg) {
-    background: var(--img-bg);
   }
 
   img {
@@ -347,6 +346,10 @@ main {
 /* overwrite bootstrap muted */
 .text-muted {
   color: var(--text-muted-color) !important;
+}
+
+.text-heading {
+  color: var(--heading-color-title);
 }
 
 /* Overwrite bootstrap tooltip */
