@@ -46,6 +46,7 @@
     font-size: calc(1rem - 1%);
     padding-top: 1.5rem;
     border-right: 1px solid var(--main-border-color);
+
       &::before {
         content: "FOLDERS";
         position: absolute;

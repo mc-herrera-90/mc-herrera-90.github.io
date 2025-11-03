@@ -1,13 +1,13 @@
 ---
-title: instalación de python
+title: Instalar Python en diferentes S.O
 icon: icon/python.svg
-categories: [Python, "Setup"]
+categories: [Tutoriales, Python]
 image:
     path: poster/python-instalacion.webp
     lqip: data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAsAPzmIulOvKSWisAgB4CcJZgCdAB87I8BCy/pQAgD+oMJm1X2r2TfzZNbTXWf9L+N8znXHbn++k1kUTW1sld+ooGg9QcWvAsCRQ1T95CFRs5YbzhLIwHy1D4MAAAA=
 ---
 
-En esta guía, cubriremos la instalación de Python en **Windows**, **macOS** y **Linux**, usando distintas herramienta. También revisaremos los requisitos del sistema y algunos consejos para una instalación sin problemas.
+En este tutorial, cubriremos la instalación de Python en **Windows**, **macOS** y **Linux**, usando distintas herramienta. También revisaremos los requisitos del sistema y algunos consejos para una instalación sin problemas.
 
 ## Instalación en Windows
 
