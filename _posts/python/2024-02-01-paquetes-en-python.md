@@ -42,7 +42,7 @@ package:
 
 ## Paquetes de Python
 
-Puede pensar en un paquete de Python como un “proyecto” independiente. Un proyecto puede contener múltiples módulos, cada uno de los cuales contiene un conjunto específico de funciones y variables relacionadas. Por lo tanto, esto hace que sea más fácil para usted incrustar herramientas de “proyectos” que necesita dentro de su propio código.
+Puedes pensar en un paquete de Python como un “proyecto” independiente. Un proyecto puede contener múltiples módulos, cada uno de los cuales contiene un conjunto específico de funciones y variables relacionadas.
 
 > ### ¿Qué es un Paquete?
 > Un paquete es una __colección de módulos__. Un paquete es básicamente un directorio que contiene un archivo especial llamado <code class="language-plaintext highlighter-rouge"><i class="fa-brands fa-python"></i> __init__.py</code>
