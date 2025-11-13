@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mi Presentación con Reveal.js</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css">
+</head>
+
+<style>
+  .make-it-pop h2 {
+    animation: popIn 0.6s ease-in-out;
+    color: #ff0066;
+  }
+
+  @keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+</style>
+<body>
+  <div class="reveal" data-state="griffy">
+    <div class="slides">
+      <section>
+        Slide 1
+      </section>
+      <section data-state="make-it-pop">
+        <h2>Animación personalizada</h2>
+      </section>
+      <section>
+        Slide 3
+      </section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize();
+  </script>
+</body>
+
+</html>

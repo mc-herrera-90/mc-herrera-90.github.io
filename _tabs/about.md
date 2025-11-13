@@ -14,9 +14,7 @@ media_subpath: /assets/media
     sign="@mcherrera.dev" 
 %}
 
-
 {% include 
-  embed/video.html src='https://mcherrera.dev/assets/videos/presentacion-personal.mp4'
+  embed/video.html src='presentacion-personal.mp4'
   poster="poster/fs-mcherrera.webp"
 %}
-
