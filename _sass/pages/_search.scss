@@ -55,7 +55,6 @@ search {
 
   @include bp.lg {
     max-width: v.$main-content-max-width;
-    justify-content: start !important;
   }
 }
 

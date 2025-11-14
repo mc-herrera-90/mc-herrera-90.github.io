@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS pedidos (
 ### 4. Datos de la tabla pedidos
 
 {% tabs data_pedidos %}
-{% tab data_pedidos datos %}
+{% tab data_pedidos Datos %}
 |id|cliente|fecha_pedido|fecha_entrega|
 |:-|:-|:-|:-|
 |1|Cliente A|2025-02-10|2025-02-15|
@@ -56,7 +56,9 @@ CREATE TABLE IF NOT EXISTS pedidos (
 |4|Cliente D|2025-02-18|2025-02-25|
 |5|Cliente E|2025-02-20|2025-02-27|
 {% endtab %}
-{% tab data_pedidos sql %}
+{% tab data_pedidos SQL %}
+Inserta los datos, con el siguiente comando:
+
 ```sql
 INSERT INTO pedidos (id, cliente, fecha_pedido, fecha_entrega) VALUES
     (1, 'Cliente A', '2025-02-10', '2025-02-15'),
@@ -69,7 +71,7 @@ INSERT INTO pedidos (id, cliente, fecha_pedido, fecha_entrega) VALUES
 {% endtab %}
 {% endtabs %}
 
-> MySQL cuando almacena una fecha lo hace de acuerdo a la norma [**ISO_8601**](https://es.wikipedia.org/wiki/ISO_8601){: target='_blank' } lo que quiere decir en el formato `YYYY-mm-dd`.
+> MySQL almacena las fechas siguiendo el estándar [**ISO_8601**](https://es.wikipedia.org/wiki/ISO_8601){: target='_blank' } lo que quiere decir en el formato `YYYY-mm-dd`.
 {: .prompt-info }
 
 ## Consultas basadas en fechas
