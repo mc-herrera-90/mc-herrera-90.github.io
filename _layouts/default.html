@@ -85,38 +85,34 @@ layout: compress
 
     <!-- Scripts -->
     <script src="{{ '/assets/js/file-viewer.js' | relative_url }}"></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const mainContent = document.querySelector('[aria-label="Main Content"]');
-  if (!mainContent) return;
-
-  // Recorre todos los nodos de texto dentro del contenido principal
-  const walker = document.createTreeWalker(mainContent, NodeFilter.SHOW_TEXT, {
-    acceptNode: node => {
-      // Ignorar los textos dentro de bloques de código
-      if (node.parentNode.closest('pre, code')) return NodeFilter.FILTER_REJECT;
-      return NodeFilter.FILTER_ACCEPT;
-    }
-  });
-
-  const nodes = [];
-  while (walker.nextNode()) nodes.push(walker.currentNode);
-
-  nodes.forEach(node => {
-    // Reemplaza (texto) → ( texto ), solo si no tiene espacio ya
-    node.textContent = node.textContent.replace(/\((\S.*?)\)/g, '( $1 )');
-  });
-});
-// Selecciona todas las imágenes con la clase .no-zoom
-document.querySelectorAll('img.no-zoom').forEach(img => {
-  const parent = img.closest('a'); // busca el <a> que lo envuelve
-  if (parent) {
-    parent.style.pointerEvents = 'none'; // desactiva clic
-    parent.style.cursor = 'default';      // cambia cursor
-  }
-});
-
-</script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const mainContent = document.querySelector('[aria-label="Main Content"]');
+        if (!mainContent) return;
+        
+        const walker = document.createTreeWalker(mainContent, NodeFilter.SHOW_TEXT, {
+          acceptNode: node => {
+            if (node.parentNode.closest('pre, code')) return NodeFilter.FILTER_REJECT;
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        });
+        
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        
+        nodes.forEach(node => {
+          node.textContent = node.textContent.replace(/\((\S.*?)\)/g, '( $1 )');
+        });
+      });
+      
+      document.querySelectorAll('img.no-zoom').forEach(img => {
+        const parent = img.closest('a');
+        if (parent) {
+          parent.style.pointerEvents = 'none';
+          parent.style.cursor = 'default';      
+        }
+      });
+    </script>
     <script src="{{ 'assets/js/tabs.js' | relative_url }}"></script>
 
 

@@ -398,6 +398,13 @@ main {
 /* mermaid */
 .mermaid {
   text-align: center;
+
+  @include bp.xxxl {
+    text {
+      font-size: 1rem !important;
+    }
+  }
+
 }
 
 /* MathJax */

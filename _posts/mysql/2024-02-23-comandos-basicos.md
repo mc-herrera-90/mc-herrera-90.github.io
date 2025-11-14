@@ -1,34 +1,36 @@
 ---
-title: "Comandos Básicos"
+title: "MySQL - Comandos básicos"
 categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
+icon: icon/mysql.svg
+emoji: 🐬
 mermaid: true
 image:
   path: poster/mysql-comandos-basicos.webp
   lqip: data:image/webp;base64,UklGRoAAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBUAAAABF9D/iAgQZNtMYmi7v88FIvqfSy4AVlA4IEQAAAAQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQAALJSVN7wAA/uqMZSCDGYI3LG5n8dklI+kzvPrch/tg24u7I+SCEAAAAA==
-tags: [Bases de Datos, MySQL]
+tags: [mysql]
+pin: true
 ---
 
 Como probablemente ya sabes, [**SQL**](https://es.wikipedia.org/wiki/SQL "Ir a definición"){: target="_blank" } es un lenguaje estándar para trabajar y gestionar bases de datos. Nos permite realizar una variedad de operaciones, como crear estructuras, consultar información, modificar datos y gestionar el acceso. Dentro de SQL, __los comandos se agrupan en distintos sublenguajes__, cada uno con un propósito específico. Estos sublenguajes están pensados para facilitar tareas concretas, desde definir la estructura de una base de datos, hasta manipular sus datos o gestionar permisos de acceso, todo de forma más ordenada y eficiente.
 
-A continuación, tenemos un diagrama que nos muestra esos **sublenguajes**:
+A continuación, tenemos un diagrama que nos muestra esos **sublenguajes** que derivan de __SQL__:
 
 ```mermaid
----
-title: CATEGORÍAS DE COMANDOS SQL
----
 graph TD
-    B(<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiM5Nzk3OTciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTIgOGEyIDIgMCAwIDEgMiAydjRhMiAyIDAgMSAxLTQgMHYtNGEyIDIgMCAwIDEgMi0ybTUgMHY4aDRtLTgtMWwxIDFNMyAxNWExIDEgMCAwIDAgMSAxaDJhMSAxIDAgMCAwIDEtMXYtMmExIDEgMCAwIDAtMS0xSDRhMSAxIDAgMCAxLTEtMVY5YTEgMSAwIDAgMSAxLTFoMmExIDEgMCAwIDEgMSAxIi8+PC9zdmc+" width="70" />)
+    B(<strong class="fs-1">SQL</strong>)
     B-->C(<strong class="fs-3">DML</strong><br />Data Manipulation Language)
     B-->D(<strong class="fs-3">DDL</strong><br />Data Definition Language)
     B-->E(<strong class="fs-3">DCL</strong><br />Data Control Language)
-    C-->CD[SELECT<br />INSERT<br />UPDATE<br />DELETE]
-    D-->DD[CREATE<br />ALTER<br />DROP]
-    E-->ED[GRANT<br />DENY<br />REVOKE]
+    C-->|comandos| CD[SELECT<br />INSERT<br />UPDATE<br />DELETE]
+    D-->|comandos| DD[CREATE<br />ALTER<br />DROP]
+    E-->|comandos| ED[GRANT<br />DENY<br />REVOKE]
 ```
 
 ## Comandos de Definición de Datos (DDL)
 
-Los comandos DDL nos permiten crear y modificar la estructura de las bases de datos, como sus tablas, columnas, tipos de datos y relaciones. También se utilizan para definir otros objetos importantes, como índices, vistas, procedimientos, usuarios, etc. En versiones más recientes, es posible crear roles (conjuntos de permisos) para facilitar la gestión de privilegios.
+Los comandos __DDL__ nos permiten crear y modificar la estructura de las bases de datos, como sus tablas, columnas, tipos de datos y relaciones. También se utilizan para definir otros objetos importantes, como índices, vistas, procedimientos, usuarios, etc. En versiones más recientes de MySQL, es posible crear roles (conjuntos de permisos) para facilitar la gestión de privilegios.
+
+La siguiente ilustración muestra algunos ejemplos de cómo usar estos comandos para crear objetos en la base de datos:
 
 ![DDL](mysql/mysql-ddl.webp)
 
@@ -46,22 +48,40 @@ Este comando crea una base de datos llamada `tienda`, donde podemos almacenar lo
 > Siempre que se crea una base de datos, es necesario seleccionarla antes de trabajar con sus objetos usando el comando `USE nombre_bd;`.
 {: .prompt-info }
 
-Después de crear una base de datos, debemos seleccionarla para trabajar con ella. Para hacerlo, usamos el comando `USE`:
+Después de crear una base de datos, debemos seleccionarla para trabajar con ella. Para hacerlo, usamos el siguiente comando:
 
 ```sql
 USE tienda;
 ```
 {: .nolineno }
 
-> Para que el **prompt de MySQL** muestre el nombre de la base de datos a la que estás conectado, puedes ejecutar el siguiente comando en el cliente mysql (terminal): `prompt \u@\h [\d]>\_`.
+> Si estás trabajando con el cliente de terminal de MySQL, puedes personalizar el **prompt** para que muestre el nombre de la base de datos a la que estás conectado, puedes ejecutar el siguiente comando en el cliente de terminal:
+> ```shell
+> prompt \u@\h [\d]>\_
+> ````
+> {: .nolineno }
+> ![set prompt mysql](mysql/mysql-set-prompt-light.webp){: .light }
+> ![set prompt mysql](mysql/mysql-set-prompt-dark.webp){: .dark }
 {: .prompt-tip }
 
-![set prompt mysql](mysql/mysql-set-prompt-light.webp){: .light }
-![set prompt mysql](mysql/mysql-set-prompt-dark.webp){: .dark }
 
 ### Crear una tabla
 
-Después de crear y seleccionar la base de datos, podemos comenzar a definir las tablas que almacenarán la información. Para ello, utilizamos el comando `CREATE TABLE`:
+Después de crear y seleccionar la base de datos, podemos comenzar a definir las tablas que almacenarán la información. Si quisiéramos crear la siguiente tabla utilizando los tipos de datos que se indican en su estructura tal como sería definida en un motor SQL:
+
+
+```mermaid
+erDiagram
+    PRODUCTOS {
+        int id PK
+        string nombre
+        int precio
+        int cantidad
+    }
+```
+
+Para ello, utilizamos el comando `CREATE TABLE` y configuramos las columnas con sus tipos correspondientes.
+
 
 ```sql
 CREATE TABLE productos (

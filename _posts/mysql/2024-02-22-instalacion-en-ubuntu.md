@@ -1,7 +1,8 @@
 ---
-title: "Instalación en Ubuntu"
+title: "MySQL en Ubuntu"
 categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
-tags: [Bases de Datos, MySQL]
+emoji: 🐬
+tags: [ubuntu, mysql]
 image:
   path: poster/mysql-instalacion-ubuntu.webp
   lqip: data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQBhQBD37+nEsZBT2bIAA/uqLY7we9otIo6VE4hK5kLetUTtViPXpgpvzYttrY9gvIaDi5xEVH7zwYWp7jdhO+itEYAAA
