@@ -1,5 +1,5 @@
 ---
-title: "MySQL - cláusulas LIMIT y OFFSET"
+title: "MySQL - Cláusulas LIMIT y OFFSET"
 emoji: 🐬
 icon: icon/mysql.svg
 description: "Las cláusulas LIMIT y OFFSET nos permiten controlar la cantidad de resultados que obtienes de una consulta, ideal para mejorar el rendimiento."
@@ -11,13 +11,14 @@ pin: true
 tags: [mysql]
 ---
 
-En MySQL, cuando trabajas con grandes cantidades de datos, puede que no siempre necesites obtener todos los registros de una tabla a la vez. Aquí es donde el comando **`LIMIT`** entra en juego. Este comando te permite restringir la cantidad de filas que una consulta puede devolver, lo que resulta muy útil para mejorar el rendimiento de las consultas y facilitar la visualización de datos, especialmente cuando solo necesitas una muestra de los resultados.
+En MySQL, cuando trabajas con grandes cantidades de datos, puede que no siempre necesites obtener todos los registros de una tabla a la vez. Aquí es donde la cláusula **`LIMIT`** entra en juego, permitiendo restringir la cantidad de filas que devuelve una consulta, lo que resulta muy útil para mejorar el rendimiento de las consultas y facilitar la visualización de datos, especialmente cuando solo necesitas una muestra de los resultados.
 
-Además, **`LIMIT`** es clave para implementar paginación en aplicaciones, permitiéndote dividir los resultados en páginas y mostrar solo una cantidad específica de registros por vez.
+> **`LIMIT`** y **`OFFSET`** son claves para implementar paginaciones en aplicaciones, permitiéndote dividir los resultados en páginas y mostrar solo una cantidad específica de registros por vez.
+{: .prompt-tip }
 
 En este post, veremos cómo usar **`LIMIT`** para limitar los resultados de las consultas en MySQL, con ejemplos prácticos utilizando una base de datos de tienda y su tabla de productos.
 
-### **¿Cómo funciona LIMIT?**
+### ¿Cómo funciona LIMIT?
 
 La sintaxis de `LIMIT` es la siguiente:
 
@@ -98,7 +99,7 @@ LIMIT 3;
 {% endtabs %}
 
 
-### **¿Cómo usar LIMIT con OFFSET?**
+### ¿Cómo usar LIMIT con OFFSET?
 
 Además de limitar el número de resultados, puedes usar **`OFFSET`** para omitir una cierta cantidad de registros antes de devolver los resultados.
 
@@ -114,7 +115,7 @@ LIMIT n OFFSET m;
 - **n**: El número de registros que deseas obtener.
 - **m**: El número de registros a omitir.
 
-#### **Ejemplo con OFFSET:**
+#### Ejemplo con OFFSET:
 
 Supongamos que deseamos omitir los primeros 2 productos y obtener los siguientes 3:
 
@@ -150,7 +151,11 @@ LIMIT 3 OFFSET 2;
 {% endtab %}
 {% endtabs %}
 
-### **Aplicaciones Comunes de LIMIT**
+> En MySQL, `LIMIT 3 OFFSET 2` y `LIMIT 2, 3` son equivalentes.
+> La razón es que MySQL interpreta `LIMIT inicio, cantidad`, donde el primer número es el *offset* (desde dónde empezar) y el segundo cuántas filas devolver.
+{: .prompt-info }
+
+## Aplicaciones comunes de LIMIT
 
 1. **Paginación de Resultados:**
    Si estás mostrando resultados en una aplicación web, como productos en una tienda online, puedes utilizar `LIMIT` junto con `OFFSET` para paginar los resultados. De esta forma, solo se muestran un número limitado de productos por página.

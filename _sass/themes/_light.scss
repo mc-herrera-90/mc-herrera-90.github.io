@@ -2,7 +2,8 @@
   /* Framework color */
   --main-bg: white;
   --mask-bg: #c1c3c5;
-  --main-border-color: #f3f3f3;
+  // --main-border-color: #f3f3f3;
+  --main-border-color: #ebebeb;
 
   /* Common color */
   --text-color: #34343c;
@@ -111,6 +112,8 @@
   --code-header-muted-color: #e5e5e5;
   --code-header-icon-color: #c9c8c8;
   --clipboard-checked-color: #43c743;
+  --code-hl: rgba(44, 131, 244, 0.133);
+
 
   [class^='prompt-'] {
     --link-underline-color: rgb(219, 216, 216);

@@ -4,6 +4,7 @@
   src="https://www.youtube.com/embed/{{ include.id }}"
   title="YouTube video player"
   frameborder="0"
+  style="height: {{ include.height |  default: '500px' }}"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
 ></iframe>
