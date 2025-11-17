@@ -13,7 +13,7 @@ En Tkinter podemos usar los siguiente métodos para configurar íconos para las 
 
 En Windows podemos recurrir al método `iconbitmap()` para establecer el ícono de la ventana a partir de un archivo con extensión `.ico`. Este formato de Microsoft es más practico porque permite tener múltiples imágenes de diversos tamaños (16x16, 32x32, 64x64, etc.) incluidos en un solo archivo `.ico`.
 
-> algunos programas como [Greenfish Icon Editor](http://greenfishsoftware.org/gfie.php) (Gratuito) permiten editar los archivos `.ico`
+> algunos programas como [Greenfish Icon Editor](https://greenfishsoftware.org/gfie.php) (Gratuito) permiten editar los archivos `.ico`
 {: .prompt-info }
 
 Así, por ejemplo, el siguiente código establece el archivo `icon.ico` como ícono de la ventana:
