@@ -52,7 +52,6 @@ Persona <|-- Estudiante
 
 A continuación, puedes ver cómo queda el documento final usando algunos diagramas de ejemplo:
 
-
 {% include embed/pdf.html file="pdf/markdown-pdf_plantuml.pdf" %}
 
 ### Emojis

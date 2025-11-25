@@ -1,5 +1,5 @@
 ---
-title: Widget Entry
+title: Tkinter - Widget Entry
 icon: icon/python.svg
 categories: [Python, Tkinter]
 ---

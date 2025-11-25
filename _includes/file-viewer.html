@@ -23,9 +23,9 @@
           </div>
           {% endif  %}
         {% if file.include %}
-          <code class="hljs-{{ file.language | downcase }} pt-0" style="white-space: {{ file.wrap | default: 'unset' }}">{% include {{ file.content_file }} %}</code>
+          <code class="hljs-{{ file.language | downcase }} pt-0 language-{{ file.language | downcase }}" style="white-space: {{ file.wrap | default: 'unset' }}">{% include {{ file.content_file }} %}</code>
           {% else %}
-          <code class="hljs-{{ file.language | downcase }} pt-0" style="white-space: {{ file.wrap | default: 'unset' }}">{{ file.content_file | replace: '<', '&lt;' | replace: '>', '&gt;' }}</code>
+          <code class="hljs-{{ file.language | downcase }} pt-0 language-{{ file.language | downcase }}" style="white-space: {{ file.wrap | default: 'unset' }}">{{ file.content_file | replace: '<', '&lt;' | replace: '>', '&gt;' }}</code>
         {% endif %}
       </pre>
     {% endfor %}
