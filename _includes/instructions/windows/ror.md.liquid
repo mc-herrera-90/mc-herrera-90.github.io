@@ -1,0 +1,16 @@
+1\. Abrir una línea de comandos o símbolo de sistema (CMD)
+: Presiona la combinación <kbd><i class="fa-brands fa-windows"></i> Win</kbd> + <kbd>R</kbd> para abrir la ventana de "Ejecutar" y escribe "cmd".
+
+![Ejecutar CMD](windows/ejecutar-cmd.webp){:w="460"}
+
+2\. Navegar a la ubicación deseada
+: Con el comando `cd` cambiamos a la ubicación donde trabajarás tu proyecto. Por ejemplo:
+```terminal
+cd %UserProfile%\Documents
+```
+
+3\. Crear carpeta con el nombre del proyecto y entrar en ella
+: Usando el comando `mkdir` se crea la carpeta y luego con `cd` accedes a la misma:
+```terminal
+mkdir {{ include.project-name }} && cd {{ include.project-name }}
+```

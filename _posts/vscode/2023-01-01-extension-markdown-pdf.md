@@ -1,6 +1,6 @@
 ---
 title: "Markdown a PDF"
-categories: [Vscode, "Extensiones Vscode"]
+categories: ["Editores, IDEs", Vscode]
 icon: icon/md_pdf.svg
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js

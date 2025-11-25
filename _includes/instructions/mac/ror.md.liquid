@@ -1,0 +1,36 @@
+{% capture command %}
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.75 5.751a3 3 0 0 1 3-3v0a3 3 0 0 1 3 3v3h-3a3 3 0 0 1-3-3m0 12.498a3 3 0 0 0 3 3v0a3 3 0 0 0 3-3v-3h-3a3 3 0 0 0-3 3m18.5-12.498a3 3 0 0 0-3-3v0a3 3 0 0 0-3 3v3h3a3 3 0 0 0 3-3m0 12.498a3 3 0 0 1-3 3v0a3 3 0 0 1-3-3v-3h3a3 3 0 0 1 3 3M8.75 8.751h6.5v6.5h-6.5z"/></svg>
+{% endcapture %}
+
+1\. Abrir una línea de comandos (Terminal)
+: Presiona la combinación <kbd class="command-icon">Cmd</kbd> + <kbd>Space</kbd> para abrir el __Spotlight__, luego escribe "Terminal" y presiona <kbd>Enter</kbd>.
+
+![Abrir Terminal](macos/abrir-terminal.webp){:w="450"}
+
+2\. Navegar a la ubicación deseada
+: Una vez que tengas la terminal abierta, usa el comando `cd` para cambiar a la ubicación donde trabajarás tu proyecto.
+Por ejemplo, si deseas ir a la carpeta Documentos:
+```terminal
+cd ~/Documents/
+```
+
+3\. Crear el proyecto
+: Usando el comando `rails` seguido del nombre para el proyecto y le indicamos que lo configure para usar {{ include.db | capitalize }}. Por ejemplo:
+```terminal
+rails new {{ include.project-name }} -d {% if include.db == "postgres" %}{{ include.db }}sql{% else %}{{ include.db }}{% endif %}
+```
+
+> Puedes usar SQLite si quieres, solo cambia la opción
+> `-d sqlite3`.
+{: .prompt-info }
+
+4\. Crear la base de datos
+: Con el comando `db` le podemos decir que proceda a crear la base de datos:
+```terminal
+rails db:create
+```
+
+{% if include.db == "postgres" %}
+> Cuando instalas PostgreSQL con **Homebrew**, se crea automáticamente un rol en Postgres con el __mismo nombre que tu usuario__ de macOS. Por eso, al ejecutar `rails db:create` sin especificar usuario ni contraseña, Rails usa ese rol por defecto y la base de datos se crea sin problemas.  
+{: .prompt-info }
+{% endif %}

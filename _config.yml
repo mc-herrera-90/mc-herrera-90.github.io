@@ -172,6 +172,10 @@ collections:
   courses:
     output: true
     permalink: /:collection/:name/
+  slides:
+    output: true
+    permalink: /:collection/:name/
+
   documents:
     output: true
 defaults:

@@ -22,7 +22,7 @@ Si no tienes [**Homebrew**](https://brew.sh/){: target='_blank' } instalado en t
 3. Sigue las instrucciones que aparecen en pantalla para completar la instalación.
 
 ![Brew instalado](brew/brew-installed-dark.webp){:.dark .bg-secondary .rounded .border .border-secondary-subtle }
-![Brew instalado](brew/brew-installed-light.webp){:.light .bg-secondary-subtle .rounded .border .border-secondary-subtle }
+![Brew instalado](brew/brew-installed-light.webp){:.light subtle .rounded .border .border-secondary-subtle }
 
 Una vez instalado Homebrew, asegúrate de que esté actualizado:
 

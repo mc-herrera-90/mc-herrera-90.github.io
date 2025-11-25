@@ -65,6 +65,11 @@ main {
   }
 }
 
+img.drop-shadow {
+  box-shadow: var(--img-drop-shadow);
+  filter: drop-shadow(1px 1px 8px var(--drop-shadow-color));
+}
+
 .preview-img {
   aspect-ratio: 40 / 21;
   width: 100%;
@@ -332,6 +337,9 @@ main {
   @include bp.md {
     width: fit-content;
   }
+}
+.btn-project {
+  background-color: var(--card-hovor-bg);
 }
 /* --- Effects classes --- */
 

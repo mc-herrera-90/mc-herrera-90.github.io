@@ -1,0 +1,41 @@
+<button class="btn btn-project" id="generador">
+  Nuevo Proyecto
+      {% include icon/new-project.svg %}
+</button>
+
+
+
+{% if include.type == "ror" %}
+ {% include instructions/ror.md.liquid %}
+{% endif %}
+
+
+
+```bash
+django-admin startproject _site .
+```
+
+<div class="admonition note">
+    <p class="admonition-title">Nota</p>
+    <p>Este comando evita crear una subcarpeta duplicada, usando <code>_site</code> como raíz del proyecto.</p>
+</div>
+
+<div class="highlight no-copy">
+<span class="filename">estructura del proyecto</span>
+<pre><code>
+ <span class="project_name">django_project</span>
+├──  _site
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── venv
+└── manage.py
+</code></pre>
+</div>
+
+</div>
+```
+
+
