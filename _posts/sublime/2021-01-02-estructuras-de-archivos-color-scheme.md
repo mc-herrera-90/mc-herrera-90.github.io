@@ -4,6 +4,8 @@ categories: ["Editores, IDEs", SublimeText]
 icon: icon/sublime.svg
 image: poster/sublimetext.webp
 tags: [sublime-text, configuracion]
+scripts:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
 
 ## Dónde se guardan estos archivos
@@ -192,3 +194,10 @@ A modo de referencia, este es un `.sublime-color-scheme` funcional, limpio y lis
   ]
 }
 ```
+
+
+## Más esquemas para sublime
+
+A continuación, puedes ver varios archivos de ejemplo para utilizar en sublime:
+
+{% include file-viewer.html files=site.data.sublime.color_scheme name="esquemas" %}
