@@ -36,7 +36,7 @@ Iniciar MongoDB como servicio
 
 ![Error 1067](mongodb/error-1067.webp)
 
-: La causa puede ser que las carpetas de destinos para almacenar los LOGs y las bases de datos no tengan los permisos necesarios, entonces necesitas buscar su carpeta contenedora y agregar esos permisos siguiento estos pasos:
+: La causa puede ser que las carpetas de destino para almacenar los LOGs y las bases de datos no tengan los permisos necesarios. En ese caso, necesitas ubicar la carpeta contenedora y agregar esos permisos siguiendo estos pasos:
 
 - __Abre Propiedades de la carpeta__:
 
