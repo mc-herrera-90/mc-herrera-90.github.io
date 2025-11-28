@@ -395,20 +395,7 @@ User.find_by_sql("SELECT * FROM users WHERE age > 20")
 
 Pero la mayoría del tiempo Active Record simplifica el trabajo.
 
----
-
-## ✅ Conclusión
-
+{% include circle-line.html %}
 Active Record convierte la base de datos en **objetos Ruby fáciles de manipular**, permitiendo crear, leer, actualizar y eliminar datos sin escribir SQL.
 
 Es uno de los mayores beneficios de Rails: **velocidad, organización y productividad**.
-
-Si quieres, puedo hacer un post complementario sobre:
-
-✔ migraciones
-✔ asociaciones avanzadas
-✔ scopes
-✔ optimización N+1
-✔ callbacks y validaciones avanzadas
-
-Solo dímelo.

@@ -3,10 +3,11 @@
 
   /* Framework color */
   // --main-bg: rgb(27, 27, 30);
+  --main-bg: #161616;
 
-  --main-bg: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03)) , /* lux diagonal */
-      linear-gradient(220deg, rgba(10,12,20,0.65) 0%, rgba(20,24,30,0.45) 40%, rgba(28,32,40,0.6) 100%),
-      #0f1720;
+  // --main-bg: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03)) , /* lux diagonal */
+  //     linear-gradient(220deg, rgba(10,12,20,0.65) 0%, rgba(20,24,30,0.45) 40%, rgba(28,32,40,0.6) 100%),
+  //     #0f1720;
   --mask-bg: rgb(68, 69, 70);
   --main-border-color: rgb(44, 45, 45);
   // --main-border-color: rgb(44, 45, 45);
@@ -43,7 +44,9 @@
   --site-title-color: #717070;
   --site-subtitle-color: #868686;
   // --sidebar-bg: #1e1e1e;
-  --sidebar-bg: #17191f;
+  // --sidebar-bg: #17191f;
+  --sidebar-bg: #1a1a1a;
+
   --sidebar-border-color: #292929;
   --sidebar-muted-color: #868686;
   --sidebar-active-color: rgb(255, 255, 255, 0.95);
@@ -74,8 +77,8 @@
   --footnote-target-bg: rgb(63, 81, 181);
   --btn-share-color: #6c757d;
   --btn-share-hover-color: #bfc1ca;
-  // --card-bg: #1e1e1e;
-  --card-bg: rgb(23, 25, 31);
+  --card-bg: #1e1e1e;
+  // --card-bg: rgb(23, 25, 31);
   --card-hovor-bg: #464d51;
   --card-shadow: rgb(21, 21, 21, 0.72) 0 6px 18px 0,
     rgb(137, 135, 135, 0.24) 0 0 0 1px;
@@ -115,8 +118,8 @@
   /* Code highlight colors */
   --language-border-color: #2d2d2d;
   // --language-border-color: #21313d;
-  // --highlight-bg-color: #151515;
-  --highlight-bg-color: #101217;
+  --highlight-bg-color: #151515;
+  // --highlight-bg-color: #101217;
   --highlighter-rouge-color: #c9def1;
   --highlight-lineno-color: #808080;
   --inline-code-bg: rgba(255, 255, 255, 0.05);

@@ -141,7 +141,11 @@ img.drop-shadow {
   @include bp.xl {
     font-size: 1.03rem;
   }
-
+  dt {
+    @include bp.xxxl {
+      font-size: 1.29rem;
+    }
+  }
   @include bp.xxxl {
     font-size: 1.19rem;
     code.language-plaintext {
