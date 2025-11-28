@@ -112,6 +112,9 @@ layout: compress
           parent.style.cursor = 'default';      
         }
       });
+    window.callback = function () {
+      alert('A callback was triggered');
+    };
     </script>
     <script src="{{ 'assets/js/sweetalert.js' | relative_url }}"></script>
     <script src="{{ 'assets/js/tabs.js' | relative_url }}"></script>

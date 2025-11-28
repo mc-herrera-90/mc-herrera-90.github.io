@@ -46,7 +46,8 @@ export function loadMermaid() {
   const initTheme = themeMapper[Theme.visualState];
 
   let mermaidConf = {
-    theme: initTheme
+    theme: initTheme,
+    security: 'loose'
   };
 
   const basicList = document.getElementsByClassName('language-mermaid');

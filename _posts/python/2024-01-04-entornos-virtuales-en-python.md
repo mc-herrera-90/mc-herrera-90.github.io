@@ -3,9 +3,7 @@ title: Entornos virtuales de Python
 categories: [Python, "Avanzado"]
 tags: [entornos virtuales en python]
 mermaid: true
-image: 
-  path: https://enidev911.github.io/fullstack-python/assets/img/python-entornos-virtuales.png
-  alt: "Entornos Virtuales banner"
+icon: icon/python.svg
 ---
 
 > Los desarrolladores experimentados suelen configurar y ejecutar sus aplicaciones en [entornos virtuales Python](https://docs.python.org/es/3/tutorial/venv.html){:target='blank'} de Python, lo que les permite trabajar de forma independiente y evitar conflictos entre proyectos.
@@ -15,43 +13,35 @@ image:
 
 Un entorno virtual en Python es una instancia aislada de un entorno de Python ya instalado. Su principal ventaja es que permite trabajar de forma ordenada en un proyecto específico, utilizando únicamente los módulos y librerías necesarios para ese caso, sin afectar a otros proyectos ni a la instalación global del sistema.
 
-En la siguiente ilustración se muestra un ejemplo de cómo luce un entorno virtual, lo que nos ayudará a comprender mejor su funcionamiento.
+A continuación, se muestra un ejemplo de cómo luce un entorno virtual, lo que nos ayudará a comprender mejor su finalidad.
 
 ```mermaid
 graph LR
-    B(<img src="https://enidev911.github.io/fullstack-python/assets/img/base.png" style="height: 90px" />Python 3.9)
+    B(<img src="{{ page.media_subpath }}/python/base.webp" style="height: 90px" />Python 3.9)
     B---T[Entornos Virtuales]
-    T---C(<img src="https://enidev911.github.io/fullstack-python/assets/img/venv1.png" style="height: 90px" />Python 3.9)
-    T---D(<img src="https://enidev911.github.io/fullstack-python/assets/img/venv2.png" style="height: 90px" />Python 3.9)
-    T---E(<img src="https://enidev911.github.io/fullstack-python/assets/img/venv3.png" style="height: 90px" />Python 3.9)
-    subgraph ''
+    T---C(<img src="{{ page.media_subpath }}/python/venv1.webp" style="height: 80px" />Python 3.9)
+    T---D(<img src="{{ page.media_subpath }}/python/venv2.webp" style="height: 80px" />Python 3.9)
+    T---E(<img src="{{ page.media_subpath }}/python/venv3.webp" style="height: 80px" />Python 3.9)
+    subgraph Copias limpias y aisladas
     C---CD[Django==2.0]
     D---DD[Django==2.2]
     E---ED[Django==3.2]
     end
+    click B callback "Click para saber más"
 ```
 
-## Comenzar a configurar entornos virtuales
+Cuando instalamos [Python3](https://www.python.org/){:target='blank'} obtenemos un único entorno global que es compartido por todos los proyectos y todo el código de Python. Si bien podríamos instalar **Django** para trabajar y otros paquetes en el entorno global. Sin embargo sólo podríamos tener instalada esa única versión en particular de cada paquete.
 
-Cuando instalamos [Python3](https://www.python.org/){:target='blank'} obtenemos un único entorno global que es compartido por todos los proyectos y todo el código de Python. Si bien podríamos instalar  **Django** para trabajar y otros paquetes en el entorno global. Sin embargo sólo podríamos tener instalada esa única versión en particular de cada paquete.
-
-> Las aplicaciones Python instaladas en el entorno global pueden entrar en conflicto potencialmente unas con otras (Ej. si dependen de diferentes versiones del mismo paquete).
+> Las aplicaciones Python instaladas en el entorno global pueden entrar en conflicto potencialmente unas con otras (si dependen de diferentes versiones del mismo paquete por ejemplo).
 {: .prompt-warning }
-
-
-Si instalamos Django dentro del entorno por defecto/global sólo podrás apuntar a una sóla versión de Django en la computadora. Esto puede ser un problema si quieres crear en el futuro nuevos sitios (usando las útilmas versiones de Django) pero manteniendo los sitios web que dependen de versiones más antiguas.
-
-
-
 
 ## Instalación de Software para crear entorno virtual
 
-Después de instalar Python y pip, procedemos a instalar [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) (que incluye virtualenv) usando pip3:
+Después de instalar Python y pip, procedemos a instalar [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/){:target='_blank'} (que incluye virtualenv) usando pip3:
 
-```bash
+```terminal
 sudo pip3 install virtualenvwrapper
 ```
-{: .nolineno }
 
 A continuación se añade las siguientes líneas en el archivo de inicio del shell (éste es un archivo oculto `.bashrc` o `.zshrc` si usas [zsh](https://en.wikipedia.org/wiki/Z_shell))
 
