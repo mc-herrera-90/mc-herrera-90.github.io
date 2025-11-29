@@ -204,10 +204,16 @@ div {
   justify-content: space-between;
   align-items: center;
   height: v.$code-header-height;
-  margin-left: 0.75rem;
-  margin-right: 0.25rem;
+  // margin-left: 0.75rem;
+  // margin-right: 0.25rem;
+  padding-left: 0.5rem;
+  padding: 0.3rem;
   // border-bottom: 1px solid var(--language-border-color);
   background-color: var(--code-header-bg);
+  @include bp.xxl {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   /* the label block */
   span {

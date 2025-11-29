@@ -1,6 +1,8 @@
 ---
 title: Entornos virtuales de Python
+emoji: 🐍
 categories: [Python, "Avanzado"]
+image: poster/virtual-envs.webp
 tags: [entornos virtuales en python]
 mermaid: true
 icon: icon/python.svg
@@ -27,7 +29,6 @@ graph LR
     D---DD[Django==2.2]
     E---ED[Django==3.2]
     end
-    click B callback "Click para saber más"
 ```
 
 Cuando instalamos [Python3](https://www.python.org/){:target='blank'} obtenemos un único entorno global que es compartido por todos los proyectos y todo el código de Python. Si bien podríamos instalar **Django** para trabajar y otros paquetes en el entorno global. Sin embargo sólo podríamos tener instalada esa única versión en particular de cada paquete.
@@ -35,122 +36,316 @@ Cuando instalamos [Python3](https://www.python.org/){:target='blank'} obtenemos 
 > Las aplicaciones Python instaladas en el entorno global pueden entrar en conflicto potencialmente unas con otras (si dependen de diferentes versiones del mismo paquete por ejemplo).
 {: .prompt-warning }
 
-## Instalación de Software para crear entorno virtual
 
-Después de instalar Python y pip, procedemos a instalar [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/){:target='_blank'} (que incluye virtualenv) usando pip3:
+## ¿Cómo se puede trabajar con un entorno virtual?
+
+Cada vez que trabajes en un proyecto de Python que __use dependencias externas__, es mejor crear primero un entorno virtual y para eso hay diferentes métodos de lograrlo. A continuación, vamos a partir con un módulo que viene integrado en la biblioteca estándar de Python y luego con otras herramientas.
+
+### 1. Usar el módulo VENV
+
+El módulo `venv` ya forma parte de la biblioteca estándar de Python desde la versión 3.5.
+
+#### Crear el entorno virtual
+
+Para crear un entorno virtual, ubicate en la carpeta donde quieres crearlo y ejecuta el siguiente comando especificando la ruta a la carpeta:
+
+{% tabs setup-venv %}
+{% tab setup-venv Windows %}
+```terminal
+python -m venv mi-entorno
+```
+{% endtab %}
+{% tab setup-venv Linux/macOS %}
+```terminal
+python3 -m venv mi-entorno
+```
+{% endtab %}
+{% endtabs %}
+
+![Crear un entorno con el módulo venv](python/crear-entorno-con-venv.webp){:.drop-shadow w="900"}
+_Creación de un entorno virtual con el módulo `venv`_
+
+> Un nombre común para el entorno virtual es `.venv`. Ese nombre mantiene la carpeta escondida en la consola cuando ejecutas comandos como `ls` y también en exploradores de archivos como __finder__, el nombre evita conflicto con los archivos `.env` que se suelen utilizar para definir variables de entornos.
+{: .prompt-info }
+
+#### Activar el entorno virtual
+
+Una vez creado el entorno virtual, el siguiente paso es ejecutar el script que permite activar el entorno.
+
+La ubicación de los scripts depende de la plataforma en la que creaste el entorno virtual. Por lo general es:
+- `<nombre-entorno>/bin/` en Linux y macOS.
+- `<nombre-entorno>/Scripts/` en el caso de Windows.
+
+![Ubicación de los scripts para activar el entorno virtual](python/scripts-activate-win-linux.webp){:.drop-shadow w="900"}
+
+Para activarlo en Windows, ejecuta:
+
+```terminal
+.\mi-entorno\Scripts\activate
+```
+
+En Unix o MacOS, ejecuta:
+
+```terminal
+source mi-entorno/bin/activate
+```
+
+Cuando activas el entorno, el prompt de la terminal o símbolo de sistema se modifica y se antepone el nombre del entorno virtual `(mi-entorno)` en ese caso.
+
+```cmd
+C:\Users\mcherrera\demo-venv>.\mi-entorno\Scripts\activate
+(mi-entorno) C:\Users\mcherrera\demo-venv>
+```
+{: .border .rounded .border-secondary-subtle }
+
+#### Eliminar un entorno virtual
+
+Para borrar un entorno virtual, simplemente elimina la carpeta donde fue creado.
+Por ejemplo, si el entorno se llama `mi-entorno`, puedes usar:
+
+* **Windows (CMD o PowerShell):**
+
+  ```powershell
+  rmdir /s /q mi-entorno
+  ```
+  {:.nolineno}
+* **macOS / Linux:**
+
+  ```terminal
+  rm -rf mi-entorno
+  ```
+
+> Existen otras excelentes herramientas de terceros para crear entornos virtuales, como __Virtualenvwrapper__ y __Pipenv__. Estas opciones ofrecen funciones adicionales que pueden facilitar la creación, administración y organización de entornos virtuales en proyectos Python. En las siguientes secciones explicaré cómo funcionan y en qué casos conviene utilizarlas.
+{: .prompt-info }
+
+{% include circle-line.html %}
+
+### 2. Con Virtualenvwrapper
+
+El paquete [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/){:target='_blank'} es una capa adicional sobre `virtualenv` que facilita la creación, activación y administración de entornos virtuales mediante comandos más simples.
+
+#### Requisitos
+
+**Página en pipy y versiones requeridas** 
+- [![PyPi](https://badgen.net/badge/icon/pypi?icon=pypi&label){:style="height: 27px"}](https://pypi.org/project/virtualenvwrapper/){:target='_blank'}
+- [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/virtualenvwrapper){:style="height: 27px"}](https://www.python.org/){:target='_blank'}
+{:style='list-style: none' .d-flex .gap-2 .flex-wrap}
+
+#### Instalación y configuración inicial
+
+Con `pip` puedes instala el paquete:
 
 ```terminal
 sudo pip3 install virtualenvwrapper
 ```
 
-A continuación se añade las siguientes líneas en el archivo de inicio del shell (éste es un archivo oculto `.bashrc` o `.zshrc` si usas [zsh](https://en.wikipedia.org/wiki/Z_shell))
+A continuación, se debe añadir las siguientes líneas en el archivo de inicio del shell (`.bashrc` o `.zshrc` si usas __zsh__):
 
 ```bash
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 ```
-{: .nolineno file=".bashrc" }
+{: .nolineno file=".zshrc" }
 
-  1.  La variable `WORKON_HOME` determina en qué directorio se deben crear los entornos virtuales de Python.
-  
-  2. Por último, se debe agregar esta línea al archivo `~/.bashrc` para especificar en dónde está ubicado el ejecutable de virtualenvwrapper.
+- La variable `WORKON_HOME` determina en qué directorio se deben crear los entornos virtuales de Python.
+- `VIRTUALENVWRAPPER_PYTHON` sirve para decirle a virtualenvwrapper qué intérprete de Python debe usar para crear y manejar los entornos virtuales.
+- Por último, se debe agregar esta línea al archivo `~/.bashrc` o `~/.zshrc` para especificar en dónde está ubicado el ejecutable de virtualenvwrapper.
 
-### Cómo crear entornos virtuales
+#### Crear el entorno virtual
 
-Se debe ejecutar el comando `mkvirtualenv` más el nombre del entorno virtual Python que queremos crear:
+Ubicate en la carpeta donde quieres crearlo y ejecuta el comando `mkvirtualenv` más el nombre para el nuevo entorno virtual:
 
-```bash
-mkvirtualenv nombre_entorno
-```
-{: .nolineno }
-
-### Cómo activar un entorno virtual
-
-Para activar un virtualenv con Virtualenvwrapper solamente se necesita ejecutar el comando `workon` más el nombre del virtualenv en la terminal:
-
-```bash
-workon django-test
-```
-```bash
-created virtual environment CPython3.9.2.final.0-64 in 9185ms
-  creator CPython3Posix(dest=/home/enidev911/.virtualenvs/django-test, clear=False, no_vcs_ignore=False, global=False)
-  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/enidev911/.local/share/virtualenv)
-    added seed packages: pip==24.1, setuptools==70.1.0, wheel==0.43.0
-  activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
-virtualenvwrapper.user_scripts creating /home/enidev911/.virtualenvs/django-test/bin/predeactivate
-virtualenvwrapper.user_scripts creating /home/enidev911/.virtualenvs/django-test/bin/postdeactivate
-virtualenvwrapper.user_scripts creating /home/enidev911/.virtualenvs/django-test/bin/preactivate
-virtualenvwrapper.user_scripts creating /home/enidev911/.virtualenvs/django-test/bin/postactivate
-virtualenvwrapper.user_scripts creating /home/enidev911/.virtualenvs/django-test/bin/get_env_detail
-```
-{: .nolineno .noheader }
-
-### Cómo eliminar entornos virtuales
-
-Al ejecutar el comando `rmvirtualenv` más el nombre del virtualenv, virtualenvwrapper se encarga de borrar el virtualenv con todas los paquetes que hayamos instalado en él:
-
-```bash
-rmvirtualenv nombre_entorno
+```terminal
+mkvirtualenv mi_entorno
 ```
 
-## ¿Qué es Pipenv? <i class="fab fa-python"></i>
+> A diferencia del método anterior (módulo `venv`), podemos observar quer con un solo comando crea y activa el entorno virtual
+> ![mkvirtualenv](python/mkvirtualenv-mi-entorno.webp){:.light}
+> ![mkvirtualenv](python/mkvirtualenv-mi-entorno-dark.webp){:.dark}
+{:.prompt-info }
 
-[Pipenv](https://pipenv-es.readthedocs.io/es/latest/){: target='_blank'} es una gran herramienta que administra entornos virtuales que destaca de las otras introduciendo otras características mucho más flexibles.
+#### Activar un entorno virtual
 
-> __Pipenv__ está destinado principalmente a proporcionar a usuarios y desarrolladores de aplicaciones un método sencillo para configurar un entorno de trabajo.
-{: .prompt-tip }
+En caso de que tengas que volver a activar el entorno, usa el comando `workon` y el nombre del entorno:
 
+```terminal
+workon <nombre-entorno>
+```
+
+#### Desactivar el entorno
+
+Si quieres salir del entorno virtual, ejecuta `deactivate`:
+
+```terminal
+deactivate
+```
+
+#### Listar todos los entornos
+
+Para ver todos los entornos creados, usa el comando `workon` o `lsvirtualenv`:
+
+```terminal
+workon
+lsvirtualenv
+```
+
+![Listar entornos virtuales](python/listar-entornos-virtualenvwrapper.webp){:.light .rounded .bg-secondary-subtle}
+![Listar entornos virtuales](python/listar-entornos-virtualenvwrapper-dark.webp){:.dark .rounded .bg-secondary}
+_Listar entornos creados con virtualenvwrapper_
+
+#### Eliminar un entorno
+
+Asi como usas `mkvirtualenv` para crear un entorno, también puedes usar `rmvirtualenv` para eliminar el entorno indicando su nombre:
+
+```terminal
+rmvirtualenv <nombre-entorno>
+```
+
+{% include circle-line.html %}
+
+### 3. Con Pipenv
+
+[Pipenv <i class="fab fa-python"></i>](https://pipenv-es.readthedocs.io/es/latest/){: target='_blank'} es una gran herramienta para gestionar entornos virtuales y dependencias, destacando frente a otras alternativas gracias a sus características más integradas, flexibles y fáciles de usar.
+
+> __Pipenv__ automáticamente crea y maneja un entorno virtual para tus proyectos, también como *agregar/remover* paquetes desde un archivo `Pipfile.lock`, que es usado para producir un determinado build.
+{: .prompt-tip}
+
+#### Requisitos
 
 **Página en pipy y versiones requeridas** 
-- [![PyPi](https://badgen.net/badge/icon/pypi?icon=pypi&label){:style="height: 27px"}](https://pypi.org/project/pipenv/)
-- [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pipenv){:style="height: 27px"}](https://www.python.org/)
+- [![PyPi](https://badgen.net/badge/icon/pypi?icon=pypi&label){:style="height: 27px"}](https://pypi.org/project/pipenv/){:target='_blank'}
+- [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pipenv){:style="height: 27px"}](https://www.python.org/){:target='_blank'}
 {:style='list-style: none' .d-flex .gap-2 .flex-wrap}
 
-__Pipenv__ automáticamente crea y maneja un entorno virtual para tus proyectos, también como *agregar/remover* paquetes desde tu archivo **Pipfile.lock**, que es usado para producir un determinado build.
+#### Instalación
 
-### Instalación
+Para la mayoría de los casos, se recomienda instalar Pipenv usando `pip` pero igual se puede instalar de otras manera según el Sistema Operativo:
 
-Para la mayoría de los usuarios, se recomienda instalar Pipenv usando __pip__. Para ello, en una nueva terminal ejecuta el siguiente comando:
 
-```bash
+{% tabs install_pipenv %}
+{% tab install_pipenv Windows <i class="fa-brands fa-windows"></i> %}
+```terminal
 pip install --user pipenv
 ```
-{: .nolineno }
 
-En el caso de los usuarios de macOS <i class="fa-brands fa-apple"></i>, si tienes [Homebrew](https://brew.sh/){: target='_blank' }  instalado, ejecuta el siguiente comando en el terminal:
+Comprueba si Pipenv está disponible, ejecutando el comando `pipenv`:
+```cmd
+C:\Users\mcherrera>pipenv
+Usage: pipenv [OPTIONS] COMMAND [ARGS]...
 
-```bash
+Options:
+  --where                         Output project home information.
+  --venv                          Output virtualenv information.
+  --py                            Output Python interpreter information.
+  --envs                          Output Environment Variable options.
+  --rm                            Remove the virtualenv.
+  --bare                          Minimal output.
+  --man                           Display manpage.
+  --support                       Output diagnostic information for use in
+                                  GitHub issues.
+  --site-packages / --no-site-packages
+                                  Enable site-packages for the virtualenv.
+
+  --python TEXT                   Specify which version of Python virtualenv
+                                  should use.
+  --clear                         Clears caches (pipenv, pip).
+  -q, --quiet                     Quiet mode.
+  -v, --verbose                   Verbose mode.
+  --pypi-mirror TEXT              Specify a PyPI mirror.
+  --version                       Show the version and exit.
+  -h, --help                      Show this message and exit.
+
+
+Usage Examples:
+   Create a new project using Python 3.7, specifically:
+   $ pipenv --python 3.7
+
+   Remove project virtualenv (inferred from current directory):
+   $ pipenv --rm
+
+   Install all dependencies for a project (including dev):
+   $ pipenv install --dev
+
+   Create a lockfile containing pre-releases:
+   $ pipenv lock --pre
+
+   Show a graph of your installed dependencies:
+   $ pipenv graph
+
+   Check your installed dependencies for security vulnerabilities:
+   $ pipenv check
+
+   Install a local setup.py into your virtual environment/Pipfile:
+   $ pipenv install -e .
+
+   Use a lower-level pip command:
+   $ pipenv run pip freeze
+
+Commands:
+  check         Checks for PyUp Safety security vulnerabilities and against
+                PEP 508 markers provided in Pipfile.
+  clean         Uninstalls all packages not specified in Pipfile.lock.
+  graph         Displays currently-installed dependency graph information.
+  install       Installs provided packages and adds them to Pipfile, or (if no
+                packages are given), installs all packages from Pipfile.
+  lock          Generates Pipfile.lock.
+  open          View a given module in your editor.
+  requirements  Generate a requirements.txt from Pipfile.lock.
+  run           Spawns a command installed into the virtualenv.
+  scripts       Lists scripts in current environment config.
+  shell         Spawns a shell within the virtualenv.
+  sync          Installs all packages specified in Pipfile.lock.
+  uninstall     Uninstalls a provided package and removes it from Pipfile.
+  update        Runs lock, then sync.
+  upgrade       Resolves provided packages and adds them to Pipfile, or (if no
+                packages are given), merges results to Pipfile.lock
+  verify        Verify the hash in Pipfile.lock is up-to-date.
+```
+
+> Si el comando `pipenv` **NO** es reconocido, significa que debes añadir su ubicación al `PATH`.
+> A continuación, la ilustración muestra cómo buscar la ubicación de `pipenv` y cómo agregar esa ruta al `PATH`.
+> Cuando pegues la ruta, asegúrate de **cambiar la última parte** (por ejemplo, `site-packages`) por **`Scripts`**, que es donde se encuentra el ejecutable.
+> ![Añadir pipenv al PATH](python/agregar-al-path-pipenv.webp)
+{:.prompt-warning}
+
+{% endtab %}
+{% tab install_pipenv Linux <i class="fa-brands fa-linux"></i> %}
+```terminal
+sudo pip3 install --user pipenv
+```
+{% endtab %}
+{% tab install_pipenv macOS <i class="fa-brands fa-apple"></i> %}
+
+En el caso de los usuarios de macOS, si tienes [Homebrew](https://brew.sh/){: target='_blank' }  instalado, ejecuta el siguiente comando en el terminal:
+
+```terminal
 brew install pipenv
 ```
-{: .nolineno }
 
 Para actualizarlo en cualquier momento, puedes ejecutar el siguiente comando:
 
-```bash
+```terminal
 brew upgrade pipenv
 ```
-{: .nolineno }
 
-Por defecto, Pipenv inicializará un proyecto usando cualquier versión de python que tenga python3. Además de iniciar un proyecto con las banderas `--three` o `--two`, también puedes setear la variable `PIPENV_DEFAULT_PYTHON_VERSION` para especificar cual versión usa cuando se inicie un proyecto.
+De lo contrario, usa `pip`:
 
-> Esto se hace para prevenir romper cualquier paquete de sistema. Si **pipenv** no esta disponible en tu shell después de la instalación, vas a necesitar agregar la carpeta raiz de binarios del usuario a tu **PATH**. Por ejemplo, una ruta en windows sería `C:\Users\home\AppData\Roaming\Python\Python38\Scripts`.
-{: .prompt-info }
+```terminal
+sudo pip3 install --user pipenv
+```
+{% endtab %}
+{% endtabs %}
 
-
-## Administrar Entornos Virtuales con Pipenv
-
-### Crear un entorno virtual
+#### Crear un entorno virtual
 
 Crea un entorno virtual con la versión 3 de Python:
 
-```bash
+```terminal
 pipenv install --three
 ```
-{: .nolineno }
 
-> Por defecto, **Pipenv** guarda todos sus entornos virtuales en un solo lugar. Si te gustaría cambiarlo para comodidad de desarrollo, o si esta causando *issues* en servidores de construcción puedes setear la variable de entorno **`PIPENV_VENV_IN_PROJECT`** para crear un entorno virtual dentro de la raíz de tu proyecto.
+> Por defecto, **Pipenv** guarda todos sus entornos virtuales en un solo lugar. Si te gustaría cambiar el destino de los entornos virtuales para comodidad de desarrollo, o si esta causando *issues* en servidores de construcción puedes setear la variable de entorno **`PIPENV_VENV_IN_PROJECT`** para crear un entorno virtual dentro de la raíz de tu proyecto.
 {: .prompt-info }
 
 Crea un entorno virtual con la versión 2 de Python (debe tener instalado en su sistema python 2.x)
@@ -159,6 +354,9 @@ Crea un entorno virtual con la versión 2 de Python (debe tener instalado en su 
 pipenv install --two
 ```
 {: .nolineno }
+
+
+#### Activar el entorno virtual
 
 Activar un entorno virtual (si no existe, lo crea en el directorio actual) 
 
