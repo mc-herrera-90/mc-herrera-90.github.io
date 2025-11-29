@@ -5,10 +5,9 @@ categories: [Python, "Avanzado"]
 image: poster/virtual-envs.webp
 tags: [entornos virtuales en python]
 mermaid: true
-icon: icon/python.svg
 ---
 
-> Los desarrolladores experimentados suelen configurar y ejecutar sus aplicaciones en [entornos virtuales Python](https://docs.python.org/es/3/tutorial/venv.html){:target='blank'} de Python, lo que les permite trabajar de forma independiente y evitar conflictos entre proyectos.
+> Los desarrolladores experimentados suelen configurar y ejecutar sus aplicaciones en __entornos virtuales__ de Python, lo que les permite trabajar de forma independiente y evitar conflictos entre proyectos.
 {: .prompt-tip }
 
 ## ¿Qué es un entorno virtual?
@@ -133,7 +132,7 @@ El paquete [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/lates
 
 #### Instalación y configuración inicial
 
-Con `pip` puedes instala el paquete:
+Usa `pip` para instalar el paquete:
 
 ```terminal
 sudo pip3 install virtualenvwrapper
@@ -206,7 +205,7 @@ rmvirtualenv <nombre-entorno>
 
 ### 3. Con Pipenv
 
-[Pipenv <i class="fab fa-python"></i>](https://pipenv-es.readthedocs.io/es/latest/){: target='_blank'} es una gran herramienta para gestionar entornos virtuales y dependencias, destacando frente a otras alternativas gracias a sus características más integradas, flexibles y fáciles de usar.
+[__Pipenv__](https://pipenv-es.readthedocs.io/es/latest/){: target='_blank'} es una gran herramienta para gestionar entornos virtuales y dependencias, destacando frente a otras alternativas gracias a sus características más integradas, flexibles y fáciles de usar.
 
 > __Pipenv__ automáticamente crea y maneja un entorno virtual para tus proyectos, también como *agregar/remover* paquetes desde un archivo `Pipfile.lock`, que es usado para producir un determinado build.
 {: .prompt-tip}
@@ -350,68 +349,46 @@ pipenv install --three
 
 Crea un entorno virtual con la versión 2 de Python (debe tener instalado en su sistema python 2.x)
 
-```bash
+```terminal
 pipenv install --two
 ```
-{: .nolineno }
 
+#### Activar/Desactivar el entorno virtual
 
-#### Activar el entorno virtual
+Activar un entorno virtual (si no existe, lo crea en el directorio actual):
 
-Activar un entorno virtual (si no existe, lo crea en el directorio actual) 
-
-```bash
+```terminal
 pipenv shell
 ```
-{: .nolineno }
 
 Salir del entorno virtual previamente activado:
 
-```bash
+```terminal
 exit
 ```
-{: .nolineno }
 
+#### Instalar/Desinstalar paquetes:
 
+Instalar un paquete, este se registrará en el `Pipfile` y `Pipfile.lock`:
 
-Instalar paquetes:
-
-```bash
+```terminal
 pipenv install requests
 ```
-{: .nolineno }
-
-Eliminar un paquete o eliminar todos los paquetes:
-
-```bash
-pipenv uninstall django
-pipenv uninstall --all
-```
-{: .nolineno }
-
-Ejecutando un script usando pipenv run:
-
-```bash
-pipenv run python main.py
-```
-{: .nolineno }
-
-Para evitar escribir el comando tan largo podemos activar el entorno virtual simplemente y luego ejecutar el script: 
-
-```bash
-pipenv shell
-python main.py
-```
-{: .nolineno }
 
 Instalar las dependencias de un archivo **Pipfile**:
 
 ```bash
 pipenv install
 ```
-{: .nolineno }
 
-### Ejemplo de Pipfile & Pipfile.lock
+Eliminar un paquete o eliminar todos los paquetes:
+
+```terminal
+pipenv uninstall django
+pipenv uninstall --all
+```
+
+#### Ejemplo de Pipfile & Pipfile.lock
 
 Ejemplo de `Pipfile`:
 
@@ -429,7 +406,7 @@ django = "*"
 [requires]
 python_version = "3.7"
 ```
-{: .nolineno file="Pipfile" }
+{: file="Pipfile" }
 
 - `[source]`: nos muestra el enlace de donde se descargan los paquetes.
 - `[dev-packages]`: aquí se registran las librerías solo para desarrollo.
@@ -460,11 +437,11 @@ Ejemplo de `Pipfile.lock`:
     "develop": {}
 }
 ```
-{: .nolineno file="Pipfile.lock" }
+{: file="Pipfile.lock" }
 
-### Recomendaciones generales & control de versiones
+#### Recomendaciones generales & control de versiones
 
-- Generalmente, mantén a ambos **Pipfile** y **Pipfile.lock** en tu control de versión.
-- No mantengas **Pipfile.lock** en tu control de version si estas usando multiples versiones de Python
+- Generalmente, añade el **Pipfile** y **Pipfile.lock** en tu control de versión.
+- No mantengas **Pipfile.lock** en tu control de versiones si estas usando multiples versiones de Python.
 - Especifica tu versión de Python en la sección `[requires]` de tu **Pipfile**. En resumen, deberias tener solo una versión de Python, como herramienta de desarrollo.
 - Siempre utiliza *pipenv install* para que se agregue a la lista de `[packages]` en el **Pipfile**.

@@ -16,18 +16,34 @@ script_includes:
 
 <article class="px-1" data-toc="{{ enable_toc }}">
   <header class="text-center">
-    {% if page.icon %}
+    {% comment %} {% if page.icon %}
       <div class="icon-wrapper">
           {% include {{ page.icon }}  %}
       </div>
+    {% endif %} {% endcomment %}
+      {% if page.image %}
+        {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
+        {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %} drop-shadow"{% endcapture %}
+        {% capture alt %}alt="{{ page.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
+
+        {% if page.image.lqip %}
+          {%- capture lqip -%}lqip="{{ page.image.lqip }}"{%- endcapture -%}
+        {% endif %}
+
+        <div class="mt-3 mb-3">
+          <img {{ src }} {{ class }} {{ alt }} w="1200" h="630" {{ lqip }}>
+          {%- if page.image.alt -%}
+            <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
+          {%- endif -%}
+        </div>
     {% endif %}
-    <hr>
     <h1 data-toc-skip class="mb-3 mt-0 fs-1 text-shadow"
       style="color: var(--heading-color-title); text-shadow: 2px 3px 10px #19193a5f" 
       >{{ page.title }}</h1>
     {% if page.description %}
       <p class="post-desc fw-light mb-4">{{ page.description }}</p>
     {% endif %}
+    <hr>
     <div class="post-meta text-muted">
       <!-- published date -->
       <span>
@@ -44,22 +60,6 @@ script_includes:
         </span>
       {% endif %}
 
-      {% if page.image %}
-        {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
-        {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
-        {% capture alt %}alt="{{ page.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
-
-        {% if page.image.lqip %}
-          {%- capture lqip -%}lqip="{{ page.image.lqip }}"{%- endcapture -%}
-        {% endif %}
-
-        <div class="mt-3 mb-3">
-          <img {{ src }} {{ class }} {{ alt }} w="1200" h="630" {{ lqip }}>
-          {%- if page.image.alt -%}
-            <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
-          {%- endif -%}
-        </div>
-      {% endif %}
 
       <div class="d-flex justify-content-between" id="info_post">
         <!-- author(s) -->

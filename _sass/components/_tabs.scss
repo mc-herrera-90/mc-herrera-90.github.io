@@ -15,9 +15,7 @@
   border-left: 0.5px solid var(--main-border-color);
   border-right: 0.5px solid var(--main-border-color);
   box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-    @include bp.lte(575px) {
-        padding-left: 0;
-        padding-right: 0;
+  @include bp.lte(575px) {
         margin-left: -1.5rem;
         margin-right: -1.5rem;
     }
@@ -49,8 +47,9 @@
 }
 
 .tab > .active > a {
-  color: var(--link-color);
-  border-color: #1e87f0;
+  color: var(--heading-color);
+  border-color: var(--heading-color);
+  background: var(--code-header-bg);
 }
 
 .tab > li > a {
@@ -61,20 +60,22 @@
 /* ====== Contenido ====== */
 .tab-content {
   margin: 15px 0 13px 0;
-  // padding: 10px 10px 0 10px;
   padding: 15px 15px 5px 15px;
   // background: color-mix(in srgb, var(--sidebar-bg), black 2.3%);
   border-left: 1px solid var(--main-border-color);
   // border: 1px solid var(--main-border-color);
   border-top: none;
-  // border-radius: 0 0 10px 10px;
-  // box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-    @include bp.lte(575px) {
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: -1.5rem;
-        margin-right: -1.5rem;
+  @include bp.lte(575px) {
+    padding: 0;
+    border: 0;
+    .highlighter-rouge {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      border-radius: 0;
+      border-right: 0 !important;
+      border-left: 0 !important;
     }
+  }
 }
 
 .tab-content > li {

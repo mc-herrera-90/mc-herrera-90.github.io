@@ -30,6 +30,7 @@
         main & {
           @if $i == 2 {
             margin: 2.5rem 0 1.25rem;
+            font-weight: bolder;
           } @else {
             margin: 2rem 0 1rem;
           }

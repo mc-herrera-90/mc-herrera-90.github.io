@@ -2,15 +2,9 @@
   color-scheme: dark;
 
   /* Framework color */
-  // --main-bg: rgb(27, 27, 30);
   --main-bg: #161616;
-
-  // --main-bg: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03)) , /* lux diagonal */
-  //     linear-gradient(220deg, rgba(10,12,20,0.65) 0%, rgba(20,24,30,0.45) 40%, rgba(28,32,40,0.6) 100%),
-  //     #0f1720;
   --mask-bg: rgb(68, 69, 70);
   --main-border-color: rgb(44, 45, 45);
-  // --main-border-color: rgb(44, 45, 45);
 
   /* Common color */
   --text-color: rgb(175, 176, 177);
@@ -120,7 +114,6 @@
   // --language-border-color: #21313d;
   // --highlight-bg-color: #151515;
   --highlight-bg-color: #1f1f1f;
-  // --highlight-bg-color: #101217;
   --highlighter-rouge-color: #c9def1;
   --highlight-lineno-color: #808080;
   --inline-code-bg: rgba(255, 255, 255, 0.05);
