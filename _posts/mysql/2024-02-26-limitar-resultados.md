@@ -2,7 +2,7 @@
 title: "MySQL - Cláusulas LIMIT y OFFSET"
 emoji: 🐬
 icon: icon/mysql.svg
-description: "Las cláusulas LIMIT y OFFSET nos permiten controlar la cantidad de resultados que obtienes de una consulta, ideal para mejorar el rendimiento."
+description: "Las cláusulas que permiten controlar la cantidad de resultados"
 categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 image:
   path: poster/mysql-limit-y-offset.webp
@@ -18,7 +18,7 @@ En MySQL, cuando trabajas con grandes cantidades de datos, puede que no siempre 
 
 En este post, veremos cómo usar **`LIMIT`** para limitar los resultados de las consultas en MySQL, con ejemplos prácticos utilizando una base de datos de tienda y su tabla de productos.
 
-### ¿Cómo funciona LIMIT?
+## Sintaxis
 
 La sintaxis de `LIMIT` es la siguiente:
 
@@ -31,7 +31,7 @@ LIMIT n;
 
 - **`n`**: El número de registros que deseas obtener.
 
-#### Ejemplo básico:
+## Ejemplo práctico
 
 Supongamos que tenemos una tabla llamada **`productos`** en la base de datos **`tienda`** con los siguientes datos:
 
@@ -98,8 +98,7 @@ LIMIT 3;
 {% endtab %}
 {% endtabs %}
 
-
-### ¿Cómo usar LIMIT con OFFSET?
+## Usar LIMIT y OFFSET
 
 Además de limitar el número de resultados, puedes usar **`OFFSET`** para omitir una cierta cantidad de registros antes de devolver los resultados.
 

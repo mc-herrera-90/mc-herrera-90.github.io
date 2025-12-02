@@ -1,5 +1,5 @@
 ---
-title: "MySQL - Disparadores (triggers)"
+title: "MySQL - Triggers"
 emoji: 🐬
 categories: [Bases de Datos Relacionales, "MySQL", "Intermedio"]
 icon: icon/mysql.svg
