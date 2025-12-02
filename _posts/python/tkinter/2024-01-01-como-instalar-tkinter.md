@@ -1,6 +1,6 @@
 ---
-title: "Cómo instalar Tkinter"
-categories: [Python, Tkinter]
+title: "Tkinter - Linux/macOS"
+categories: [Python, Python-Tkinter]
 ---
 
 Tkinter es una librería estándar de Python que se utiliza para aplicaciones GUI de escritorio.

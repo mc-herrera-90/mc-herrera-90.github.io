@@ -11,8 +11,8 @@
   --text-muted-color: #868686;
   --text-muted-highlight-color: #aeaeae;
   --heading-color: #e4e4e0;
-  --heading-color-title: #89d4c0;
-  --heading-color-title-2: #bbf4ee;
+  --heading-color-title: #e8eef2;
+  --heading-color-title-2: #ffffff;
   --label-color: #a7a7a7;
   --blockquote-border-color: rgb(66, 66, 66);
   --blockquote-text-color: #868686;
@@ -189,7 +189,6 @@
     margin: 0;
   }
 
-
   .highlight,
   .highlight .w {
     color: #d0d0d0;
@@ -326,14 +325,13 @@
     color: #90a959;
   }
 
-  div[class*="language-"] {
+  div[class*='language-'] {
     // border: 1px solid #616366;
-    border: 1px double #616366;      /* Primer color */
-    outline: 1px solid #000;         /* Segundo color */
-    outline-offset: 0px;                /* Lo acerca al borde */
+    border: 1px double #616366; /* Primer color */
+    outline: 1px solid #000; /* Segundo color */
+    outline-offset: 0px; /* Lo acerca al borde */
   }
   .language-terminal .highlight {
     background-color: var(--terminal-bg);
   }
-
 }

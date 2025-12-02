@@ -27,7 +27,7 @@
     line-height: 1.4rem;
     word-wrap: normal; /* Fixed Safari overflow-x */
     @include bp.xxxl {
-      font-size: v.$code-font-size-xxl;
+      font-size: v.$code-font-size-xxxl;
       padding: 0.3rem 0;
     }
   }
@@ -98,21 +98,21 @@ code {
   $gap: 8px;
 
   .hl {
-      position: relative;
-      display: inline-block;
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        border-radius: 6px;
-        height: 100%;
-        width: calc(100% + #{$gap});
-        padding: 0 10px;
-        left: -5px; /* Alineación a la izquierda */
-        top: 0; /* Alineación en la parte superior */
-        background: var(--code-hl);
-      }
+    position: relative;
+    display: inline-block;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      border-radius: 6px;
+      height: 100%;
+      width: calc(100% + #{$gap});
+      padding: 0 10px;
+      left: -5px; /* Alineación a la izquierda */
+      top: 0; /* Alineación en la parte superior */
+      background: var(--code-hl);
     }
+  }
 }
 
 td.rouge-code {
@@ -161,10 +161,8 @@ div[class^='language-'] {
         height: v.$code-dot-size;
         border-radius: 50%;
         background-color: #de6d59;
-        box-shadow: (v.$code-dot-size + v.$code-dot-gap) 0 0
-            #edc039,
-          (v.$code-dot-size + v.$code-dot-gap) * 2 0 0
-            #78c244;
+        box-shadow: (v.$code-dot-size + v.$code-dot-gap) 0 0 #edc039,
+          (v.$code-dot-size + v.$code-dot-gap) * 2 0 0 #78c244;
       }
 
       span {
@@ -218,9 +216,9 @@ div {
   /* the label block */
   span {
     line-height: v.$code-header-height;
-        @include bp.xxl {
-          font-size: 1.2rem;
-        }
+    @include bp.xxl {
+      font-size: 1.2rem;
+    }
     /* label icon */
     i {
       width: v.$code-icon-width;
@@ -242,9 +240,9 @@ div {
       font-size: 0.85rem;
       font-weight: 600;
       color: var(--code-header-text-color);
-        @include bp.xxxl {
-          font-size: 1rem;
-        }
+      @include bp.xxxl {
+        font-size: 1rem;
+      }
     }
   }
 

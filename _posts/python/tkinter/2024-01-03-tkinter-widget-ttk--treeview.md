@@ -1,7 +1,7 @@
 ---
 title: Tkinter - Widget ttk.Treeview
 icon: icon/python.svg
-categories: [Python, Tkinter]
+categories: [Python, Python-Tkinter]
 ---
 
 

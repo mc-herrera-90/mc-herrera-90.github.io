@@ -67,33 +67,80 @@ USE tienda;
 
 ### Crear una tabla
 
-Después de crear y seleccionar la base de datos, podemos comenzar a definir las tablas que almacenarán la información. Si quisiéramos crear la siguiente tabla utilizando los tipos de datos que se indican en su estructura tal como sería definida en un motor SQL:
+Después de crear y seleccionar la base de datos, el siguiente paso es definir las tablas que almacenarán la información. Para este ejemplo, queremos construir una estructura básica compuesta por usuarios, productos y pedidos. Cada tabla utiliza tipos de datos apropiados según el tipo de información que manejará.
 
+El siguiente diagrama ER (Entidad–Relación) muestra la estructura propuesta, junto con las relaciones entre las tablas y las claves primarias (PK) y foráneas (FK) asociadas:
 
 ```mermaid
 erDiagram
+    USUARIOS {
+        int id PK
+        string nombre
+        string email
+    }
+
     PRODUCTOS {
         int id PK
         string nombre
         int precio
         int cantidad
     }
+
+    PEDIDOS {
+        int id PK
+        int usuario_id FK
+        int producto_id FK
+        int cantidad
+    }
+
+    USUARIOS ||--o{ PEDIDOS : "realiza"
+    PRODUCTOS ||--o{ PEDIDOS : "incluye"
 ```
+
+> En este modelo:
+>
+> * Cada **usuario** puede realizar varios **pedidos**.
+> * Cada **producto** puede estar incluido en múltiples **pedidos**.
+> * La tabla **PEDIDOS** actúa como una tabla intermedia que relaciona usuarios y productos, además de almacenar la cantidad solicitada.
+{:.prompt-info}
 
 Para ello, utilizamos el comando `CREATE TABLE` y configuramos las columnas con sus tipos correspondientes.
 
 
 ```sql
-CREATE TABLE productos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(255),
-    precio INT,
-    cantidad INT
+-- Tabla de usuarios
+CREATE TABLE USUARIOS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL
 );
+
+-- Tabla de productos
+CREATE TABLE PRODUCTOS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(150) NOT NULL,
+  precio INT NOT NULL,
+  cantidad INT NOT NULL
+);
+
+-- Tabla de pedidos (relaciona usuarios y productos)
+CREATE TABLE PEDIDOS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT NOT NULL,
+  producto_id INT NOT NULL,
+  cantidad INT NOT NULL,
+
+  CONSTRAINT fk_usuario
+    FOREIGN KEY (usuario_id)
+    REFERENCES USUARIOS(id),
+
+  CONSTRAINT fk_producto
+    FOREIGN KEY (producto_id)
+    REFERENCES PRODUCTOS(id)
+);
+
 ```
 {: .nolineno }
-
-Este comando crea una tabla llamada `productos` con las columnas `id`, `nombre`, `precio` y `cantidad`.
 
 > Si bien usamos tipo `INT` para almacenar precios en este ejemplo, considerando que en **Chile** los valores monetarios se suelen manejar sin decimales porque es una manera más sencilla de representarlos (por ejemplo, representando $10.000 como 10000). Es importante tener en cuenta que, dependiendo del formato de la moneda en un país, podrías necesitar ajustar el tipo de datos. Por ejemplo el tipo de dato `DECIMAL(10, 2)` se usa para almacenar valores monetarios con dos decimales, lo cual es útil para la mayoría de las monedas que manejan centavos.
 {: .prompt-info }

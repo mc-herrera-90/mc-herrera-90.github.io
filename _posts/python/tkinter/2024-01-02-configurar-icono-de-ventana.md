@@ -1,7 +1,7 @@
 ---
 title: Tkinter - Configurar ícono en de ventana
 icon: icon/python.svg
-categories: [Python, Tkinter]
+categories: [Python, Python-Tkinter]
 ---
 
 En Tkinter podemos usar los siguiente métodos para configurar íconos para las ventanas:

@@ -1,5 +1,5 @@
 ---
-title: "MySQL en Ubuntu"
+title: "MySQL - Ubuntu"
 categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
 emoji: 🐬
 tags: [ubuntu, mysql]
@@ -13,7 +13,7 @@ En este post, cubriremos la instalación de MySQL en una máquina Ubuntu, cómo
 
 ## Requisitos Previos
 
-Antes de comenzar, asegurate de tener lo siguiente:
+Antes de comenzar, asegúrate de contar con lo siguiente:
 
 - [x] Una instalación de **Ubuntu** (esta guía es aplicable a versiones **Ubuntu 20.04.4 LTS** y versiones más recientes como **Ubuntu 22.04.1 LTS**, **Ubuntu 24.04.1 LTS**, etc).
 - [x] Acceso a una cuenta con privilegios **sudo**.

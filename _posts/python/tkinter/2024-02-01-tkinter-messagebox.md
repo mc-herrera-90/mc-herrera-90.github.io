@@ -1,7 +1,7 @@
 ---
 title: Módulo Messagebox
 icon: icon/python.svg
-categories: [Python, Tkinter]
+categories: [Python, Python-Tkinter]
 image:
   path: poster/python-tk-messagebox.webp
   lqip: data:image/webp;base64,UklGRnIAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBcAAAABF9D/iAgYZBtpB9n353mCiP4HOFjVHwBWUDggNAAAAHADAJ0BKhQACwA/OYa5U68pJaKwCAHgJwlpAABcTsUdKoWYAAD+1Li304qBdRQXDtgAAAA=

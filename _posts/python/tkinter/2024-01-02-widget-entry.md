@@ -1,7 +1,7 @@
 ---
 title: Tkinter - Widget Entry
 icon: icon/python.svg
-categories: [Python, Tkinter]
+categories: [Python, Python-Tkinter]
 ---
 
 El widget Entry en Tkinter se utiliza para permitir que el usuario ingrese texto en una aplicación gráfica. Es uno de los componentes más comunes en interfaces donde se necesita capturar información escrita, como nombres, contraseñas, etc.

@@ -1,7 +1,7 @@
 ---
 title: Instalar Python en diferentes S.O
 icon: icon/python.svg
-categories: [Tutoriales, Python]
+categories: [Python, "Python-Setup"]
 image:
     path: poster/python-instalacion.webp
     lqip: data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAsAPzmIulOvKSWisAgB4CcJZgCdAB87I8BCy/pQAgD+oMJm1X2r2TfzZNbTXWf9L+N8znXHbn++k1kUTW1sld+ooGg9QcWvAsCRQ1T95CFRs5YbzhLIwHy1D4MAAAA=
@@ -128,12 +128,12 @@ python3 -m ensurepip --upgrade
 
 Para comprobar que Python está correctamente instalado, podemos crear el clásico programa que muestra un sencillo pero fabuloso “Hello World”:
 
-Crea un archivo `hello.py` y agrega:
+Crea un archivo `helloworld.py` y agrega:
 
 ```python
 print("¡Hello World!")
 ```
-{: file="hello.py"}
+{: file="helloworld.py"}
 
 Luego, abrimos la terminal o consola y ejecutamos:
 
@@ -144,11 +144,24 @@ python hello.py
 > En algunos sistemas con Linux puede ser `python3 hello.py` si `python` apunta a Python 2.
 {: .prompt-info }
 
-Si todo funciona, verás en la consola:
+Si todo funciona, verás en la consola la salida:
 
-```terminal
+{% tabs salida_helloworld %}
+
+{% tab salida_helloworld <i class="fa-brands fa-linux"></i><i class="fa-brands fa-apple"></i> Linux/macOS %}
+{% capture helloworld %}
+<span class="hl">$ python3 helloworld.py</span>
+¡Hello World!
+{% endcapture %}
+{% include terminal-wrapper.html content = helloworld %}
+{% endtab %}
+{% tab salida_helloworld <i class="fa-brands fa-windows"></i> Windows %}
+```cmd
+C:\Users\mcherrera> python helloworld.py
 ¡Hello World!
 ```
+{% endtab %}
+{% endtabs %}
 
 Con esto confirmamos que tu instalación de Python está lista para empezar a programar.
 

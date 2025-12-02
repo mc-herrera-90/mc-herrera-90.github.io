@@ -27,6 +27,7 @@ winget install -e --id MongoDB.Server
 
 ![Agregar al PATH](mongodb/agregar-al-path-en-windows.webp)
 
+{:id='iniciar-como-servicio'}
 Iniciar MongoDB como servicio
 : Por lo general, concluida la instalación se configura automáticamente MongoDB como servicio y solo necesitas iniciarlo, lo primero que debes hacer es buscar en la lista de servicios con <kbd>Win</kbd> + <kbd>R</kbd> y luego escribe `services.msc` al identificar el servicio haz clic en iniciar:
 
@@ -51,6 +52,8 @@ C:\Program Files\MongoDB\Server\<version>\
 
 ![Agregar permisos](mongodb/permisos-a-carpetas.webp)
 
+> Recomiendo vaciar el contenido de la carpeta `data` para evitar conflictos con archivos generados anteriormente y vuelve a [iniciar MongoDB como servicio](#iniciar-como-servicio).
+{:.prompt-info }
 
 Instalar el cliente de MongoDB
 : Este es el comando que utilizamos para instalar el cliente (para conectarse al servidor) de MongoDB con `winget`.
