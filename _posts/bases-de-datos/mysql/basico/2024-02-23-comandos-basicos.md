@@ -1,6 +1,6 @@
 ---
 title: "MySQL - Comandos básicos"
-categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
+categories: [MySQL, "MySQL-Básico"]
 icon: icon/mysql.svg
 emoji: 🐬
 mermaid: true

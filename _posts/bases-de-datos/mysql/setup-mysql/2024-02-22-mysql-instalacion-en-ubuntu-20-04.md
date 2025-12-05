@@ -1,7 +1,9 @@
 ---
 title: "MySQL - Ubuntu"
-categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
+description: "Cómo instalar y configurar MySQL en Ubuntu 20.04 en adelante"
+categories: [MySQL, "MySQL-Setup"]
 emoji: 🐬
+icon: icon/mysql.svg
 tags: [ubuntu, mysql]
 image:
   path: poster/mysql-instalacion-ubuntu.webp
@@ -9,14 +11,41 @@ image:
 pin: true
 ---
 
-En este post, cubriremos la instalación de MySQL en una máquina Ubuntu, cómo configurarlo para que funcione de manera segura y cómo verificar que la instalación se haya completado correctamente.
+
+<div style="text-align: center;" markdown="1">
+  ❤️{% include {{ page.icon }} %}{:style="width:190px;"}
+</div>
+
+## Alcance de esta guía
+
+En este artículo veremos cómo instalar MySQL en Ubuntu, configurarlo de manera segura y confirmar que todo funciona correctamente. Los objetivos son:
+
+- [x] Instalar MySQL Server usando los repositorios oficiales
+- [x] Aplicar la configuración de seguridad inicial
+- [x] Crear un usuario y verificar la conexión a la base de datos
+
+> De forma predeterminada, MySQL solo acepta conexiones locales, es decir, conexiones que se originan en la misma máquina donde está instalado. Si necesitas acceder a tu base de datos desde una ubicación remota, es importante habilitarlo de manera segura. En esta guía configuraremos MySQL para aceptar conexiones remotas utilizando cifrado SSL/TLS.
+{: .prompt-info }
 
 ## Requisitos Previos
 
 Antes de comenzar, asegúrate de contar con lo siguiente:
 
-- [x] Una instalación de **Ubuntu** (esta guía es aplicable a versiones **Ubuntu 20.04.4 LTS** y versiones más recientes como **Ubuntu 22.04.1 LTS**, **Ubuntu 24.04.1 LTS**, etc).
-- [x] Acceso a una cuenta con privilegios **sudo**.
+- Una instalación de **Ubuntu** (Ubuntu 20.04 o versiones más recientes)
+
+![Release 22.04](ubuntu/ubuntu-lsb-release-22-04.webp){:w="690"}
+
+- Acceso a una cuenta con privilegios `sudo`, ejemplo:
+
+```terminal
+mcherrera@ubuntu:~$ sudo -l
+[sudo] contraseña para mcherrera: 
+...
+
+El usuario mcherrera puede ejecutar los siguientes comandos en ubuntu:
+    (ALL : ALL) ALL
+```
+{:.fit-content}
 
 ## Comenzar Instalación
 
@@ -24,15 +53,15 @@ Ahora que hemos confirmado que contamos con todo lo necesario, continuemos con l
 
 ### 1. Actualizar el Sistema
 
-Es fundamental que el sistema esté actualizado antes de instalar cualquier software para asegurarte que cuentas con los últimos paquetes y actualizaciones de seguridad.
+Es fundamental que el sistema esté actualizado antes de instalar cualquier software para contar con los últimos paquetes y actualizaciones de seguridad.
 
-Abre una nueva terminal con <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> y actualiza el índice de paquetes apt con el siguiente comando:
+- Abre una nueva terminal con <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> y actualiza el índice de paquetes apt con:
   
 ```terminal
 sudo apt update
 ```
 
-Después, actualiza todos los paquetes instalados con el siguiente comando:
+- Actualiza todos los paquetes instalados con:
 
 ```terminal
 sudo apt upgrade -y
@@ -40,13 +69,13 @@ sudo apt upgrade -y
 
 ### 2. Instalar MySQL
 
-Ubuntu ofrece una versión estable y reciente de MySQL directamente desde sus repositorios predeterminados. Para instalar el paquete de **MySQL Server** ejecutamos el siguiente comando:
+Ubuntu ofrece una versión estable y reciente de MySQL directamente desde sus repositorios predeterminados. Para instalar el paquete de **MySQL Server** ejecuta:
   
 ```terminal
 sudo apt install mysql-server
 ```
 
-![Paso 1](mysql/apt-install-mysql-server.webp)
+![Paso 1](ubuntu/apt-install-mysql-server.webp)
 
 Concluida la instalación, el [demonio](https://es.wikipedia.org/wiki/Daemon_(inform%C3%A1tica)){: target='_blank' } de MySQL se iniciará automáticamente. Para verificar si está ejecutándose el servidor, usamos el siguiente comando:
 
@@ -54,11 +83,14 @@ Concluida la instalación, el [demonio](https://es.wikipedia.org/wiki/Daemon_(in
 sudo systemctl status mysql
 ```
 
-Con el siguiente comando podemos verificar en qué puerto está corriendo MySQL:
+![Verificar servicio mysql](ubuntu/sudo-systemctl-status-mysql.webp)
 
-```terminal
-cat /etc/services | grep mysql
-```
+> De forma predeterminada, el demonio de MySQL (mysqld) escucha en el puerto 3306. Con el siguiente comando podemos verificarlo:
+> ```terminal
+> cat /etc/services | grep mysql
+> ```
+{:.prompt-info }
+
 
 ### 3. Configurar MySQL
 
@@ -75,16 +107,20 @@ Utilizar el script para una configuración segura:
 sudo mysql_secure_installation
 ```
 
-La primera pregunta nos solicitará si queremos validar la contraseña para conectarnos al servidor, si lo deseamos al momento de crear un nuevo usuario en el sistema, MySQL nos validará si la contraseña cumple con las condiciones mínimas de seguridad. Si no queremos esto, simplemente presionamos la tecla <kbd>N</kbd> y luego <kbd>Enter</kbd>.
+La primera pregunta nos solicitará si queremos validar la contraseña usada para conectarse al servidor, si lo deseamos al momento de crear un nuevo usuario en el sistema, MySQL nos validará si la contraseña cumple con las condiciones mínimas de seguridad.
 
-![script de seguridad](mysql/sudo-mysql-secure-installation.webp)
+![script de seguridad](ubuntu/mysql-secure-installation.webp)
+_Validar las contraseñas_
+
+![script de seguridad](ubuntu/mysql-select-validation-password.webp)
+_Seleccionar el nivel de validación_
 
 Después, según la opción que ingresemos, nos solicitará la contraseña para el usuario `root` (esto no tendrá efecto hasta que cambiemos el método de autenticación al usuario `root` de `auth_socket` a otro complemento). Una vez definida la contraseña, nos preguntará si deseamos **eliminar a los usuarios anónimos** que se crean por defecto durante la instalación de MySQL.
 
 > Lo recomendable es eliminar a los usuarios anónimos, ya que representan un riesgo de seguridad al permitir acceso sin necesidad de contraseña.
 {: .prompt-tip }
 
-![script de seguridad](mysql/remove-anonymous-users.webp)
+![script de seguridad](ubuntu/mysql-remove-anonymous-users.webp)
 
 Normalmente, a root solo se le debe permitir conectarse desde 'localhost'. Para así asegurar que no puedan adivinar la password de root desde la red. Así que deshabilitamos el logín remoto.
 

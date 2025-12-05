@@ -2,7 +2,7 @@
 title: "MySQL - Usar tipos de fechas y tiempos"
 icon: icon/mysql.svg
 emoji: 🐬
-categories: [Bases de Datos Relacionales, "MySQL", "Intermedio"]
+categories: [MySQL, "MySQL-Intermedio"]
 tags: [mysql]
 pin: true
 image:

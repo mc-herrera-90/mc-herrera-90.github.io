@@ -1,7 +1,7 @@
 ---
 title: "MySQL - Triggers"
 emoji: 🐬
-categories: [Bases de Datos Relacionales, "MySQL", "Intermedio"]
+categories:  [MySQL, "MySQL-Intermedio"]
 icon: icon/mysql.svg
 tags: [mysql]
 pin: true

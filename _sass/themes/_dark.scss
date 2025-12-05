@@ -111,19 +111,16 @@
 
   /* Code highlight colors */
   --language-border-color: #2d2d2d;
-  // --language-border-color: #21313d;
-  // --highlight-bg-color: #151515;
+  --language-border-color: #616366;
   --highlight-bg-color: #1f1f1f;
   --highlighter-rouge-color: #c9def1;
   --highlight-lineno-color: #808080;
   --inline-code-bg: rgba(255, 255, 255, 0.05);
   --code-color: #b0b0b0;
-  // --code-header-text-color: #6a6a6a;
   --code-header-text-color: #ccc;
   --code-header-bg: #3f4043;
 
   --code-header-muted-color: #353535;
-  // --code-header-icon-color: #565656;
   --code-header-icon-color: #aaa;
   --clipboard-checked-color: #2bcc2b;
   --filepath-text-color: #cacaca;
@@ -325,12 +322,6 @@
     color: #90a959;
   }
 
-  div[class*='language-'] {
-    // border: 1px solid #616366;
-    border: 1px double #616366; /* Primer color */
-    outline: 1px solid #000; /* Segundo color */
-    outline-offset: 0px; /* Lo acerca al borde */
-  }
   .language-terminal .highlight {
     background-color: var(--terminal-bg);
   }

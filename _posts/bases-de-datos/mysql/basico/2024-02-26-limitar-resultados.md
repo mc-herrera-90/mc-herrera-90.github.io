@@ -3,7 +3,7 @@ title: "MySQL - Cláusulas LIMIT y OFFSET"
 emoji: 🐬
 icon: icon/mysql.svg
 description: "Las cláusulas que permiten controlar la cantidad de resultados"
-categories: [Bases de Datos Relacionales, "MySQL", "Básico"]
+categories: [MySQL, "MySQL-Básico"]
 image:
   path: poster/mysql-limit-y-offset.webp
   lqip: data:image/webp;base64,UklGRpQAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSEAAAAABd6CobSOJP9h537umEREh+QNBFlTTthW995p+QwhhksgniwyuTAQhpHO/Eojo/wScS18QmhOrf0VWNoA5xhgLVlA4IC4AAACwAgCdASoUAAsAPzmGulOvKSWisAgB4CcJZwAAeyAA/u3GcM2Jni56py+qUAAA
