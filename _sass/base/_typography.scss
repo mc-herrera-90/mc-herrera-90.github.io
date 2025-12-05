@@ -7,16 +7,16 @@
   h#{$i} {
     @extend %heading;
     @if $i == 1 {
-      font-weight:800;
+      font-weight: 800;
       background: linear-gradient(
-          90deg,
-          var(--heading-color-title),
-          var(--heading-color-title-2)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+        90deg,
+        var(--heading-color-title),
+        var(--heading-color-title-2)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    
+
     @if $i > 1 {
       @extend %anchor;
     }
@@ -40,7 +40,7 @@
         font-size: 1rem + (5 - $i) * $size-factor;
         @include bp.xxl {
           font-size: 1.3rem + (5 - $i) * $size-factor;
-          font-family: "Metrophobic", sans-serif;
+          font-family: 'Metrophobic', sans-serif;
         }
       }
     } @else {
@@ -86,7 +86,6 @@ blockquote {
     position: relative;
     padding: 1rem 1rem 1rem 3rem;
     color: var(--prompt-text-color);
-
     @extend %rounded;
 
     &::before {
@@ -189,16 +188,19 @@ main {
       @extend %no-bottom-border;
     }
   }
-
-  @include bp.lte(bp.get(sm)) {
-    .content {
-      > blockquote[class^='prompt-'] {
+  .content {
+    > blockquote[class^='prompt-'] {
+      font-size: 1.05rem;
+      code {
+        font-size: 0.88rem;
+      }
+      @include bp.lte(bp.get(sm)) {
         @include mx.ml-mr(-1rem);
-
         border-radius: 0;
         border-right: 0;
         border-left: 0;
         max-width: none;
+        font-size: 0.92rem;
       }
     }
   }
