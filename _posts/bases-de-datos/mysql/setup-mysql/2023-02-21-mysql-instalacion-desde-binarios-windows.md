@@ -31,8 +31,8 @@ Existen varias formas de instalar MySQL en Windows, descargando el instalador of
 > Si prefieres, puedes ir directo a la descarga de [Mysql 8.0.28 para 64 bit](https://dev.mysql.com/downloads/file/?id=509736){:target='_blank'}
 {: .prompt-tip }
 
-![descarga de los binarios](mysql/download-binary-mysql-light.png){: .light }
-![descarga de los binarios](mysql/download-binary-mysql-dark.png){: .dark }
+![descarga de los binarios](mysql/download-binary-mysql-light.webp){: .light }
+![descarga de los binarios](mysql/download-binary-mysql-dark.webp){: .dark }
 
 - Una vez descargado el archivo, extraemos su contenido en una carpeta de preferencia. Por ejemplo:
   ```
