@@ -74,19 +74,21 @@ Instalar GitHub CLI es bastante sencillo y está disponible para diferentes sist
 {% tabs install-gh-cli %}
 {% tab install-gh-cli <i class="fa-brands fa-windows"></i> Windows %}
 
-En Windows, gh está disponible a través de [WinGet](https://learn.microsoft.com/es-es/windows/package-manager/winget/){:target='_blank'}, [Chocolatey](https://chocolatey.org/){:target='_blank'}, y en forma de instalador MSI en [https://github.com/cli/cli/releases/latest](https://github.com/cli/cli/releases/latest){:target='_blank'}:
+En Windows, gh está disponible a través de [WinGet](https://learn.microsoft.com/es-es/windows/package-manager/winget/){:target='_blank'}, [Chocolatey](https://chocolatey.org/){:target='_blank'}, y en forma de instalador MSI en la [página de releases](https://github.com/cli/cli/releases/latest){:target='_blank'}:
 
 - WinGet:
+
 ```terminal
 winget install --id GitHub.cli
 ```
 
 - Chocolatey:
+
 ```terminal
 choco install gh
 ```
 
-Los binarios precompilados se pueden descargar aquí:
+- Los binarios precompilados se pueden descargar aquí:
 
 <div id="releases-list">
   <p>Cargando la versión más reciente de Windows...</p>
@@ -96,6 +98,7 @@ Los binarios precompilados se pueden descargar aquí:
 function formatBytesToMB(bytes) {
   return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
 }
+
 async function fetchLatestWindowsRelease() {
   const container = document.getElementById('releases-list');
   try {
@@ -103,16 +106,19 @@ async function fetchLatestWindowsRelease() {
     const release = await response.json();
     const ul = document.createElement('ul');
     ul.className = 'list-group';
+
     release.assets
       .filter(asset => asset.name.toLowerCase().includes('windows'))
       .forEach(asset => {
         const li = document.createElement('li');
-        li.className = 'list-group-item d-flex justify-content-between align-items-center';
-        li.style.border = '1px solid var(--main-border-color);';
+        li.className = 'list-group-item d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center';
+
         const leftDiv = document.createElement('div');
-        leftDiv.className = 'd-flex align-items-center gap-2';
-        leftDiv.innerHTML = `<i class="fa fa-cube"></i> <a href="${asset.browser_download_url}" target="_blank">${release.name} — ${asset.name}</a>`;
+        leftDiv.className = 'd-flex align-items-center gap-2 text-wrap';
+        leftDiv.innerHTML = `<i class="fa fa-cube"></i> <a href="${asset.browser_download_url}" target="_blank" class="text-truncate text-wrap" style="max-width: 100%;">${release.name} — ${asset.name}</a>`;
+
         const rightDiv = document.createElement('div');
+        rightDiv.className = 'mt-1 mt-sm-0 ms-sm-2 text-end';
         rightDiv.textContent = formatBytesToMB(asset.size);
 
         li.appendChild(leftDiv);
@@ -126,7 +132,6 @@ async function fetchLatestWindowsRelease() {
     console.error(err);
   }
 }
-
 fetchLatestWindowsRelease();
 </script>
 {% endtab %}
