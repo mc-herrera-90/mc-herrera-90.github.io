@@ -286,8 +286,8 @@ Para el caso anterior, para pasar la validación, debemos respetar la convenció
 </div>
 <div class="highlight p-2">
 <code><pre style="overflow: inherit;">
-mcherrera@dev:~$ <span class="hl">git commit -m "chore(gitignore): nueva entrada - venv"</span>
-[main c537a0e] chore: add gitignore
+mcherrera@dev:~$ <span class="hl">git commit -m "chore(gitignore): nueva entrada -> node_modules"</span>
+[main c537a0e] chore(gitignore): nueva entrada -> node_modules
  1 file changed, 1 insertion(+)
  <span class="hl">create mode 100644 .gitignore</span>
 </pre></code>
