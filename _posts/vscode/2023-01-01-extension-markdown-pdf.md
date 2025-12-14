@@ -27,7 +27,6 @@ A continuación, puedes observar un ejemplo de cómo se vería el documento fina
 
 ### Compatibilidad con PlantUML
 
-
 Al ser compatible con [**PlantUML**](https://plantuml.com/){:target='_blank'}, esta extensión nos permite **insertar directamente el código de los diagramas en el archivo `.md`**, y al exportarlo a PDF se renderizan automáticamente con su formato y estilo.
 
 
@@ -49,10 +48,30 @@ Persona <|-- Estudiante
 @enduml
 ```
 {:file="md-pdf_plantuml.md"}
+> Este es un ejemplo breve, acotado solo al objetivo de aprendizaje. Recuerda definir las directivas de inicio y final; de lo contrario, el diagrama no se renderizará.
+> ```
+> @startuml
+> ...render...
+> @enduml
+> ```
+> {:file="demo.uml"}
+{: .prompt-info }
 
-A continuación, puedes ver cómo queda el documento final usando algunos diagramas de ejemplo:
+Con esto, abarcamos prácticamente todos los diagramas contemplados en el modelo C4.
+
+| Nivel | Nombre       | Qué muestra                            | Para quién es                       |
+| ----- | ------------ | -------------------------------------- | ----------------------------------- |
+| C1    | Contexto     | Sistema + usuarios + sistemas externos | Público general, gerencia, clientes |
+| C2    | Contenedores | Arquitectura general + tecnologías     | Arquitectos, desarrolladores        |
+| C3    | Componentes  | Módulos internos                       | Desarrolladores                     |
+| C4    | Código       | Clases y patrones de código            | Equipo técnico avanzado             |
+
+
+A continuación, puedes ver cómo queda el documento final usando algunos diagramas que diseñé para que puedas animarte:
 
 {% include embed/pdf.html file="pdf/markdown-pdf_plantuml.pdf" %}
+
+{% include circle-line.html %}
 
 ### Emojis
 
