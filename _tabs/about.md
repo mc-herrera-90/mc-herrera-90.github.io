@@ -6,7 +6,7 @@ media_subpath: /assets/media
 ---
 
 {% include about-me.html 
-    image="iam.webp" 
+    image="yo.webp" 
     author="@mcherrera" 
     subtitle="Tu aliado tecnológico" 
     tag="web" 
