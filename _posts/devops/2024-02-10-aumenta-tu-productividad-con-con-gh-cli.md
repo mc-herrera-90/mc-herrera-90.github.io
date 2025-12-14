@@ -99,32 +99,51 @@ function formatBytesToMB(bytes) {
   return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
 }
 
+function getIconByExtension(filename) {
+  return filename.toLowerCase().endsWith('.zip') ? 'fa-file-zipper' : 'fa-cube';
+}
+
 async function fetchLatestWindowsRelease() {
   const container = document.getElementById('releases-list');
   try {
     const response = await fetch('https://api.github.com/repos/cli/cli/releases/latest');
     const release = await response.json();
+
     const ul = document.createElement('ul');
     ul.className = 'list-group';
 
     release.assets
       .filter(asset => asset.name.toLowerCase().includes('windows'))
+      .sort((a, b) => {
+        const extA = a.name.split('.').pop().toLowerCase();
+        const extB = b.name.split('.').pop().toLowerCase();
+
+        if (extA === extB) return 0;
+        if (extA === 'msi') return -1;
+        if (extB === 'msi') return 1;
+        if (extA === 'zip') return -1;
+        if (extB === 'zip') return 1;
+        return 0;
+      })
       .forEach(asset => {
         const li = document.createElement('li');
         li.className = 'list-group-item d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center';
 
         const leftDiv = document.createElement('div');
-        leftDiv.className = 'd-flex align-items-center gap-2 text-wrap';
-        leftDiv.innerHTML = `<i class="fa fa-cube"></i> <a href="${asset.browser_download_url}" target="_blank" class="text-truncate text-wrap" style="max-width: 100%;">${release.name} — ${asset.name}</a>`;
+        leftDiv.className = 'd-flex align-items-center gap-2 flex-grow-1';
+        const iconClass = getIconByExtension(asset.name);
+        leftDiv.innerHTML = `<i class="fa ${iconClass}"></i> 
+          <a href="${asset.browser_download_url}" target="_blank" class="text-wrap d-inline-block">${release.name} — ${asset.name}</a>`;
 
         const rightDiv = document.createElement('div');
-        rightDiv.className = 'mt-1 mt-sm-0 ms-sm-2 text-end';
+        rightDiv.className = 'mt-1 mt-sm-0 ms-sm-2 text-end text-nowrap';
         rightDiv.textContent = formatBytesToMB(asset.size);
 
         li.appendChild(leftDiv);
         li.appendChild(rightDiv);
         ul.appendChild(li);
       });
+
     container.innerHTML = '';
     container.appendChild(ul);
   } catch (err) {
@@ -132,8 +151,11 @@ async function fetchLatestWindowsRelease() {
     console.error(err);
   }
 }
+
 fetchLatestWindowsRelease();
 </script>
+
+
 {% endtab %}
 {% tab install-gh-cli <i class="fa-brands fa-apple"></i> macOS %}
 Si usas Homebrew, puedes instalar `gh` con el siguiente comando:
@@ -230,7 +252,7 @@ __Demostración__:
 
 ### 1. Clonar Repositorios
 
-Aunque Git ya permite clonar repositorios desde la línea de comandos, con **`gh-cli`** puedes hacer esto aún más rápido.
+Aunque Git ya permite clonar repositorios desde la línea de comandos, con **`gh`** puedes hacer esto aún más rápido.
 
 ```bash
 gh repo clone <usuario>/<repositorio>
@@ -293,6 +315,153 @@ Si tu proyecto usa GitHub Actions para CI/CD, puedes visualizar el estado de tus
 gh run list
 ```
 {: .nolineno }
+
+## Automatización
+
+En los pipelines modernos de CI/CD, automatizar tareas repetitivas es clave para mantener la consistencia, mejorar la eficiencia y reducir errores humanos. Con GitHub CLI, es posible interactuar con repositorios y ejecutar acciones directamente desde scripts y pipelines, evitando depender de la interfaz web.
+
+### Integrando GitHub CLI en pipelines de CI/CD
+
+GitHub CLI se integra fácilmente en pipelines para automatizar tareas como la creación de releases, pull requests o issues. Esto permite que las operaciones de tu flujo de trabajo sean más consistentes y reproducibles, además de auditarse de manera sencilla.
+
+Antes de ver los ejemplos prácticos, los principales objetivos de esta integración son:
+
+- [x] Ejecutar acciones de GitHub sin depender de la interfaz web.
+- [x] Automatizar la creación y gestión de issues, pull requests y releases.  
+- [x] Mantener un flujo de trabajo reproducible y auditado.
+
+### 1. Crear un release automáticamente
+
+Cuando tu pipeline genera un nuevo build, puedes crear un release y subir los assets de manera automática usando un script dedicado (`ci-create-release.sh`).  
+
+**Ubicación del script:**
+
+```
+📂 repo
+└── 📂 ci-scripts
+    └── ci-create-release.sh
+````
+{: .noheader .fit-content }
+
+**Contenido del script:**
+
+```bash
+VERSION="v2.83.1"
+REPO="tu-usuario/tu-repo"
+
+# Crear release y subir assets del build
+gh release create $VERSION ./build/*.zip \
+  --repo $REPO \
+  --title "Release $VERSION" \
+  --notes "Actualización automática desde CI/CD"
+
+# Publicar release draft
+gh release edit $VERSION --draft=false --repo $REPO
+````
+{:file="ci-create-release.sh"}
+
+Este script puede ejecutarse **localmente** para pruebas o directamente desde un pipeline.
+
+**Integración con GitHub Actions:**
+
+Para automatizar el release al hacer push a la rama `main` o al crear un tag, creamos un workflow en `.github/workflows/release.yml`{: .filepath}:
+
+{% raw %}
+```yaml
+name: CI/CD Release
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clonar el repositorio
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Configurar GitHub CLI
+      - name: Set up GitHub CLI
+        uses: cli/gh-actions@v2
+        with:
+          version: latest
+
+      # Autenticación con token seguro
+      - name: Authenticate GH CLI
+        run: gh auth login --with-token < ${{ secrets.GITHUB_TOKEN }}
+
+      # Ejecutar el script de release
+      - name: Ejecutar script de release
+        run: ./ci-scripts/ci-create-release.sh
+```
+{:file="release.yml"}
+{% endraw %}
+
+**Cómo funciona:**
+
+1. **Checkout:** Se clona el repositorio para que el script tenga acceso a los builds y archivos.
+2. **Instalación de GitHub CLI:** Se asegura que `gh` esté disponible en el runner.
+3. **Autenticación segura:** `GITHUB_TOKEN` permite a `gh` interactuar con tu repositorio sin exponer credenciales.
+4. **Ejecución del script:** Se llama a `ci-create-release.sh`, que crea el release y sube los assets filtrando solo los builds de Windows, `.msi` y `.zip`.
+
+De esta manera, tu pipeline **automatiza por completo la creación de releases**, manteniendo un flujo reproducible y seguro.
+
+Cuando tu pipeline genera un nuevo build, puedes crear un release y subir los assets de manera automática:
+
+```bash
+VERSION="v2.83.1"
+REPO="tuusuario/tu-repo"
+
+# Crear release y subir assets del build
+gh release create $VERSION ./build/*.zip \
+  --repo $REPO \
+  --title "Release $VERSION" \
+  --notes "Actualización automática desde CI/CD"
+
+# Publicar release draft
+gh release edit $VERSION --draft=false --repo $REPO
+````
+{:file="ci-create-release.sh"}
+
+> Recuerda darle permisos de ejecución: 
+> ```terminal
+> chmod +x ci-create-release.sh
+> ```
+{: .prompt-info  }
+
+
+#### Ejemplo 2: Abrir un pull request automáticamente
+
+```bash
+git checkout -b update-dependencies
+git add .
+git commit -m "Actualización automática de dependencias"
+git push origin update-dependencies
+
+gh pr create --title "Update dependencies" \
+             --body "Actualización automática desde CI/CD" \
+             --base main \
+             --head update-dependencies
+```
+
+#### Ejemplo 3: Crear issues desde la pipeline
+
+```bash
+gh issue create --title "Tests fallando en CI" \
+                --body "Se detectaron fallos en los tests automatizados." \
+                --label bug
+```
+
+
+
+
+
 
 {% include circle-line.html %}
 
