@@ -13,7 +13,7 @@ timezone:
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
-title: "@mcherrera"
+title: "mcherrera"
 tagline: "~/dev/cloud-architect"
 description: Un blog sobre desarrollo y curiosidades
 url: "https://mc-herrera-90.github.io"
@@ -208,7 +208,6 @@ defaults:
 sass:
   style: compressed
 
-
 include:
   - _pages
 
@@ -240,7 +239,6 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
-
 
 plugins:
   - jekyll_sqlite
