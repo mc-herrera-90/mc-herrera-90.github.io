@@ -2,8 +2,14 @@
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper">
-    <a class="site-title d-block" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <p class="site-subtitle fst-italic mb-0">{{ site.tagline }}</p>
+   <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle mx-auto">
+        <img src="/assets/media/yo.png" width="112" height="112" alt="avatar" onerror="this.style.display='none'" style="width: 100%">
+    </a>
+    <div class="mx-auto text-center">
+    <a class="site-title d-block" href="{{ '/' | relative_url }}"><span style="color: var(--heading-color-title);">@</span>{{ site.title }}</a>
+    <p class="site-subtitle fst-italic mb-0"><span class="text-info">➜</span> {{ site.tagline }}</p>
+    </div>
+
   </header>
   <!-- .profile-wrapper -->
 
