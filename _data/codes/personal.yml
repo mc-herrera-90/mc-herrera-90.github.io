@@ -58,16 +58,36 @@ files:
       ## Enlaces
       - 🌐 Sitio: https://fullstack-java.mcherrera.dev/
 
-  - name: "projectos.md"
+  - name: "fullstack-python.md"
     language: "md"
     content_file: |
-      # Proyectos
-      Algunos de mis trabajos más recientes:
+      # FullStack Python
 
-      - **Portfolio interactivo:** React + Tailwind, mostrando mis habilidades y proyectos.
-      - **Sistema bancario simulado:** Python, manejo de validaciones y operaciones.
-      - **Dashboard en la nube:** AWS + Node.js, integración de APIs y monitoreo.
-      - Cada proyecto refleja eficiencia, aprendizaje y creatividad.
+      Plataforma web construida con Jekyll para documentar y estructurar
+      contenidos técnicos relacionados con Python y desarrollo web,
+      utilizada como apoyo durante el bootcamp de Talento Digital.
+
+      ## Contexto
+      Durante el desarrollo del bootcamp surgió la necesidad de contar con
+      un espacio claro y ordenado donde consultar conceptos, ejemplos
+      y referencias técnicas sin depender de múltiples fuentes dispersas.
+
+      Este proyecto se enfocó en transformar apuntes y material de estudio
+      en un sitio navegable, fácil de mantener y optimizado.
+
+      ## Enfoque
+      - Priorización del contenido por sobre la interfaz
+      - Estructura pensada para estudio progresivo
+      - Uso de generación estática para simplicidad y rendimiento
+
+      ## Stack
+      - Generador estático: Jekyll
+      - Contenido: Markdown
+      - Frontend: HTML, CSS
+      - Deploy: Subdominio propio
+
+      ## Enlaces
+      - 🌐 Sitio: https://fullstack-python.mcherrera.dev/
 
   - name: "contact.eml"
     language: "text"
