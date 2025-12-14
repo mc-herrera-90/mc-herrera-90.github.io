@@ -1,0 +1,199 @@
+{% assign techs_left = "angular,html,webpack,react,vite,vue,javascript,nextjs,figma,tailwind,react-bootstrap,astro,webcomponent,svelte,lit" | split: "," %}
+{% assign techs_right = "git,github,java,mysql,aws,postman,rails,django,docker,postgresql,mongodb,nginx,nodejs,python,sqlserver" | split: "," %}
+
+<div class="carousel-wrapper">
+  <div class="carousel-line line-left">
+    <div class="carousel-track">
+      {% for tech in techs_left %}
+      <div class="tech-icon {{ tech }}" data-tech="{{ tech | upcase }}">
+        {% include techs/{{ tech }}.svg %}
+      </div>
+      {% endfor %}
+      {% for tech in techs_left %}
+      <div class="tech-icon {{ tech }}" data-tech="{{ tech | upcase }}">
+        {% include techs/{{ tech }}.svg %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="carousel-title-wrapper">
+    <h2 class="carousel-title" id="dynamic-title">...</h2>
+  </div>
+
+  <div class="carousel-line line-right">
+    <div class="carousel-track">
+      {% for tech in techs_right %}
+      <div class="tech-icon {{ tech }}" data-tech="{{ tech | upcase }}">
+        {% include techs/{{ tech }}.svg %}
+      </div>
+      {% endfor %}
+      {% for tech in techs_right %}
+      <div class="tech-icon {{ tech }}" data-tech="{{ tech | upcase }}">
+        {% include techs/{{ tech }}.svg %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<style>
+/* --- FIX: evitar cortes del hover (overflow visible) --- */
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden; /* ← CLAVE */
+  max-width: 100%;
+  padding: 1rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Title center stays untouched */
+.carousel-title-wrapper {
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+
+/* Your title styles unchanged */
+.carousel-title {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(59,130,246,0.15));
+  border: 1px solid rgba(59,130,246,0.3);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  animation: fade-in 1s ease, floatUpDown 3s ease-in-out infinite;
+}
+
+.carousel-line {
+  position: relative;
+  display: flex;
+  white-space: nowrap;
+  gap: 2rem;
+  overflow: visible; /* ← CLAVE */
+  padding: 0.4rem 0;
+  z-index: 1;
+}
+
+.carousel-line::before,
+.carousel-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.carousel-line::before {
+  left: 0;
+  background: linear-gradient(
+      to right,
+      var(--main-bg, #fff) 0%,
+      transparent 80%
+  );
+}
+
+/* fade right */
+.carousel-line::after {
+  right: 0;
+  background: linear-gradient(
+      to left,
+      var(--main-bg, #fff) 0%,
+      transparent 80%
+  );
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+}
+
+.carousel-line.line-right .carousel-track {
+  animation: scroll-right 50s linear infinite;
+}
+
+/* SCROLL infinite smooth */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.tech-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; /* hover por encima de los fades */
+}
+
+.tech-icon svg {
+  width: 50px;
+  height: 50px;
+  opacity: 0.85;
+  filter: grayscale(100%) brightness(0.8);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  display: block;
+}
+
+/* HOVER sin cortes */
+.tech-icon:hover svg {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 6px rgba(100,200,255,0.45));
+  opacity: 1;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+  .carousel-line::before,
+  .carousel-line::after {
+    width: 48px;
+  }
+
+  .carousel-line svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-title {
+    font-size: 1.5rem;
+  }
+}
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.getElementById("dynamic-title");
+  const defaultTitle = "...";
+
+  document.querySelectorAll(".tech-icon").forEach(icon => {
+    icon.addEventListener("mouseenter", () => {
+      title.textContent = icon.dataset.tech;
+    });
+    icon.addEventListener("mouseleave", () => {
+      title.textContent = defaultTitle;
+    });
+  });
+});
+</script>
