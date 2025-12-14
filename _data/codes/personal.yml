@@ -1,50 +1,64 @@
 files:
-  - name: "about.md"
+  - name: "onlyflans.md"
     language: "md"
     content_file: |
-      # Acerca de mí
-      Soy un desarrollador Fullstack que disfruta transformar ideas en experiencias digitales.
+      # OnlyFlans
 
-      - Creo interfaces atractivas y fáciles de usar.
-      - Backend sólido y eficiente, siempre optimizando.
-      - Automatización y buenas prácticas forman parte de mi día a día.
-      - Aprender nuevas tecnologías es mi motor constante.
+      Aplicación web desarrollada con Django para la gestión y visualización
+      de productos, enfocada en una experiencia simple y clara para el usuario.
 
-  - name: "web.md"
+      ## Contexto
+      OnlyFlans nace como un proyecto práctico para aplicar el patrón MVT de Django.
+
+      El objetivo fue construir una aplicación funcional de principio a fin,
+      incluyendo backend, frontend y despliegue en producción.
+
+      ## Funcionalidades
+      - Visualización de catálogo de productos
+      - Sistema de autenticación de usuarios
+      - Control de acceso a vistas protegidas
+      - Panel administrativo con Django Admin
+
+      ## Stack
+      - Backend: Django
+      - Frontend: HTML, CSS
+      - Base de datos: PostgreSQL
+      - Deploy: Fly.io
+
+      ## Enlaces
+      - 🌐 Demo: https://onlyflans.fly.dev/
+      - 📦 Repositorio: https://github.com/EniDev911/onlyflans
+
+  - name: "fullstack-java.md"
     language: "md"
     content_file: |
-      # Desarrollo Web
-      Me apasiona construir aplicaciones que la gente disfrute usar.
+      # FullStack Java
 
-      - HTML, CSS y JavaScript son mis herramientas de creación.
-      - Experiencia con React, Next.js y Tailwind CSS.
-      - Interfaces responsive y accesibles para todos.
-      - Cada línea de código busca eficiencia y claridad.
+      Sitio web desarrollado con React como iniciativa personal para
+      centralizar y compartir recursos útiles con compañeros del curso
+      Full Stack en Generation.
 
-  - name: "cloud.md"
-    language: "md"
-    content_file: |
-      # Nube y DevOps
-      Llevar proyectos a la nube me permite combinar escalabilidad y creatividad.
+      ## Contexto
+      El proyecto surge de la necesidad de organizar apuntes, enlaces
+      y material de apoyo en un solo lugar, facilitando el acceso a
+      recursos y soluciones de distintos desafíos durante el proceso de aprendizaje.
 
-      - Despliegues en AWS y Firebase.
-      - Flujos CI/CD para eficiencia continua.
-      - Monitoreo y optimización de apps en producción.
-      - Seguridad y escalabilidad siempre presentes.
+      ## Funcionalidades
+      - Interfaz desarrollada con React
+      - Organización de recursos por secciones
+      - Navegación simple y clara
+      - Enfoque en usabilidad y accesibilidad
 
+      ## Stack
+      - Frontend: React
+      - Lenguaje: JavaScript
+      - Estilos: CSS
+      - Deploy: Subdominio propio
 
-  - name: "skills.md"
-    language: "md"
-    content_file: |
-      # Habilidades
-      Mis herramientas y tecnologías favoritas:
+      ## Enlaces
+      - 🌐 Sitio: https://fullstack-java.mcherrera.dev/
 
-      - **Frontend:** HTML, CSS, JS, React, Next.js, Tailwind
-      - **Backend:** Node.js, Express, SQL, MongoDB
-      - **DevOps / Cloud:** AWS, Firebase, Docker, CI/CD
-      - **Extras:** Git, Testing, Buenas prácticas, Resolución de problemas
-
-  - name: "projects.md"
+  - name: "projectos.md"
     language: "md"
     content_file: |
       # Proyectos
@@ -67,15 +81,15 @@ files:
 
       Hola Marco 👋,
 
-      Mi nombre es [Tu nombre] y me encontré con tu portfolio.  
+      Mi nombre es [Tu nombre] y me encontré con tu portfolio.
       Estoy interesado en [colaborar contigo / aprender de tus proyectos / discutir una idea / otra razón].
 
-      Me encantaría poder hablar contigo sobre [describir el motivo o proyecto].  
-      Aquí están mis datos de contacto:  
-      - Email: [Tu correo]  
+      Me encantaría poder hablar contigo sobre [describir el motivo o proyecto].
+      Aquí están mis datos de contacto:
+      - Email: [Tu correo]
       - LinkedIn / GitHub / Portfolio: [opcional]
 
       Espero tu respuesta y muchas gracias por tu tiempo.
 
-      Saludos,  
+      Saludos,
       [Tu nombre]
