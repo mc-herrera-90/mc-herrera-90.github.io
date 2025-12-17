@@ -32,18 +32,38 @@
   issuer: "Desafío Latam"
   date: 2023-04-05
   url: "https://empieza.desafiolatam.com/v/vUqDaYBDwVtBhBFKJgoV15wT"
-  
+
 - title: "Python Basic"
   issuer: "HackerRank"
   date: 2022-06-13
   url: "https://www.hackerrank.com/certificates/c390e81818ed"
+
+- title: "Control de versiones"
+  issuer: "Capacítate para el empleo"
+  date: 2021-09-16
+  url: "https://aprende.org/verifica/b5c555aa-cb1d-4854-849f-49d6f22fc0f0/671327d8-fc21-4f99-9a70-e6130c17ef3c"
 
 - title: "Desarrollador Front-end"
   issuer: "Capacítate para el empleo"
   date: 2020-02-27
   url: "https://capacitateparaelempleo.org/verifica/b5c555aa-cb1d-4854-849f-49d6f22fc0f0/73b48bbf-94e9-4045-92e9-0004f3cc0b0b"
 
+- title: "Administrador de servidores"
+  issuer: "Capacítate para el empleo"
+  date: 2020-02-22
+  url: "https://aprende.org/verifica/b5c555aa-cb1d-4854-849f-49d6f22fc0f0/e301a34c-2e69-4783-8ef2-e36238d60ec8"
+
 - title: "Desarrollador Backend"
   issuer: "Capacítate para el empleo"
   date: 2020-02-20
   url: "https://capacitateparaelempleo.org/verifica/b5c555aa-cb1d-4854-849f-49d6f22fc0f0/11a25bcb-4974-489e-9704-7b47c28d4e01"
+
+- title: "Lógica de programación"
+  issuer: "Capacítate para el empleo"
+  date: 2019-12-28
+  url: "https://aprende.org/verifica/b5c555aa-cb1d-4854-849f-49d6f22fc0f0/cbd6f51f-4f2e-4cad-b2e4-dbd1936e4a54"
+
+- title: "Administrador de bases de datos"
+  issuer: "Capacítate para el empleo"
+  date: 2019-09-24
+  url: "https://aprende.org/verifica/b5c555aa-cb1d-4854-849f-49d6f22fc0f0/5875789b-fa2e-459f-8054-85cf348fbfd9"
