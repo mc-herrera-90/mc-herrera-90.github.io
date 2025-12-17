@@ -414,7 +414,6 @@
             if rowcount != 1:
                 raise Exception("Error al insertar usuario")
 
-            # ✅ obtener el ID generado POR MYSQL
             sql_id = "SELECT LAST_INSERT_ID() AS id"
             rows = self._conexion.ejecutar_query(sql_id)
 
@@ -573,3 +572,22 @@
         def abrir(self) -> bool:
             """Abre la conexión si no está abierta. Devuelve True si se conecta correctamente."""
             return self._conectar() is not None
+
+- name: "persistencia/tipos.py"
+  language: "python"
+  content_file: |
+    """
+    Tipos auxiliares para la capa de persistencia.
+
+    Estos tipos se utilizan para describir los resultados devueltos por queries SQL
+    y los parámetros que pueden recibir dichas consultas.
+    """
+    from typing import Any, Dict, Iterable, List, Optional, Tuple, Union
+
+    RowDict = Dict[str, Any]
+
+    RowTuple = Tuple[Any, ...]
+
+    QueryResult = List[RowDict]
+
+    SQLParams = Optional[Union[Tuple[Any, ...], List[Any], Iterable[Any]]]
