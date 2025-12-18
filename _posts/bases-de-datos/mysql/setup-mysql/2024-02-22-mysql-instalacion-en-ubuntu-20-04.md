@@ -11,7 +11,6 @@ image:
 pin: true
 ---
 
-
 <div style="text-align: center;" markdown="1">
   ❤️{% include {{ page.icon }} %}{:style="width:190px;"}
 </div>

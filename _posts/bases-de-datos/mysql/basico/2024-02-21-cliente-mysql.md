@@ -248,7 +248,7 @@ mysql> <span class='hl'>SHOW DATABASES;</span> <span style='color: var(--text-mu
 | performance_schema        |
 | sys                       |
 +---------------------------+
-mysql> <span class='hl'>USE ecotech_solutions_company;</span> <span style='color: var(--text-muted-color)'>-- Seleccionar la base de datos 'ecotech_solutions_company'</span>
+mysql> <span class='hl'>USE ecotech_solutions_company;</span> <span style='color: var(--text-muted-color)'>-- Selecciona la base de datos 'ecotech_solutions_company'</span>
 Database changed
 mysql> <span class='hl'>SHOW TABLES;</span> <span style='color: var(--text-muted-color)'>-- Mostrar todas las tablas de la base de datos seleccionada</span>
 +-------------------------------------+
