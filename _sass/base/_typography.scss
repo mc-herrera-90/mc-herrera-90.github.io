@@ -181,6 +181,9 @@ main {
       }
     }
   }
+  strong {
+    color: var(--text-color-b, rgb(55, 77, 132));
+  }
   .categories,
   #tags,
   #archives {

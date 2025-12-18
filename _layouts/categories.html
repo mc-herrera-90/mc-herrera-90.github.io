@@ -7,10 +7,31 @@ layout: page
 
 {% assign HEAD_PREFIX = 'h_' %}
 {% assign LIST_PREFIX = 'l_' %}
-
 {% assign group_index = 0 %}
 
-{% assign sort_categories = site.categories | sort  %}
+<!-- ========================= -->
+<!-- Alphabet Filter (A–Z) -->
+<!-- ========================= -->
+<div class="alphabet-filter mb-4">
+  {% assign alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split: "" %}
+  {% for letter in alphabet %}
+    <button
+      class="btn btn-sm btn-secondary me-1 mb-1 alphabet-btn"
+      data-letter="{{ letter }}"
+    >
+      {{ letter }}
+    </button>
+  {% endfor %}
+  <button
+    class="btn btn-sm mb-1 alphabet-btn"
+    style="background: var(--text-color); color: var(--main-bg)"
+    data-letter="all"
+  >
+    Todos
+  </button>
+</div>
+
+{% assign sort_categories = site.categories | sort %}
 
 {% for category in sort_categories %}
   {% assign category_name = category | first %}
@@ -29,11 +50,14 @@ layout: page
       {% endif %}
     {% endfor %}
 
-    {% assign sub_categories = sub_categories | sort: "date" | reverse %}
+    {% assign sub_categories = sub_categories | sort %}
     {% assign sub_categories_size = sub_categories | size %}
+    {% assign first_letter = category_name | slice: 0, 1 | upcase %}
 
-    <div class="card categories">
-      <!-- top-category -->
+    <div class="card categories category-item" data-letter="{{ first_letter }}">
+      <!-- ========================= -->
+      <!-- Top Category -->
+      <!-- ========================= -->
       <div
         id="{{ HEAD_PREFIX }}{{ group_index }}"
         class="card-header d-flex justify-content-between hide-border-bottom"
@@ -41,72 +65,49 @@ layout: page
         <span class="ms-2">
           <i class="far fa-folder{% if sub_categories_size > 0 %}-open{% endif %} fa-fw"></i>
 
-          {% capture _category_url %}/categories/{{ category_name | slugify | url_encode }}/{% endcapture %}
-          <a href="{{ _category_url | relative_url }}" class="mx-2">{{ category_name }}</a>
+          {% capture _category_url %}/categories/{{ category_name | slugify }}/{% endcapture %}
+          <a href="{{ _category_url | relative_url }}" class="mx-2">
+            {{ category_name }}
+          </a>
 
-          <!-- content count -->
           {% assign top_posts_size = site.categories[category_name] | size %}
           <span class="text-muted small font-weight-light">
             {% if sub_categories_size > 0 %}
-              {{ sub_categories_size }}
-              {% if sub_categories_size > 1 %}
-                {{
-                  site.data.locales[lang].categories.category_measure.plural
-                  | default: site.data.locales[lang].categories.category_measure
-                }}
-              {% else %}
-                {{
-                  site.data.locales[lang].categories.category_measure.singular
-                  | default: site.data.locales[lang].categories.category_measure
-                }}
-              {% endif -%}
-              ,
+              {{ sub_categories_size }},
             {% endif %}
-
             {{ top_posts_size }}
-
-            {% if top_posts_size > 1 %}
-              {{
-                site.data.locales[lang].categories.post_measure.plural
-                | default: site.data.locales[lang].categories.post_measure
-              }}
-            {% else %}
-              {{
-                site.data.locales[lang].categories.post_measure.singular
-                | default: site.data.locales[lang].categories.post_measure
-              }}
-            {% endif %}
           </span>
         </span>
 
-        <!-- arrow -->
         {% if sub_categories_size > 0 %}
           <a
             href="#{{ LIST_PREFIX }}{{ group_index }}"
             data-bs-toggle="collapse"
             aria-expanded="true"
-            aria-label="{{ HEAD_PREFIX }}{{ group_index }}-trigger"
             class="category-trigger hide-border-bottom"
           >
             <i class="fas fa-fw fa-angle-down"></i>
           </a>
         {% else %}
-          <span data-bs-toggle="collapse" class="category-trigger hide-border-bottom disabled">
+          <span class="category-trigger hide-border-bottom disabled">
             <i class="fas fa-fw fa-angle-right"></i>
           </span>
         {% endif %}
       </div>
-      <!-- .card-header -->
-{% comment %} {{ category_name | slugify | url_encode }}/ {% endcomment %}
-      <!-- Sub-categories -->
+
+      <!-- ========================= -->
+      <!-- Sub Categories -->
+      <!-- ========================= -->
       {% if sub_categories_size > 0 %}
-        <div id="{{ LIST_PREFIX }}{{ group_index }}" class="collapse show" aria-expanded="true">
+        <div id="{{ LIST_PREFIX }}{{ group_index }}" class="collapse show">
           <ul class="list-group">
             {% for sub_category in sub_categories %}
               <li class="list-group-item">
                 <i class="far fa-folder fa-fw"></i>
-                {% capture _sub_ctg_url %}/categories/{{ sub_category | slugify | url_encode }}/{% endcapture %}
+
+                {% capture _sub_ctg_url %}/categories/{{ sub_category | slugify }}/{% endcapture %}
                 {% assign parts = sub_category | split: "-" %}
+
                 <a href="{{ _sub_ctg_url | relative_url }}" class="mx-2">
                   {% if parts.size > 1 %}
                     {{ parts[1] }}
@@ -114,20 +115,10 @@ layout: page
                     {{ sub_category }}
                   {% endif %}
                 </a>
+
                 {% assign posts_size = site.categories[sub_category] | size %}
                 <span class="text-muted small font-weight-light">
                   {{ posts_size }}
-                  {% if posts_size > 1 %}
-                    {{
-                      site.data.locales[lang].categories.post_measure.plural
-                      | default: site.data.locales[lang].categories.post_measure
-                    }}
-                  {% else %}
-                    {{
-                      site.data.locales[lang].categories.post_measure.singular
-                      | default: site.data.locales[lang].categories.post_measure
-                    }}
-                  {% endif %}
                 </span>
               </li>
             {% endfor %}
@@ -135,8 +126,25 @@ layout: page
         </div>
       {% endif %}
     </div>
-    <!-- .card -->
 
     {% assign group_index = group_index | plus: 1 %}
   {% endif %}
 {% endfor %}
+
+<!-- ========================= -->
+<!-- Alphabet Filter Script -->
+<!-- ========================= -->
+<script>
+  document.querySelectorAll(".alphabet-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const letter = btn.dataset.letter;
+
+      document.querySelectorAll(".category-item").forEach(cat => {
+        cat.style.display =
+          letter === "all" || cat.dataset.letter === letter
+            ? ""
+            : "none";
+      });
+    });
+  });
+</script>
