@@ -2,21 +2,39 @@
 title: "MySQL - Cliente de línea de comandos"
 emoji: 🐬
 pin: true
-description: "herramienta de línea de comandos que permite conectarse a servidores locales o remotos, ejecutar consultas, gestionar bases de datos de forma directa y automatizar tareas desde la terminal."
+description: "conecta a servidores locales o remotos, gestiona bases de datos y automatiza tareas"
 categories: [MySQL, "MySQL-Básico"]
 tags: [Bases de Datos]
+icon: icon/mysql.svg
 image:
     path: poster/mysql-cliente-terminal.webp
     lqip: data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJQAXf+A765PmdR4q07gAA/uqLJcRZMeZLMqSqqNHxfbqvYo6tqfPV1md4ZJcvyyr2o1Cmv1GQxsB76tOaGDaVRvrfisE2NnJfBGEmCMTHmRwAAAA=
 ---
 
-Al instalar MySQL, dentro del paquete de instalación, se incluye una herramienta para conectarnos a un servidor mediante línea de comandos (a menudo, se denomina «cliente de línea de comandos»), el programa se llama `mysql` y permite conectarse a un servidor y abrir una sesión como cliente para ejecutar sentencias **SQL** con capacidades de edición. Esta herramienta admite tanto un uso interactivo como no interactivo.
+<div style="text-align: center;" markdown="1">
+  ❤️{% include {{ page.icon }} %}{:style="width:190px;"}
+</div>
+
+## Alcance de esta guía
+
+En este artículo veremos cómo utilizar el **cliente de línea de comandos de MySQL** para conectarse a un servidor, ejecutar consultas y trabajar con resultados de manera interactiva y no interactiva. Los objetivos son:
+
+* [x] Conectarse a un servidor MySQL usando el cliente `mysql`
+* [x] Ejecutar sentencias SQL básicas y ver sus resultados
+* [x] Usar el cliente en **modo interactivo** y **modo no interactivo**
+* [x] Redirigir la salida de consultas a archivos o canalizaciones de comandos
+
+> Antes de comenzar a usar el cliente de línea de comandos de MySQL, asegúrate de contar con acceso a una instalación de MySQL. Si aún no tienes MySQL instalado, puedes revisar estos [posts sobre instalaciones de MySQL](/categories/mysql-setup/)
+{: .prompt-info }
+
+{% include circle-line.html %}
+
+Al instalar MySQL, el paquete de instalación incluye una herramienta para conectarse a un servidor mediante línea de comandos (a menudo denominada «cliente de línea de comandos»). El programa se llama `mysql` y permite conectarse al servidor y abrir una sesión como cliente para ejecutar sentencias **SQL** con capacidades de edición. Esta herramienta admite tanto un uso interactivo como no interactivo.
 
 - En __modo interactivo__, los resultados de las consultas se muestran en una tabla con formato ASCII, lo que facilita su lectura.
 - En __modo no interactivo__ (por ejemplo, cuando se utiliza en scripts o como parte de una canalización), los resultados se presentan en formato separado por tabulaciones.
 
 Por ejemplo, al emplear una __canalización de comandos__:
-
 
 {% capture code %}
 <span class="hl">$ echo "SELECT NOW();" | mysql -u root -p</span>
@@ -45,11 +63,11 @@ Enter password:
 Otro ejemplo, redirigir la salida a __un archivo__:
 
 {% capture code2 %}
-<span class="hl">$ mysql -u root -p -e "SHOW DATABASES;" &gt; mis_bases.txt</span>
+<span class="hl">$ mysql -u root -p -e "SHOW DATABASES;" &gt; mis_bases_de_datos.txt</span>
 Enter password:
-<span class="hl">$ cat mis_bases.txt</span>
+<span class="hl">$ cat mis_bases_de_datos.txt</span>
 Database
-ecommerce
+ecommerce_rincon_verde
 ecotech_solutions_company
 information_schema
 mysql
@@ -58,12 +76,16 @@ sys
 {% endcapture %}
 {% include terminal-wrapper.html content=code2 %}
 
-## Localizar mysql en Windows
+## Localizar MySQL
 
-La ubicación del cliente `mysql.exe` en Windows puede variar según el método de instalación utilizado. A continuación, se detallan las rutas más comunes dependiendo del paquete o plataforma empleada.
+A pesar de que, al instalarlo, el cliente de MySQL queda disponible simplemente invocando `mysql` desde la terminal o símbolo de sistema, puede ocurrir que no esté **configurado en la variable de entorno `PATH`**. En esos casos, será necesario localizar el ejecutable para poder invocarlo directamente.
 
-### En XAMPP
+### En Windows
 
+La ubicación en Windows puede variar según el método de instalación utilizado. A continuación, se detallan las rutas más comunes dependiendo del paquete instalado.
+
+{% tabs ubicar_mysql_windows %}
+{% tab ubicar_mysql_windows Xampp %}
 Si usas XAMPP, el cliente generalmente se encuentra en la siguiente ruta:
 
 ```
@@ -71,11 +93,9 @@ C:\xampp\mysql\bin\mysql.exe
 ```
 {: .noheader .fit-content }
 
-
-![XAMPP MYSQL PATH](mysql/mysql-cli-xampp-path.webp)
-
-### En WAMP
-
+![XAMPP MYSQL PATH](mysql/mysql-cli-xampp-path.webp){:.rounded .bg-secondary-subtle .p-2}
+{% endtab %}
+{% tab ubicar_mysql_windows Wamp %}
 Su usas WAMP, el cliente generalmente se encuentra (según versión instalada y arquitectura) en la siguiente ruta:
 
 ```
@@ -83,9 +103,11 @@ C:\wamp64\bin\mysql\mysql8.0.x\bin\mysql.exe
 ```
 {: .noheader .fit-content }
 
-![WAMP MYSQL PATH](mysql/mysql-cli-wamp-path.webp)
+![WAMP MYSQL PATH](mysql/mysql-cli-wamp-path.webp){:.rounded .bg-secondary-subtle .p-2}
+{% endtab %}
+{% endtabs %}
 
-## Localizar mysql en otros sistemas operativos
+### En otros sistemas operativos
 
 A continuación, se muestra la ubicación de los binarios para Linux y macOS:
 
@@ -120,21 +142,9 @@ __Homebrew__:
 {% endtab %}
 {% endtabs %}
 
+## Conectarse al servidor MySQL
 
-## Abrir una conexión
-
-Una vez tenemos localizado el programa, podemos conectarnos a cualquier servidor MySQL que tengamos acceso. Para ello, abrimos una terminal y ejecutamos el programa `mysql` pasando como argumentos las opciones básicas de conexión (`host`, `user`, `password`, etc).
-
-Otros parámetros comunes son:
-
-| Opción           | Descripción                                     |
-| ---------------- | ----------------------------------------------- |
-| `-u usuario`     | Usuario con el que se conecta                   |
-| `-p`             | Solicita contraseña                             |
-| `-h host`        | Dirección del servidor (por defecto: localhost) |
-| `-P puerto`      | Puerto del servidor (por defecto: 3306)         |
-| `-D nombre_bd`   | Conectarse directamente a una base de datos     |
-| `--protocol=tcp` | Forzar el uso de TCP/IP                         |
+Una vez localizado `mysql`, podemos conectarnos a cualquier servidor MySQL al que tengamos acceso. Para ello, basta con abrir una terminal y ejecutar el programa `mysql`, pasando como argumentos las opciones básicas de conexión, como __host__, __usuario__, __contraseña__, entre otros.
 
 ### Conectarse a un servidor local
 
@@ -144,7 +154,7 @@ A continuación, probaremos una conexión local:
 mysql -u root -h localhost -p
 ```
 
-Estos parámetros son sencillos, aunque dependiendo del método de autenticación podría variar pero simplemente necesitamos especificar 2:
+Estos parámetros son sencillos, aunque dependiendo del método o plugin de autenticación podría variar pero simplemente necesitamos especificar 2:
 
 - `-u`: El usuario que se configuró en el proceso de instalación u otro existente creado por un usuario administrador.
 - `-p`: El password para el usuario especificado.
@@ -152,11 +162,21 @@ Estos parámetros son sencillos, aunque dependiendo del método de autenticació
 > Si el servidor se ejecuta en su propia máquina, no es necesario especificar el parámetro `-h` ya que el cliente mysql por defecto usa la opción de `localhost` .
 {: .prompt-tip }
 
-Cuando logramos conectarnos correctamente, MySQL muestra un mensaje de bienvenida y cambia el prompt de la consola, indicando que estamos en una sesión activa listos para ejecutar comandos SQL. A continuación, tenemos un ejemplo de conexión a través del CMD:
+Al ejecutar la instrucción anterior, se nos solicitará la contraseña:
+
+{% capture conn1 %}
+$ mysql -u root -h localhost -p
+<span class='hl'>Enter password: </span>
+{% endcapture %}
+{% include terminal-wrapper.html content=conn1 %}
+
+Cuando la conexión se realiza correctamente, MySQL muestra un **mensaje de bienvenida** y cambia el **prompt de la consola**, indicando que estamos en una sesión activa y listos para ejecutar comandos SQL.
+
+A continuación, se muestra un ejemplo de conexión desde la terminal o CMD:
 
 <pre>
 <code class="language-cmd">C:\Users\mcherrera&gt; <span style='background: #ff04;'>mysql -u root -p -h localhost -P 3306</span>
-Enter password: ****
+Enter password: 
 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 123
@@ -176,14 +196,14 @@ mysql -u usuario -p -h 192.168.1.50 -P 3306
 
 Donde:
 
-* `-h`: Es la dirección IP o nombre del host remoto.
-* `-P`: Especifica el puerto del servidor MySQL (si es diferente al 3306).
+* `-h`: ahora se indica la dirección IP o nombre del host remoto.
+* `-P`: sirve para especificar el puerto del servidor MySQL, en caso de ser diferente al `3306` por defecto.
 * `-u` y `-p`: Igual que en el caso local, indican el usuario y la contraseña.
 
-> La conexión será exitosa siempre y cuando el servidor remoto permita conexiones desde tu IP y que el puerto 3306 esté abierto y accesible desde el exterior.
+> La conexión será exitosa siempre y cuando el servidor remoto permita conexiones desde tu IP y que el puerto `3306` esté abierto y accesible desde el exterior.
 {: .prompt-info }
 
-Una vez establecida la conexión, el comportamiento es el mismo: veremos el mensaje de bienvenida y podremos comenzar a ejecutar sentencias SQL.
+Una vez establecida la conexión, el comportamiento es el mismo: se mostrará el **mensaje de bienvenida** y podrás ejecutar sentencias SQL directamente desde la sesión activa.
 
 <div class="language-plaintext highlighter-rouge">
 <div class="code-header">
@@ -206,32 +226,92 @@ MySQL [(none)]&gt; <span style="color: gray;">-- Aquí puedes escribir tus sente
 </div>
 </div>
 
-## Opciones para el cliente de línea de comandos
+## Modo interactivo del cliente MySQL
 
-El cliente MySQL admite una gran variedad de opciones que pueden especificarse tanto en la línea de comandos como guardar preferencias en los archivos de configuración (`my.cnf`, `my.ini`) usando las directivas `[mysql]` y `[client]`.
+Cuando hablamos de **modo interactivo**, nos referimos a estar dentro de una **sesión activa del cliente MySQL**, es decir, cuando ya hemos iniciado sesión y la conexión es correcta, el prompt de la consola nos invita a ejecutar comandos SQL.
 
-Además de las opciones populares que ya mencionamos como `-u`, `-p`, `h` o `-P`, existen muchas otras menos conocidas pero muy útiles para tareas específicas, como configurar el formato de resultados, activar el modo silencioso (evitando entre otras cosas, el mensaje de bienvenida), leer variables desde archivos externos o cambiar el comportamiento del historial.
+![Prompt esperando instrucciones](mysql/prompt-mysql-wait-dark.webp){:.dark}
+![Prompt esperando instrucciones](mysql/prompt-mysql-wait-light.webp){:.light .bg-secondary-subtle .rounded}
+_Accediendo al modo interactivo_
 
-A continuación se muestra una tabla con algunas de las más utilizadas, junto con una breve descripción:
+En __modo interactivo__, puedes experimentar con tus consultas, veamos algunos ejemplos prácticos:
 
-| Opción                    | Descripción                                                                                  |
-|--------------------------|----------------------------------------------------------------------------------------------|
-| `-u, --user`              | Especifica el nombre de usuario para autenticarse.                                           |
-| `-p[password]`            | Solicita o especifica la contraseña del usuario. Si se omite, la pedirá de forma interactiva.|
-| `-h, --host`              | Define el hostname del servidor MySQL al que se desea conectar.                             |
-| `-P, --port`              | Puerto TCP/IP utilizado para la conexión (por defecto 3306).                                |
-| `-D, --database`          | Selecciona directamente la base de datos al iniciar la sesión.                              |
-| `-e, --execute`           | Ejecuta una sentencia SQL directamente desde la línea de comandos.                          |
-| `-H, --html`              | Devuelve el resultado en formato HTML (útil para reportes y exportación visual).            |
-| `--ssl-mode`              | Controla el uso de SSL/TLS en la conexión (`REQUIRED`, `DISABLED`, `VERIFY_CA`, etc.).      |
-| `--default-character-set`| Establece el conjunto de caracteres de la conexión (por ejemplo, `utf8mb4`).                 |
-| `--column-type-info`     | Muestra información adicional sobre los tipos de columnas en los resultados.                |
-| `--show-warnings`        | Muestra las advertencias generadas por el servidor tras ejecutar una consulta.              |
-| `--silent`               | Minimiza la salida a lo estrictamente necesario, ideal para scripts automatizados.          |
-| `--table`                | Formatea los resultados en una tabla legible cuando se visualiza en consola.                |
-| `--pager`                | Permite canalizar la salida a un programa como `less`, útil para navegar grandes resultados.|
+{% capture queries_mysql %}
+mysql> <span class='hl'>SHOW DATABASES;</span> <span style='color: var(--text-muted-color)'>-- Mostrar todas las bases de datos disponibles</span>
++---------------------------+
+| Database                  |
++---------------------------+
+| ecommerce                 |
+| ecotech_solutions_company |
+| information_schema        |
+| mysql                     |
+| performance_schema        |
+| sys                       |
++---------------------------+
+mysql> <span class='hl'>USE ecotech_solutions_company;</span> <span style='color: var(--text-muted-color)'>-- Seleccionar la base de datos 'ecotech_solutions_company'</span>
+Database changed
+mysql> <span class='hl'>SHOW TABLES;</span> <span style='color: var(--text-muted-color)'>-- Mostrar todas las tablas de la base de datos seleccionada</span>
++-------------------------------------+
+| Tables_in_ecotech_solutions_company |
++-------------------------------------+
+| departamento                        |
+| empleado                            |
+| proyecto                            |
+| usuarios                            |
++-------------------------------------+
+mysql> <span class='hl'>DESCRIBE empleado;</span> <span style='color: var(--text-muted-color)'>-- Ver la estructura de una tabla</span>
++-----------------+--------------+------+-----+-------------------+-----------------------------------------------+
+| Field           | Type         | Null | Key | Default           | Extra                                         |
++-----------------+--------------+------+-----+-------------------+-----------------------------------------------+
+| id              | int          | NO   | PRI | NULL              | auto_increment                                |
+| rut             | varchar(12)  | NO   | UNI | NULL              |                                               |
+| nombre          | varchar(100) | NO   | MUL | NULL              |                                               |
+| apellido        | varchar(100) | NO   |     | NULL              |                                               |
+| direccion       | varchar(200) | YES  |     | NULL              |                                               |
+| telefono        | varchar(40)  | YES  |     | NULL              |                                               |
+| correo          | varchar(200) | NO   | UNI | NULL              |                                               |
+| fecha_contrato  | date         | YES  |     | NULL              |                                               |
+| salario         | int          | YES  |     | NULL              |                                               |
+| departamento_id | int          | YES  | MUL | NULL              |                                               |
+| proyecto_id     | int          | YES  | MUL | NULL              |                                               |
+| created_at      | timestamp    | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED                             |
+| updated_at      | timestamp    | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |
++-----------------+--------------+------+-----+-------------------+-----------------------------------------------+
+{% endcapture %}
 
-Estas opciones puedes combinarse para diferentes tareas según las necesidades que se requiera, ya sea en desarrollo, scripting o administración.
+{% include terminal-wrapper.html content=queries_mysql %}
+
+> Cada comando debe terminar con `;` o `\g` para ejecutarse correctamente.
+{:.prompt-info}
+
+En **modo interactivo**, puedes experimentar con tus consultas, probar modificaciones y explorar tus bases de datos, de una forma rápida y directa.
+
+
+## Opciones del cliente de MySQL
+
+El cliente de MySQL admite una gran variedad de opciones que pueden especificarse tanto en la línea de comandos como en los **archivos de configuración** (`my.cnf` en Linux/macOS o `my.ini` en Windows), utilizando las secciones `[mysql]` y `[client]`.
+
+A continuación se muestra una tabla con algunas de las opciones más utilizadas, junto con una breve descripción:
+
+| Opción                    | Descripción                                                                                   |
+| ------------------------- | --------------------------------------------------------------------------------------------- |
+| `-u, --user`              | Especifica el nombre de usuario para autenticarse.                                            |
+| `-p[password]`            | Solicita o especifica la contraseña del usuario. Si se omite, la pedirá de forma interactiva. |
+| `-h, --host`              | Define el hostname del servidor MySQL al que se desea conectar.                               |
+| `-P, --port`              | Puerto TCP/IP utilizado para la conexión (por defecto 3306).                                  |
+| `-D, --database`          | Selecciona directamente la base de datos al iniciar la sesión.                                |
+| `-e, --execute`           | Ejecuta una sentencia SQL directamente desde la línea de comandos.                            |
+| `-H, --html`              | Devuelve el resultado en formato HTML (útil para reportes o exportación visual).              |
+| `--ssl-mode`              | Controla el uso de SSL/TLS en la conexión (`REQUIRED`, `DISABLED`, `VERIFY_CA`, etc.).        |
+| `--default-character-set` | Establece el conjunto de caracteres de la conexión (por ejemplo, `utf8mb4`).                  |
+| `--column-type-info`      | Muestra información adicional sobre los tipos de columnas en los resultados.                  |
+| `--show-warnings`         | Muestra las advertencias generadas por el servidor tras ejecutar una consulta.                |
+| `--silent` o `-s`         | Minimiza la salida a lo estrictamente necesario, ideal para scripts automatizados.            |
+| `--table`                 | Formatea los resultados en una tabla legible cuando se visualiza en consola.                  |
+| `--pager`                 | Permite canalizar la salida a un programa como `less`, útil para navegar grandes resultados.  |
+
+
+Estas opciones pueden combinarse según las necesidades de cada tarea, ya sea en **desarrollo**, **scripting** o **administración de bases de datos**.
 
 ### Conectarse en modo silencioso
 
@@ -241,8 +321,7 @@ El modo silencioso (`--silent`) suprime la salida adicional como encabezados, bo
 mysql -u usuario -p --silent
 ```
 
-> Puedes usar la opción `-s` como abreviación de `--silent`.
-{:.prompt-tip .fit-content }
+Por ejemplo, conexión desde el CMD en modo silencioso:
 
 <pre><code class="language-cmd">C:\Users\mcherrera&gt; mysql -u root -p <span style='background: #ff04'>--silent</span>
 Enter password: ****
@@ -301,7 +380,7 @@ id      nombre  presentacion    stock
 3       Amoxicilina     250mg/5ml suspensión    50
 </code></pre>
 
-### __Cambiar el delimitador de sentencias__
+### Cambiar el delimitador de sentencias
 
 En MySQL, el delimitador predeterminado para separar sentencias SQL es el punto y coma (`;`). Sin embargo, podemos cambiarlo por un delimitador personalizado usando la opción `--delimiter` al iniciar el cliente de línea de comandos de MySQL. Por ejemplo:
 
@@ -518,20 +597,11 @@ Threads: 2  Questions: 215  Slow queries: 0  Opens: 146  Open tables: 70  Querie
 {% endtab %}
 {% endtabs %}
 
-### __Mostrar información de comandos__
+### Mostrar información de comandos
 
 El comando `HELP` también es una herramienta muy útil para obtener información sobre los comandos disponibles en el intérprete de MySQL. Cuando ejecutas el comando `HELP` seguido del comando que quieres obtener información, se despliega un listado sobre las opciones que puedes utilizar.
 
-**Ejemplo para ver todos los comandos disponibles**
-
-Para ver el listado completo sobre el comando `SHOW`:
-
-```
-HELP SHOW
-```
-{: .nolineno }
-
-Al ejecutar el comando anterior, se despliega todo el listado como lo muestra en parte el siguiente bloque:
+Por ejemplo, __ver el listado completo sobre el comando `SHOW`__:
 
 <div class="language-plaintext highlighter-rouge">
 <div class="code-header">

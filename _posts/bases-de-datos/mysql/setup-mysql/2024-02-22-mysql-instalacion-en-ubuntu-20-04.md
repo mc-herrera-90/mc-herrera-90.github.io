@@ -31,7 +31,7 @@ En este artículo veremos cómo instalar MySQL en Ubuntu, configurarlo de manera
 
 Antes de comenzar, asegúrate de contar con lo siguiente:
 
-- Una instalación de **Ubuntu** (Ubuntu 20.04 o versiones más recientes)
+- Una instalación de Ubuntu (Ubuntu 20.04 o versiones más recientes)
 
 ![Release 22.04](ubuntu/ubuntu-lsb-release-22-04.webp){:w="690"}
 
