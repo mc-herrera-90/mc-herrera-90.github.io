@@ -16,8 +16,9 @@ layout: page
   {% assign alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split: "" %}
   {% for letter in alphabet %}
     <button
-      class="btn btn-sm btn-secondary me-1 mb-1 alphabet-btn"
+      class="btn btn-sm me-1 mb-1 alphabet-btn"
       data-letter="{{ letter }}"
+      style="background: var(--text-color-b); color: var(--main-bg)"
     >
       {{ letter }}
     </button>

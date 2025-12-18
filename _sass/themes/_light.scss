@@ -8,6 +8,7 @@
   /* Common color */
   --text-color: #34343c;
   --text-muted-color: #757575;
+  --text-color-b: #13135f;
   --text-muted-highlight-color: inherit;
   --heading-color: #2a2a2a;
   --heading-color-title: #334a7c;
@@ -115,7 +116,6 @@
   --code-header-icon-color: #c9c8c8;
   --clipboard-checked-color: #43c743;
   --code-hl: rgba(44, 131, 244, 0.133);
-
 
   [class^='prompt-'] {
     --link-underline-color: rgb(219, 216, 216);
