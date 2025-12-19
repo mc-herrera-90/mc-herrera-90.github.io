@@ -5,7 +5,6 @@ tags: [Bases de Datos, "Relacionales", "SQL"]
 image:
    path: poster/sql-server-funciones-ecalares.webp
    lqip: data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoUAAoAPzmIulOvKSWisAgB4CcJYwCuHBuDM9O4IBSAAPb0pCMXQPNKwFHieDMpwzltavl8Ea1AXfcdri3lpATAAAA=
-permalink: /sqlserver/funciones-escalares
 pin: true
 ---
 
