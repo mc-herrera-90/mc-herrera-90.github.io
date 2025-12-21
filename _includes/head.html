@@ -97,6 +97,10 @@
     <link rel="stylesheet" href="{{ site.data.origin[type].glightbox.css | relative_url }}">
   {% endif %}
 
+  {% if page.animate %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  {% endif %}
+
   <!-- Scripts -->
 
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
@@ -106,7 +110,7 @@
       <script src="{{ script | relative_url }}"></script>
     {% endfor %}
   {% endif %}
-  
+
   {% include js-selector.html lang=lang %}
 
   {% if jekyll.environment == 'production' %}

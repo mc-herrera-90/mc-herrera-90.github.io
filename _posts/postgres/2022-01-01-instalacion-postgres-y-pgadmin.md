@@ -1,6 +1,6 @@
 ---
 title: "Instalación PostgreSQL y PgAdmin"
-categories: [Tutoriales, Postgres]
+categories: [Postgres, Postgres-Setup]
 tags: [tutorial]
 image:
     path: poster/postgres-pgadmin-instalacion.webp

@@ -1,6 +1,6 @@
 ---
 title: "Preferencias del usuario"
-categories: [Desarrollo Web, CSS]
+categories: [CSS, Usabilidad]
 image:
     path: poster/css-preferencias-de-usuario.webp
     lqip: data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoUAAsAPzmGulOvKSWisAgB4CcJZQAAXePs9LXwKgyvdhAA/qKO4NLDMIuCmoifxIYMfEXWhxL24JC/CoCfMN3eN9ptb9YzdFAIIj00IeuqlL3kpVgboql+37aBs2iaKAAAAA==
