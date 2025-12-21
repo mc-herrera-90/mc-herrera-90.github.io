@@ -2,6 +2,8 @@
 title: "Angular - Setup"
 categories: [Angular, Angular-Setup]
 icon: techs/angular.svg
+scripts:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
 
 <div style="text-align: center;" markdown="1">
@@ -164,55 +166,64 @@ https://angular.dev/ai/develop-with-ai</strong> <span class='hl'>None</span>
 
 ![Proyecto creado](angular/first-project-angular-cli-dark.webp){:.dark}
 ![Proyecto creado](angular/first-project-angular-cli-light.webp){:.light}
-_Proyecto generado_
+_Generando el proyecto_
 
-## 4. Estructura base del proyecto
+## Estructura base del proyecto
 
-Angular genera más archivos que React, pero **cada uno cumple una función clara**.
+Angular genera más archivos que React, pero **cada uno cumple una función clara**. Veamos que tenemos en el directorio `src/app`:
 
-```
-src/
-├── app/
-│   ├── app.component.ts
-│   ├── app.component.html
-│   ├── app.component.scss
-│   ├── app.module.ts
-│   └── app-routing.module.ts
-├── assets/
-├── environments/
-├── index.html
-└── main.ts
-```
+{% include file-viewer.html files=site.data.codes.angular.src-app name="src-app" %}
 
 Claves importantes:
 
-* `app.module.ts`
-  Punto de ensamblaje de la aplicación.
-* `app-routing.module.ts`
-  Navegación centralizada.
-* `main.ts`
-  Bootstrap de Angular, equivalente al `main.jsx` en React.
+* `app.config.ts`
+:  Configura la aplicación a nivel global: registra el router con sus rutas y activa el manejo global de errores; sirve para declarar providers compartidos por toda la app, no para lógica de negocio ni vistas.
 
----
+* `app.routes.ts` 
+: Define las rutas de navegación de la aplicación; en este archivo se declara qué componentes se cargan para cada URL y cómo se estructura la navegación. Ahora está vacío, por lo que la app no tiene rutas configuradas aún.
 
-## 5. Levantar el servidor de desarrollo
+* `app.spec.ts`
+: Contiene las pruebas unitarias del componente principal; verifica que la aplicación se cree correctamente y que el HTML renderice el contenido esperado (como el título), usando las herramientas de testing de Angular (`TestBed`).
 
-```bash
-cd angular-app
+## Levantar el servidor de desarrollo
+
+Para iniciar el servidor, se utiliza el siguiente comando desde la raíz del proyecto:
+
+```terminal
+cd first-angular-app
 ng serve
 ```
 
-Por defecto:
+> Si se desea abrir el navegador de forma automática al iniciar el servidor, se puede usar:
+> ```terminal
+> ng serve --open
+> ````
+{: .prompt-info }
 
-```
-http://localhost:4200
-```
+Por defecto, se configura en `http://localhost:4200/`:
+
+{% capture ng_serve %}
+<span class='hl'>$ ng serve</span>
+Initial chunk files | Names         | Raw size
+main.js             | main          | 47.65 kB | 
+styles.css          | styles        | 95 bytes | 
+
+                    | Initial total | 47.74 kB
+
+Application bundle generation complete. [0.648 seconds] - 2025-12-19T12:06:54.080Z
+
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+  ➜  Local:   <span class='hl'>http://localhost:4200/</span>
+  ➜  press h + enter to show help
+{% endcapture %}
+{% include terminal-wrapper.html content=ng_serve %}
 
 Angular recompila en caliente y mantiene el estado cuando es posible.
 
----
+![Lanzar angular](angular/first-project-server-run.webp){: .bg-secondary-subtle .rounded }
 
-## 6. Organización inicial recomendada
+## Organización inicial recomendada
 
 Antes de escribir código, conviene **ordenar el proyecto**.
 
@@ -240,15 +251,13 @@ app/
 
 Esto evita el clásico “todo en components”.
 
----
-
-## 7. Generación de componentes (forma correcta)
+## Generación de componentes (forma correcta)
 
 Angular **no espera que escribas archivos a mano**.
 
 Ejemplo:
 
-```bash
+```terminal
 ng g c pages/home
 ```
 
@@ -261,11 +270,10 @@ Angular crea:
 
 Y además **registra automáticamente** lo necesario.
 
----
 
-## 8. Routing básico
+## Routing básico
 
-En `app-routing.module.ts`:
+En `app.routes.ts`:
 
 ```ts
 const routes: Routes = [
@@ -273,19 +281,18 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
 ];
 ```
+{:file="src/app/app.routes.ts"}
+
 
 Angular maneja el routing de forma declarativa y predecible.
-Nada de wrappers ni hooks externos.
 
----
-
-## 9. Servicios y consumo de APIs
+## Servicios y consumo de APIs
 
 Angular separa claramente **vista** y **lógica**.
 
 Generar servicio:
 
-```bash
+```terminal
 ng g s core/services/api
 ```
 
@@ -301,9 +308,8 @@ getUsers() {
 
 Aquí aparece uno de los pilares de Angular: **inyección de dependencias** real, no simulada.
 
----
 
-## 10. Formularios: por qué usar Reactive Forms
+## Formularios: por qué usar Reactive Forms
 
 Angular ofrece dos caminos, pero para proyectos reales:
 
@@ -325,13 +331,12 @@ Esto da:
 * control total del estado
 * testeo real
 
----
 
-## 11. UI y diseño
+## UI y diseño
 
 Angular no impone librerías visuales, pero **Angular Material** es la opción más coherente.
 
-```bash
+```terminal
 ng add @angular/material
 ```
 
@@ -341,31 +346,22 @@ Ventajas:
 * componentes consistentes
 * temas configurables
 
----
 
-### 📷 Imagen sugerida aquí
+## Build de producción
 
-**Tipo:** screenshot de UI
-**Contenido:** Angular Material (botones, toolbar, card)
-**Uso:** mostrar coherencia visual, no código
-
----
-
-## 12. Build de producción
-
-```bash
+```terminal
 ng build
 ```
 
 Salida:
 
 ```
-dist/angular-app/
+dist/first-angular-app/
 ```
 
 Optimizado, minificado y listo para desplegar.
 
----
+{% include circle-line.html %}
 
 ## Cierre
 
@@ -380,13 +376,3 @@ Este setup deja una base:
 
 Sin ruido innecesario.
 
----
-
-Si quieres, el siguiente post puede ser:
-
-* **Angular + arquitectura por dominios**
-* **Angular + Auth JWT**
-* **Angular vs React (desde experiencia real, no marketing)**
-* **Setup Angular para backend Java / Spring**
-
-Tú dime el siguiente paso y lo escribimos con el mismo nivel.

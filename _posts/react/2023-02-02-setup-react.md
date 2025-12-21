@@ -1,12 +1,16 @@
 ---
 title: "Set up React"
-categories: [Desarrollo Web, React]
+categories: [React, React-Setup]
 tags: [desarrollo web, react]
+icon: techs/react.svg
 image:
     path: poster/react-setup.webp
     lqip: data:image/webp;base64,UklGRpAAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSA8AAAABD9D/iAgMQkT/gwAAAAAAVlA4IFoAAACQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJZwC90AqTAlDqOVAAAP65+XcSQMUd3v2PQu4V5Qko7vhmMyao5vOlxLRfOp27Cwu06unt8eeLYry5OKh5TE7RAAA=
 ---
 
+<div style="text-align: center;" markdown="1">
+  ❤️<br/>{% include {{ page.icon }} %}{:style="width:190px; margin:20px auto;" .drop-shadow }
+</div>
 
 Al comenzar con **React**, lo primero es configurar tu **entorno de desarrollo**. Una vez listo, podrás iniciar tu primer proyecto. Con solo unos pasos, estarás listo para dar vida a tus ideas con React.
 

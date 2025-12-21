@@ -2,11 +2,11 @@
   <div class="file-tree">
     <ul data-name="{{ include.name }}" class="file-tree-root pt-4"></ul>
   </div>
-  <div class="code-panel" id="panel-code-{{ include.name }}" data-name="{{ include.name }}"> 
+  <div class="code-panel" id="panel-code-{{ include.name }}" data-name="{{ include.name }}">
     <div style="background: var(--sidebar-bg);" class="code-panel-header d-flex justify-content-between align-items-center">
         <span id="{{ include.name }}-filename" class="p-2" style="background: var(--highlight-bg-color); font-size: 0.8rem; color: var(--toc-highlight)">Sin archivo x</span>
         <!-- 🔳 Botón de pantalla completa -->
-        <button id="fullscreen-btn-{{ include.name }}" class="btn btn-sm" 
+        <button id="fullscreen-btn-{{ include.name }}" class="btn btn-sm"
                 style="background:none;border:none;color:var(--text-muted);cursor:pointer;"
                 title="Ver en pantalla completa">
           <i class="fa-solid fa-expand"></i>
@@ -17,7 +17,7 @@
           {% if file.url_img %}
             <!-- 🖼️ Renderizar imagen -->
             <div class="d-flex justify-content-center align-items-center m-auto pt-5">
-              <img src="{{ file.url_img | relative_url }}" alt="{{ file.name | default: 'imagen' }}" 
+              <img src="{{ file.url_img | relative_url }}" alt="{{ file.name | default: 'imagen' }}"
                    class="rounded shadow-sm mx-auto"
                    style="max-height: 400px; object-fit: contain;">
           </div>
@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   function updateTheme() {
-    const isDark = htmlTag.getAttribute('data-mode') === 'dark' || 
+    const isDark = htmlTag.getAttribute('data-mode') === 'dark' ||
       (htmlTag.getAttribute('data-mode') === 'auto' && darkMode) ||
       (!htmlTag.getAttribute('data-mode') && darkMode);
-    hljsStyle.href = isDark 
+    hljsStyle.href = isDark
     ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css'
     : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css';
   }
@@ -105,6 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
             iconClass = "fa-brands fa-js";
             iconColor = "#f7df1e";
             break;
+          case "ts":
+            iconClass = "devicon--typescript";
+            iconColor = "#3178c6";
+            break;
           case "json":
             iconClass = "vscode-icons--file-type-json-official";
             iconColor = "#3c873a";
@@ -122,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             iconColor = "#6a737d";
             break;
           case "txt":
-            iconClass = "fa-regular fa-file-lines"; 
+            iconClass = "fa-regular fa-file-lines";
             iconColor = "#999";
             break;
           case "jsx":
@@ -155,14 +159,14 @@ document.addEventListener('DOMContentLoaded', () => {
         ul.style.display = "block";
         renderTree(value, ul);
         li.appendChild(ul);
-   
+
         li.querySelector('.folder').addEventListener('click', () => {
           ul.style.display = ul.style.display === "none" ? "block" : "none";
         });
       }
 
       if (value.__file) {
-        
+
         li.addEventListener('click', () => {
           allPre.forEach(fc => fc.style.display='none');
           viewer.querySelector('#default-msg').style.display='none';

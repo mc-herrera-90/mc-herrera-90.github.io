@@ -1,7 +1,7 @@
 ---
-title: Desplegar Vite + React en Gh Pages
-categories: [Tutoriales, React]
-tags: [tutorial, react]
+title: Desplegar React (Vite) en Gh Pages
+categories: [React, "React-Deploy"]
+tags: [react]
 ---
 
 Si has creado una aplicación de React usando Vite y quieres desplegar en un servicio gratuito como GitHub Pages, este tutorial te guiará paso a paso para hacerlo de forma sencilla y segura.
@@ -86,7 +86,7 @@ git commit -m "f commit"
 git push -u origin main
 ```
 
-## __3. Instalar el paquete de gh-pages__
+## 3. Instalar el paquete de gh-pages
 
 En el caso de Vite, necesitamos instalar [gh-pages](https://www.npmjs.com/package/gh-pages){: target='_blank' } para desplegar los archivos generados en la carpeta `dist` a Github Pages.
 
@@ -139,7 +139,7 @@ Es fácil detectar el problema que sucede, basta con abrir la consola con <kbd>F
 
 Como podemos observar el mensaje "**Failed to load resource**" que aparece en la consola, indica que el navegador no pudo cargar un archivo o recurso en a página para funcionar correctamente. Este error puede ocurrir por diversas razones, podemos tener problemas con la red, errores en la ruta de los archivos (lo que es más común), permisos incorrectos, o recursos que ya no existen en el servidor. Para solucionarlo debemos configurar Vite.
 
-## __6. Configurar vite para Gh Pages__
+## 6. Configurar vite para Gh Pages
 
 En este paso, configuraremos `Vite` para que funcione bien en GiHub Pages, ya que GitHub Pages sirve la aplicación desde un subdirectorio. Esto significa que tenemos que ajustar las rutas base en la configuración de Vite. Abrimos el archivo `vite.config.js` en la raíz de nuestro proyecto, y configura el `base` de la siguiente manera:
 

@@ -1,0 +1,70 @@
+- name: "src/pages/About.jsx"
+  language: "jsx"
+  content_file: |
+    export default function About() {
+      return (
+        <main style={{ padding: '2rem' }}>
+          <h1>Acerca de Nosotros</h1>
+          <p>
+            Somos un equipo apasionado por construir aplicaciones web modernas con React.
+            Nuestro objetivo es enseñar y aprender en comunidad.
+          </p>
+          <ul>
+            <li>React moderno</li>
+            <li>Navegación con React Router</li>
+            <li>Componentes reutilizables</li>
+          </ul>
+        </main>
+      );
+    }
+
+- name: "src/pages/Home.jsx"
+  language: "jsx"
+  content_file: |
+    import { Link } from 'react-router-dom'
+
+    export default function Home() {
+      return (
+        <main style={{ padding: '2rem' }}>
+          <h1>Bienvenido a Mi Aplicación</h1>
+          <p>Esta es la página de inicio.</p>
+          <p>
+            ¿Quieres conocernos mejor?{' '}
+            <Link to="/about">Haz clic aquí para ir a Acerca de</Link>.
+          </p>
+        </main>
+      );
+    }
+
+- name: "src/pages/NotFound.jsx"
+  language: "jsx"
+  content_file: |
+    import { Link } from 'react-router-dom';
+
+    export default function NotFound() {
+      return (
+        <main style={{ padding: '2rem', textAlign: 'center' }}>
+          <h1>404</h1>
+          <p>La página que buscas no existe.</p>
+          <Link to="/">Volver al inicio</Link>
+        </main>
+      );
+    }
+
+- name: "src/App.jsx"
+  language: "jsx"
+  content_file: |
+    import { BrowserRouter, Routes, Route } from 'react-router-dom'
+    import Home from './pages/Home'
+    import About from './pages/About'
+    import NotFound from './pages/NotFound'
+
+    export default function App() {
+      return (
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="*" element={<NotFound/>} />
+        </Routes>
+      )
+    }
