@@ -1,16 +1,27 @@
-<div class="file-viewer shadow-sm position-relative" style="height: {{ include.height | default: '610px' }}; max-height: {{ include.height | default: '810px' }};">
+<div class="file-viewer shadow-sm position-relative my-5" style="height: {{ include.height | default: '610px' }}; max-height: {{ include.height | default: '810px' }};">
   <div class="file-tree">
     <ul data-name="{{ include.name }}" class="file-tree-root pt-4"></ul>
   </div>
   <div class="code-panel" id="panel-code-{{ include.name }}" data-name="{{ include.name }}">
     <div style="background: var(--sidebar-bg);" class="code-panel-header d-flex justify-content-between align-items-center">
         <span id="{{ include.name }}-filename" class="p-2" style="background: var(--highlight-bg-color); font-size: 0.8rem; color: var(--toc-highlight)">Sin archivo x</span>
-        <!-- 🔳 Botón de pantalla completa -->
-        <button id="fullscreen-btn-{{ include.name }}" class="btn btn-sm"
+      <div class="d-flex gap-1">
+        <!-- 📋 Botón copiar -->
+        <button id="copy-btn-{{ include.name }}"
+                class="btn btn-sm"
+                style="background:none;border:none;color:var(--text-muted);cursor:pointer;"
+                title="Copiar contenido">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+
+        <!-- 🔳 Botón pantalla completa -->
+        <button id="fullscreen-btn-{{ include.name }}"
+                class="btn btn-sm"
                 style="background:none;border:none;color:var(--text-muted);cursor:pointer;"
                 title="Ver en pantalla completa">
           <i class="fa-solid fa-expand"></i>
         </button>
+      </div>
     </div>
     {% for file in include.files %}
       <pre id="{{ include.name }}-file-{{ forloop.index0 }}" class="file-content pt-5 list-unstyled">

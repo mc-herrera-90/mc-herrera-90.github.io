@@ -7,6 +7,67 @@ image:
 tags: [desarrollo web, react]
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
+estructura_paginas:
+  - name: "src/pages/About.jsx"
+    language: "jsx"
+    content_file: |
+      export default function About() {
+        return (
+          <>
+            {/* El contenido de esta página se definirá más adelante */}
+          </>
+        );
+      }
+
+  - name: "src/pages/Home.jsx"
+    language: "jsx"
+    content_file: |
+      export default function Home() {
+        return (
+          <>
+            {/* El contenido de esta página se definirá más adelante */}
+          </>
+        );
+      }
+
+  - name: "src/pages/NotFound.jsx"
+    language: "jsx"
+    content_file: |
+      export default function NotFound() {
+        return (
+          <>
+            {/* El contenido de esta página se definirá más adelante */}
+          </>
+        );
+      }
+  - name: "src/App.jsx"
+    language: "jsx"
+    content_file: |
+      export default function App() {
+        return (
+          <>
+            {/* Aquí se definirán las rutas de la aplicación y se importarán los componentes correspondientes */}
+          </>
+        );
+      }
+
+main_rr:
+  - name: "src/main.jsx"
+    language: "jsx"
+    content_file: |
+      import { StricMode } from 'react'
+      import { createRoot } from 'react-dom/client'
+      import { BrowserRouter } from 'react-router-dom' // Importamos el enrutador
+      import App from './App';
+
+      createRoot(document.getElementById('root')).render(
+        <React.StrictMode>
+          {/* 👇 Envolvemos la app con el enrutador */}
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </React.StrictMode>
+      );
 ---
 
 [React Router](https://reactrouter.com/){:target='_blank'} es la librería estándar para gestionar el enrutamiento en aplicaciones de React. Facilita la navegación entre diferentes vistas, actualiza la URL del navegador y mantiene la interfaz de usuario sincronizada con la ruta actual.
@@ -83,25 +144,21 @@ npm install react-router-dom
 
 ## Estructura del proyecto
 
-Tu carpeta `src` la puedes estructurar de la siguiente manera:
+Para comenzar, definiremos la estructura de componentes que utilizaremos dentro de la carpeta `src`. En este caso, se trata de los componentes principales que serán renderizados por **React Router**, es decir, las distintas vistas de nuestra aplicación.
 
-```
-src/
-│
-├── main.jsx
-├── App.jsx
-└── pages/
-    ├── Home.jsx
-    ├── About.jsx
-    └── NotFound.jsx
-```
-{: .noheader .fit-content }
+{% include file-viewer.html files=page.estructura_paginas %}
 
-Por ahora, estas serán nuestras páginas principales.
+Esta organización nos permite separar claramente cada página de la aplicación. Por ahora, estas serán las páginas principales. Más adelante iremos ampliándolas y desarrollándolas con mayor detalle.
+{: .prompt-info }
+
 
 ## Componentes de React Router
 
-React Router se puede dividir en 3 categorías principales: __Enrutadores__ (Routers), __Comparadores de ruta__ (Route Matchers) y __Navegadores__ (Navigators).
+React Router se puede dividir en 3 categorías principales:
+
+1. __Enrutadores__ (Routers)
+2. __Comparadores de ruta__ (Route Matchers)
+3. __Navegadores__ (Navigators)
 
 ### Enrutadores
 
@@ -132,28 +189,16 @@ Ya teniendo un resumen de los conceptos básicos, podemos seguir avanzando.
 
 ## Configurar enrutamiento
 
-El __enrutador__ o _router_ es un componente de nivel superior que permite que todos los demás componentes de navegación y hooks de React Router funcionen correctamente. Ya sabemos que existen distintos tipos de enrutadores, como `<BrowserRouter>`, `<HashRouter>`, `<StaticRouter>` y `<MemoryRouter>`. Para aplicaciones web del tipo SPA (_Single Page Application_), el más utilizado es `<BrowserRouter>`.
+El __enrutador__ es un componente de nivel superior que permite que todos los demás componentes de navegación y hooks de React Router funcionen correctamente. Ya sabemos que existen distintos tipos de enrutadores, como `<BrowserRouter>`, `<HashRouter>`, `<StaticRouter>` y `<MemoryRouter>`. Para aplicaciones web del tipo SPA (_Single Page Application_), el más utilizado es `<BrowserRouter>`.
 
 Una aplicación debe estar envuelta por un enrutador como `<BrowserRouter>`, que a su vez contiene uno o más bloques `<Routes>`. El componente `<Routes>` evalúa todos sus hijos `<Route>`.
 
-Como el enrutador será el proveedor del contexto de rutas, lo podemos usar en el punto más de la aplicación. Abre el archivo `main.jsx` y envolvemos la aplicación con el enrutador:
+Como el enrutador será el encargado de proveer el contexto de rutas, debemos utilizarlo en el punto más alto de la aplicación. Abre el archivo `main.jsx` y envuelve la aplicación con el enrutador:
 
-```jsx
-import { StricMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom' // Importamos el enrutador
-import App from './App';
+{% assign conf_react_router = page.estructura_paginas | concat: page.main_rr %}
 
-createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    {/* 👇 Envolvemos la app con el enrutador */}
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
-);
-```
-{: file="main.jsx"}
+{% include file-viewer.html files=conf_react_router name="w_main" %}
+
 
 Al envolver `<App />` dentro de `<BrowserRouter>`, le damos acceso a todas las funcionalidades de React Router. Esto permite que dentro de cualquier parte de tu componente `<App />` o sus hijos puedas:
 
