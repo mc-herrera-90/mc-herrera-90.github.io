@@ -89,27 +89,27 @@ layout: compress
       document.addEventListener("DOMContentLoaded", () => {
         const mainContent = document.querySelector('[aria-label="Main Content"]');
         if (!mainContent) return;
-        
+
         const walker = document.createTreeWalker(mainContent, NodeFilter.SHOW_TEXT, {
           acceptNode: node => {
             if (node.parentNode.closest('pre, code')) return NodeFilter.FILTER_REJECT;
             return NodeFilter.FILTER_ACCEPT;
           }
         });
-        
+
         const nodes = [];
         while (walker.nextNode()) nodes.push(walker.currentNode);
-        
+
         nodes.forEach(node => {
           node.textContent = node.textContent.replace(/\((\S.*?)\)/g, '( $1 )');
         });
       });
-      
+
       document.querySelectorAll('img.no-zoom').forEach(img => {
         const parent = img.closest('a');
         if (parent) {
           parent.style.pointerEvents = 'none';
-          parent.style.cursor = 'default';      
+          parent.style.cursor = 'default';
         }
       });
     window.callback = function () {

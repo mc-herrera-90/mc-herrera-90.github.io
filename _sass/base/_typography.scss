@@ -263,6 +263,7 @@ main {
 
     thead {
       border-bottom: solid 2px rgba(210, 215, 217, 0.75);
+      background-color: var(--main-bg);
 
       th {
         @extend %table-cell;
