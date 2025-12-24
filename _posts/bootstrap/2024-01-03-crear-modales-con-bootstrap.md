@@ -1,6 +1,6 @@
 ---
 title: Bootstrap - Modal
-categories: [Bootstrap, Componentes]
+categories: [Bootstrap, Bootstrap-Componentes]
 icon: techs/bootstrap.svg
 ---
 

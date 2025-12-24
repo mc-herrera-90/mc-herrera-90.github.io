@@ -1,6 +1,6 @@
 ---
 title: Bootstrap - Botones
-categories: [Bootstrap, Componentes]
+categories: [Bootstrap, Bootstrap-Componentes]
 icon: techs/bootstrap.svg
 ---
 
@@ -51,7 +51,7 @@ Bootstrap ofrece distintas variantes para representar acciones con diferente niv
 ```
 {: .nolineno }
 {% endtab %}
-{% tab codigo_1 Preview %}
+{% tab codigo_1 Demo %}
 <button class="btn btn-primary">Primario</button>
 <button class="btn btn-secondary">Secundario</button>
 <button class="btn btn-success">Éxito</button>
@@ -62,7 +62,6 @@ Bootstrap ofrece distintas variantes para representar acciones con diferente niv
 <button class="btn btn-dark">Oscuro</button>  
 {% endtab %}
 {% endtabs %}
-
 
 Uso recomendado:
 
@@ -84,13 +83,12 @@ Bootstrap permite estilizar enlaces como botones, útil cuando la acción es nav
 ```
 {:.nolineno }
 {% endtab %}
-{% tab codigo_2 Preview %}
+{% tab codigo_2 Demo %}
 <a href="/about" class="btn btn-primary">
   Ir a mi perfil
 </a>
 {% endtab %}
 {% endtabs %}
-
 
 
 Visualmente es un botón, semánticamente sigue siendo un enlace.
@@ -99,11 +97,20 @@ Visualmente es un botón, semánticamente sigue siendo un enlace.
 
 Las variantes `outline` muestran solo el borde, ideales para acciones secundarias o menos invasivas.
 
+{% tabs codigo_4 %}
+{% tab codigo_4 Código %}
 ```html
 <button class="btn btn-outline-primary">Primario</button>
 <button class="btn btn-outline-danger">Eliminar</button>
 ```
 {: .nolineno }
+{% endtab %}
+{% tab codigo_4 Demo %}
+<button class="btn btn-outline-primary">Primario</button>
+<button class="btn btn-outline-danger">Eliminar</button>
+{: .nolineno }
+{% endtab %}
+{% endtabs %}
 
 Son especialmente útiles cuando hay muchos botones en pantalla.
 
@@ -113,36 +120,64 @@ Son especialmente útiles cuando hay muchos botones en pantalla.
 
 Bootstrap permite definir tamaños de forma simple:
 
+{% tabs codigo_5 %}
+{% tab codigo_5 Código %}
 ```html
 <button class="btn btn-primary btn-sm">Pequeño</button>
 <button class="btn btn-primary">Normal</button>
 <button class="btn btn-primary btn-lg">Grande</button>
 ```
+{:.nolineno}
+{% endtab %}
+{% tab codigo_5 Demo %}
+<button class="btn btn-primary btn-sm">Pequeño</button>
+<button class="btn btn-primary">Normal</button>
+<button class="btn btn-primary btn-lg">Grande</button>
+{% endtab %}
+{% endtabs %}
 
 Esto ajusta padding y tamaño de fuente automáticamente.
-
----
 
 ## 6. Botones deshabilitados
 
 Para desactivar un botón:
 
+{% tabs codigo_6 %}
+{% tab codigo_6 Código %}
 ```html
 <button class="btn btn-primary" disabled>
   Deshabilitado
 </button>
 ```
+{:.nolineno}
+{% endtab %}
+{% tab codigo_6 Demo %}
+<button class="btn btn-primary" disabled>
+  Deshabilitado
+</button>
+{% endtab %}
+{% endtabs %}
+
 
 En enlaces:
 
+{% tabs codigo_6.1 %}
+{% tab codigo_6.1 Código %}
 ```html
 <a class="btn btn-primary disabled" aria-disabled="true">
   Deshabilitado
 </a>
 ```
+{:.nolineno}
+{% endtab %}
+{% tab codigo_6.1 Demo %}
+<a class="btn btn-primary disabled" aria-disabled="true">
+  Deshabilitado
+</a>
+{% endtab %}
+{% endtabs %}
 
 Bootstrap aplica estilos visuales y mantiene accesibilidad básica.
-
 
 ## 7. Botones como acciones de componentes
 
@@ -167,6 +202,9 @@ En este caso, **no es necesario JavaScript adicional**.
 
 Para agrupar acciones relacionadas:
 
+
+{% tabs codigo_8 %}
+{% tab codigo_8 Código %}
 ```html
 <div class="btn-group" role="group">
   <button class="btn btn-primary">Izquierda</button>
@@ -175,12 +213,15 @@ Para agrupar acciones relacionadas:
 </div>
 ```
 {:.nolineno}
-
+{% endtab %}
+{% tab codigo_8 Demo %}
 <div class="btn-group" role="group">
   <button class="btn btn-primary">Izquierda</button>
   <button class="btn btn-primary">Centro</button>
   <button class="btn btn-primary">Derecha</button>
 </div>
+{% endtab %}
+{% endtabs %}
 
 Esto mantiene alineación y bordes coherentes.
 
