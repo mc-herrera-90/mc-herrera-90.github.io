@@ -171,7 +171,7 @@ En enlaces:
 {:.nolineno}
 {% endtab %}
 {% tab codigo_6.1 Demo %}
-<a href="#!" class="btn btn-primary disabled" aria-disabled="true">
+<a href="#" class="btn btn-primary disabled" aria-disabled="true">
   Deshabilitado
 </a>
 {% endtab %}
