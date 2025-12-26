@@ -17,13 +17,189 @@ Esta extensión permite convertir cualquier archivo escrito en Markdown (`.md`) 
 
 ![Instalar extensión](vscode/instalar-markdown-pdf.webp)
 
-O puedes ir abrir su página en el Marketplace y añadirlo:
+O puedes abrir su página en el Marketplace y añadirlo:
 
 {% include vscode-extension.html logo="https://yzane.gallerycdn.vsassets.io/extensions/yzane/markdown-pdf/1.5.0/1694185209938/Microsoft.VisualStudio.Services.Icons.Default" name="Markdown PDF" description="Conversor de Markdown para Visual Studio Code" url="https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf" %}
 
 <br/>
 
 __No requiere configuración extra__ para empezar a usarla.
+
+
+## Ventajas frente a otras alternativas
+
+| Opción           | Ventaja                          |
+| ---------------- | -------------------------------- |
+| Pandoc           | Muy potente, pero más complejo   |
+| Servicios online | Rápidos, pero poco seguros       |
+| Markdown PDF     | Integrado, simple y configurable |
+
+Markdown PDF destaca por su **equilibrio entre simplicidad y control**.
+
+
+## Cómo usar Markdown PDF
+
+Abre una carpeta en tu equipo, ábrela con **Visual Studio Code** y crea un archivo con extensión `.md`. Luego, sigue estos pasos:
+
+1. Haz **clic derecho** sobre el archivo y selecciona una de las siguientes opciones:
+   * `Markdown PDF: Export (pdf)`
+   * `Markdown PDF: Export (html)`
+   * `Markdown PDF: Export (png)`
+   * `Markdown PDF: Export (jpeg)`
+2. Espera a que finalice el proceso de exportación.
+3. El archivo generado (por ejemplo, el PDF) se creará en el **mismo directorio** que el archivo Markdown original.
+
+
+![Exportar a PDF](vscode/markdown-pdf-exportar-a-pdf.webp)
+
+## Características principales
+
+### 1. Soporte completo de Markdown
+
+Markdown PDF es compatible con la sintaxis estándar de Markdown y respeta la estructura del documento al exportarlo. Se recomienda saber la sintaxis de Markdown, aquí te dejo una referencia rápida a consultar la guía oficial de **CommonMark**: [https://commonmark.org/help/](https://commonmark.org/help/){:target="_blank"}
+
+Markdown PDF respeta:
+
+* Encabezados (`#`, `##`, `###`)
+* Listas ordenadas y no ordenadas
+* Citas (`>`)
+* Enlaces e imágenes
+* Tablas
+* Bloques de código
+* Énfasis (`**negrita**`, `*cursiva*`)
+
+### 2. Soporte para bloques de código
+
+Los bloques de código se renderizan correctamente:
+
+````markdown
+```js
+function hola() {
+  console.log("Hola Markdown PDF");
+}
+```
+````
+{:.nolineno}
+
+Incluye:
+- Tipografía monoespaciada
+- Fondo diferenciado
+- Saltos de línea correctos
+
+![Exportar a PDF](vscode/markdown-pdf-render-code-block.webp)
+
+
+### 3. Soporte para Mermaid (diagramas)
+
+Si usas **Mermaid**, Markdown PDF puede renderizar diagramas como:
+
+````markdown
+```mermaid
+graph TD
+  A[Markdown] --> B[PDF]
+  A --> C[HTML]
+````
+````
+{:.nolineno}
+
+Esto es especialmente útil para:
+
+* Diagramas de arquitectura
+* Diagramas de flujo
+* Diagramas de clases
+
+### 4. Uso de CSS personalizado
+
+Una de sus mejores características es la posibilidad de **inyectar CSS propio** para personalizar el PDF.
+
+En la configuración de VS Code (`settings.json`):
+
+```json
+"markdown-pdf.styles": [
+  "styles/pdf.css"
+]
+```
+{:.nolineno}
+
+Ejemplos de personalización:
+
+* Tipografía corporativa
+* Márgenes
+* Colores
+* Estilo de encabezados
+* Apariencia de tablas
+
+
+### 5. Encabezados y pies de página
+
+Puedes definir **header y footer** para el PDF:
+
+```json
+"markdown-pdf.headerTemplate": "<div style='font-size:10px;'>Mi documento</div>",
+"markdown-pdf.footerTemplate": "<div style='font-size:10px;'>Página <span class='pageNumber'></span></div>"
+```
+{:.nolineno}
+
+Perfecto para:
+
+* Informes académicos
+* Documentación profesional
+* Entregables formales
+
+
+### 6. Control de paginación
+
+Soporta reglas CSS como:
+
+```css
+.page-break {
+  page-break-after: always;
+}
+```
+{:.nolineno}
+
+En Markdown:
+
+```md
+<div class="page-break"></div>
+```
+{:.nolineno}
+
+Muy útil para separar capítulos o secciones.
+
+
+### 7. Compatibilidad con imágenes locales y remotas
+
+Markdown PDF maneja bien:
+
+* Imágenes locales (`./img/diagrama.png`)
+* Imágenes remotas (`https://...`)
+* Escalado automático
+* Alineación
+
+### 8. Exportación sin conexión
+
+Todo el proceso ocurre **localmente**, sin subir archivos a la nube.
+Ideal para:
+
+* Información sensible
+* Trabajo offline
+* Entornos corporativos
+
+
+## Configuraciones útiles recomendadas
+
+```json
+"markdown-pdf.format": "A4",
+"markdown-pdf.margin.top": "20mm",
+"markdown-pdf.margin.bottom": "20mm",
+"markdown-pdf.margin.left": "15mm",
+"markdown-pdf.margin.right": "15mm",
+"markdown-pdf.displayHeaderFooter": true
+```
+{:.nolineno}
+
+
 
 ### Personalizar PDF
 

@@ -1,7 +1,7 @@
 <div class="vs-card-minimal shadow-sm">
   <img src="{{ include.logo }}" alt="{{ include.name }} Logo" class="vs-logo" />
   <div class="vs-content">
-    <h3 class="vs-title">{{ include.name }}</h3>
+    <h3 data-toc-skip class="vs-title">{{ include.name }}</h3>
     <p class="vs-desc">{{ include.description }}</p>
     <a href="{{ include.url }}" target="_blank" class="vs-btn" id="vs-btn-link">Marketplace</a>
   </div>
@@ -54,7 +54,7 @@
 .vs-btn {
   align-self: start;
   display: inline-block;
-  background: var(--heading-color-title); 
+  background: var(--heading-color-title);
   color: var(--sidebar-bg);
   padding: 0.5rem 1rem;
   border-radius: 8px;
