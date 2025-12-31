@@ -216,7 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
       filenameSpan.title = filename;
       filenameSpan.innerText = filename;
 
-      // Activar clase en el árbol
       setTimeout(() => {
         const li = viewer.previousElementSibling.querySelector(`[data-id="{{ include.name }}-file-${defaultFileIndex}"]`);
         if(li) li.classList.add('active');
