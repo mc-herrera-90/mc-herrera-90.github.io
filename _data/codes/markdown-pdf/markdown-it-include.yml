@@ -1,0 +1,59 @@
+- name: "secciones/introduccion.md"
+  language: "markdown"
+  content_file: |
+    Este documento describe la estructura general del sistema y sus principales componentes.
+
+    El objetivo es presentar una visión clara del diseño, facilitando la comprensión del modelo de clases y su relación con los distintos módulos del sistema.
+
+    El documento está organizado en secciones independientes que luego se integran en un único archivo PDF mediante inclusión de Markdown.
+
+- name: "diagramas/classDiagram.md"
+  language: "markdown"
+  content_file: |
+    ```mermaid
+    classDiagram
+      class Usuario {
+        +id: int
+        +nombre: string
+        +email: string
+      }
+
+      class Pedido {
+        +id: int
+        +fecha: date
+        +total: float
+      }
+
+      class Producto {
+        +id: int
+        +nombre: string
+        +precio: float
+      }
+
+      Usuario "1" --> "0..*" Pedido
+      Pedido "1" --> "1..*" Producto
+    ```
+
+- name: "secciones/conclusion.md"
+  language: "markdown"
+  content_file: |
+    Como cierre, este documento presenta una visión general del diseño del sistema a través de su modelo de clases.
+
+    La separación del contenido en archivos independientes permite mejorar la organización, el mantenimiento y la reutilización de la documentación, sin afectar el resultado final al momento de generar el PDF.
+
+    El uso de inclusión de archivos Markdown facilita la actualización del contenido y favorece una documentación clara, modular y escalable.
+
+- name: "markdown-it-include.md"
+  language: "markdown"
+  show: true
+  content_file: |
+    # Documento principal
+
+    ## Introducción
+    :[Introducción](secciones/introduccion.md)
+
+    ## Diagrama de Clases
+    :[Diagrama de clase](diagramas/classDiagram.md)
+
+    ## Conclusión
+    :[Conclusión](secciones/conclusion.md)

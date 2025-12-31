@@ -7,7 +7,8 @@
   color: var(--highlighter-rouge-color);
   margin-top: 0.5rem;
   margin-bottom: 1.2em; /* Override BS Inline-code style */
-  overflow: hidden;
+  overflow: auto;
+  max-height: 510px;
 }
 
 .highlight {
@@ -199,6 +200,8 @@ div {
   @extend %no-cursor;
 
   display: flex;
+  position: sticky;
+  top: 0;
   justify-content: space-between;
   align-items: center;
   height: v.$code-header-height;

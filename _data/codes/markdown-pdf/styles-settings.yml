@@ -1,0 +1,162 @@
+- name: ".vscode/settings.json"
+  language: "json"
+  content_file: |
+    {
+        "markdown-pdf.headerTemplate": "<div style=\"font-size: 9px; margin-left: 1cm;\"> @mcherrera</div> <div style=\"font-size: 9px; margin-left: auto; margin-right: 1cm; \"><span class='title'></span></div>",
+        "markdown-pdf.mermaidServer": "https://unpkg.com/mermaid@10.2.1/dist/mermaid.min.js",
+        "markdown-pdf.styles": [
+            "styles/pdf.css"
+        ],
+        "markdown-pdf.format": "A4",
+        "markdown-pdf.margin.top": "2cm",
+        "markdown-pdf.margin.bottom": "2cm"
+    }
+
+- name: "styles/pdf.css"
+  language: "css"
+  content_file: |
+    /* ===============================
+        Fuentes TTF
+    =============================== */
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("../fonts/JetBrainsMono-Regular.ttf") format("truetype");
+      font-weight: normal;
+    }
+
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.6;
+      color: #1f2937;
+    }
+
+    h1 {
+      color: #1e3a8a;
+      border-bottom: 2px solid #1e3a8a;
+    }
+
+    h2 {
+      color: #1e40af;
+      margin-top: 1.5em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+      font-size: 10pt;
+    }
+
+    th {
+      background: #1e3a8a;
+      color: white;
+      padding: 6px;
+    }
+
+    td {
+      border: 1px solid #d1d5db;
+      padding: 6px;
+    }
+
+    pre,
+    code {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11.5pt;
+      z-index: -1;
+    }
+
+    p > code {
+        color: #1e40af !important;
+    }
+
+    pre code.language-mermaid {
+      color: inherit;
+      text-align: center;
+      padding: 0;
+      border: none;
+    }
+
+    .page {
+      page-break-before: always;
+    }
+
+- name: "fonts/JetBrainsMono-Regular.ttf"
+  language: "binary"
+
+- name: "preview.md"
+  language: "markdown"
+  content_file: |
+    ---
+    title: Documento de prueba markdown-pdf
+    ---
+
+    # Documento de prueba
+
+    Este documento sirve para **validar los estilos CSS** cargados en `markdown-pdf`.
+
+    ## Texto y tipografía
+
+    Texto normal, **negrita**, *cursiva* y `código en línea`.
+
+    ## Lista
+
+    - Elemento uno
+    - Elemento dos
+    - Elemento tres
+
+    ## Tabla de ejemplo
+
+    | Campo        | Tipo     | Descripción              |
+    |-------------|----------|--------------------------|
+    | id          | int      | Identificador único      |
+    | nombre      | string   | Nombre descriptivo       |
+    | precio      | float    | Precio unitario          |
+
+    ## Bloque de código
+
+    ```js
+    function saludo(nombre) {
+      console.log(`Hola ${nombre}`);
+    }
+    ```
+
+    <div class="page"></div>
+
+    ## Diagrama ER (Mermaid)
+
+    ```mermaid
+    erDiagram
+        USUARIO ||--o{ PEDIDO : realiza
+        USUARIO {
+            int id
+            string nombre
+            string email
+        }
+        PEDIDO {
+            int id
+            date fecha
+        }
+    ```
+
+    ## Gantt de ejemplo
+
+    ```mermaid
+    gantt
+        title Plan del proyecto
+        dateFormat YYYY-MM-DD
+        axisFormat %d/%m
+
+        section Desarrollo
+        Diseño          :done,    d1, 2024-01-01, 5d
+        Implementación  :active,  d2, after d1, 10d
+        Pruebas         :         d3, after d2, 4d
+    ```
+
+    ## Cierre
+
+    Documento generado para comprobar:
+    - Fuentes incrustadas
+    - Estilos CSS
+    - Diagramas Mermaid
+    - Saltos de página

@@ -1,0 +1,26 @@
+- name: "docs/footer-test.md"
+  language: "markdown"
+  content_file: |
+    ---
+    title: Prueba de Footer
+    ---
+
+    # Prueba de Header y Footer
+
+    Este documento sirve únicamente para **verificar que el footer funciona**.
+
+    El footer debería mostrar:
+    - 🖥️ Tu web: [mcherrera.dev](https://mcherrera.dev) a la izquierda
+    - 📄 Número de página centrado
+
+    Puedes repetir este texto varias veces para ver cómo funciona en varias páginas:
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui, ac sagittis metus. Sed sit amet lectus a erat blandit sodales. Aenean eget nisl nec urna malesuada tristique. Nullam pulvinar eros sit amet arcu convallis, nec feugiat ligula sagittis.
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui, ac sagittis metus. Sed sit amet lectus a erat blandit sodales. Aenean eget nisl nec urna malesuada tristique. Nullam pulvinar eros sit amet arcu convallis, nec feugiat ligula sagittis.
+
+    <div class="page"></div>
+
+    # Segunda página
+
+    Así podemos ver que el footer se mantiene correctamente en todas las páginas.

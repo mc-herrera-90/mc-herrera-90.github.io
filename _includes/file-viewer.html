@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
   viewer.querySelector('#default-msg').style.display = 'block';
 
   const treeRoot = document.querySelector('[data-name="{{ include.name }}"]');
-
   const files = {{ include.files | jsonify }};
 
   function buildTree(files, prefix) {
@@ -101,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     return root;
   }
+
   function renderTree(node, parentUl) {
     Object.keys(node).forEach(key => {
       const value = node[key];
@@ -177,12 +177,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (value.__file) {
-
         li.addEventListener('click', () => {
           allPre.forEach(fc => fc.style.display='none');
           viewer.querySelector('#default-msg').style.display='none';
           const block = viewer.querySelector('#' + value.id);
-          if(block) {
+          if(block){
             block.style.display='flex';
             hljs.highlightElement(block.querySelector('code'));
           }
@@ -198,12 +197,34 @@ document.addEventListener('DOMContentLoaded', () => {
       parentUl.appendChild(li);
     });
   }
+
   const tree = buildTree(files, treeRoot.dataset.name);
   renderTree(tree, treeRoot);
 
+  const defaultFileIndex = files.findIndex(f => f.show === true);
+  if(defaultFileIndex >= 0){
+    const block = viewer.querySelector('#' + `{{ include.name }}-file-${defaultFileIndex}`);
+    if(block){
+      allPre.forEach(fc => fc.style.display='none');
+      viewer.querySelector('#default-msg').style.display='none';
+      block.style.display='flex';
+      hljs.highlightElement(block.querySelector('code'));
+
+      const filenameParts = files[defaultFileIndex].name.split('/');
+      const filename = filenameParts[filenameParts.length - 1];
+      const filenameSpan = document.getElementById('{{ include.name }}-filename');
+      filenameSpan.title = filename;
+      filenameSpan.innerText = filename;
+
+      // Activar clase en el árbol
+      setTimeout(() => {
+        const li = viewer.previousElementSibling.querySelector(`[data-id="{{ include.name }}-file-${defaultFileIndex}"]`);
+        if(li) li.classList.add('active');
+      }, 50);
+    }
+  }
   const observer = new MutationObserver(updateTheme);
   observer.observe(htmlTag, { attributes: true, attributeFilter: ['data-mode'] });
-
 
   document.querySelectorAll('.file-viewer.editor-container').forEach(container => {
     const fileTree = container.querySelector('.file-tree');
@@ -279,5 +300,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
 </script>
