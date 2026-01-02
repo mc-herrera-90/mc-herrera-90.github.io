@@ -1,6 +1,3 @@
-# The Site Configuration
-
-# Import the theme
 theme: jekyll-theme-chirpy
 
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
@@ -15,7 +12,7 @@ timezone:
 # ↓ --------------------------
 title: "mcherrera"
 tagline: "~/dev/cloud-architect"
-description: Un blog sobre desarrollo y curiosidades
+description: Blog y portafolio personal
 url: "https://mc-herrera-90.github.io"
 author:
   name: "Marco Contreras"
@@ -169,7 +166,7 @@ collections:
   tabs:
     output: true
     sort_by: order
-  courses:
+  projects:
     output: true
     permalink: /:collection/:name/
   slides:

@@ -1,7 +1,6 @@
 ---
 title: "Cómo usar el Web Share API"
-categories: ["Tutoriales", "JavaScript"]
-category_url: "javascript/tutorial"
+categories: ["JavaScript", "JavaScript-APIs"]
 tags: [Tutoriales, JavaScript]
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js

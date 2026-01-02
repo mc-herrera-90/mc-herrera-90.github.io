@@ -1,0 +1,76 @@
+avatar:
+  - name: "src/app/avatar/avatar.css"
+    language: "css"
+    content_file: |
+      img {
+          filter: drop-shadow(2px 4px 10px red);
+      }
+
+  - name: "src/app/avatar/avatar.html"
+    language: "html"
+    content_file: |
+      &lt;img src="//robohash.org/1" alt="robot"&gt;
+
+  - name: "src/app/avatar/avatar.spec.ts"
+    language: typescript
+    content_file: |
+      import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+      import { Avatar } from './avatar';
+
+      describe('Avatar', () => {
+        let component: Avatar;
+        let fixture: ComponentFixture<Avatar>;
+
+        beforeEach(async () => {
+          await TestBed.configureTestingModule({
+            imports: [Avatar]
+          })
+          .compileComponents();
+
+          fixture = TestBed.createComponent(Avatar);
+          component = fixture.componentInstance;
+          await fixture.whenStable();
+        });
+
+        it('should create', () => {
+          expect(component).toBeTruthy();
+        });
+      });
+
+  - name: "src/app/avatar/avatar.ts"
+    language: "typescript"
+    content_file: |
+      import { Component } from '@angular/core';
+
+      @Component({
+        selector: 'app-avatar',
+        imports: [],
+        templateUrl: './avatar.html',
+        styleUrl: './avatar.css',
+      })
+      export class Avatar { }
+
+  - name: "src/app/app.html"
+    language: "html"
+    show: true
+    content_file: |
+      <main>
+          <h2>Introducción a los componentes</h2>
+          <app-avatar></app-avatar>
+          &lt;img src="//robohash.org/1" alt="robot"&gt;
+      </main>
+
+  - name: "src/app/app.ts"
+    language: "typescript"
+    content_file: |
+      import { Component } from '@angular/core';
+      import { Avatar } from './avatar/avatar';
+
+      @Component({
+        selector: 'app-root',
+        imports: [Avatar],
+        templateUrl: './app.html',
+        styleUrl: './app.css'
+      })
+      export class App { }

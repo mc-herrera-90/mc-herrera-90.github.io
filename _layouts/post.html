@@ -21,6 +21,12 @@ script_includes:
           {% include {{ page.icon }}  %}
       </div>
     {% endif %} {% endcomment %}
+      {% if page.badge %}
+        <div class="badge-wrapper">
+          {% include badges/tech.html tech=page.badge %}
+        </div>
+      {% endif %}
+
       {% if page.image %}
         {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
         {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %} drop-shadow"{% endcapture %}

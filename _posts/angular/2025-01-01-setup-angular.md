@@ -2,16 +2,13 @@
 title: "Angular - Setup"
 categories: [Angular, Angular-Setup]
 icon: techs/angular.svg
+badge: angular
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
 
-<div style="text-align: center;" markdown="1">
-  ❤️{% include {{ page.icon }} %}{:style="width:190px; margin:20px auto;"}
-</div>
 
-
-Al comenzar con Angular, lo primero es configurar un __entorno de desarrollo__. Una vez listo, podrás iniciar tu primer proyecto. Con solo unos pasos, estarás listo para dar vida a tus primeras aplicaciones con Angular.
+Al comenzar con Angular, lo primero es configurar un __entorno de desarrollo__ adecuado. Una vez listo, podrás iniciar tu primer proyecto. Con solo unos pasos, estarás listo para dar vida a tus primeras aplicaciones con Angular.
 
 ## Requisitos previos
 

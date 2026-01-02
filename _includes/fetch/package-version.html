@@ -1,0 +1,11 @@
+<span class="package-version-{{ include.package | slugify }}">cargando…</span>
+<script>
+  (() => {
+    const el = document.querySelector('.package-version-{{ include.package | slugify }}');
+    fetch("https://registry.npmjs.org/{{ include.package }}/latest")
+      .then(r => r.json())
+      .then(d => el.textContent = d.version)
+      .catch(() => el.textContent = 'N/D');
+  })();
+</script>
+

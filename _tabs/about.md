@@ -1,7 +1,7 @@
 ---
 # the default layout is 'page'
 icon: fas fa-info-circle text-info
-order: 4
+order: 5
 media_subpath: /assets/media
 ---
 
