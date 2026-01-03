@@ -1,0 +1,29 @@
+{% assign acc_id = include.id | default: "accordion" %}
+
+<div class="accordion my-3" id="{{ acc_id }}">
+  {% for item in include.items %}
+  {% assign item_id = acc_id | append: "-" | append: forloop.index %}
+  <div class="accordion-item">
+    <h2 data-toc-skip class="accordion-header" id="heading-{{ item_id }}">
+      <button
+        class="accordion-button {% unless forloop.first %}collapsed{% endunless %}"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapse-{{ item_id }}"
+        aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+        aria-controls="collapse-{{ item_id }}">
+        {{ item.title }}
+      </button>
+    </h2>
+
+    <div
+      id="collapse-{{ item_id }}"
+      class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+      data-bs-parent="#{{ acc_id }}">
+      <div class="accordion-body">
+        {{ item.content | markdownify }}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>

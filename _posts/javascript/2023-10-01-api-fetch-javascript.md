@@ -1,5 +1,6 @@
 ---
-title: "JavasScript - Api Fetch" 
+title: "JavasScript - Api Fetch"
+badge: javascript
 categories: ["JavaScript", "JavaScript-APIs"]
 ---
 

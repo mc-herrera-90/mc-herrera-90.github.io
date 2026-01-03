@@ -1,0 +1,101 @@
+- title: Crear base de datos
+  content: |
+    Ejecuta `sqlite3 mi_base.db` para crear o abrir una base de datos SQLite desde la terminal.
+
+    ```terminal
+    sqlite3 mi_base.db
+    ```
+
+    El comando anterior abre una __sesión interactiva__.
+
+    ```sql
+    SQLite version 3.40.1 2022-12-28 14:03:47
+    Enter ".help" for usage hints.
+    sqlite>
+    ```
+    {: .nolineno .noheader }
+
+    > Si la base de datos no existe, **se creará el archivo de base de datos una vez que tengamos como mínimo creada una tabla**.
+    {: .prompt-info }
+
+- title: Crear tablas
+  content: |
+    Las tablas definen la estructura donde se almacenan los datos. Al inicio se crea
+    una tabla simple que luego puede ampliarse.
+    
+    ```sql
+    CREATE TABLE usuarios (
+      id INTEGER,
+      username TEXT
+    );
+    ```
+    {:.nolineno}
+
+- title: Modificar la estructura
+  content: |
+    A medida que cambian los requisitos, se pueden agregar nuevos campos sin eliminar
+    la tabla existente utilizando `ALTER TABLE`.
+    
+    ```sql
+    ALTER TABLE usuarios ADD COLUMN email TEXT;
+    ALTER TABLE usuarios ADD COLUMN password TEXT;
+    ALTER TABLE usuarios ADD COLUMN created_at TEXT;
+    ```
+    {:.nolineno}
+
+- title: Insertar y consultar datos
+  content: |
+    Una vez creada la estructura, es posible insertar registros y consultarlos
+    utilizando sentencias SQL.
+    
+    ```sql
+    INSERT INTO usuarios (id, username)
+    VALUES (1, 'admin');
+    
+    SELECT * FROM usuarios;
+    ```
+    {:.nolineno}
+
+- title: Importar y exportar información
+  content: |
+    SQLite permite importar y exportar datos, por ejemplo en formato CSV, lo que facilita
+    el intercambio de información con otras herramientas.
+    
+    ```sql
+    .mode csv
+    .import usuarios.csv usuarios
+    ```
+    {:.nolineno}
+
+    ```sql
+    .headers on
+    .mode csv
+    .output usuarios_export.csv
+    SELECT * FROM usuarios;
+    .output stdout
+    ```
+    {:.nolineno}
+
+- title: Ejecutar archivos SQL
+  content: |
+    Los archivos `.sql` permiten ejecutar múltiples instrucciones en un solo paso,
+    ideales para cargar esquemas o datos iniciales.
+    
+    ```sql
+    .read script.sql
+    ```
+    {:.nolineno}
+
+
+- title: Comandos internos de sqlite3
+  content: |
+    sqlite3 incluye comandos especiales que comienzan con un punto (`.`) y facilitan
+    la gestión y visualización de la base de datos.
+    
+    - `.tables` lista las tablas
+    - `.schema` muestra la estructura
+    - `.help` muestra la ayuda
+    - `.exit` cierra la sesión
+
+    > Para salir de **sqlite3**, escribe el comando `.q` o con el atajo <kbd>Ctrl</kbd> + <kbd>D</kbd>
+    {: .prompt-info }

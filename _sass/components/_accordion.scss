@@ -1,0 +1,33 @@
+@use '../abstracts/breakpoints' as bp;
+
+.accordion {
+    @include bp.lte(575px) {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+    }
+
+    &-item {
+        border: none;
+        border: 1px solid var(--main-border-color, #ccc);
+        background-color: var(--main-bg);
+        color: var(--text-color);
+        & h2.accordion-header {
+          margin: 0 !important;
+          padding: 0 !important;
+          .accordion-button {
+            background-color: var(--accordion-bg, #ccc);
+            color: var(--text-color, #ccc);
+            font-size: 1.06rem;
+            &:focus {
+                box-shadow: none;
+                box-shadow: 0 0 0 0.25rem var(--accordion-btn-focus-color);
+            }
+            &::after {
+                // background-image: none;
+                background-color: var(--accordion-bg-icon, #ccc);
+                border-radius: 50%;
+            }
+          }
+        }
+    }
+}

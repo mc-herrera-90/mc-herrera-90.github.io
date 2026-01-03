@@ -4,6 +4,7 @@
 @forward 'pages';
 @use './abstracts/variables' as v;
 
+$accordion-bg: #f0c;
 
 .icon-wrapper {
   display: flex;

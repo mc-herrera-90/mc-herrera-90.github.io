@@ -18,7 +18,7 @@ layout: page
     <button
       class="btn btn-sm me-1 mb-1 alphabet-btn"
       data-letter="{{ letter }}"
-      style="background: var(--text-color-b); color: var(--main-bg)"
+      style="background: var(--main-border-color); color: var(--text-color)"
     >
       {{ letter }}
     </button>
@@ -136,16 +136,50 @@ layout: page
 <!-- Alphabet Filter Script -->
 <!-- ========================= -->
 <script>
-  document.querySelectorAll(".alphabet-btn").forEach(btn => {
+  const alphabetButtons = document.querySelectorAll(".alphabet-btn");
+
+  function setActiveButton(letter) {
+    alphabetButtons.forEach(btn => {
+      if (btn.dataset.letter === letter) {
+        btn.classList.add("active-letter");
+      } else {
+        btn.classList.remove("active-letter");
+      }
+    });
+  }
+
+  function filterByLetter(letter) {
+    document.querySelectorAll(".category-item").forEach(cat => {
+      cat.style.display =
+        letter === "all" || cat.dataset.letter === letter
+          ? ""
+          : "none";
+    });
+    setActiveButton(letter);
+  }
+
+  alphabetButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       const letter = btn.dataset.letter;
-
-      document.querySelectorAll(".category-item").forEach(cat => {
-        cat.style.display =
-          letter === "all" || cat.dataset.letter === letter
-            ? ""
-            : "none";
-      });
+      filterByLetter(letter);
     });
   });
+
+  document.addEventListener("keydown", (event) => {
+    const key = event.key.toUpperCase();
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    if (alphabet.includes(key)) {
+      filterByLetter(key);
+    } else if (key === "ALL") { // opcional, puedes usar "0" o "Enter" si quieres
+      filterByLetter("all");
+    }
+  });
 </script>
+
+<style>
+  .alphabet-btn.active-letter {
+    border: 2px solid var(--main-bg);
+    background: var(--accordion-btn-focus-color) !important;
+  }
+</style>
