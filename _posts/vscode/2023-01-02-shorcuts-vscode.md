@@ -1,10 +1,9 @@
 ---
 title: "Atajos de teclado en Vscode"
-categories: ["Editores, IDEs", Vscode]
+categories: ["Visual Studio Code", "Shortcuts"]
 image:
   path: poster/shorcuts-editor.webp
 ---
-
 
 ## Funcionalidad Básica
 

@@ -1,7 +1,7 @@
 ---
 title: "Markdown a PDF"
 categories: ["Visual Studio Code", "Extensiones"]
-icon: icon/md_pdf.svg
+badge: vscode
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---

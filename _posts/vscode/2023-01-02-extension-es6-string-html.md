@@ -1,6 +1,7 @@
 ---
 title: "ES6 String HTML: HTML legible dentro de template strings"
 categories: ["Visual Studio Code", "Extensiones"]
+badge: vscode 
 ---
 
 Cuando se escribe HTML dentro de *template strings* en JavaScript, el editor suele tratarlo como texto plano.
