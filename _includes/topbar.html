@@ -4,45 +4,49 @@
     id="topbar"
     class="d-flex align-items-center justify-content-between px-lg-3 h-100"
   >
-    <nav id="breadcrumb" aria-label="Breadcrumb">
-      {% assign paths = page.url | split: '/' %}
-      
-      {% if page.url contains 'post' %}
-        <!-- index page -->
-        {% comment %} <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span> {% endcomment %}
-        <span>
-              <a href="{{ '/categories' | relative_url }}">
-                {{- site.data.locales[include.lang].tabs.categories | capitalize -}}
-              </a>
-        </span>
-        <span>{{ page.title | capitalize }}</span>
+   {% if page.layout == 'post' or page.layout == 'categories' or page.layout == 'category' %}
+      <nav id="breadcrumb" aria-label="Breadcrumb">
+        {% assign paths = page.url | split: '/' %}
+        
+        {% if page.url contains 'post' %}
+          <!-- index page -->
+          {% comment %} <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span> {% endcomment %}
+          <span>
+                <a href="{{ '/categories' | relative_url }}">
+                  {{- site.data.locales[include.lang].tabs.categories | capitalize -}}
+                </a>
+          </span>
+          <span>{{ page.title | capitalize }}</span>
 
-      {% else %}
-        {% for item in paths %}
-          {% if forloop.first %}
-            {% comment %} <span>
-              <a href="{{ '/categories' | relative_url }}">
-                {{- site.data.locales[include.lang].tabs.categories | capitalize -}}
-              </a>
-            </span> {% endcomment %}
+        {% else %}
+          {% for item in paths %}
+            {% if forloop.first %}
+              {% comment %} <span>
+                <a href="{{ '/categories' | relative_url }}">
+                  {{- site.data.locales[include.lang].tabs.categories | capitalize -}}
+                </a>
+              </span> {% endcomment %}
 
-          {% elsif forloop.last %}
-            {% if page.collection == 'tabs' %}
-              <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
-            {% else %}
-              <span>{{ page.title }}</span>
+            {% elsif forloop.last %}
+              {% if page.collection == 'tabs' %}
+                <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
+              {% else %}
+                <span>{{ page.title }}</span>
+              {% endif %}
+
+            {% elsif page.layout == 'category' or page.layout == 'tag' %}
+              <span>
+                <a href="{{ item | append: '/' | relative_url }}">
+                  {{- site.data.locales[include.lang].tabs[item] | default: page.title -}}
+                </a>
+              </span>
             {% endif %}
-
-          {% elsif page.layout == 'category' or page.layout == 'tag' %}
-            <span>
-              <a href="{{ item | append: '/' | relative_url }}">
-                {{- site.data.locales[include.lang].tabs[item] | default: page.title -}}
-              </a>
-            </span>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-    </nav>
+          {% endfor %}
+        {% endif %}
+      </nav>
+    {% else  %}
+        <span></span>
+    {% endif  %}
     <!-- endof #breadcrumb -->
 
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">

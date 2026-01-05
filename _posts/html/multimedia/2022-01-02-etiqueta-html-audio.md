@@ -56,6 +56,37 @@ Ejemplo:
 ```
 {:.nolineno}
 
+## Audios con fallbacks
+
+Cuando usas la etiqueta `<audio>` como contenedor, puedes incluir varias fuentes alternativas dentro de ella para asegurar **mayor compatibilidad entre navegadores**. Las etiquetas que podemos indicar en el interior son las siguientes:
+
+|Etiqueta|Descripción|
+|:-------|:----------|
+|`<source>`|Establece un archivo de audio principal o alternativo.|
+|`<track>`|Establece un archivo de subtítulo principal o alternativo|
+
+Cada navegador soporta distintos formatos de audio, por lo que al listar varios archivos con `<source>` el navegador intentará reproducir **el primero que sea compatible** y, si ninguno lo es, mostrará el contenido de fallback que coloques al final.
+
+Ejemplo de `<audio>` con fallbacks:
+
+```html
+<audio controls preload="auto">
+  <source src="audio.ogg" type="audio/ogg">
+  <source src="audio.mp3" type="audio/mpeg">
+  <!-- Fallback para navegadores muy antiguos -->
+  <p>
+    Tu navegador no soporta la reproducción de audio. 
+    Puedes <a href="audio.mp3">descargar el archivo</a> para escucharlo.
+  </p>
+</audio>
+```
+{:.nolineno}
+
+1. El navegador intenta reproducir primero `audio.ogg`, luego `audio.mp3`.
+2. Si ninguno de los formatos es compatible, se muestra el texto de fallback.
+3. El contenido de fallback puede incluir enlaces o mensajes que ayuden al usuario.
+
+
 ## Ejemplo de uso con JavaScript
 
 Veamos un ejemplo un poco más avanzado, el cual combina la carga del archivo en HTML y el control mediante JavaScript:
