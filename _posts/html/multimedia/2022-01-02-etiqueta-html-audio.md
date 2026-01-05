@@ -1,5 +1,5 @@
 ---
-title: "HTML - etiqueta &lt;audio&gt;"
+title: "HTML: Etiqueta &lt;audio&gt;"
 categories: [HTML, Html-Multimedia]
 badge: html
 tags: [HTML]
@@ -29,7 +29,7 @@ __Resultado:__
 
 Los atributos de la etiqueta `<audio>` se pueden agrupar según su propósito: hay atributos que controlan la interfaz y comportamiento del reproductor (por ejemplo, mostrar controles o repetir el sonido) y otros que afectan cómo se carga.
 
-## Atributos de fuente y carga
+### Atributos de fuente y carga
 
 |Atributo|Descripción|
 |:-------|:----------|

@@ -5,35 +5,67 @@ layout: page
 
 {% include lang.html %}
 
-{% assign HEAD_PREFIX = 'h_' %}
-{% assign LIST_PREFIX = 'l_' %}
-{% assign group_index = 0 %}
-
 <!-- ========================= -->
-<!-- Alphabet Filter (A–Z) -->
+<!-- Teclado alfabético visual -->
 <!-- ========================= -->
-<div class="alphabet-filter mb-4">
-  {% assign alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split: "" %}
-  {% for letter in alphabet %}
-    <button
-      class="btn btn-sm me-1 mb-1 alphabet-btn"
-      data-letter="{{ letter }}"
-      style="background: var(--main-border-color); color: var(--text-color)"
+<div class="alfabeto-teclado mb-4">
+  <!-- Primera fila: ESC + A–J -->
+  <div class="alphabet-row">
+    <kbd
+      class="alphabet-btn special-btn"
+      role="button"
+      tabindex="0"
+      data-letter="ESC"
     >
-      {{ letter }}
-    </button>
-  {% endfor %}
-  <button
-    class="btn btn-sm mb-1 alphabet-btn"
-    style="background: var(--text-color); color: var(--main-bg)"
-    data-letter="all"
-  >
-    Todos
-  </button>
+      ESC
+    </kbd>
+    {% assign row1 = "ABCDEFGHIJK" | split: "" %}
+    {% for letter in row1 %}
+      <kbd
+        class="alphabet-btn"
+        role="button"
+        tabindex="0"
+        data-letter="{{ letter }}"
+      >
+        {{ letter }}
+      </kbd>
+    {% endfor %}
+  </div>
+
+  <!-- Segunda fila: L–T -->
+  <div class="alphabet-row">
+    {% assign row2 = "LMNOPQRST" | split: "" %}
+    {% for letter in row2 %}
+      <kbd
+        class="alphabet-btn"
+        role="button"
+        tabindex="0"
+        data-letter="{{ letter }}"
+      >
+        {{ letter }}
+      </kbd>
+    {% endfor %}
+  </div>
+
+  <!-- Tercera fila: U–Z + “Todos” -->
+  <div class="alphabet-row">
+    {% assign row3 = "UVWXYZ" | split: "" %}
+    {% for letter in row3 %}
+      <kbd
+        class="alphabet-btn"
+        role="button"
+        tabindex="0"
+        data-letter="{{ letter }}"
+      >
+        {{ letter }}
+      </kbd>
+    {% endfor %}
+  </div>
 </div>
 
 {% assign sort_categories = site.categories | sort %}
 
+{% assign group_index = 0 %}
 {% for category in sort_categories %}
   {% assign category_name = category | first %}
   {% assign posts_of_category = category | last %}
@@ -56,21 +88,16 @@ layout: page
     {% assign first_letter = category_name | slice: 0, 1 | upcase %}
 
     <div class="card categories category-item" data-letter="{{ first_letter }}">
-      <!-- ========================= -->
-      <!-- Top Category -->
-      <!-- ========================= -->
       <div
         id="{{ HEAD_PREFIX }}{{ group_index }}"
         class="card-header d-flex justify-content-between hide-border-bottom"
       >
         <span class="ms-2">
           <i class="far fa-folder{% if sub_categories_size > 0 %}-open{% endif %} fa-fw"></i>
-
           {% capture _category_url %}/categories/{{ category_name | slugify }}/{% endcapture %}
           <a href="{{ _category_url | relative_url }}" class="mx-2">
             {{ category_name }}
           </a>
-
           {% assign top_posts_size = site.categories[category_name] | size %}
           <span class="text-muted small font-weight-light">
             {% if sub_categories_size > 0 %}
@@ -96,19 +123,14 @@ layout: page
         {% endif %}
       </div>
 
-      <!-- ========================= -->
-      <!-- Sub Categories -->
-      <!-- ========================= -->
       {% if sub_categories_size > 0 %}
         <div id="{{ LIST_PREFIX }}{{ group_index }}" class="collapse show">
           <ul class="list-group">
             {% for sub_category in sub_categories %}
               <li class="list-group-item">
                 <i class="far fa-folder fa-fw"></i>
-
                 {% capture _sub_ctg_url %}/categories/{{ sub_category | slugify }}/{% endcapture %}
                 {% assign parts = sub_category | split: "-" %}
-
                 <a href="{{ _sub_ctg_url | relative_url }}" class="mx-2">
                   {% if parts.size > 1 %}
                     {{ parts[1] }}
@@ -116,7 +138,6 @@ layout: page
                     {{ sub_category }}
                   {% endif %}
                 </a>
-
                 {% assign posts_size = site.categories[sub_category] | size %}
                 <span class="text-muted small font-weight-light">
                   {{ posts_size }}
@@ -133,18 +154,14 @@ layout: page
 {% endfor %}
 
 <!-- ========================= -->
-<!-- Alphabet Filter Script -->
+<!-- JavaScript de filtrado -->
 <!-- ========================= -->
 <script>
   const alphabetButtons = document.querySelectorAll(".alphabet-btn");
 
   function setActiveButton(letter) {
     alphabetButtons.forEach(btn => {
-      if (btn.dataset.letter === letter) {
-        btn.classList.add("active-letter");
-      } else {
-        btn.classList.remove("active-letter");
-      }
+      btn.classList.toggle("active-letter", btn.dataset.letter === letter);
     });
   }
 
@@ -160,26 +177,84 @@ layout: page
 
   alphabetButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-      const letter = btn.dataset.letter;
-      filterByLetter(letter);
+      filterByLetter(btn.dataset.letter);
     });
   });
 
   document.addEventListener("keydown", (event) => {
     const key = event.key.toUpperCase();
+    const sonido = new Audio("/assets/media/audios/key.ogg");
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-    if (alphabet.includes(key)) {
-      filterByLetter(key);
-    } else if (key === "ALL") {
+    sonido.currentTime = 0; 
+    if (key === "ESCAPE") {
       filterByLetter("all");
+      sonido.play();
+    } else if (alphabet.includes(key)) {
+      filterByLetter(key);
+      sonido.play();
     }
   });
 </script>
 
 <style>
-  .alphabet-btn.active-letter {
-    border: 2px solid var(--main-bg);
-    background: var(--accordion-btn-focus-color) !important;
+/* ===== Contenedor tipo teclado físico ===== */
+.alfabeto-teclado {
+  background: var(--accordion-bg);
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  border: 1px solid var(--main-border-color);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.04);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.alphabet-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Teclas tipo física */
+.alfabeto-teclado kbd {
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.1s ease, background 0.1s ease;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Teclas especiales más anchas */
+.alfabeto-teclado kbd.special-btn {
+  width: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Efecto “presionado” */
+.alfabeto-teclado kbd:active,
+.alfabeto-teclado kbd.active-letter {
+  background: var(--accordion-btn-focus-color);
+  transform: scale(0.95);
+}
+
+/* Responsive: teclas más chicas en pantallas pequeñas */
+@media (max-width: 768px) {
+  .alfabeto-teclado {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
+}
+
 </style>

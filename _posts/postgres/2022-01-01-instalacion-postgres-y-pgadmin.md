@@ -1,7 +1,7 @@
 ---
 title: "Instalación PostgreSQL y PgAdmin"
 categories: [Postgres, Postgres-Setup]
-tags: [tutorial]
+tags: [postgres, setup]
 image:
     path: poster/postgres-pgadmin-instalacion.webp
     lqip: data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJZQC06B6Mf6VyKv8MBgAA/tqeRr/itkI3ksi3LJqxKSoBoWUaagAelsUaVUr2prb6W+yqICW/jcToAAA=
@@ -236,6 +236,30 @@ Esto iniciará el servidor PostgreSQL y lo hará correr en segundo plano como un
 
 Con PostgreSQL en ejecución, podemos interactuar con la base de datos a través del cliente de línea de comandos `psql`. Para conectarte a la base de datos predeterminada `postgres`, usamos el siguiente comando:
 
-```terminal
-psql postgres
+
+{% tabs connect_postgres %}
+{% tab connect_postgres <i class="fa-brands fa-windows"></i> Windows %}
+```cmd
+psql -U postgres -d postgres
 ```
+
+* `-U postgres` → Usuario con el que te conectas (por defecto `postgres`).
+* `-d postgres` → Nombre de la base de datos a la que te conectas (predeterminada `postgres`).
+* Te pedirá la contraseña que definiste en la instalación.
+{% endtab %}
+{% tab connect_postgres <i class="fa-brands fa-linux"></i> Linux %}
+```terminal
+sudo -u postgres psql -d postgres
+```
+
+* `sudo -u postgres` → Ejecuta `psql` como el usuario del sistema `postgres`.
+* También puedes usar solo `psql -U postgres -d postgres` si tu usuario tiene permisos.
+{% endtab %}
+{% tab connect_postgres <i class="fa-brands fa-apple"></i> macOS %}
+```terminal
+psql -U postgres -d postgres
+```
+
+* Funciona igual que en Linux si instalaste PostgreSQL con Homebrew o con el instalador oficial.
+{% endtab %}
+{% endtabs %}
