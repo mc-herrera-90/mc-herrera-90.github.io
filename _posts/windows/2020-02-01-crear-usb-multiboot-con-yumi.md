@@ -1,19 +1,21 @@
 ---
-title: "YUMI 🐧 : Crear USB Multiboot"
-categories: [Sistemas Operativos, "Instalación y Boot"]
-tags: [Sistemas Operativos, Boot]
+title: "Crear USB Multiboot con YUMI"
+categories: [Windows, "Windows-Boot"]
+tags: [windows, boot]
+badge: yumi
 ---
 
 ## ¿Qué es YUMI?
 
 __YUMI__ es una aplicación desarrollada por [PendriveLinux](https://pendrivelinux.com/){:target='_blank'} que permite crear unidades USB con múltiples sistemas operativos y otras utilidades. Es una de las herramientas más populares para técnicos informáticos, ya que ofrece flexibilidad, compatibilidad y una interfaz sencilla.
 
+![YUMI multiboot al abrir](windows/yumi-multiboot-open.webp)
 
-### Preparar una unidad USB <i class="fa-brands fa-usb"></i> para YUMI
+## Preparar una unidad USB <i class="fa-brands fa-usb"></i> para YUMI
 
 Una vez tengas tu unidad USB conectada al equipo, vamos a realizar los siguientes pasos:
 
-__1\. Eliminar toda partición y sistema de archivo__
+### 1. Eliminar toda partición y sistema de archivo
 
 En Windows, usamos __diskpart__ y ejecutamos los comandos que se destacan a continuación (asegurate de seleccionar la unidad correcta):
 
@@ -55,7 +57,7 @@ DiskPart asignó correctamente una letra a la unidad o punto de montaje.
 {% endcapture %}
 {% include terminal-wrapper.html content=clean_disk title="CMD" %}
 
-__2\. Abrir el programa YUMI-exFAT-\<numero-version\>.exe__
+### 2. Abrir el programa
 
 Ahora al ejecutar __YUMI__, selecciona tu USB preparada:
 
@@ -71,7 +73,7 @@ Al darle check, nos mostrará una advertencia que avisa que todo lo que esté en
 
 Aceptamos y avanzamos a la siguiente sección.
 
-### __Cargar una ISO en YUMI__
+### 3. Cargar una ISO en YUMI
 
 Ahora se nos desbloquea el __step 2__, donde podemos seleccionar una distribución. Por ejemplo vamos a seleccionar __Ubuntu__ y luego se desbloqueará el __step 3__ para poder cargar una ISO:
 
@@ -87,7 +89,7 @@ Esperamos a que termine el proceso y luego clic en siguiente:
 
 En este momento nos preguntá si queremos __cargar otra ISO__, le decimos que no y finalizamos.
 
-## __Probando YUMI en VirtualBox__
+## Probando YUMI en VirtualBox
 
 Para ver __YUMI__ en acción, voy a configurar una máquina virtual en __VirtualBox__.
 
@@ -142,6 +144,6 @@ Finalmente, empieza el __modo live__ de Ubuntu, para acceder a probar el sistema
 
 ![Modo Live de Ubuntu](virtualbox/inicio_instalador_ubuntu_mate.webp)
 
-## Conclusión
+{% include circle-line.html %}
 
 __YUMI__ es una opción __rápida__, __sencilla__ y muy útil para llevar varios sistemas operativos y para generar unidades __USB multiboot__ mediante un sistema de menús basados en [__GRUB__](https://es.wikipedia.org/wiki/GNU_GRUB){:target='_blank'}. Su compatibilidad con BIOS y UEFI (en versiones actualizada) y su soporte de persistencia para algunas distribuciones lo hacen una solución sólida para entornos de mantenimiento, instalación y rescate de sistemas.

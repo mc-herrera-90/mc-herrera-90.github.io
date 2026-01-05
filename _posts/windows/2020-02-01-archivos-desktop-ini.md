@@ -1,6 +1,8 @@
 ---
-title: "Archivos Desktop.ini"
-categories: ["Sistemas Operativos", "Windows"]
+title: "Windows: Archivos Desktop.ini"
+categories: [Windows, Windows-Sistema]
+tags: [windows, sistema]
+badge: windows
 ---
 
 ¿Sabías que puedes **cambiar el ícono de tus carpetas** y que esa personalización se mantenga incluso en **discos externos**? 🚀  

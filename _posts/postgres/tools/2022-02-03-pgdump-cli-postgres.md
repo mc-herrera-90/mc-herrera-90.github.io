@@ -5,7 +5,6 @@ badge: postgresql
 tags: [postgres, cli]
 ---
 
-
 PostgreSQL viene con `pg_dump` que es la herramienta de línea de comandos diseñada para realizar copias de seguridad de bases de datos. A diferencia de otras herramientas de respaldo, `pg_dump` genera un archivo de volcado que contiene los comandos SQL necesarios para reconstruir la base de datos, incluyendo esquemas, tablas y datos.
 
 ## Conectarse a la base de datos

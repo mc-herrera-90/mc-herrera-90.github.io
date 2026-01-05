@@ -1,7 +1,8 @@
 ---
 title: Cómo abrir CMD y usar DiskPart desde el instalador de Windows
-categories: [Sistemas Operativos, Windows]
-tags: [Sistemas Operativos]
+categories: [Windows, "Windows-Boot"]
+tags: [windows]
+badge: windows
 ---
 
 Si necesitas **formatear, limpiar o gestionar particiones del disco** antes de instalar Windows, puedes hacerlo fácilmente usando **DiskPart** directamente desde el instalador al momento de iniciar el formateo.

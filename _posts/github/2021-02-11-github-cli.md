@@ -1,6 +1,6 @@
 ---
 title: "GH CLI utilidad oficial de línea de comandos"
-categories: [Tutoriales, GitHub]
+categories: [GitHub, Github-Productividad]
 tags: [github]
 image:
    path: poster/github-cli.webp
