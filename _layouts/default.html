@@ -21,7 +21,9 @@ layout: compress
 
     <div id="main-wrapper" class="d-flex justify-content-center">
       <div class="container-fluid d-flex flex-column px-xxl-5">
-        {% include topbar.html lang=lang %}
+        {% if page.layout == 'post' or page.layout == 'categories' or page.layout == 'category' %}
+          {% include topbar.html lang=lang %}
+        {% endif %}
 
         <div class="row flex-grow-1">
           <main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4 px-xxl-0 col-xxl-8 ms-auto">
@@ -119,6 +121,7 @@ layout: compress
     <script src="{{ 'assets/js/sweetalert.js' | relative_url }}"></script>
     <script src="{{ 'assets/js/tabs.js' | relative_url }}"></script>
     <script src="{{ 'assets/js/copyBtn.js' | relative_url }}"></script>
+    <script src="{{ 'assets/js/setFullscreen.js' | relative_url }}"></script>
 
   </body>
 </html>

@@ -6,13 +6,13 @@
   >
     <nav id="breadcrumb" aria-label="Breadcrumb">
       {% assign paths = page.url | split: '/' %}
-
-      {% if paths.size == 1 or page.layout == 'home' %}
+      
+      {% if page.url contains 'post' %}
         <!-- index page -->
         {% comment %} <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span> {% endcomment %}
         <span>
-              <a href="{{ '/' | relative_url }}">
-                {{- site.data.locales[include.lang].tabs.home | capitalize -}}
+              <a href="{{ '/categories' | relative_url }}">
+                {{- site.data.locales[include.lang].tabs.categories | capitalize -}}
               </a>
         </span>
         <span>{{ page.title | capitalize }}</span>
@@ -20,11 +20,11 @@
       {% else %}
         {% for item in paths %}
           {% if forloop.first %}
-            <span>
-              <a href="{{ '/' | relative_url }}">
-                {{- site.data.locales[include.lang].tabs.home | capitalize -}}
+            {% comment %} <span>
+              <a href="{{ '/categories' | relative_url }}">
+                {{- site.data.locales[include.lang].tabs.categories | capitalize -}}
               </a>
-            </span>
+            </span> {% endcomment %}
 
           {% elsif forloop.last %}
             {% if page.collection == 'tabs' %}

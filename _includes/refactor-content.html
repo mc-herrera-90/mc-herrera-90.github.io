@@ -235,9 +235,12 @@
         | append: _snippet
         | append: '<div class="code-header">'
         | append: _label
-        | append: '<button aria-label="copy" data-title-succeed="'
+        | append: '<div class="code-header-buttons">'
+        | append: '<button class="copy-btn" aria-label="copy" data-title-succeed="'
         | append: site.data.locales[include.lang].post.button.copy_code.succeed
-        | append: '"><i class="far fa-clipboard"></i></button></div>'
+        | append: '"><i class="far fa-clipboard"></i></button>'
+        | append: '<button class="fullscreen-btn" aria-label="fullscreen"><i class="fas fa-expand"></i></button>'
+        | append: '</div></div>'
         | append: '<div class="highlight"><code>'
       %}
     {% endif %}

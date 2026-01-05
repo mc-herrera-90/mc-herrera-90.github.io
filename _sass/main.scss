@@ -4,8 +4,6 @@
 @forward 'pages';
 @use './abstracts/variables' as v;
 
-$accordion-bg: #f0c;
-
 .icon-wrapper {
   display: flex;
   justify-content: center;
@@ -32,10 +30,9 @@ $accordion-bg: #f0c;
 /* Contenedor de la tabla con scroll elegante */
 .table-wrapper {
   overflow-y: auto;
-  border-radius: 6px;
 
   & table {
-    margin: auto;
+    width: 100%;
   }
 }
 
