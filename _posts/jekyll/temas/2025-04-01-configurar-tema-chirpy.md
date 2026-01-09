@@ -1,9 +1,6 @@
 ---
 title: "Cómo configurar el tema Jekyll Chirpy para tu blog"
-date: 2025-08-03
-categories: [jekyll, chirpy, blog, github-pages]
-media_subpath: /assets/img/jekyll
-tags: [jekyll, chirpy, blog, github-pages]
+categories: [Jekyll, Jekyll-Temas]
 ---
 
 [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) es un tema elegante y rico en funciones para Jekyll, ideal para blogs personales y páginas alojadas en GitHub Pages. En esta guía, te mostraré cómo configurarlo desde cero.
