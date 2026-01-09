@@ -133,4 +133,9 @@
   {% endif %}
 
   {% include metadata-hook.html %}
+  {% if page.style %}
+    <style>
+      {{ page.style }}
+    </style>
+  {% endif %}
 </head>

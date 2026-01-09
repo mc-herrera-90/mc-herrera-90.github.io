@@ -2,6 +2,7 @@
 title: "Windows: Administración de disco con Diskpart"
 categories: [Windows, Disk Management]
 tags: [windows]
+badge: windows
 ---
 
 Cuando se trata de una gestión del almacenamiento en Windows, `diskpart` es una __herramienta poderosa__. A diferencia de las utilidades gráficas como el popular __Administrador de discos__, `diskpart` te da acceso total, incluso a operaciones que el entorno gráfico no permite.
@@ -10,14 +11,14 @@ Cuando se trata de una gestión del almacenamiento en Windows, `diskpart` es una
 
 Una vez ingresamos a la herramienta con el comando `diskpart` desde el CMD (con permisos de administrador). Podemos realizar las siguientes operaciones:
 
-__1\. Listar Discos y Volúmenes__
+__1\. Listar discos y volúmenes__
 
 ```terminal
 list disk   :: Muestra los discos físicos
 list volume :: Muestra las particiones montadas
 ```
 
-__2\. Seleccinar el disco__
+__2\. Seleccionar disco__
 
 ```terminal
 select disk 1   :: Selecciona el disco 1

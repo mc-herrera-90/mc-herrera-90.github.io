@@ -1,0 +1,55 @@
+one:
+  - name: "styles/_colors.scss"
+    language: "scss"
+    content_file: |
+      $primary: #0055ff;
+      $secondary: #ff5500;
+  - name: "styles/_typography.scss"
+    language: "scss"
+    content_file: |
+      @mixin heading {
+        font-weight: bold;
+        line-height: 1.2;
+      }
+  - name: "styles/_index.scss"
+    language: "scss"
+    show: true
+    content_file: |
+      //  Este archivo no define nada, solo reenvía lo que importa.
+      @forward "colors";
+      @forward "typography";
+
+two:
+  - name: "styles/_colors.scss"
+    language: "scss"
+    content_file: |
+      $primary: #0055ff;
+      $secondary: #ff5500;
+  - name: "styles/_typography.scss"
+    language: "scss"
+    content_file: |
+      @mixin heading {
+        font-weight: bold;
+        line-height: 1.2;
+      }
+  - name: "styles/_index.scss"
+    language: "scss"
+    content_file: |
+      //  Este archivo no define nada, solo reenvía lo que importa.
+      @forward "colors";
+      @forward "typography";
+  - name: "main.scss"
+    language: "scss"
+    show: true
+    content_file: |
+      @use "styles";
+
+      // Ahora tenés acceso a:
+
+      .button {
+        background: styles.$primary;
+      }
+
+      .title {
+        @include styles.heading;
+      }

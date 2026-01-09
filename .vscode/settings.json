@@ -30,4 +30,7 @@
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
+  "[liquid]": {
+    "editor.defaultFormatter": "sissel.shopify-liquid"
+  },
 }

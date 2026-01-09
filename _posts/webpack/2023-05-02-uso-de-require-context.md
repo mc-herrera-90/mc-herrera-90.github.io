@@ -1,7 +1,7 @@
 ---
 title: "Cargar archivos dinámicamente"
-categories: ["Desarrollo Web", "Webpack"]
-icon: icon/webpack.svg
+categories: [Webpack, Webpack-Funciones]
+badge: webpack
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---

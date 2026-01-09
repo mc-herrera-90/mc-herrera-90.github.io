@@ -78,7 +78,7 @@ function setCodeClipboard() {
       const highlightDiv = codeHeader.nextElementSibling; // <div class="highlight">
       if (!highlightDiv) return null;
 
-      return highlightDiv.querySelector('code'); // selecciona el <code> dentro
+      return highlightDiv.querySelector('code .rouge-code'); // selecciona el <code> dentro
     }
   });
 
