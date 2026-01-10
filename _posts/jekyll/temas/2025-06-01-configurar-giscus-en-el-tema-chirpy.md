@@ -1,6 +1,7 @@
 ---
-title: "Cómo integrar Giscus en el tema Chirpy de Jekyll"
+title: "Jekyll: Integrar Giscus en el tema Chirpy"
 categories: [Jekyll, Jekyll-Temas]
+badge: jekyll
 ---
 
 En este post aprenderás a integrar [Giscus](https://giscus.app/) como sistema de comentarios en tu blog usando el tema Chirpy para Jekyll.

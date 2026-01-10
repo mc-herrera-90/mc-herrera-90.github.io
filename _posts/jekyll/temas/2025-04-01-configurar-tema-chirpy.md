@@ -1,10 +1,12 @@
 ---
-title: "Cómo configurar el tema Jekyll Chirpy para tu blog"
+title: "Jekyll: Configurar el tema Chirpy"
 categories: [Jekyll, Jekyll-Temas]
+badge: jekyll
 ---
 
-[Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) es un tema elegante y rico en funciones para Jekyll, ideal para blogs personales y páginas alojadas en GitHub Pages. En esta guía, te mostraré cómo configurarlo desde cero.
+[Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy){:target='_blank'} es un tema elegante y rico en funciones para Jekyll, ideal para blogs personales y páginas alojadas en GitHub Pages. En esta guía, te mostraré cómo configurarlo desde cero.
 
+[![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]{:target='_blank'}
 
 ## Requisitos previos
 
@@ -20,20 +22,18 @@ Antes de empezar, asegúrate de tener:
 
 ### Paso 1: Clonar Chirpy y ejecutar `init.sh`
 
-1. Clona el repositorio oficial de Chirpy:
+Clona el repositorio oficial de Chirpy:
 
 ```terminal
 git clone https://github.com/cotes2020/jekyll-theme-chirpy.git my_blog
 cd my_blog
 ```
 
-2. Ejecuta el script `init.sh` (esto limpia cosas del tema demo y te da un punto limpio):
+Ejecuta el script `init.sh` (esto limpia cosas del tema demo y te da un punto limpio):
 
 ```terminal
 bash tools/init.sh
 ```
-
-![run script init](init-theme-chirpy.webp)
 
 Este script:
 
@@ -41,10 +41,11 @@ Este script:
 * Cambia algunas configuraciones básicas
 * Inicializa tu propio repositorio
 
+![run script init](jekyll/init-theme-chirpy.webp)
+
 > Asegúrate de darle permisos de ejecución si no lo tiene: `chmod +x tools/init.sh`
 {:.prompt-info }
 
----
 
 ### Paso 2: Instalar dependencias
 
@@ -54,23 +55,21 @@ Después de ejecutar `init.sh`, instala las dependencias:
 bundle install
 ```
 
-![Bundle install](chirpy-bundle-install.webp)
+![Bundle install](jekyll/chirpy-bundle-install.webp)
 
----
 
 ### Paso 3: Servir localmente
 
 Ya con todo listo, puedes correr el servidor local de Jekyll:
 
-```bash
+```terminal
 bash tools/run.sh
 ```
 
 Abre en tu navegador: [http://localhost:4000](http://localhost:4000)
 
-![Bundle install](chirpy-run-script.webp)
+![Bundle install](jekyll/chirpy-run-script.webp)
 
----
 
 ## Configuraciones Extras
 
@@ -88,11 +87,10 @@ baseurl: "" # si lo estás sirviendo desde la raíz
 
 Y en `site.*`, ajusta tus datos personales, redes sociales, etc.
 
----
 
 ### Despliegue en GitHub Pages
 
-1. Crea un nuevo repositorio en GitHub
+Crea un nuevo repositorio en GitHub
 
 ```terminal
 git init
@@ -102,11 +100,8 @@ git remote add origin https://github.com/tu-usuario/tu-repo.git
 git push -u origin main
 ```
 
-{:start="2"}
-2. Asegúrate de tener un flujo de despliegue. Chirpy ya incluye uno en `.github/workflows/pages-deploy.yml`. GitHub Actions se encargará de desplegar automáticamente.
+Asegúrate de tener un flujo de despliegue. Chirpy ya incluye uno en `.github/workflows/pages-deploy.yml`. GitHub Actions se encargará de desplegar automáticamente.
 
 En la configuración del repositorio en GitHub, activa **GitHub Pages** en la rama `main` (o en la rama `gh-pages` si decides usar despliegue automático).
 
-## Recomendaciones
-
-Puedes cambiar colores, fuentes y otras configuraciones en `_sass/addon/variables.scss` y `_data/`.
+[demo]: https://cotes2020.github.io/chirpy-demo/

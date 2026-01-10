@@ -298,7 +298,7 @@ https://tu-usuario.github.io/
 
 En la demostración de este artículo, el sitio está desplegado y disponible en la siguiente URL:
 
-[https://mcherrera.dev/demo-jekyll-deploy-gh-pages/](https://mcherrera.dev/demo-jekyll-deploy-gh-pages/){:target='_blank'}
+[https://mc-herrera-90.github.io/demo-jekyll-deploy-gh-pages/](https://mc-herrera-90.github.io/demo-jekyll-deploy-gh-pages/){:target='_blank'}
 
 ## 8. Cosas a tener en cuenta
 
