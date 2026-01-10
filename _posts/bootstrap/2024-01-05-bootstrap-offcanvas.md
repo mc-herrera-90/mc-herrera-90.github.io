@@ -1,12 +1,8 @@
 ---
 title: "Bootstrap - Offcanvas"
 categories: [Bootstrap, Bootstrap-Componentes]
-icon: techs/bootstrap.svg
+badge: bootstrap
 ---
-
-<div style="text-align: center;" markdown="1">
-  ❤️{% include {{ page.icon }} %}{:style="width:190px; margin:20px auto;"}
-</div>
 
 El componente **Offcanvas** de Bootstrap permite mostrar contenido oculto fuera del viewport que se despliega desde un borde de la pantalla. Es especialmente útil para menús laterales, paneles de configuración, filtros o vistas secundarias.
 

@@ -1,12 +1,8 @@
 ---
 title: Bootstrap - Modal
 categories: [Bootstrap, Bootstrap-Componentes]
-icon: techs/bootstrap.svg
+badge: bootstrap
 ---
-
-<div style="text-align: center;" markdown="1">
-  ❤️{% include {{ page.icon }} %}{:style="width:190px; margin:20px auto;"}
-</div>
 
 Las **modales** son uno de los componentes más utilizados en interfaces web modernas. Permiten mostrar contenido contextual sin necesidad de cambiar de página, lo que __mejora la experiencia de usuario__ en acciones como confirmaciones, formularios, avisos o vistas rápidas de información.
 

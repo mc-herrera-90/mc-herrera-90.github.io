@@ -33,4 +33,7 @@
   "[liquid]": {
     "editor.defaultFormatter": "sissel.shopify-liquid"
   },
+  "[scss]": {
+    "editor.formatOnSave": false
+  }
 }

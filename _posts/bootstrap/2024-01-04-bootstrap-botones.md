@@ -1,13 +1,8 @@
 ---
 title: Bootstrap - Botones
 categories: [Bootstrap, Bootstrap-Componentes]
-icon: techs/bootstrap.svg
+badge: bootstrap
 ---
-
-<div style="text-align: center;" markdown="1">
-  ❤️{% include {{ page.icon }} %}{:style="width:190px; margin:20px auto;"}
-</div>
-
 
 # Uso de botones en Bootstrap
 
