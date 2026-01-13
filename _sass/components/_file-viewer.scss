@@ -8,6 +8,7 @@
   margin-bottom: 1.4rem;
   border-radius: 6px;
   border: 1px solid var(--main-border-color);
+
   & .code-panel {
     flex: 1 1 auto;
     min-width: 100px;
@@ -41,38 +42,37 @@
 
   & .file-tree {
     position: relative;
-    flex: 0 0 20%;
-    min-width: 100px; // coherente con el JS
+    min-width: 135px; // coherente con el JS
+    width: 25%;
     background: var(--sidebar-bg);
     user-select: none;
     -moz-user-select: none;
     font-size: calc(1rem - 1%);
-    padding-top: 1.5rem;
     border-right: 1px solid var(--main-border-color);
+    overflow-y: auto;
 
-    &::before {
-      content: 'FOLDERS';
-      position: absolute;
-      pointer-events: none; // 🔑 no roba mouse
-      padding: 3px 10px;
+    &-top {
       font-size: 0.6rem;
+      padding-top: 1.5rem;
+      padding-bottom: .6rem;
+      position: sticky;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      background-color: var(--sidebar-bg);
     }
     &-root {
       padding-left: 0;
       list-style: none;
-      & ul {
+      z-index: -1;
+      ul {
         margin: 0;
         list-style: none;
-        padding: 0;
-        ul {
-          padding: 0;
-          margin: 0;
-        }
+        padding: 0 0 0 5px;
       }
 
       li {
         cursor: pointer;
-        width: 100%;
         &.active {
           background: var(--tag-hover);
           width: 100%;
@@ -82,9 +82,18 @@
           filter: brightness(0.88); // <1 oscurece, >1 aclara
         }
         > span {
+          &.file, &.folder {
+            padding-left: 13px;
+          }
+          &.folder {
+            top: 32px; // 🔑 justo debajo de "FOLDERS"
+            z-index: 5;
+            background-color: var(--sidebar-bg);
+            position: sticky;
+          }
+
           display: block;
           width: 100%;
-          padding-left: 15px !important;
           text-overflow: ellipsis;
           white-space: nowrap;
         }

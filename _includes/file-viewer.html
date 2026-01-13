@@ -1,6 +1,7 @@
 <div class="file-viewer shadow-sm position-relative my-3 editor-container" style="height: {{ include.height | default: '610px' }}; max-height: {{ include.height | default: '810px' }};">
   <div class="file-tree">
-    <ul data-name="{{ include.name }}" class="file-tree-root pt-4"></ul>
+    <div class="file-tree-top px-2">FOLDERS</div>
+    <ul data-name="{{ include.name }}" class="file-tree-root p-0"></ul>
   </div>
   <div class="code-panel" id="panel-code-{{ include.name }}" data-name="{{ include.name }}">
     <div style="background: var(--sidebar-bg);" class="code-panel-header d-flex justify-content-between align-items-center">
@@ -41,7 +42,12 @@
           </div>
           {% endif  %}
         {% if file.include %}
-          <code class="hljs-{{ file.language | downcase }} pt-0 language-{{ file.language | downcase }}" style="white-space: {{ file.wrap | default: 'unset' }}">{% include {{ file.content_file }} %}</code>
+          {% capture raw_content %}{% include {{ file.content_file }} %}{% endcapture %}
+          {% assign cleaned_content = raw_content
+            | replace: '<', '&lt;'
+            | replace: '>', '&gt;'
+          %}
+          <code class="hljs-{{ file.language | downcase }} pt-0 language-{{ file.language | downcase }}" style="white-space: {{ file.wrap | default: 'unset' }}">{{ cleaned_content }}</code>
           {% else %}
           <code class="hljs-{{ file.language | downcase }} pt-0 language-{{ file.language | downcase }}" style="white-space: {{ file.wrap | default: 'unset' }}">{{ file.content_file | replace: '<', '&lt;' | replace: '>', '&gt;' }}</code>
         {% endif %}
@@ -122,6 +128,10 @@ document.addEventListener('DOMContentLoaded', () => {
           case "js":
             iconClass = "fa-brands fa-js";
             iconColor = "#f7df1e";
+            break;
+          case "jpg":
+            iconClass = "fa-solid fa-file-image";
+            iconColor = "#dc0";
             break;
           case "ts":
             iconClass = "devicon--typescript";

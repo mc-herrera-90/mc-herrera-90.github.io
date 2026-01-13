@@ -2,13 +2,12 @@
 title: "Cómo usar el Web Share API"
 categories: ["JavaScript", "JavaScript-APIs"]
 tags: [JavaScript]
-badge: javascript
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 image:
   path: poster/tutorial-web-share-api.webp
   lqip: data:image/webp;base64,UklGRowAAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSDMAAAABR6CgbRuGP+L9mUZEhGWEgWratqI3CDyEhzBGkEwGGWR+/wKI6P8EnAufEDRF8R1fDTcAVlA4IDIAAACwAgCdASoUAAwAPzmEuVOvKKWisAgB4CcJYgAAeyAA/umzCIDNnnjebMD7m73QLAAAAA==
-pin: true
+tags: [javascript, apis]
 ---
 
 Cuando interactuamos con aplicaciones móviles y usamos los botones para compartir, enviar enlaces, imágenes o textos a través de aplicaciones como WhatsApp, Facebook, o correo electrónico, es probable que ya hayas visto en acción la **Web Share API** de javaScript. Esta poderosa herramienta permite que las aplicaciones web compartan contenido de manera sencilla utilizando las funcionalidades nativas de los dispositivos.

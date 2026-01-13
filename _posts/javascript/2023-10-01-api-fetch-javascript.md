@@ -2,6 +2,7 @@
 title: "JavasScript - Api Fetch"
 badge: javascript
 categories: ["JavaScript", "JavaScript-APIs"]
+tags: [javascript, apis]
 ---
 
 **Fetch** es el nombre de una API moderna de JavaScript que nos permite realizar peticiones HTTP de forma asíncrona utilizando **promesas**. Gracias a esto, podemos escribir código más limpio, legible y fácil de mantener en comparación con métodos tradicionales como `XMLHttpRequest`. Además, Fetch se integra con `async` y `await`, lo que facilita el manejo de respuestas y errores al trabajar con datos provenientes de servidores.
