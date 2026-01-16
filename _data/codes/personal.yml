@@ -8,18 +8,21 @@ files:
       de productos, enfocada en una experiencia simple y clara para el usuario.
 
       ## Contexto
+
       OnlyFlans nace como un proyecto práctico para aplicar el patrón MVT de Django.
 
       El objetivo fue construir una aplicación funcional de principio a fin,
       incluyendo backend, frontend y despliegue en producción.
 
       ## Funcionalidades
+
       - Visualización de catálogo de productos
       - Sistema de autenticación de usuarios
       - Control de acceso a vistas protegidas
       - Panel administrativo con Django Admin
 
       ## Stack
+
       - Backend: Django
       - Frontend: HTML, CSS
       - Base de datos: PostgreSQL
@@ -28,6 +31,40 @@ files:
       ## Enlaces
       - 🌐 Demo: https://onlyflans.fly.dev/
       - 📦 Repositorio: https://github.com/EniDev911/onlyflans
+
+  - name: "scriptorium.md"
+    language: "md"
+    content_file: |
+      # SCRIPTORIUM
+
+      Página interactiva para practicar y perfeccionar habilidades en
+      HTML, CSS y JavaScript sobre un lienzo minimalista, pensada como
+      espacio de aprendizaje y demostración de retos de código web.
+
+      ## Contexto
+
+      SCRIPTORIUM es un proyecto personal enfocado en **retos y
+      ejercicios frontend** que permiten dominar conceptos fundamentales
+      del desarrollo web mediante ejemplos prácticos y visuales.
+
+      El sitio se diseñó como un “lienzo” minimalista donde se pueden
+      explorar diferentes retos de HTML, CSS y JavaScript, ideal para
+      reforzar la comprensión de estas tecnologías básicas.
+
+      ## Funcionalidades
+
+      - Conjunto de retos y ejemplos de código web
+      - Integración de ejercicios de **HTML, CSS y JS**
+      - Interfaz minimalista de navegación por habilidades
+      - Incluye enlaces directos a ejercicios clave
+
+      ## Stack
+
+      - Frontend: HTML, CSS, JavaScript, Jekyll
+      - Diseño minimalista y centrado en la práctica del código
+
+      ## Enlaces
+      - 🌐 Proyecto: https://mcherrera.dev/scriptorium/
 
   - name: "fullstack-java.md"
     language: "md"
