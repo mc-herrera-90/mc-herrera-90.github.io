@@ -1,5 +1,5 @@
 ---
-title: "Cómo usar el Web Share API"
+title: "JavasScript: Cómo usar el Web Share API"
 categories: ["JavaScript", "JavaScript-APIs"]
 tags: [JavaScript]
 scripts:

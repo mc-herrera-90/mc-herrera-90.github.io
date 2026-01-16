@@ -1,5 +1,5 @@
 ---
-title: "JavasScript - Api Fetch"
+title: "JavaScript: Api Fetch"
 badge: javascript
 categories: ["JavaScript", "JavaScript-APIs"]
 tags: [javascript, apis]
@@ -49,15 +49,66 @@ Por otra parte, la instancia `response` también cuenta con varios **métodos** 
 |`Reponse.redirect(url, code)`|<span class="badge bg-primary">Object</span>|Redirige a una URL, opcionalmente con un código de error.|
 
 
-## Formas de procesar promesas
+## Formas de consumir promesas
 
-Tenemos como ya mencionamos anteriormente dos foras de consumir la promesa.
+Tenemos dos formas principales que ya mencionamos anteriormente.
 
 {% tabs consumir_promesas %}
-{% tab consumir_promesas Método <code>then()</code> %}
-a
+{% tab consumir_promesas Usando <code>then()</code> %}
+El siguiente ejemplo es más completo que los casos anteriores.
+
+```js
+fetch("/api/users")
+  .then(response => {
+    if (response.ok)
+      return response.json();
+
+    throw new Error(response.status);
+  })
+  .then(data => {
+    console.log("Datos: " + data);
+  })
+  .catch(err => {
+    console.error("ERROR: ", err.message)
+  });
+```
+{:.nolineno}
+
+__Explicación:__
+- Comprobamos que la petición es correcta con `response.ok`
+- Utilizamos `response.json()` para procesarla
+- En el caso de producirse algún error, lanzamos la excepción con el código de error (`response.status`)
+- Procesamos los datos y los mostramos en la consola
+- En el caso de que la `PROMISE` sea rechazadada, capturamos el error con `catch`
+- Si ocurre un error `404`, `500` o similar, lanzamos el error con `throw` para capturarlo en el `catch`.
 {% endtab %}
-{% tab consumir_promesas Vía <code>async/await</code> %}
-b
+{% tab consumir_promesas Usando <code>async/await</code> %}
+Utilizar `async/await` no es más que lo que se denomina __azúcar sintáctico__, es decir, utilizar algo visualmente agradable, pero por debajo realiza la misma tarea.
+
+> Lo que debemos tener siempre presente es que `await` sólo se puede ejecutar si esta dentro de una función definida como `async`.
+{: .prompt-info }
+
+```js
+async function load(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(res.status);
+  return response.text();
+}
+
+try {
+  console.log(await load("/data.txt"));
+  console.log(await load("/no-file.txt"));
+} catch (e) {
+  console.error("Error:", e.message);
+}
+```
+{:.nolineno}
+
+__Explicación__:
+
+- Creamos una función `load(url)` que se define como `async`
+- Invocamos a `fetch` utilizando `await` para esperar y resolver la promesa
+- Comprobamos si todo a ido bien usando `response.ok`
+- Invocamos a `response.text()` utilizando `await` y devolvemos el resultado
 {% endtab %}
 {% endtabs %}

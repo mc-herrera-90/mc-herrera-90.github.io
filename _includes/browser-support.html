@@ -1,0 +1,50 @@
+{% assign path = include.api | split: "." %}
+{% assign data = site.data.bcd.api %}
+
+{% for key in path %}
+  {% if data[key] %}
+    {% assign data = data[key] %}
+  {% else %}
+    {% assign data = nil %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+<section class="api-support-card">
+
+  <header class="api-support-header">
+    <h3 data-toc-skip>{{ include.api }}</h3>
+  </header>
+
+  {% if data and data.__compat and data.__compat.support %}
+    <table class="api-support-table">
+      <thead>
+        <tr>
+          <th>Navegador</th>
+          <th>Soporte</th>
+          <th>Versión</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for browser in data.__compat.support %}
+          <tr>
+            <td>{{ browser[0] }}</td>
+            <td>
+              {% if browser[1].version_added %}
+                Si
+              {% else %}
+                No
+              {% endif %}
+            </td>
+            <td>{{ browser[1].version_added | default: "—" }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p style="padding:1rem;color:#b00020;">
+      Browser compatibility data not found for <strong>{{ include.api }}</strong>
+    </p>
+  {% endif %}
+</section>
+

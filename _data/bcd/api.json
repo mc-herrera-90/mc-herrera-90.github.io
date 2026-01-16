@@ -1,0 +1,35 @@
+{
+  "Window": {
+    "localStorage": {
+      "__compat": {
+        "support": {
+          "chrome": {
+            "version_added": "4"
+          },
+          "firefox": {
+            "version_added": "3.5"
+          },
+          "safari": {
+            "version_added": "4"
+          },
+          "edge": {
+            "version_added": "12"
+          },
+          "ie": {
+            "version_added": "8"
+          }
+        }
+      }
+    },
+    "sessionStorage": {
+      "__compat": {
+        "support": {
+          "chrome": { "version_added": "4" },
+          "firefox": { "version_added": "2" },
+          "safari": { "version_added": "4" },
+          "edge": { "version_added": "12" }
+        }
+      }
+    }
+  }
+}

@@ -181,3 +181,56 @@ kbd.command-icon::before {
     );
   background-size: 20px 20px, 20px 20px, 20px 20px;
 }
+
+  /* Card contenedora */
+.api-support-card {
+  margin: 2rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: .75rem;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+/* Header */
+.api-support-header {
+  padding: .75rem 1rem;
+  background: var(--code-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.api-support-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Tabla */
+.api-support-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.api-support-table th,
+.api-support-table td {
+  padding: .5rem .75rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.api-support-table th {
+  font-weight: 600;
+  background: var(--main-bg);
+}
+
+/* Última fila limpia */
+.api-support-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Texto error */
+.api-support-card p {
+  margin: 0;
+  padding: 1rem;
+  font-size: .85rem;
+}
