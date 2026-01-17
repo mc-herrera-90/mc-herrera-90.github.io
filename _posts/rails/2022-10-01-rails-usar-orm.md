@@ -1,10 +1,10 @@
 ---
 title: "Cómo usar el ORM de Ruby on Rails"
-icon: icon/rails.svg
-categories: [Rails, ORM, Backend]
+categories: [Rails, Rails-ORM]
 tags: [rails, ruby, orm, activerecord]
+badge: rails
+mermaid: true
 ---
-
 
 El ORM de Ruby on Rails se llama **Active Record**, y es una de las partes más poderosas del framework. Gracias a él puedes trabajar con bases de datos usando **objetos Ruby**, sin escribir SQL manual (aunque puedes hacerlo cuando lo necesites).
 
@@ -23,17 +23,17 @@ end
 ````
 {: .nolineno }
 
-## Setup
+## 1. Setup Rails
 
 Para comenzar con el setup de Rails, lo primero es preparar el entorno y crear un nuevo proyecto.
 
 {% tabs setup-rails %}
-{% tab setup-rails macOS %}
+{% tab setup-rails <i class="fa-brands fa-apple"></i> macOS %}
   {% include instructions/mac/ror.md.liquid project-name="bookstore" db="postgres" %}
 {% endtab %}
-{% tab setup-rails Linux %}
+{% tab setup-rails <i class="fab fa-linux"></i> Linux %}
 {% endtab %}
-{% tab setup-rails Windows %}
+{% tab setup-rails <i class="fab fa-windows"></i> Windows %}
   {% include instructions/windows/ror.md.liquid project-name="bookstore" %}
 {% endtab %}
 {% endtabs %}
@@ -43,12 +43,46 @@ Comprobamos la creación de la base de datos:
 ![Db y rol](macos/psql-db-and-rol.webp){:.light w="750" .rounded .border .bg-secondary-subtle}
 ![Db y rol](macos/psql-db-and-rol-dark.webp){:.dark w="750" .rounded .border .bg-secondary}
 
-## Crear los modelos
+## 2. Crear los modelos
 
-En nuestro proyecto _bookstore_ crearemos tres modelos principales:
+En el proyecto __bookstore__ se definen tres modelos principales que conforman la base del dominio de la aplicación:
+
 - `Book`: representa el libro.
 - `Author`: representa un autor.
 - `Category`: representa una categoría literaria.
+
+Estas relaciones y atributos se encuentran representados en el siguiente diagrama de clases:
+
+```mermaid
+classDiagram
+  class Author {
+    id : integer
+    name : string
+    bio : text
+    created_at : datetime
+    updated_at : datetime
+  }
+
+  class Category {
+    id : integer
+    name : string
+    created_at : datetime
+    updated_at : datetime
+  }
+
+  class Book {
+    id : integer
+    title : string
+    price : decimal
+    author_id : integer
+    category_id : integer
+    created_at : datetime
+    updated_at : datetime
+  }
+
+  Author "1" --> "0..*" Book : escribe
+  Category "1" --> "0..*" Book : clasifica
+```
 
 ```terminal
 rails generate model Author name:string bio:text
@@ -61,13 +95,29 @@ Rails generará:
 * Los modelos dentro de `app/models/`
 * Las migraciones dentro de `db/migrate/`
 
-![Modelos](macos/bookstore-rails-models.webp)
+![Modelos](rails/bookstore-models-author-book-category-dark.webp){:.dark .rounded .border .bg-secondary}
+![Modelos](rails/bookstore-models-author-book-category-light.webp){:.light .rounded .border .bg-secondary-subtle}
 _Modelos_
 
-![Migraciones](macos/bookstore-rails-migrations.webp)
+En la imagen se observa la **definición de los modelos del proyecto y sus relaciones** dentro de una aplicación con Rails:
+
+* **Author** y **Category** son modelos base que heredan de `ApplicationRecord` y representan entidades independientes del sistema.
+* **Book** es el modelo central y establece relaciones mediante `belongs_to` con **Author** y **Category**, lo que indica que **cada libro está asociado a un autor y a una categoría**.
+* Esta estructura refleja una relación **uno a muchos**, donde un autor puede tener varios libros y una categoría puede agrupar múltiples libros.
+
+![Migraciones](rails/bookstore-migrations-author-book-category-dark.webp){:.dark .rounded .border .bg-secondary}
+![Migraciones](rails/bookstore-migrations-author-book-category-light.webp){:.light .rounded .border .bg-secondary-subtle}
 _Migraciones_
 
-### Aplicar las migraciones
+En la imagen se muestra la **definición de las migraciones de base de datos del proyecto**:
+
+* Se observan las migraciones para **Author**, **Category** y **Book**, encargadas de crear las tablas correspondientes en la base de datos.
+* Las tablas **authors** y **categories** contienen atributos básicos como `name` y marcas de tiempo (`timestamps`).
+* La tabla **books** incluye atributos propios (`title`, `price`) y referencias (`author` y `category`) con **claves foráneas**, asegurando la integridad referencial.
+* Esta configuración refleja a nivel de base de datos las relaciones definidas previamente en los modelos.
+
+
+## 3. Aplicar las migraciones
 
 Usando el comando `rails db` ejecutas la migración:
 
@@ -78,7 +128,7 @@ rails db:migrate
 ![Migración](macos/bookstore-rails-db-migrate-dark.webp){:.dark w="800" .rounded .border .bg-secondary}
 ![Migración](macos/bookstore-rails-db-migrate-light.webp){:.light w="800" .rounded .border .bg-secondary}
 
-## Relacionando los modelos con Active Record
+## 4. Relacionar los modelos con Active Record
 
 Rails ya conoce las relaciones gracias a `references`, pero las debemos declarar en los modelos.
 
@@ -89,6 +139,7 @@ class Author < ApplicationRecord
   has_many :books
 end
 ```
+{:file="app/models/author.rb"}
 
 ### `app/models/category.rb`
 
@@ -97,6 +148,7 @@ class Category < ApplicationRecord
   has_many :books
 end
 ```
+{:file="app/models/category.rb"}
 
 ### `app/models/book.rb`
 
@@ -106,6 +158,7 @@ class Book < ApplicationRecord
   belongs_to :category
 end
 ```
+{:file="app/models/book.rb"}
 
 Con esto Active Record genera métodos automáticos como:
 
@@ -114,13 +167,11 @@ Con esto Active Record genera métodos automáticos como:
 * `book.author`
 * `book.category`
 
----
-
-## 🧪 5. Probando Active Record en la consola (Rails Console)
+## 5. Probando Active Record en la consola (Rails Console)
 
 Podemos interactuar con nuestra base de datos desde:
 
-```bash
+```terminal
 rails console
 ```
 
@@ -132,19 +183,25 @@ c = Category.create(name: "Realismo Mágico")
 
 Book.create(
   title: "Cien años de soledad",
-  price: 19.99,
+  price: 15000,
   author: a,
   category: c
 )
+
+# o de forma más controlada:
+book = Book.new(title: "El pistolero", price: 20000, author: c, category: cS)
+user.save
 ```
+{:.nolineno}
 
 ### Consultar registros
 
 ```ruby
 Book.first
-Book.where(price: 10..30)
+Book.where(price: 10000..30000)
 Author.find_by(name: "Gabriel García Márquez").books
 ```
+{:.nolineno}
 
 ### Actualizar
 
@@ -152,20 +209,21 @@ Author.find_by(name: "Gabriel García Márquez").books
 book = Book.first
 book.update(price: 21.99)
 ```
+{:.nolineno}
+
 
 ### Eliminar
 
 ```ruby
 Book.last.destroy
 ```
+{:.nolineno}
 
----
-
-## 🎯 6. Controladores y rutas (rápido)
+## 6. Controladores y rutas (rápido)
 
 Si quieres exponer libros en una API o vistas:
 
-```bash
+```terminal
 rails generate controller Books index show
 ```
 
@@ -174,6 +232,7 @@ En `config/routes.rb`:
 ```ruby
 resources :books
 ```
+{:.nolineno file="config/routes.rb"}
 
 En `app/controllers/books_controller.rb`:
 
@@ -188,17 +247,17 @@ class BooksController < ApplicationController
   end
 end
 ```
+{:file="app/controllers/books_controller.rb"}
 
 Rails ya te da las rutas REST:
 
 * `/books`
 * `/books/:id`
 
----
 
-## 🧵 7. Conclusión
+{% include circle-line.html %}
 
-Rails hace que trabajar con una base de datos en el proyecto **bookstore** sea totalmente natural gracias a Active Record. Cada modelo se convierte en una clase Ruby completamente integrada con la base de datos, y las migraciones nos permiten evolucionar la estructura sin dolores de cabeza.
+Rails hace que trabajar con una base de datos en un proyecto sea totalmente natural gracias a __Active Record__. Cada modelo se convierte en una clase Ruby completamente integrada con la base de datos, y las migraciones nos permiten evolucionar la estructura sin dolores de cabeza.
 
 En este pequeño ejemplo ya logramos:
 
@@ -208,194 +267,3 @@ En este pequeño ejemplo ya logramos:
 * Migrar tablas
 * Hacer consultas con Active Record
 * Preparar controladores y rutas básicas
-
-Si sigues expandiendo este proyecto puedes agregar usuarios, carritos, compras y mucho más — Rails está hecho para escalar contigo.
-
----
-
-Si quieres, puedo generar:
-
-✅ El mismo artículo pero en formato Markdown
-✅ Una versión más larga o más resumida
-✅ Agregar API completa con controladores y serializers
-✅ Agregar autenticación (Devise)
-✅ Agregar vistas con Rails Turbo / Hotwire
-
-Solo dime qué quieres añadir.
-
-Esto crea:
-
-* un archivo en `app/models/user.rb`
-* una tabla `users` con las columnas indicadas
-
-## 🔹 Crear registros
-
-```ruby
-user = User.create(name: "Marco", email: "marco@example.com", age: 25)
-```
-
-o de forma más controlada:
-
-```ruby
-user = User.new(name: "Marco")
-user.save
-```
-
----
-
-## 🔹 Consultar datos
-
-### Obtener todos los registros
-
-```ruby
-User.all
-```
-
-### Filtrar registros
-
-```ruby
-User.where(age: 25)
-```
-
-### Buscar un registro por ID
-
-```ruby
-User.find(1)
-```
-
-### Ordenar
-
-```ruby
-User.order(age: :desc)
-```
-
----
-
-## 🔹 Actualizar un registro
-
-```ruby
-user = User.find(1)
-user.update(age: 30)
-```
-
----
-
-## 🔹 Eliminar un registro
-
-```ruby
-user = User.find(1)
-user.destroy
-```
-
----
-
-## 🔹 Consultas más avanzadas
-
-### Seleccionar columnas específicas
-
-```ruby
-User.select(:name, :email)
-```
-
-### Condiciones con operadores
-
-```ruby
-User.where("age > ?", 18)
-```
-
-### Combinando condiciones
-
-```ruby
-User.where(age: 18..30).order(:age)
-```
-
----
-
-## 🔹 Asociaciones (Relaciones)
-
-Rails facilita relaciones como:
-
-### 1) `has_many` y `belongs_to`
-
-```ruby
-class User < ApplicationRecord
-  has_many :posts
-end
-
-class Post < ApplicationRecord
-  belongs_to :user
-end
-```
-
-Uso:
-
-```ruby
-user = User.first
-user.posts   # todos los posts del usuario
-```
-
-### 2) `has_many :through`
-
-```ruby
-class Doctor < ApplicationRecord
-  has_many :appointments
-  has_many :patients, through: :appointments
-end
-```
-
-### 3) `has_one`, `has_and_belongs_to_many`, etc.
-
-Rails tiene patrones para cubrir todas las relaciones comunes.
-
----
-
-## 🔹 Validaciones
-
-Active Record permite validar datos antes de guardarlos:
-
-```ruby
-class User < ApplicationRecord
-  validates :email, presence: true, uniqueness: true
-end
-```
-
-Si falla:
-
-```ruby
-user = User.new
-user.save #=> false
-user.errors.full_messages
-```
-
----
-
-## 🔹 Callbacks
-
-Ejecutan lógica automática:
-
-```ruby
-class User < ApplicationRecord
-  before_save :normalize_name
-
-  def normalize_name
-    self.name = name.capitalize
-  end
-end
-```
-
----
-
-## 🔹 ¿Cuándo usar SQL directo?
-
-Cuando necesitas algo muy optimizado:
-
-```ruby
-User.find_by_sql("SELECT * FROM users WHERE age > 20")
-```
-
-Pero la mayoría del tiempo Active Record simplifica el trabajo.
-
-{% include circle-line.html %}
-Active Record convierte la base de datos en **objetos Ruby fáciles de manipular**, permitiendo crear, leer, actualizar y eliminar datos sin escribir SQL.
-
-Es uno de los mayores beneficios de Rails: **velocidad, organización y productividad**.

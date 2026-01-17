@@ -17,20 +17,26 @@ cd ~/Documents/
 3\. Crear el proyecto
 : Usando el comando `rails` seguido del nombre para el proyecto y le indicamos que lo configure para usar {{ include.db | capitalize }}. Por ejemplo:
 ```terminal
-rails new {{ include.project-name }} -d {% if include.db == "postgres" %}{{ include.db }}sql{% else %}{{ include.db }}{% endif %}
+rails new {{ include.project-name }} -d {% if include.db == "postgres" %}postgresql{% else %}{{ include.db }}{% endif %}
 ```
 
 > Puedes usar SQLite si quieres, solo cambia la opción
 > `-d sqlite3`.
 {: .prompt-info }
 
-4\. Crear la base de datos
+4\. Ingresar al proyecto
+: Con el comando `cd` accede al proyecto generado:
+```terminal
+cd {{ include.project-name }}
+```
+
+5\. Crear la base de datos
 : Con el comando `db` le podemos decir que proceda a crear la base de datos:
 ```terminal
 rails db:create
 ```
 
 {% if include.db == "postgres" %}
-> Cuando instalas PostgreSQL con **Homebrew**, se crea automáticamente un rol en Postgres con el __mismo nombre que tu usuario__ de macOS. Por eso, al ejecutar `rails db:create` sin especificar usuario ni contraseña, Rails usa ese rol por defecto y la base de datos se crea sin problemas.  
+> Cuando instalas PostgreSQL con **Homebrew**, se crea automáticamente un rol en Postgres con el __mismo nombre que tu usuario__ de macOS. Por eso, al ejecutar `rails db:create` sin especificar usuario ni contraseña, Rails usa ese rol por defecto y la base de datos se crea sin problemas.
 {: .prompt-info }
 {% endif %}
