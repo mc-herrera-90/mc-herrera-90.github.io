@@ -27,4 +27,4 @@ const profile = {
   }
 };
 ```
-{:.typing}
+{:.typing }

@@ -8,6 +8,13 @@
     @extend %heading;
     @if $i == 1 {
       font-weight: 800;
+      &.post-title {
+        @include bp.xxl {
+          width: 75%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
     }
 
     @if $i > 1 {

@@ -115,13 +115,16 @@ python3 app.py
 ```
 {: .typing }
 
+![Hola Mundo Desde Flask](flask/flask-ejecutar-app-dark.webp){:.dark}
+![Hola Mundo Desde Flask](flask/flask-ejecutar-app-light.webp){:.light}
+
 Ahora abre el navegador en:
 
 `http://localhost:5000`{:.filepath}
 
 Y verás:
 
-![Hula Mundo Desde Flask](flask/hola-mundo.webp)
+![Hola Mundo Desde Flask](flask/hola-mundo.webp)
 
 {% include circle-line.html %}
 

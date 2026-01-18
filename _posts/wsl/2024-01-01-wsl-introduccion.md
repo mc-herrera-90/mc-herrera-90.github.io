@@ -1,6 +1,6 @@
 ---
-title: "Potencia de Linux en Windows"
-categories: [Sistemas Operativos, WSL]
+title: "WSL: Potencia de Linux en Windows"
+categories: [WSL, "WSL-Introducción"]
 tags: [Sistemas Operativos]
 image:
   path: 'poster/wsl-en-windows.webp'
@@ -21,7 +21,6 @@ Ahora es posible utilizar algunas distribuciones de GNU/Linux como [__Ubuntu__](
 ## ¿Qué es WSL?
 
 WSL es una capa de compatibilidad que permite ejecutar un entorno Linux directamente en Windows, sin necesidad de una máquina virtual o un arranque dual. Esto significa que puedes utilizar aplicaciones de Linux junto con aplicaciones de Windows, todo desde la misma interfaz. En la siguiente captura, podemos ver un sistema GNU/Linux Debian, ejecutándose en Windows Terminal:
-
 
 ![WSL debian neofetch](wsl/wsl-debian-neofetch-light.webp){:.light}
 ![WSL debian neofetch](wsl/wsl-debian-neofetch-dark.webp){:.dark}
@@ -44,7 +43,7 @@ Primero, abre PowerShell como administrador y ejecuta el siguiente comando:
 ```powershell
 wsl --install
 ```
-{: .nolineno }
+{: .nolineno .typing }
 
 Esto instalará la última versión de WSL y la distribución de Linux predeterminada (normalmente Ubuntu). Si ya se encuentra instalada nos muestra las distribuciones disponibles:
 
@@ -57,7 +56,7 @@ Esto instalará la última versión de WSL y la distribución de Linux predeterm
 > ```powershell
 > wsl -l --online
 > ```
->{:.nolineno}
+>{:.nolineno .typing}
 > Este comando mostrará todas las distribuciones de Linux disponibles para instalar en tu sistema.
 {: .prompt-tip }
 
@@ -68,7 +67,7 @@ Puedes instalar diferentes distribuciones de Linux. Si quieres elegir una distri
 ```powershell
 wsl --install -d Debian
 ```
-{: .nolineno }
+{: .nolineno .typing }
 
 ## Configurar una nueva distribución
 
@@ -169,7 +168,7 @@ take() {
   mkdir -p "$1" && cd "$1"
 }
 ```
-{: .nolineno file='.zshrc' }
+{: .nolineno file='.zshrc' .typing }
 
 ## Instalar Oh My Zsh
 

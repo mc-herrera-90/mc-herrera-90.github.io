@@ -44,6 +44,18 @@ body {
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   font-family: v.$font-family-base;
+background-image:
+  linear-gradient(135deg,
+    color-mix(in srgb, var(--text-color) 14%, transparent) 0%,
+    transparent 40%,
+    color-mix(in srgb, var(--text-color) 8%, transparent) 100%
+  ),
+  linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+  linear-gradient(0deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+background-size: 100% 100%, 40px 40px, 40px 40px;
+background-blend-mode: overlay;
+
+
 }
 
 h1.dynamic-title {

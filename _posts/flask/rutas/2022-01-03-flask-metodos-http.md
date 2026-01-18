@@ -1,5 +1,5 @@
 ---
-title: "Flask: Métodos HTTP (GET, POST, PUT, DELETE)"
+title: "Flask: Métodos HTTP<br/> (GET, POST, PUT, DELETE)"
 categories: [Flask, Flask-Rutas]
 tags: [flask, python]
 badge: flask
@@ -63,7 +63,7 @@ __¿Qué hace esto?__:
 * Si envías un formulario con `POST` responde “Formulario enviado”
 
 
-## 4. Ejemplo real con formulario
+## 4. Ejemplo con formulario
 
 
 `templates/form.html`
@@ -74,7 +74,7 @@ __¿Qué hace esto?__:
   <button type="submit">Enviar</button>
 </form>
 ```
-{:file="form.html"}
+{:file="form.html" .typing}
 
 `app.py`
 
@@ -90,8 +90,9 @@ def submit():
         return f"Hola {username}, formulario recibido"
     return render_template("form.html")
 ```
-{:file="app.py"}
+{:file="app.py" .typing}
 
+![Ruta usando GET y POST](flask/ruta-submit-get-y-post.webp)
 
 ## 5. PUT y DELETE en Flask (para APIs)
 

@@ -43,7 +43,7 @@ script_includes:
           {%- endif -%}
         </div>
     {% endif %}
-    <h1 data-toc-skip class="mb-3 mt-0">
+    <h1 data-toc-skip class="my-4 post-title">
       {% if page.title contains ":" %}
         {{ page.title | split: ":" | last | strip }}
       {% else %}
@@ -54,6 +54,7 @@ script_includes:
       <p class="post-desc fw-light mb-4">{{ page.description }}</p>
     {% endif %}
     <div class="post-meta text-muted">
+      <div class="d-flex justify-content-between" id="info_post">
       <!-- published date -->
       <span>
         {{ site.data.locales[lang].post.posted }}
@@ -69,14 +70,6 @@ script_includes:
         </span>
       {% endif %}
 
-      <div class="d-flex justify-content-between" id="info_post">
-        <!-- author(s) -->
-        <span>
-          {{ site.data.locales[lang].post.written_by }}
-          <em>
-            <a href="mailto:contacto@mcherrera.dev">@mcherrera</a>
-          </em>
-        </span>
 
         <div>
           <!-- pageviews -->

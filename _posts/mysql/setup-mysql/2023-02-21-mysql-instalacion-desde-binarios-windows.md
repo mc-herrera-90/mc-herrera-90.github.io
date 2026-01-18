@@ -1,5 +1,5 @@
 ---
-title: "MySQL - Windows (binarios)"
+title: "MySQL: Instalación en Windows (binarios)"
 emoji: "🐬"
 description: "Cómo instalar y configurar MySQL en Windows desde los binarios"
 categories: [MySQL, "MySQL-Setup"]
@@ -75,7 +75,7 @@ default_storage_engine=INNODB # Motor de almacenamiento por defecto
 max_connections=200 # Número máximo de conexiones simultáneas
 sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES # Reflas de validación SQL
 ```
-{: .nolineno file="my.ini" }
+{: .nolineno file="my.ini" .typing }
 
 ### Opciones para los clientes \[client\]
 

@@ -1,5 +1,5 @@
 ---
-title: "MySQL - Ubuntu"
+title: "MySQL: Instalación en Ubuntu"
 description: "Cómo instalar y configurar MySQL en Ubuntu 20.04 en adelante"
 categories: [MySQL, "MySQL-Setup"]
 emoji: 🐬
@@ -11,9 +11,6 @@ image:
 pin: true
 ---
 
-<div style="text-align: center;" markdown="1">
-  ❤️{% include {{ page.icon }} %}{:style="width:190px;"}
-</div>
 
 ## Alcance de esta guía
 
