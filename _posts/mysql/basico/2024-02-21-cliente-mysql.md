@@ -1,19 +1,15 @@
 ---
-title: "MySQL - Cliente de línea de comandos"
+title: "MySQL: Cliente de línea de comandos"
 emoji: 🐬
 pin: true
 description: "conecta a servidores locales o remotos, gestiona bases de datos y automatiza tareas"
 categories: [MySQL, "MySQL-Básico"]
 tags: [Bases de Datos]
-icon: icon/mysql.svg
 image:
     path: poster/mysql-cliente-terminal.webp
     lqip: data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJQAXf+A765PmdR4q07gAA/uqLJcRZMeZLMqSqqNHxfbqvYo6tqfPV1md4ZJcvyyr2o1Cmv1GQxsB76tOaGDaVRvrfisE2NnJfBGEmCMTHmRwAAAA=
 ---
 
-<div style="text-align: center;" markdown="1">
-  ❤️{% include {{ page.icon }} %}{:style="width:190px;"}
-</div>
 
 ## Alcance de esta guía
 
@@ -153,6 +149,7 @@ A continuación, probaremos una conexión local:
 ```terminal
 mysql -u root -h localhost -p
 ```
+{:.typing}
 
 Estos parámetros son sencillos, aunque dependiendo del método o plugin de autenticación podría variar pero simplemente necesitamos especificar 2:
 
@@ -193,6 +190,7 @@ Para conectarse a un servidor remoto, simplemente necesitamos indicar la direcci
 ```terminal
 mysql -u usuario -p -h 192.168.1.50 -P 3306
 ```
+{:.typing}
 
 Donde:
 

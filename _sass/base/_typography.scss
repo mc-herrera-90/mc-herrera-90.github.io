@@ -8,13 +8,6 @@
     @extend %heading;
     @if $i == 1 {
       font-weight: 800;
-      background: linear-gradient(
-        90deg,
-        var(--heading-color-title),
-        var(--heading-color-title-2)
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
     @if $i > 1 {
@@ -23,10 +16,10 @@
     }
 
     @if $i < 5 {
-      $size-factor: 0.25rem;
+      $size-factor: 0.15rem;
 
       @if $i > 1 {
-        $size-factor: 0.18rem;
+        $size-factor: 0.08rem;
 
         main & {
           @if $i == 2 {

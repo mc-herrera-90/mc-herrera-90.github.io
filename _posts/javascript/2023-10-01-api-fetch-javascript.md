@@ -21,6 +21,7 @@ promise.then(function(response) {
 // O más abreviado con arrows functions
 promise.then((response) => /* ... */)
 ```
+{:.typing}
 
 Fetch devolverá una promesa (`PROMISE`) que será aceptada cuando reciba una respuesta y sólo será rechazada si hay un fallo de red o si por alguna razón no se pudo completar la petición (ej. URl incorrecta).
 
@@ -32,6 +33,7 @@ fetch("/data/colaboradores.json")
         /* Código que procesa la respuesta */ 
     })
 ```
+{:.typing}
 
 ## Procesar respuestas
 
@@ -72,7 +74,7 @@ fetch("/api/users")
     console.error("ERROR: ", err.message)
   });
 ```
-{:.nolineno}
+{:.nolineno .typing}
 
 __Explicación:__
 - Comprobamos que la petición es correcta con `response.ok`
@@ -102,7 +104,7 @@ try {
   console.error("Error:", e.message);
 }
 ```
-{:.nolineno}
+{:.nolineno .typing}
 
 __Explicación__:
 

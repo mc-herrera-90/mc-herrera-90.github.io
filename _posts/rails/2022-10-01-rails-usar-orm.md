@@ -21,7 +21,7 @@ La tabla `users` corresponde al modelo:
 class User < ApplicationRecord
 end
 ````
-{: .nolineno }
+{: .nolineno .typing }
 
 ## 1. Setup Rails
 
@@ -32,6 +32,7 @@ Para comenzar con el setup de Rails, lo primero es preparar el entorno y crear u
   {% include instructions/mac/ror.md.liquid project-name="bookstore" db="postgres" %}
 {% endtab %}
 {% tab setup-rails <i class="fab fa-linux"></i> Linux %}
+  {% include instructions/linux/ror.md.liquid project-name="bookstore" db="postgres" %}
 {% endtab %}
 {% tab setup-rails <i class="fab fa-windows"></i> Windows %}
   {% include instructions/windows/ror.md.liquid project-name="bookstore" %}
@@ -89,6 +90,7 @@ rails generate model Author name:string bio:text
 rails generate model Category name:string
 rails generate model Book title:string price:decimal author:references category:references
 ```
+{: .typing }
 
 Rails generará:
 

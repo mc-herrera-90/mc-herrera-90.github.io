@@ -43,8 +43,7 @@ script_includes:
           {%- endif -%}
         </div>
     {% endif %}
-    <h1 data-toc-skip class="mb-3 mt-0 fs-1 text-shadow"
-        style="color: var(--heading-color-title); text-shadow: 2px 3px 10px #19193a5f">
+    <h1 data-toc-skip class="mb-3 mt-0">
       {% if page.title contains ":" %}
         {{ page.title | split: ":" | last | strip }}
       {% else %}
@@ -54,7 +53,6 @@ script_includes:
     {% if page.description %}
       <p class="post-desc fw-light mb-4">{{ page.description }}</p>
     {% endif %}
-    <hr>
     <div class="post-meta text-muted">
       <!-- published date -->
       <span>
@@ -71,31 +69,12 @@ script_includes:
         </span>
       {% endif %}
 
-
       <div class="d-flex justify-content-between" id="info_post">
         <!-- author(s) -->
         <span>
-          {% if page.author %}
-            {% assign authors = page.author %}
-          {% elsif page.authors %}
-            {% assign authors = page.authors %}
-          {% endif %}
-
           {{ site.data.locales[lang].post.written_by }}
-
           <em>
-            {% if authors %}
-              {% for author in authors %}
-                {% if site.data.authors[author].url -%}
-                  <a href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
-                {%- else -%}
-                  {{ site.data.authors[author].name }}
-                {%- endif %}
-                {% unless forloop.last %}{{ '</em>, <em>' }}{% endunless %}
-              {% endfor %}
-            {% else %}
-              <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>
-            {% endif %}
+            <a href="mailto:contacto@mcherrera.dev">@mcherrera</a>
           </em>
         </span>
 
@@ -109,7 +88,6 @@ script_includes:
               {{ site.data.locales[lang].post.pageview_measure }}
             </span>
           {% endif %}
-
           <!-- read time -->
           {% include read-time.html content=content prompt=true lang=lang %}
         </div>

@@ -29,7 +29,7 @@ import { Component } from '@angular/core';
 })
 export class Avatar { }
 ```
-{:file="avatar.ts"}
+{:file="avatar.ts" .typing}
 {% endraw %}
 
 El objeto que se pasa a `@Component` se conoce como los **metadatos** del componente. Allí se configuran sus propiedades principales, como:
@@ -52,6 +52,7 @@ ng generate component nombre-del-componente
 # o la forma corta:
 ng g c nombre-del-componente
 ```
+{:.typing}
 
 Al ejecutarlo, Angular generará automáticamente:
 
@@ -79,7 +80,7 @@ import { Avatar } from './avatar';
 })
 export class App { }
 ```
-{: file="app.ts" .nolineno }
+{: file="app.ts" .typing }
 
 
 ## Mostrar componente en un template
