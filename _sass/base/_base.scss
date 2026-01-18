@@ -50,11 +50,10 @@ background-image:
     transparent 40%,
     color-mix(in srgb, var(--text-color) 8%, transparent) 100%
   ),
-  linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
-  linear-gradient(0deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  linear-gradient(90deg, rgba(255,255,255,0.06) 2px, transparent 1px),
+  linear-gradient(0deg, rgba(255,255,255,0.06) 2px, transparent 1px);
 background-size: 100% 100%, 40px 40px, 40px 40px;
 background-blend-mode: overlay;
-
 
 }
 

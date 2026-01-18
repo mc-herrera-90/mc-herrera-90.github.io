@@ -23,11 +23,9 @@
     }
 
     @if $i < 5 {
-      $size-factor: 0.15rem;
+      $size-factor: 0.12rem;
 
       @if $i > 1 {
-        $size-factor: 0.08rem;
-
         main & {
           @if $i == 2 {
             margin: 2.5rem 0 1.25rem;
@@ -44,8 +42,6 @@
           font-family: 'Metrophobic', sans-serif;
         }
       }
-    } @else {
-      font-size: 1.05rem;
     }
   }
 }

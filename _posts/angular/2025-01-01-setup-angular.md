@@ -1,5 +1,5 @@
 ---
-title: "Angular - Setup"
+title: "Angular: Configuración del entorno local"
 categories: [Angular, Angular-Setup]
 icon: techs/angular.svg
 badge: angular
@@ -18,14 +18,15 @@ Angular depende fuertemente del ecosistema Node, por lo que es importante partir
 
 __Verificación rápida__:
 
+
 {% capture tools_version %}
 <span class='hl'>$ node --version</span>
 v24.8.0
-<span class='hl'>$ npm --version </span>
+<span class='hl'>$ npm --version</span>
 11.6.0
 {% endcapture %}
 
-{% include terminal-wrapper.html content=tools_version %}
+{% include terminal-wrapper.html content=tools_version typing=true %}
 
 ## Instalar Angular CLI
 
@@ -37,6 +38,7 @@ Instalación global:
 ```terminal
 npm install -g @angular/cli
 ```
+{:.typing}
 
 Verificación:
 

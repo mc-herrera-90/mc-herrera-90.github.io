@@ -9,8 +9,12 @@ scripts:
 ---
 
 <h1 data-toc-skip class="text-center mb-4" style="color: var(--heading-color-title);">
-  Perfil Profesional
+  Marco Contreras Herrera
 </h1>
+
+<p class="mb-3 small mb-md-4 text-center fs-5">
+  Full Stack Developer | Cloud Architect
+</p>
 
 ```js
 const profile = {

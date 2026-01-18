@@ -1,5 +1,5 @@
 ---
-title: Python: Conectar con Oracle Autonomous Database
+title: "Python: Conectar con Oracle Autonomous Database"
 icon: icon/python.svg
 categories: [Python, Python-Integraciones]
 image:
