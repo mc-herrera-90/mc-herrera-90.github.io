@@ -1,7 +1,7 @@
 ---
 title: "Usando el intérprete de python"
 description: "El Intérprete de Python es el programa encargado de ejecutar instrucciones o archivos con código de Python"
-categories: [Python, Fundamentos]
+categories: [Python, Python-Fundamentos]
 image:
     path: poster/interprete-de-python.webp
     lqip: data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJYwAu/8BI9M77/2lcgAD+qgI/Fbsm6FPNhAk/w5fGidEa+g+aH7wjANd2HfKparmqLHNDu9pYKg+34VwNy+us+AIYGVG9YAA=

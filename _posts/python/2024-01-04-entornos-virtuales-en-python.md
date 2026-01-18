@@ -1,7 +1,7 @@
 ---
 title: Entornos virtuales de Python
 emoji: 🐍
-categories: [Python, "Avanzado"]
+categories: [Python, Python-Avanzado]
 image: poster/virtual-envs.webp
 tags: [entornos virtuales en python]
 mermaid: true

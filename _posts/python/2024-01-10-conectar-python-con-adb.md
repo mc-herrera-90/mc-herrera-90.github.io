@@ -1,14 +1,13 @@
 ---
-title: Conectando Python con Oracle Autonomous Database
+title: Python: Conectar con Oracle Autonomous Database
 icon: icon/python.svg
-categories: [Python, "Tutorial"]
+categories: [Python, Python-Integraciones]
 image:
     path: poster/python-adb.webp
     lqip: data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAsAPzmIulOvKSWisAgB4CcJZgCdAB87I8BCy/pQAgD+oMJm1X2r2TfzZNbTXWf9L+N8znXHbn++k1kUTW1sld+ooGg9QcWvAsCRQ1T95CFRs5YbzhLIwHy1D4MAAAA=
 ---
 
 En este post, aprenderás paso a paso a conectar __Python__ <i class="fab fa-python"></i> con una __Oracle Autonomus Database__ (ADB) en la nube ☁️. Este tipo de base de datos es parte del ecosistema Oracle Cloud Infrastructure (OCI) y se destaca por su administración automática.
-
 
 ## ¿Qué es Oracle Autonomous Database?
 
@@ -28,6 +27,7 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 ```terminal
 pip install oracledb
 ```
+{:.typing}
 
 > Si estás usando el cliente antiguo `cx_Oracle`, se recomienda migrar al nuevo paquete oficial `oracledb`.
 {: .prompt-tip }

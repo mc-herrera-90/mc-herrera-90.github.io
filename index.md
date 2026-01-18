@@ -8,10 +8,14 @@ scripts:
   - https://cdn.jsdelivr.net/npm/marked/marked.min.js
 ---
 
+<h1 data-toc-skip class="text-center mb-4" style="color: var(--heading-color-title);">
+  Perfil Profesional
+</h1>
+
 ```js
 const profile = {
   role: "Full-Stack Developer & Cloud Architect",
-  headline: "Construyo soluciones web escalables, seguras y bien diseñadas",
+  headline: "Construyo soluciones web escalables y bien diseñadas",
   focus: [
     "Arquitectura Cloud en AWS",
     "Desarrollo Full-Stack moderno",
@@ -27,4 +31,4 @@ const profile = {
   }
 };
 ```
-{:.typing }
+{:file="about-me.js" .typing }
