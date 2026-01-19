@@ -1,0 +1,44 @@
+- title: Crear una colección manualmente
+  content: |
+    Aunque MongoDB crea la colección automáticamente al insertar el primer documento, puedes crearla explícitamente para definir opciones como el tamaño.
+
+    ```javascript
+    db.createCollection("nombre_coleccion")
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Listar colecciones existentes
+  content: |
+    Visualiza todas las colecciones disponibles en la base de datos actual.
+
+    ```javascript
+    show collections
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Renombrar una colección
+  content: |
+    Si necesitas cambiar el nombre de una colección sin perder los datos internos.
+
+    ```javascript
+    db.viejoNombre.renameCollection("nuevoNombre")
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Eliminar una colección
+  content: |
+    Borra todos los documentos y los índices asociados a la colección de forma permanente.
+
+    ```javascript
+    db.nombre_coleccion.drop()
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Contar documentos en la colección
+  content: |
+    Obtén de forma rápida el número total de registros dentro de una colección.
+
+    ```javascript
+    db.nombre_coleccion.countDocuments({})
+    ```
+    {:.typing .nolineno .language-terminal}
