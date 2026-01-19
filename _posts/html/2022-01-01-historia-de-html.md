@@ -2,45 +2,51 @@
 title: La historia del lenguaje HTML
 categories: [HTML, Html-Bases]
 tags: [HTML]
-image:
-    path: poster/historia-de-html.webp
-    lqip: data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJaQAAW6g+lEWn2tK9gAD+4KXCFS1Aok/Lc6iU7kUueQEDnrl7PZ0JhoAZnl2dGx5LLi1AAAA=
+image: poster/html-internet.avif
 pin: true
 ---
 
-## Historia de HTML
+_HTML_, sigla de *HyperText Markup Language*, es el lenguaje base de la Web. Es la herramienta con la que se estructura la información que ves todos los días en tu navegador: textos, imágenes, enlaces, formularios y más.
 
-HTML. sigla de __HyperText Markup Language__, es el lenguaje base de la Web. Es la herramienta con la que se estructura la información que ves todos los días en tu navegador: textos, imágenes, enlaces, formularios y más. Pero, ¿alguna vez te preguntaste cómo nació HTML y cómo ha evolucionado hasta convertirse en lo que usamos hoy?. En este artículo revisamos los __hitos más importantes en la evolución de HTML__.
-
-### 1989: Tim Berners-lee invento la World Wide Web
+Pero ¿alguna vez te preguntaste cómo nació HTML y cómo ha evolucionado hasta convertirse en lo que usamos hoy? En este artículo revisamos los hitos más importantes en la evolución de HTML.
 
 ![Tim Berners-Lee](html/tbl_www.webp)
 
+### 1989: Tim Berners-lee invento la World Wide Web
+
 La web se desarrolló entre marzo y diciembre de 1989 por el inglés [Tim Berners-Lee](https://es.wikipedia.org/wiki/Tim_Berners-Lee){:target='_blank'}, con la colaboración del belga [Robert Cailliau](https://es.wikipedia.org/wiki/Robert_Cailliau "Conseil Européen pour la Recherche Nucléaire"){:target='_blank'} mientras trabajaban en el [CERN](https://es.wikipedia.org/wiki/Organizaci%C3%B3n_Europea_para_la_Investigaci%C3%B3n_Nuclear){:target='_blank'} en Ginebra, Suiza. Su objetivo era facilitar el intercambio de información entre científicos de distintas universidades y centros de investigación, mediante un sistema de documentos interconectados a través de hipevínculos y se publicó como una propuesta formal en el año 1991. Desde entonces, Berners-Lee ha jugado un papel activo guiando el desarrollo de estándares Web (como el lenguaje de marcado HTML).
 
-### Año 1991: Tim Berners-lee invento HTML
+---
 
 ![Tim Berners-Lee HTML](html/tbl_html.webp)
 
+### 1991: Tim Berners-lee invento HTML
+
 El origen de HTML se remonta al año 1980, cuando __Tim Berners-Lee__, trabajador del [CERN](https://es.wikipedia.org/wiki/Organizaci%C3%B3n_Europea_para_la_Investigaci%C3%B3n_Nuclear "Conseil Européen pour la Recherche Nucléaire"){:target='_blank'}, propuso un nuevo sistema de "hipertexto" para mejorar el intercambio de información entre investigadores. Su idea principal era conectar documentos electrónicos mediante enlaces, de modo que los cietíficos pudieran acceder rápidamente a datos relacionados sin necesidad de buscar manualmente entre archivos físicos o bases de datos aisladas. En 1989, Berners-Lee retomó su idea y formalizó una propuesta para desarrollar un sistema que eventualmente se convertiría en la __World Wide Web__. Entre 1990 y 1991, construyó las piezas fundamentales de este nuevo entorno digital: el protocolo [__HTTP__](https://en.wikipedia.org/wiki/HTTP){:target="_blank"}, las direcciones [__URL__](https://en.wikipedia.org/wiki/URL "uniform resource locator"){:target="_blank"}, y lo más importante, el lenguaje de marcado llamado __HTML__. El primer documento formal con la descripción de HTML se publicó bajo el nombre de _HTML Tags_, y todavía hoy puede ser consultado en línea como una reliquia informática [__HTML Tags (1991)__](https://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html){:target="_blank"}.
 
-### Año 1993: Dave Ragget redacta HTML
+---
 
 ![Dave Raggett HTML](html/dr_html.webp)
+
+### 1993: Dave Ragget redacta HTML
 
 [Dave Ragget](https://www.w3.org/People/Raggett/){:target='_blank'} es un especialista en informática inglés, desempeñó un papel crucial en el desarrollo y estandarización de la [World Wide Web](https://es.wikipedia.org/wiki/World_Wide_Web){:target='_blank'}. En 1993, redactó el primer borrador formal de __HTML__, conocido como __HTML+__, con el objetivo de mejorar las capacidades del lenguaje original propuesto por Tim Berners-Lee.
 
 Ese mismo año, el [__IETF__](https://www.ietf.org/ "Internet Engineering Task Force"){:target='_blank'} recibió esta propuesta como parte del proceso para convertir HTML en un estándar abierto para la web. La propuesta de Raggett introdujo nuevas capacidades que ampliaban significativamente las posibilidades del lenguaje original, como soporte para __imágenes embebidas__, __tablas__ y __formularios interactivos__, elementos fundamentales para el desarrollo de sitios web más dinámicos y funcionales.
 
-### Año 1995: HTML 2.0 definido por HTML Working Group del IETF
+---
+
+### 1995: HTML 2.0 definido por HTML Working Group del IETF
 
 El __HTML Working Group (HTMLWG)__ fue un grupo de trabajo fundamental en la evolución del lenguaje HTML, Operó inicialmente bajo el __IETF__ entre 1994 y 1996, y posteriormente como parte del __W3C (World Wide Web Consortium)__ desde 1995 hasta 2015, lo que refleja la transición del desarrollo de estándares web desde una estructura más técnica y descentralizada hacia una organización más formalizada y colaborativa.
 
 Uno de los hitos más importantes del grupo durante su etapa en el IETF fue la publicación de la especificación oficial de __HTML 2.0 en 1995__. Esta versión fue la primera definición formal y estandarizada de HTML, y su propósito era consolidar las prácticas existentes en torno al lenguaje. __HTML 2.0 fue la base que permitió una interoperabilidad real entre navegadores y desarrolladores__, proporcionando una estructura clara con elementos para encabezados, párrafos, listas, formularios y enlaces, entre otros.
 
-### Año 1997: Recomendaciones de W3C - HTML 3.2
+---
 
 ![html 3.2 w3c](html/html3.2_w3c.webp)
+
+### 1997: Recomendaciones de W3C - HTML 3.2
 
 En __enero de 1997__, el __W3C__ publicó la especificación __HTML 3.2__ como una __recomendación oficial__. Esta versión fue la primera especificación publicada íntegramente bajo la responsabilidad del W3C, y buscaba estandarizar las extensiones no oficiales que ya estaban siendo ampliamente utilizadas por los navegadores más populares de la época, como __Netscape Navigator__ e __Internet Explorer__.
 
@@ -65,7 +71,9 @@ __Nuevas etiquetas introducidas o formalizadas en HTML 3.2__
 | `<basefont>`   | Establece el tamaño, color y tipo de fuente por defecto (obsoleto hoy). |
 | `<div>`        | Introducido de forma más formal para agrupar contenido con estilo.      |
 
-### Año 1999: Recomendaciones de W3C - HTML 4.01
+---
+
+### 1999: Recomendaciones de W3C - HTML 4.01
 
 En __diciembre de 1999__, el __W3C (World Wide Web Consortium)__ publicó la especificación __HTML 4.01__, una versión revisada y corregida de __HTML 4.0__ (publicada inicialmente en 1997). Esta especificación fue editada por __Dave Ragget__, junto con Arnaud Le Hors y Ian Jacobs, y se convirtió en una de las versiones más estables y ampliamente adoptadas del lenguaje HTML.
 
@@ -75,7 +83,9 @@ HTML 4.01 no introdujo cambios radicales, pero sí corrigió errores, clarificó
 - __Transitional (Transicional)__: Permitía el uso de etiquetas de presentación que ya estaban en uso, facilitando la transición desde versiones para el diseño.
 - __Frameset__: Permitía el uso de marcos (`<frameset>`, `<frame>`) para dividir la ventaja del navegador en varias vistas independientes.
 
-### Año 2000: Recomendaciones de W3C - XHTML 1.0
+---
+
+### 2000: Recomendaciones de W3C - XHTML 1.0
 
 En __enero del año 2000__, el __W3C__ publicó la especificación de __XHTML 1.0 (Extensible HyperText Markup Language)__ como una recomendación oficial. Esta versión representó un punto de inflexión técnico en la historia del desarrollo web, ya que intentaba unir lo mejor de __HTML 4.01__ con la __rigurosidad estructural de XML (Extensible Markup Language)__.
 
@@ -99,7 +109,9 @@ Durante los 2000, la evolución de HTML __se estancó seriamente__ debido a conf
 
 Esto dio paso a una competencia desleal, en la que ambas empresas comenzaron a __anadir etiquetas y comportamientos personalizados no estandarizados__. Por ejemplo, __IE__ introducía elementos o propiedades CSS que solo funcionaban en su navegador, y lo mismo hacía Netscape. Como no existía un consenso, los desarrolladores web debían escribir __dos versiones de sus sitios web__ para garantizar que funcionaran correctamente en ambos.
 
-### Año 2008: Primer borrador público de HTML5 WHATWG
+---
+
+### 2008: Primer borrador público de HTML5 WHATWG
 
 Después de la publicación de __XHTML 1.0__ en el año 2000, el __W3C__ decidió centrar sus esfuerzos en una evolución más estricta y purista del lenguaje, dando paso el desarrollo __XHTML 2.0__. Esta nueva versión, sin embargo, rompía completamente la compatibilidad con versiones anteriores de HTML y proponía una arquitectura basada exclusivamente en XML, lo que requería un entorno completamente controlado, poco adecuado para la naturaleza abierta y caóticamente diversa de la web real.
 
@@ -112,21 +124,27 @@ __Características clave de HTML5__
 - __Mejoras en formularios__: nuevos tipos de entrada como `<input type="email">`, `<date>`, `<range>`, entre otros.
 - __APIs integradas__: como Canvas API (`<canvas>`), Web Storage (`localstorage`, `sessionStorage`), Web Workers, y más.
 
-### Año 2012: Estándar de vida HTML5 WHATWG
+---
+
+### 2012: Estándar de vida HTML5 WHATWG
 
 En1 __enero de 2011__, el WHATWG cambió el nombre de su estándar de vida "HTML5" a "HTML". No obstante, el W3C continúa su proyecto de lanzar HTML5. En __julio del 2012__, el WHATWG y W3C decidieron un grado de separación. En otras palabras:
 - __W3C__ continuará el trabajo de especificación HTML5, enfocándose en un único estándar definido.
 - __WHATWG__ continuará su trabajo con HTML5 como un "estándar de vida".
 
-### Año 2014: Recomendaciones de 3WC - HTML5
+---
 
 ![html 5.0 w3c](html/html5.0_w3c.webp)
 
+### 2014: Recomendaciones de 3WC - HTML5
+
 En diciembre de __2012__, el W3C designó HTML5 como recomendación candidata. En __septiembre de 2014__, el W3C trasladó HTML5 a recomendación propuesta. El criterio para avanzar a la recomendación del W3C es "dos implementaciones 100% completas y totalmente interoperables". El __28 de octubre de 2014__, HTML5 se publicó como una recomendación W3C estable, significa que el proceso de especificación está completo.
 
-### Año 2016: Recomendaciones candidata de W3C - HTML5.1
+---
 
 ![html 5.1 w3c](html/html5.1_w3c.webp)
+
+### 2016: Recomendaciones candidata de W3C - HTML5.1
 
 En __noviembre de 2016__, el __W3C__ publicó __HTML5.1__ como una recomendación candidata, marcando el inicio de un nuevo enfoque más ágil y evolutivo en el desarrollo de HTML. En lugar de esperar largos periodos entre versiones como en el pasado, HTML5.1 introdujo un modelo de __actualizaciones incrementales__, incorporando mejoras y nuevas características en base a su madurez.
 
