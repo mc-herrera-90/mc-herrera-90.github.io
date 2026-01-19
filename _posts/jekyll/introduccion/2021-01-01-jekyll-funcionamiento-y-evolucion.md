@@ -1,7 +1,7 @@
 ---
 title: "Jekyll: Funcionamiento y evolución"
 categories: [Jekyll, "Jekyll-Bases"]
-badge: jekyll
+image: poster/jekyll-ssg.avif
 liquid_flujo:
   - title: 1. Ingesta de Contenido
     content: |
