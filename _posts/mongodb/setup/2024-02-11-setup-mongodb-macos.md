@@ -45,6 +45,8 @@ Iniciar el servicio de _MongoDB_:
 ```terminal
 brew services start mongodb-community@7.0
 ```
+{:.typing}
+
 __El comando anterior hace esto, en resumen__:
 
 - `brew services` gestiona servicios con Homebrew (arranque, parada, reinicio).
@@ -61,6 +63,7 @@ Verificar que está corriendo:
 ```terminal
 brew services list --json
 ```
+{:.typing}
 
 ![Servicio MongoDB](brew/brew-services-mongodb-dark.webp){:.dark .bg-secondary .rounded .border .border-secondary-subtle }
 ![Servicio MongoDB](brew/brew-services-mongodb-light.webp){:.light .bg-secondary-subtle .rounded .border .border-secondary-subtle }
@@ -116,10 +119,10 @@ db.productos.find().pretty()
 
 Cuando termines, puedes salir con:
 
-```js
+```terminal
 exit
 ```
-{: .nolineno }
+{:.typing}
 
 ## Administrar servicio
 
@@ -128,9 +131,11 @@ Detener MongoDB:
 ```terminal
 brew services stop mongodb-community@7.0
 ```
+{:.typing}
 
 Reiniciar MongoDB:
 
 ```terminal
 brew services restart mongodb-community@7.0
 ```
+{:.typing}

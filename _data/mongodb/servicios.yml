@@ -1,0 +1,53 @@
+- title: Iniciar el servicio MongoDB
+  content: |
+    Arranca el motor de la base de datos para que empiece a aceptar conexiones.
+
+    ```terminal
+    sudo systemctl start mongod
+    ```
+    {:.typing}
+
+- title: Verificar el estado del servicio
+  content: |
+    Comprueba si MongoDB se está ejecutando correctamente o si ha ocurrido algún error durante el inicio.
+
+    ```terminal
+    sudo systemctl status mongod
+    ```
+    {:.typing}
+
+- title: Habilitar el inicio automático
+  content: |
+    Configura el sistema para que MongoDB se inicie automáticamente cada vez que se encienda o reinicie el servidor.
+
+    ```terminal
+    sudo systemctl enable mongod
+    ```
+    {:.typing}
+
+- title: Detener el servicio
+  content: |
+    Finaliza la ejecución del proceso de MongoDB de forma segura.
+
+    ```terminal
+    sudo systemctl stop mongod
+    ```
+    {:.typing}
+
+- title: Reiniciar el servicio
+  content: |
+    Aplica cambios de configuración o refresca el proceso reiniciando el servicio por completo.
+
+    ```terminal
+    sudo systemctl restart mongod
+    ```
+    {:.typing}
+
+- title: Acceder a la terminal interactiva (Shell)
+  content: |
+    Utiliza el componente `mongosh` para conectarte a la base de datos y gestionar tus datos directamente.
+
+    ```terminal
+    mongosh
+    ```
+    {:.typing}

@@ -9,7 +9,6 @@ _MongoDB_ es una base de datos NoSQL orientada a documentos, muy popular para pr
 ![mongodb](mongodb/mongosh-instalar-mongo.webp){:.light}
 ![mongodb](mongodb/mongosh-instalar-mongo-dark.webp){:.dark}
 
-
 ## Instalar con WinGet
 
 [__WinGet__](https://learn.microsoft.com/es-es/windows/package-manager/winget/){:target="_blank"} es la forma más sencilla de instalar software en versiones modernas de Windows 10 y en Windows 11.
