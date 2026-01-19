@@ -1,0 +1,160 @@
+- title: Insertar 1 documento
+  content: |
+    Agrega un documento nuevo a una colección.
+
+    ```javascript
+    db.nombre_coleccion.insertOne({
+      campo: "valor",
+      otroCampo: 123
+    })
+    ```
+    {: .nolineno .typing .language-terminal }
+
+- title: Insertar varios documentos
+  content: |
+    Inserta varios documentos en una sola operación.
+
+    ```javascript
+    db.nombre_coleccion.insertMany([
+      { campo: "valor1" },
+      { campo: "valor2" }
+    ])
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Actualizar 1 documento (set)
+  content: |
+    Modifica campos específicos de un documento.
+
+    ```javascript
+    db.nombre_coleccion.updateOne(
+      { _id: ObjectId("id_del_doc") },
+      { $set: { campo: "nuevoValor" } }
+    )
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Actualizar varios documentos
+  content: |
+    Modifica varios documentos que cumplan una condición.
+
+    ```javascript
+    db.nombre_coleccion.updateMany(
+      { activo: false },
+      { $set: { activo: true } }
+    )
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Actualizar o insertar (upsert)
+  content: |
+    Si no existe, crea el documento; si existe, lo actualiza.
+
+    ```javascript
+    db.nombre_coleccion.updateOne(
+      { email: "user@mail.com" },
+      { $set: { nombre: "Usuario" } },
+      { upsert: true }
+    )
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Reemplazar documento completo
+  content: |
+    Reemplaza el documento entero (ojo: borra lo que no incluyas).
+
+    ```javascript
+    db.nombre_coleccion.replaceOne(
+      { _id: ObjectId("id_del_doc") },
+      { campoNuevo: "valor" }
+    )
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Eliminar 1 documento
+  content: |
+    Borra un documento específico.
+
+    ```javascript
+    db.nombre_coleccion.deleteOne({ _id: ObjectId("id_del_doc") })
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Eliminar varios documentos
+  content: |
+    Borra todos los documentos que cumplan una condición.
+
+    ```javascript
+    db.nombre_coleccion.deleteMany({ activo: false })
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Buscar y actualizar (findOneAndUpdate)
+  content: |
+    Busca un documento, lo actualiza y devuelve el documento actualizado.
+
+    ```javascript
+    db.nombre_coleccion.findOneAndUpdate(
+      { campo: "valor" },
+      { $set: { campo: "nuevo" } },
+      { returnDocument: "after" }
+    )
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Buscar y borrar (findOneAndDelete)
+  content: |
+    Busca un documento y lo elimina.
+
+    ```javascript
+    db.nombre_coleccion.findOneAndDelete({ campo: "valor" })
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Incrementar valor numérico ($inc)
+  content: |
+    Suma o resta un valor a un campo numérico.
+
+    ```javascript
+    db.nombre_coleccion.updateOne(
+      { _id: ObjectId("id_del_doc") },
+      { $inc: { visitas: 1 } }
+    )
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Agregar elemento a array ($push)
+  content: |
+    Añade un valor dentro de un array.
+
+    ```javascript
+    db.nombre_coleccion.updateOne(
+      { _id: ObjectId("id_del_doc") },
+      { $push: { tags: "nuevo_tag" } }
+    )
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Agregar único a array ($addToSet)
+  content: |
+    Añade un valor al array solo si no existe.
+
+    ```javascript
+    db.nombre_coleccion.updateOne(
+      { _id: ObjectId("id_del_doc") },
+      { $addToSet: { tags: "tag_unico" } }
+    )
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Eliminar elemento de array ($pull)
+  content: |
+    Quita un elemento específico de un array.
+
+    ```javascript
+    db.nombre_coleccion.updateOne(
+      { _id: ObjectId("id_del_doc") },
+      { $pull: { tags: "tag_unico" } }
+    )
+    ```
+    {:.typing .nolineno .language-terminal }
