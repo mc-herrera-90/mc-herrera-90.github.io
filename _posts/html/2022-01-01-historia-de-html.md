@@ -1,5 +1,5 @@
 ---
-title: La historia del lenguaje HTML
+title: "HTML: Historia del lenguaje y sus bases"
 categories: [HTML, Html-Bases]
 tags: [HTML]
 image: poster/html-internet.avif
