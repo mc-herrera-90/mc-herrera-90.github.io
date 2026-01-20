@@ -49,13 +49,26 @@
           %}
           <code class="hljs-{{ file.language | downcase }} pt-0 language-{{ file.language | downcase }}" style="white-space: {{ file.wrap | default: 'unset' }}">{{ cleaned_content }}</code>
           {% else %}
-          <code class="hljs-{{ file.language | downcase }} pt-0 language-{{ file.language | downcase }}" style="white-space: {{ file.wrap | default: 'unset' }}">{{ file.content_file | replace: '<', '&lt;' | replace: '>', '&gt;' }}</code>
+            <code class="hljs-{{ file.language | downcase }} pt-0 language-{{ file.language | downcase }}">
+            {{- file.content_file
+              | replace: '<script', '&lt;script'
+              | replace: '</script>', '&lt;/script&gt;'
+              | replace: '<', '&lt;'
+              | replace: '>', '&gt;'
+            -}}
+            </code>
         {% endif %}
       </pre>
     {% endfor %}
     <p id="default-msg" class="p-3" data-name="{{ include.name }}">Selecciona un archivo para ver su contenido</p>
   </div>
 </div>
+<script type="application/json" id="files-data-{{ include.name }}">
+{{ include.files
+  | jsonify
+  | replace: '</script>', '<\\/script>'
+}}
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const viewer = document.getElementById('panel-code-{{ include.name }}');
@@ -95,7 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
   viewer.querySelector('#default-msg').style.display = 'block';
 
   const treeRoot = document.querySelector('[data-name="{{ include.name }}"]');
-  const files = {{ include.files | jsonify }};
+  const files = JSON.parse(
+    document.getElementById('files-data-{{ include.name }}').textContent
+  );
 
   function buildTree(files, prefix) {
     const root = {};
@@ -130,6 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
             iconColor = "#f7df1e";
             break;
           case "jpg":
+          case "jpeg":
+          case "png":
+          case "webp":
             iconClass = "fa-solid fa-file-image";
             iconColor = "#dc0";
             break;
