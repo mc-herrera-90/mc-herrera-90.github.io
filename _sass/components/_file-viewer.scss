@@ -4,10 +4,10 @@
 .file-viewer {
   display: flex;
   position: relative; // 🔑 contexto del resizer
-  overflow: visible; // 🔑 permite que el divisor se vea
+  overflow: hidden;
   margin-bottom: 1.4rem;
-  border-radius: 6px;
-  border: 1px solid var(--main-border-color);
+  border-radius: 8px;
+  border: 2px solid var(--main-border-color);
 
   & .code-panel {
     flex: 1 1 auto;
@@ -42,7 +42,7 @@
 
   & .file-tree {
     position: relative;
-    min-width: 135px; // coherente con el JS
+    min-width: 135px;
     width: 25%;
     background: var(--sidebar-bg);
     user-select: none;
@@ -50,7 +50,6 @@
     font-size: calc(1rem - 1%);
     border-right: 1px solid var(--main-border-color);
     overflow-y: auto;
-
     &-top {
       font-size: 0.6rem;
       padding-top: 1.5rem;
@@ -61,32 +60,36 @@
       z-index: 999;
       background-color: var(--sidebar-bg);
     }
-    &-root {
-      padding-left: 0;
+    ul, li {
+      padding: 0 !important;
+      margin: 0;
       list-style: none;
-      z-index: -1;
-      ul {
-        margin: 0;
-        list-style: none;
-        padding: 0 0 0 5px;
+      cursor: pointer;
+      
+      > span {
+        padding-left: calc(var(--depth, 0) * 10px);
+        width: 100%;
+        display: block;
       }
+      /* niveles */
+      > li > span { --depth: 1; }
+      > li > ul > li > span { --depth: 2; }
+      > li > ul > li > ul > li > span { --depth: 3; }
+      > li > ul > li > ul > li > ul > li > span { --depth: 4; }
+      > li > ul > li > ul > li > ul > li > ul > li > span  { --depth: 5; }
+    }
+    &-root {
 
       li {
-        cursor: pointer;
         &.active {
           background: var(--tag-hover);
-          width: 100%;
         }
         &:not(:has(ul)):hover {
           background: var(--tag-hover);
           filter: brightness(0.88); // <1 oscurece, >1 aclara
         }
-        > span {
-          &.file, &.folder {
-            padding-left: 13px;
-          }
+      
           &.folder {
-            top: 32px; // 🔑 justo debajo de "FOLDERS"
             z-index: 5;
             background-color: var(--sidebar-bg);
             position: sticky;
@@ -98,7 +101,6 @@
           white-space: nowrap;
         }
       }
-    }
   }
   &::before {
     content: '';

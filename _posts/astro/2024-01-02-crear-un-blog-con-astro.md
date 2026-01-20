@@ -1,5 +1,5 @@
 ---
-title: "Astro: Crear un blog"
+title: "Astro: Crear un blog usando un template"
 categories: [Astro, Astro-Tutoriales]
 badge: astro
 tags: [astro, tutoriales]
@@ -7,7 +7,7 @@ scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
 
-__Astro__ es una de los frameworks más modernos y rápidos para construir sitios estáticos. En esta entrada, vamos a utilizar la plantilla de blog junto con React para crear tu propio sitio, personalizarlo y dejarlo listo para producción.
+_Astro_ es uno de los frameworks más modernos y eficientes para la construcción de sitios estáticos. En esta entrada utilizaremos la __plantilla oficial de blog__ junto con React para crear un sitio web, configurarlo, personalizarlo y prepararlo para un entorno de producción.
 
 ## 1. Crear el proyecto
 
@@ -16,6 +16,7 @@ Desde una terminal, ejecuta el siguiente comando:
 ```terminal
 npm create astro@latest -- --add react
 ```
+{:.typing}
 
 > Añadimos la configuració con la opción `--add react`.
 {: .prompt-info }
@@ -36,22 +37,22 @@ Una vez termine la instalación, navega a tu proyecto y levanta el servidor loca
 cd mi-blog
 npm run dev
 ```
+{:.typing}
 
-Y con esto ya puedes abrir el navegador para ver la el proyecto:
+Con esto, el proyecto queda listo para ser visualizado en el navegador.
 
 ![Preview sitio](astro/preview-template-blog.webp)
 
 ## 2. Estructura del proyecto
 
-> Al abrir el proyecto con Visual Studio Code, se nos recomendará instalar las extensiones para Astro.
-> ![Instalar extensiones](astro/instalar-extensiones-light.webp){:.light}
-> ![Instalar extensiones](astro/instalar-extensiones-dark.webp){:.dark}
-{: .prompt-tip }
-
-Como podemos observar, la estructura tiene el siguiente árbol de directorio:
+Como podemos observar a continuación, la estructura del proyecto se organiza en el siguiente **árbol de directorios**, el cual nos permite visualizar de forma jerárquica la distribución de carpetas y archivos.
 
 {% include file-viewer.html files=site.data.codes.astro.blog-src name='src_tree' %}
 
+> Al abrir el proyecto en __Visual Studio Code__, el editor recomendará automáticamente la instalación de las extensiones necesarias para trabajar con Astro, mejorando la experiencia de desarrollo y el soporte del framework.
+> ![Instalar extensiones](astro/instalar-extensiones-light.webp){:.light}
+> ![Instalar extensiones](astro/instalar-extensiones-dark.webp){:.dark}
+{: .prompt-tip }
 
 ## 3. Crear un nuevo post
 
@@ -84,7 +85,7 @@ export default function Contador() {
   );
 }
 ```
-{: file="Contador.jsx" }
+{: file="Contador.jsx" .typing }
 
 {:start="2"}
 2. Utilizar el componente en una página Astro. Por ejemplo en `src/pages/index.astro`:
@@ -98,7 +99,9 @@ import Contador from '../components/Contador.jsx';
 <h2>Componente React</h2>
 <Contador client:only="react" />
 ```
-{:file="index.astro"}
+{:file="index.astro" .typing}
 {% endraw %}
 
-- `client:only="react"`: Renderiza el componente solo en el cliente y no en el servidor.
+- `client:only="react"` renderiza el componente solo en el cliente y no en el servidor.
+
+{% include embed/video.html src="astro/agregar-y-usar-componente-de-react.webm" %}
