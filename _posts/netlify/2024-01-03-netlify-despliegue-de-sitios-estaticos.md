@@ -6,9 +6,9 @@ scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
 
-Netlify es una plataforma de **hosting y automatización** orientada a sitios estáticos y aplicaciones frontend modernas. Permite desplegar proyectos de forma simple, ya sea conectando un repositorio o subiendo los archivos manualmente, sin necesidad de configurar servidores.
+_Netlify_ es una plataforma de **hosting y automatización** orientada a sitios estáticos y aplicaciones frontend modernas. Permite desplegar proyectos de forma simple, ya sea conectando un repositorio o subiendo los archivos manualmente, sin necesidad de configurar servidores.
 
-En este artículo aprenderás a trabajar con Netlify desde cero, publicar un proyecto subiendo de forma manual los archivos.
+En este artículo aprenderás a publicar un proyecto en netlify subiendo los archivos de forma manual.
 
 ### Iniciar sesión en Netlify
 
@@ -50,9 +50,16 @@ Desde el panel principal, solo debes **arrastrar la carpeta del proyecto** (con 
 
 Netlify se encargará automáticamente de subir los archivos y generar una URL pública para tu sitio.
 
-Una vez finalizado el proceso, el sitio quedará **disponible en línea de inmediato**, sin configuraciones adicionales ni pasos intermedios.
+![Sitio desplegado](netlify/sitio-manual-desplegado-light.webp){:.light}
+![Sitio desplegado](netlify/sitio-manual-desplegado-dark.webp){:.dark}
 
-### ¿Cuándo usar despliegue manual?
+Y eso es todo. Nuestro sitio web ya está en internet, con **HTTPS habilitado**, y lo único que debes hacer ahora es **compartir tu URL**.
+
+En este caso, la dirección que me proporciona netlify es la siguiente: [https://storied-cajeta-59d0b0.netlify.app/](https://storied-cajeta-59d0b0.netlify.app/){:target='_blank'}
+
+{% include circle-line.html %}
+
+## ¿Cuándo usar despliegue manual?
 
 * Sitios estáticos simples
 * Proyectos sin repositorio
