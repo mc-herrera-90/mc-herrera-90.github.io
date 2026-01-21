@@ -274,15 +274,3 @@ Te permite:
 
 Si ya dominaste el deploy manual, **este es el siguiente nivel**.
 
----
-
-## 📌 Próximos posts sugeridos (Deploy)
-
-* Variables de entorno en Netlify
-* Custom domains y HTTPS
-* Optimización de builds
-* Rollbacks y cache
-* Netlify + GitHub Actions
-* Netlify para Jekyll avanzado
-
-Si quieres, dime **cómo tienes organizada tu categoría Deploy en Jekyll** y lo adapto exacto a tu estructura 🔥
