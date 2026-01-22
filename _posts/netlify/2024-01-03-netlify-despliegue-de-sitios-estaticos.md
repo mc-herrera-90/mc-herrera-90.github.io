@@ -55,7 +55,23 @@ Netlify se encargará automáticamente de subir los archivos y generar una URL p
 
 Y eso es todo. Nuestro sitio web ya está en internet, con **HTTPS habilitado**, y lo único que debes hacer ahora es **compartir tu URL**.
 
-En este caso, la dirección que me proporciona netlify es la siguiente: [https://storied-cajeta-59d0b0.netlify.app/](https://storied-cajeta-59d0b0.netlify.app/){:target='_blank'}
+En este caso, la dirección que nos proporciona Netlify es la siguiente:
+> [https://storied-cajeta-59d0b0.netlify.app](https://storied-cajeta-59d0b0.netlify.app)
+
+Como puedes observar, se trata de una **URL generada automáticamente**, bastante larga y poco representativa de nuestro proyecto. Esto es totalmente normal en Netlify y no afecta en absoluto al funcionamiento del sitio.
+
+## Cambiar el nombre del sitio en Netlify
+
+A continuación, veremos cómo personalizar el nombre del sitio para obtener una URL más limpia. En la pantalla anterior, presiona el botón de **"Quick setup"**.
+
+![Configuración rápida](netlify/configuracion-rapida-dark.webp){:.dark}
+![Configuración rápida](netlify/configuracion-rapida-light.webp){:.light}
+
+Una vez dentro de la configuración rápida, puedes elegir un nuevo nombre para actualizar la URL del sitio. Al presionar **Update site name**, Netlify verificará automáticamente la disponibilidad del nombre.
+
+Si el nombre elegido ya está en uso, la plataforma te lo notificará de inmediato:
+
+![Nombre en uso](netlify/nombre-de-proyecto-utilizado-light.webp){:.light}
 
 {% include circle-line.html %}
 
