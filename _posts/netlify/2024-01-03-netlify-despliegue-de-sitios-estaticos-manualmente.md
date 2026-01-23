@@ -56,7 +56,7 @@ Netlify se encargará automáticamente de subir los archivos y generar una URL p
 Y eso es todo. Nuestro sitio web ya está en internet, con **HTTPS habilitado**, y lo único que debes hacer ahora es **compartir tu URL**.
 
 En este caso, la dirección que nos proporciona Netlify es la siguiente:
-> [https://storied-cajeta-59d0b0.netlify.app](https://storied-cajeta-59d0b0.netlify.app)
+> https://storied-cajeta-59d0b0.netlify.app
 
 Como puedes observar, se trata de una **URL generada automáticamente**, bastante larga y poco representativa de nuestro proyecto. Esto es totalmente normal en Netlify y no afecta en absoluto al funcionamiento del sitio.
 
@@ -72,12 +72,20 @@ Una vez dentro de la configuración rápida, puedes elegir un nuevo nombre para 
 Si el nombre elegido ya está en uso, la plataforma te lo notificará de inmediato:
 
 ![Nombre en uso](netlify/nombre-de-proyecto-utilizado-light.webp){:.light}
+![Nombre en uso](netlify/nombre-de-proyecto-utilizado-dark.webp){:.dark}
+
+Una vez tengas un __nombre válido__, presiona el botón de **"update project name"**:
+
+![Actualizar nombre del proyecto](netlify/actualizar-nombre-del-proyecto-light.webp){:.light}
+![Actualizar nombre del proyecto](netlify/actualizar-nombre-del-proyecto-dark.webp){:.dark}
+
+Ahora contamos con una URL más amigable, disponible de forma inmediata para su acceso.
+
+![Cambio de nombre realizado](netlify/cambio-de-nombre-realizado-light.webp){:.light}
+![Cambio de nombre realizado](netlify/cambio-de-nombre-realizado-dark.webp){:.dark}
+
+> [https://mis-certificados.netlify.app/](https://mis-certificados.netlify.app/){:target='_blank'}
 
 {% include circle-line.html %}
 
-## ¿Cuándo usar despliegue manual?
-
-* Sitios estáticos simples
-* Proyectos sin repositorio
-* Pruebas rápidas o demos
-* Builds generados localmente
+Con esto, hemos completado el __despliegue manual en Netlify de forma exitosa__. El sitio ya se encuentra disponible en línea y listo para ser accedido, lo que nos permite validar el resultado final antes de avanzar a configuraciones más avanzadas como dominios personalizados, variables de entorno o despliegues automatizados.
