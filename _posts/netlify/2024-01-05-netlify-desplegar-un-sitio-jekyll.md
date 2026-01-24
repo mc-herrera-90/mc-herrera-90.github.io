@@ -162,23 +162,22 @@ A continuación, puedes observar los archivos que vamos a subir a Netlify. Para 
 
 ## Paso 4: Seleccionar el repo y configurar el build
 
-Aquí sabemos que debemos agregar un nuevo sitio desde un repositorio de GitHub como proveedor, y luego seleccionar el repositorio. Por ejemplo:
+En este punto, ya sabemos que debemos crear un nuevo sitio a partir de un repositorio, __utilizando GitHub como proveedor de código__. Para ello, seleccionamos GitHub, autorizamos el acceso si es necesario y luego elegimos el repositorio que queremos desplegar.
 
 ![Seleccionar repositorio](netlify/seleccionar-repo-miblog-jekyll-light.webp){:.light}
 ![Seleccionar repositorio](netlify/seleccionar-repo-miblog-jekyll-dark.webp){:.dark}
 
-Asignamos un nombre de proyecto para la URL pública.
+A continuación, asignamos un **nombre al proyecto**, el cual se utilizará para generar la **URL pública** con la que el sitio quedará disponible una vez finalizado el despliegue.
 
 ![Asignar nombre a la URL](netlify/asignar-nombre-mi-blog-jekyll-light.webp){:.light}
 ![Asignar nombre a la URL](netlify/asignar-nombre-mi-blog-jekyll-dark.webp){:.dark}
 
-La configuración del _buil_ debe estar exactamente como se muestra a continuación.
+La configuración del _build_ debe definirse exactamente como se muestra a continuación, ya que Netlify utiliza estos valores para saber cómo construir el proyecto y qué directorio publicar.
 
 ![Configuración del build](netlify/configuracion-del-build-jekyll-light.webp){:.light}
-
 ![Configuración del build](netlify/configuracion-del-build-jekyll-dark.webp){:.dark}
 
-Como se puede observar, netlify detecta ya la rama principal _main_, define el comando para generar el _build_ y sabe cual es la carpeta que se debe publicar en el caso de Jekyll es _\_site_.
+Como se puede observar, Netlify detecta automáticamente la rama principal (`main`), define el comando de _build_ y reconoce la carpeta de salida que debe publicarse; en el caso de Jekyll, `_site`.
 
 Finalmente, bajamos hasta el botón para desplegar el sitio.
 
@@ -189,6 +188,8 @@ Y ahora, es cosa de esperar a que finalice el proceso y poder visitar el sitio.
 
 ![Sitio desplegado](netlify/sitio-jekyll-desplegado-light.webp){:.light}
 ![Sitio desplegado](netlify/sitio-jekyll-desplegado-dark.webp){:.dark}
+
+> [https://mi-blog-jekyll.netlify.app/](https://mi-blog-jekyll.netlify.app/){:target='_blank'}
 
 {% include circle-line.html %}
 
