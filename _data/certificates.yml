@@ -6,7 +6,7 @@
 - title: "Full Stack Jr - Java"
   issuer: "Generation"
   date: 2025-09-26
-  url: "https://mcherrera.dev/assets/certificados/full-stack-java_generation.pdf"
+  url: "/assets/media/pdf/mcherrera-certificado-fullstack-java-generation.pdf"
 
 - title: "Full Stack Trainee Python"
   issuer: "Talento Digital para Chile"
@@ -43,6 +43,11 @@
   date: 2021-09-16
   url: "https://aprende.org/verifica/b5c555aa-cb1d-4854-849f-49d6f22fc0f0/671327d8-fc21-4f99-9a70-e6130c17ef3c"
 
+- title: "Certificado de egreso - Programación Computacional"
+  issuer: "AIEP La Serena"
+  date: 2021-02-22
+  url: "/assets/media/pdf/mcherrera-certificado-egreso-programacion-computacional.pdf"
+
 - title: "Desarrollador Front-end"
   issuer: "Capacítate para el empleo"
   date: 2020-02-27
@@ -67,3 +72,13 @@
   issuer: "Capacítate para el empleo"
   date: 2019-09-24
   url: "https://aprende.org/verifica/b5c555aa-cb1d-4854-849f-49d6f22fc0f0/5875789b-fa2e-459f-8054-85cf348fbfd9"
+
+- title: "Mantenimiento y armado de computadores"
+  issuer: "Servicio nacional de capacitación y empleo"
+  date: 2009-12-22
+  url: "/assets/media/pdf/mcherrera-certificado-armado-y-mantenimiento-de-computadores.pdf"
+
+- title: "Alfabetización Digital"
+  issuer: "Servicio nacional de capacitación y empleo"
+  date: 2009-08-22
+  url: "/assets/media/pdf/mcherrera-certificado-alfabetizacion-digital.pdf"
