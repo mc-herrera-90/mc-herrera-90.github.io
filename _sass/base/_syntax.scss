@@ -13,6 +13,7 @@
 
 .highlight {
   @extend %rounded;
+  
   @extend %code-snippet-bg;
 
   overflow: auto;
