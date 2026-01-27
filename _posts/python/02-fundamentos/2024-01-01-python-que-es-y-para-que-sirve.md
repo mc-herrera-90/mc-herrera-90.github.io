@@ -4,7 +4,7 @@ categories: [Python, Python_02-Fundamentos]
 badge: python
 ---
 
-_Python_ es un lenguaje de programación de __alto nivel__, __interpretado__, __interactivo__ y __orientado a objetos__ que fue creado por [Guido van Rossum](Guido van Rossum){:target="_blank"} y lanzado por primera vez en 1991.
+_Python_ es un lenguaje de programación de __alto nivel__, __interpretado__, __interactivo__ y __orientado a objetos__ que fue creado por [Guido van Rossum](https://es.wikipedia.org/wiki/Guido_van_Rossum){:target="_blank"} y lanzado por primera vez en 1991.
 
 ## Características de Python
 
