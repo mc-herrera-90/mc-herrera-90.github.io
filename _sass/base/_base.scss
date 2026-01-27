@@ -14,10 +14,32 @@ html {
     &:not([data-mode]),
     &[data-mode='light'] {
       @include light.styles;
+
+      /* ===== Python (light → azul) ===== */
+      body.category-python {
+        --text-color-b: #3776ab; // azul Python
+      }
+      /* ===== Angular (light → rojo) ===== */
+      body.category-angular {
+        --text-color-b: #dd0031; // rojo Angular
+      }
+     .gslide-image {
+      background-color: #fff;
+     }
     }
 
     &[data-mode='dark'] {
       @include dark.styles;
+
+      /* ===== Python (dark → amarillo) ===== */
+      body.category-python {
+        --text-color-b: #ffd43b; // amarillo Python
+      }
+      /* ===== Angular (dark → rojo) ===== */
+      body.category-angular {
+        --text-color-b: #ea279d;// rojo Angular
+      }
+
     }
   }
 

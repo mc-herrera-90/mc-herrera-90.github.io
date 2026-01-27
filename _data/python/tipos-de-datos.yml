@@ -1,0 +1,92 @@
+basicos:
+  - title: Tipo de dato Booleano ( <strong>bool</strong> )
+    content: |
+      El tipo de dato **booleano** representa valores lógicos y solo puede tomar dos estados:
+      `True` o `False`. Es fundamental para las condiciones y el control de flujo.
+
+      ```python
+      activo = True
+      es_mayor = False
+      ```
+      {:.nolineno .typing}
+
+  - title: Tipo de dato Entero ( <strong>int</strong> )
+    content: |
+      Los **enteros** representan números sin decimales. Se utilizan para contar,
+      iterar y realizar operaciones aritméticas básicas.
+
+      ```python
+      edad = 25
+      cantidad = -10
+      ```
+      {:.nolineno .typing}
+
+  - title: Tipo de dato Coma flotante ( <strong>float</strong> )
+    content: |
+      Los números de **coma flotante** permiten representar valores con decimales.
+      Son comunes en cálculos matemáticos, científicos o financieros.
+
+      ```python
+      precio = 19.99
+      temperatura = -3.5
+      ```
+      {:.nolineno .typing}
+
+  - title: Tipo de dato Texto ( <strong>str</strong> )
+    content: |
+      El tipo **cadena de texto** (`str`) se utiliza para representar texto.
+      Puede definirse usando comillas simples o dobles.
+
+      ```python
+      nombre = "Python"
+      mensaje = 'Hola mundo'
+      ```
+      {:.nolineno .typing}
+
+compuestos:
+  - title: Tipo de dato Lista ( <strong>list</strong> )
+    content: |
+      Las **listas** permiten almacenar múltiples valores en una sola variable.
+      Son **ordenadas**, **mutables** y pueden contener distintos tipos de datos.
+
+      ```python
+      frutas = ["manzana", "banana", "cereza"]
+      numeros = [1, 2, 3, 4]
+      ```
+      {:.nolineno .typing}
+
+  - title: Tipo de dato Tupla ( <strong>tuple</strong> )
+    content: |
+      Las **tuplas** son similares a las listas, pero **no se pueden modificar**
+      una vez creadas. Se utilizan cuando los datos deben permanecer constantes.
+
+      ```python
+      coordenadas = (10, 20)
+      colores = ("rojo", "verde", "azul")
+      ```
+      {:.nolineno .typing}
+
+  - title: Tipo de dato Diccionario ( <strong>dict</strong> )
+    content: |
+      Los **diccionarios** almacenan datos en pares **clave : valor**.
+      Son ideales para representar información estructurada.
+
+      ```python
+      usuario = {
+          "nombre": "Marco",
+          "edad": 25,
+          "activo": True
+      }
+      ```
+      {:.nolineno .typing}
+
+  - title: Tipo de dato Conjunto ( <strong>set</strong> )
+    content: |
+      Los **conjuntos** almacenan valores **únicos** y no mantienen un orden fijo.
+      Son útiles para eliminar duplicados o realizar operaciones de conjunto.
+
+      ```python
+      numeros = {1, 2, 3, 3, 4}
+      letras = {"a", "b", "c"}
+      ```
+      {:.nolineno .typing}

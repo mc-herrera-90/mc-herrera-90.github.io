@@ -7,7 +7,7 @@
    {% if page.layout == 'post' or page.layout == 'categories' or page.layout == 'category' %}
       <nav id="breadcrumb" aria-label="Breadcrumb">
         {% assign paths = page.url | split: '/' %}
-        
+
         {% if page.url contains 'post' %}
           <!-- index page -->
           {% comment %} <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span> {% endcomment %}
@@ -31,7 +31,9 @@
               {% if page.collection == 'tabs' %}
                 <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
               {% else %}
-                <span>{{ page.title }}</span>
+                <span>
+                {{ page.title | split: "_" | first }} {{ page.title | split: "-" | last | replace: "-", " " }}
+                </span>
               {% endif %}
 
             {% elsif page.layout == 'category' or page.layout == 'tag' %}

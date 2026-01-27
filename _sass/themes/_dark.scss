@@ -2,7 +2,7 @@
   color-scheme: dark;
 
   /* Framework color */
-  --main-bg: #161616;
+  --main-bg: #191919;
   --mask-bg: rgb(68, 69, 70);
   --main-border-color: rgb(44, 45, 45);
 
@@ -116,14 +116,17 @@
   --timeline-year-dot-color: var(--timeline-color);
 
   /* Code highlight colors */
-  --language-border-color: #616366;
-  --highlight-bg-color: #1f1f1f;
+  // --language-border-color: #616366;
+  --language-border-color: #232323;
+  // --highlight-bg-color: #1f1f1f;
+  --highlight-bg-color: #191919;
   --highlighter-rouge-color: #c9def1;
   --highlight-lineno-color: #808080;
   --inline-code-bg: rgba(255, 255, 255, 0.05);
   --code-color: #b0b0b0;
   --code-header-text-color: #ccc;
-  --code-header-bg: #3f4043;
+  // --code-header-bg: #3f4043;
+  --code-header-bg: #212121;
 
   --code-header-muted-color: #353535;
   --code-header-icon-color: #aaa;

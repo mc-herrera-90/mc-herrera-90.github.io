@@ -1,5 +1,6 @@
 ---
 layout: main
+title: "Developer"
 # Index page
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
@@ -7,6 +8,8 @@ scripts:
   - assets/js/monaco-init.js
   - https://cdn.jsdelivr.net/npm/marked/marked.min.js
 ---
+
+<div class="content" markdown="1">
 
 <h1 data-toc-skip class="text-center mb-4" style="color: var(--heading-color-title);">
   Marco Contreras Herrera
@@ -36,3 +39,5 @@ const profile = {
 };
 ```
 {:file="about-me.js" .typing }
+
+</div>

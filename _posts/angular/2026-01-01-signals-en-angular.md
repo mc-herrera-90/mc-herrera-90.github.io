@@ -1,15 +1,8 @@
 ---
-title: "Señales en Angular 21"
+title: "Angular: Señales en Angular 21"
 categories: [Angular, Angular-Reactividad]
-icon: techs/angular.svg
 badge: angular
-draft: true
-scripts:
-  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
-
-## Beneficios de las señales
-
 
 Rendimiento más predecible y eficiente
 : Las señales permiten que Angular detecte cambios de manera puntual y reactiva, evitando la sobrecarga de `Zone.js`, que monitorea todas las operaciones asincrónicas en la aplicación. Esto reduce el trabajo innecesario de detección de cambios y mejora la velocidad de la app.

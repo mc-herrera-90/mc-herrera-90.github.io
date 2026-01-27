@@ -16,12 +16,12 @@ layout: compress
 <html lang="{{ page.lang | default: site.alt_lang | default: site.lang }}" {{ prefer_mode }}>
   {% include head.html %}
 
-  <body>
+  <body class="category-{{ page.categories[0] | downcase }}">
     {% include sidebar.html lang=lang %}
 
     <div id="main-wrapper" class="d-flex justify-content-center">
       <div class="container-fluid d-flex flex-column px-xxl-5">
-       
+
         {% include topbar.html lang=lang %}
 
         <div class="row flex-grow-1">

@@ -3,6 +3,7 @@
 @forward 'layout';
 @forward 'pages';
 @use './abstracts/variables' as v;
+@use './abstracts/breakpoints' as bp;
 
 .icon-wrapper {
   display: flex;
@@ -33,7 +34,12 @@
 
   & table {
     width: 100%;
+    @include bp.xxxl {
+      width: 85%;
+      margin: 1rem auto;
+    }
   }
+
 }
 
 .icon-st4 {
@@ -237,4 +243,3 @@ kbd.command-icon::before {
 header h1 {
   visibility: hidden; /* Oculta sin romper layout */
 }
-

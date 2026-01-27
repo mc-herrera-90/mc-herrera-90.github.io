@@ -2,6 +2,17 @@
 set -e
 
 # =========================
+# Compatibilidad con Bash 3.2
+# =========================
+lowercase() {
+  if [[ "${BASH_VERSINFO[0]}" -ge 4 ]]; then
+    echo "${1,,}"
+  else
+    echo "$1" | tr '[:upper:]' '[:lower:]'
+  fi
+}
+
+# =========================
 # VALIDACIÓN DE ARGUMENTOS
 # =========================
 if [[ -z "$1" ]]; then
@@ -17,7 +28,7 @@ REPO="${REPO_FULL##*/}"
 OUT_DIR="_data/generated"
 OUT_FILE="$OUT_DIR/repo-${REPO}.yml"
 
-IMAGE_EXTENSIONS="png|jpg|jpeg|gif|webp|svg|avif"
+IMAGE_EXTENSIONS="png|jpg|jpeg|gif|webp|svg|avif|ico"
 
 mkdir -p "$OUT_DIR"
 
@@ -58,6 +69,19 @@ FILES=$(curl -s "$TREE_API" | jq -r '.tree[] | select(.type=="blob") | .path')
 DIR_FILES=$(echo "$FILES" | grep '/' | sort)
 ROOT_FILES=$(echo "$FILES" | grep -v '/' | sort)
 
+# =========================
+# Compatibilidad con sed UTF-8
+# =========================
+indent_sed() {
+  # Si es GNU sed (Linux) no hace falta nada especial
+  if sed --version >/dev/null 2>&1; then
+    sed 's/^/      /'
+  else
+    # BSD sed (macOS) con UTF-8
+    LC_ALL=C.UTF-8 sed 's/^/      /'
+  fi
+}
+
 process_file() {
   FILE="$1"
 
@@ -66,7 +90,7 @@ process_file() {
   fi
 
   EXT="${FILE##*.}"
-  EXT_LOWER="${EXT,,}"
+  EXT_LOWER="$(lowercase "$EXT")"
   BASENAME="$(basename "$FILE")"
   RAW_URL="https://raw.githubusercontent.com/$OWNER/$REPO/$DEFAULT_BRANCH/$FILE"
 
@@ -86,7 +110,7 @@ process_file() {
     LANGUAGE="$EXT_LOWER"
   fi
 
-  # Imágenes
+  # Imágenes / binarios (incluye favicon.ico)
   if [[ "$EXT_LOWER" =~ ^($IMAGE_EXTENSIONS)$ ]]; then
     echo "    url_img: \"$RAW_URL\"" >> "$OUT_FILE"
     echo "" >> "$OUT_FILE"
@@ -96,7 +120,7 @@ process_file() {
   # Texto
   echo "    language: \"$LANGUAGE\"" >> "$OUT_FILE"
   echo "    content_file: |" >> "$OUT_FILE"
-  curl -s "$RAW_URL" | sed 's/^/      /' >> "$OUT_FILE"
+  curl -s "$RAW_URL" | indent_sed >> "$OUT_FILE"
   echo "" >> "$OUT_FILE"
 }
 

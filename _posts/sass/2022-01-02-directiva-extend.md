@@ -13,7 +13,7 @@ La directiva `@extend` permite que un selector **herede todos los estilos de otr
   @extend .selector-existente;
 }
 ```
-{:.nolineno}
+{:.nolineno .typing}
 
 Esto hace que `.selector-nuevo` tenga los mismos estilos que `.selector-existente`.
 
@@ -57,6 +57,7 @@ Supongamos que tienes un botón base y quieres crear variantes:
   background-color: gray;
 }
 ```
+{:.nolineno}
 
 Observa que `.btn-secondary` **hereda todos los estilos de `.btn`** y luego sobrescribe solo el color de fondo.
 

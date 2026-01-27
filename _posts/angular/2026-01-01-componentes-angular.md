@@ -1,6 +1,6 @@
 ---
 title: "Introducción a los Componentes"
-categories: [Angular, Angular-Componentes]
+categories: [Angular, Angular_02-Componentes]
 icon: techs/angular.svg
 badge: angular
 scripts:
