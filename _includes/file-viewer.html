@@ -60,7 +60,7 @@
         {% endif %}
       </pre>
       {% if file.language == "md" %}
-        <div class="md-preview file-content py-0 px-3" style="display:none;">
+        <div class="md-preview file-content py-0 px-3" style="display:none; white-space: wrap">
           {{ file.content_file | markdownify }}
         </div>
       {% else %}

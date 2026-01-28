@@ -1,5 +1,5 @@
 ---
-title: "Angular: Arquitectura MVC"
+title: "Angular: Arquitectura de componentes"
 categories: [Angular, Angular_02-Arquitectura]
 badge: angular
 mermaid: true
