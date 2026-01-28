@@ -1,6 +1,6 @@
 ---
 title: "MongoDB: Instalación y configuración en macOS"
-categories: [MongoDB, "MongoDB-Setup"]
+categories: [MongoDB, "MongoDB_01-Setup"]
 badge: mongodb
 ---
 
@@ -18,7 +18,7 @@ Abrimos una terminal y ejecutamos el siguiente comando:
 Sigue las instrucciones que aparecen en pantalla para completar la instalación.
 
 ![Brew instalado](brew/brew-installed-dark.webp){:.dark .bg-secondary .rounded .border .border-secondary-subtle }
-![Brew instalado](brew/brew-installed-light.webp){:.light subtle .rounded .border .border-secondary-subtle }
+![Brew instalado](brew/brew-installed-light.webp){:.light .bg-secondary-subtle .rounded .border .border-secondary-subtle }
 
 Una vez instalado _Homebrew_, asegúrate de que esté actualizado:
 
@@ -101,7 +101,7 @@ Por ejemplo, usar una base de datos _e-commerce_:
 ```js
 use ecommerce
 ```
-{: .nolineno }
+{: .nolineno .language-terminal .typing }
 
 Si no existe, _MongoDB_ la **creará automáticamente** cuando insertes el primer dato.
 
@@ -113,7 +113,7 @@ Ejemplo rápido:
 db.productos.insertOne({nombre:"Camiseta ecológica",precio:15990,categoria:"Ropa",stock:20})
 db.productos.find().pretty()
 ```
-{: .nolineno }
+{: .nolineno .language-terminal .typing }
 
 ### 3. Salir del shell
 

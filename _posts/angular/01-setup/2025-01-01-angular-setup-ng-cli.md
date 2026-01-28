@@ -6,15 +6,16 @@ scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
 
-Al comenzar con Angular, lo primero es configurar un __entorno de desarrollo__ adecuado. Una vez listo, podrás iniciar tu primer proyecto. Con solo unos pasos, estarás listo para dar vida a tus primeras aplicaciones con Angular.
+
+Al empezar con __Angular__, lo primero es configurar el entorno de desarrollo. Luego podrás crear tu primer proyecto. Con pocos pasos, estarás listo para construir aplicaciones en __Angular__.
 
 ## Requisitos previos
 
-Angular depende fuertemente del ecosistema Node, por lo que es importante partir con versiones actuales.
-- [Node.js](https://nodejs.org/en/){:target='_blank'}: Necesitarás **Node.js ≥ 18**.
-- [npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager){:target='_blank'} (o [yarn](https://yarnpkg.com/){:target='_blank'}): Son administradores de paquetes que te permiten gestionar las dependencias de un proyecto. **npm** viene preinstalado con **Node.js**, pero puedes optar por otra alternativa.
+__Angular__ depende fuertemente del ecosistema Node, por lo que es importante partir con versiones actuales.
+- [Node.js (versión ≥ 20)](https://nodejs.org/en/){:target='_blank'}.
+- [npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager){:target='_blank'} (o [yarn](https://yarnpkg.com/){:target='_blank'}).
 
-__Verificación rápida__:
+Verificación rápida:
 
 {% capture tools_version %}
 <span class='hl'>$ node --version</span>
@@ -27,8 +28,7 @@ v24.8.0
 
 ## Instalar Angular CLI
 
-Angular **no se inicia a mano**.
-El CLI es parte del framework, no una herramienta opcional.
+El CLI es parte del framework y es la forma estándar de crear y gestionar proyectos.
 
 Instalación global:
 
@@ -57,9 +57,9 @@ El resultado, debería ser como el siguiente:
                 |___/
     
 
-<span class='hl'>Angular CLI       : 21.0.3</span>
+<span class='hl'>Angular CLI       : 21.0.3
 Node.js           : 24.8.0
-Package Manager   : npm 11.6.0
+Package Manager   : npm 11.6.0</span>
 Operating System  : darwin arm64
 {% endcapture %}
 {% include terminal-wrapper.html content=angular_version %}
@@ -190,11 +190,13 @@ Para iniciar el servidor, se utiliza el siguiente comando desde la raíz del pro
 cd first-angular-app
 ng serve
 ```
+{:.typing}
 
 > Si se desea abrir el navegador de forma automática al iniciar el servidor, se puede usar:
 > ```terminal
 > ng serve --open
-> ````
+> ```
+> {:.typing}
 {: .prompt-info }
 
 Por defecto, se configura en `http://localhost:4200/`:
@@ -222,7 +224,8 @@ Angular recompila en caliente y mantiene el estado cuando es posible.
 
 ## Generación de componentes
 
-Angular **no espera que escribas archivos a mano**.
+
+En __Angular__ no se crean componentes uno por uno manualmente. El CLI los genera automáticamente con todo lo necesario.
 
 Ejemplo:
 
@@ -263,16 +266,18 @@ ng build
 ```
 {:.typing}
 
+> En _Angular_ 21, `ng build` ya está usando el modo `production` por defecto.
+{:.prompt-info}
+
 Salida:
 
-```
-dist/first-angular-app/
-```
-{:.noheader}
+<i class="fa-regular fa-folder"></i> `dist/first-angular-app/`
 
-Optimizado, minificado y listo para desplegar.
+Optimizado, minificado y listo para desplegar. A continuación, puede revisar el despliegue hecho en la plataforma netlify:
+
+> [https://first-angular-application.netlify.app/](https://first-angular-application.netlify.app/){:target='_blank'}
 
 {% include circle-line.html %}
 
-Angular no es “más difícil”, es **más estructurado**.
-Si el proyecto es grande, con equipos, reglas y crecimiento a largo plazo, Angular **reduce fricción** donde otros stacks la aumentan.
+__Angular__ no es “más difícil”, es **más estructurado**.
+Si el proyecto es grande, con equipos, reglas y crecimiento a largo plazo, __Angular__ reduce fricción donde otros stacks la aumentan.

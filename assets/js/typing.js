@@ -52,11 +52,37 @@ window.addEventListener("load", () => {
 
   blocks.forEach(block => observer.observe(block));
 
+  const DEFAULT_CODE_SPEED = 12;
+  const SPEED_PRESETS = {
+    "typing-fast": 3,
+    "typing-slow": 20
+  };
+
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  function getCodeSpeed(block) {
+    if (block.dataset.speed) {
+      return parseInt(block.dataset.speed, 10);
+    }
+
+    for (const cls in SPEED_PRESETS) {
+      if (block.classList.contains(cls)) {
+        return SPEED_PRESETS[cls];
+      }
+    }
+
+    return DEFAULT_CODE_SPEED;
+  }
+
   function initTyping(block) {
     const pre = block.querySelector(".rouge-code pre");
     if (!pre || pre.dataset.typingActive) return;
 
     pre.dataset.typingActive = "true";
+
+    const speed = getCodeSpeed(block);
 
     const originalNodes = Array.from(pre.childNodes);
     const originalHeight = pre.offsetHeight;
@@ -81,11 +107,11 @@ window.addEventListener("load", () => {
         if (charIndex < node.textContent.length) {
           pre.append(document.createTextNode(node.textContent[charIndex]));
           charIndex++;
-          requestAnimationFrame(typeNext);
+          delay(speed).then(typeNext);
         } else {
           charIndex = 0;
           nodeIndex++;
-          requestAnimationFrame(typeNext);
+          delay(speed).then(typeNext);
         }
         return;
       }
@@ -101,10 +127,10 @@ window.addEventListener("load", () => {
           if (i < text.length) {
             clone.append(text[i]);
             i++;
-            requestAnimationFrame(typeSpan);
+            delay(speed).then(typeSpan);
           } else {
             nodeIndex++;
-            requestAnimationFrame(typeNext);
+            delay(speed).then(typeNext);
           }
         }
 
@@ -130,4 +156,5 @@ window.addEventListener("load", () => {
       });
     }
   }
+
 });

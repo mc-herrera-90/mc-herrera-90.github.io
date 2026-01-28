@@ -1,6 +1,6 @@
 ---
 title: "MongoDB: Instalación y configuración en distribuciones basadas en Debian"
-categories: [MongoDB, "MongoDB-Setup"]
+categories: [MongoDB, "MongoDB_01-Setup"]
 badge: mongodb
 ---
 

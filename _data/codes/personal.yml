@@ -29,8 +29,8 @@ files:
       - Deploy: Fly.io
 
       ## Enlaces
-      - 🌐 Demo: https://onlyflans.fly.dev/
-      - 📦 Repositorio: https://github.com/EniDev911/onlyflans
+      - 🌐 Demo: <https://onlyflans.fly.dev/>
+      - 📦 Repositorio: <https://github.com/EniDev911/onlyflans>
 
   - name: "scriptorium.md"
     language: "md"
@@ -64,7 +64,7 @@ files:
       - Diseño minimalista y centrado en la práctica del código
 
       ## Enlaces
-      - 🌐 Proyecto: https://mcherrera.dev/scriptorium/
+      - 🌐 Proyecto: <https://scriptorium-web.netlify.app/>
 
   - name: "fullstack-java.md"
     language: "md"
@@ -93,7 +93,7 @@ files:
       - Deploy: Subdominio propio
 
       ## Enlaces
-      - 🌐 Sitio: https://fullstack-java.mcherrera.dev/
+      - 🌐 Sitio: <https://fullstack-java.mcherrera.dev/>
 
   - name: "fullstack-python.md"
     language: "md"
@@ -124,7 +124,7 @@ files:
       - Deploy: Subdominio propio
 
       ## Enlaces
-      - 🌐 Sitio: https://fullstack-python.mcherrera.dev/
+      - 🌐 Sitio: <https://fullstack-python.mcherrera.dev/>
 
   - name: "contact.eml"
     language: "text"

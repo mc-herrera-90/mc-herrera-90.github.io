@@ -1,6 +1,6 @@
 ---
 title: "MongoDB: Cheat Sheet documentos"
-categories: [MongoDB, "MongoDB-Cheat Sheet"]
+categories: [MongoDB, "MongoDB_04-Cheat Sheet"]
 image: poster/mongodb-collections-cheatsheet.avif
 toc: false
 ---

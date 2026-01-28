@@ -1,13 +1,15 @@
 ---
 title: "MongoDB: Instalación y configuración en Windows"
-categories: [MongoDB, "MongoDB-Setup"]
+categories: [MongoDB, "MongoDB_01-Setup"]
 badge: mongodb
 ---
 
-_MongoDB_ es una base de datos NoSQL orientada a documentos, muy popular para proyectos modernos gracias a su flexibilidad y escalabilidad.
+_MongoDB_ es una base de datos NoSQL orientada a documentos. Se usa mucho en aplicaciones modernas porque permite trabajar con datos en formato JSON y no exige un esquema rígido desde el inicio.
 
 ![mongodb](mongodb/mongosh-instalar-mongo.webp){:.light}
 ![mongodb](mongodb/mongosh-instalar-mongo-dark.webp){:.dark}
+
+En este artículo veremos las **opciones de instalación en Windows**, para dejar el entorno listo antes de empezar a trabajar con _MongoDB_.
 
 ## Instalar con WinGet
 
@@ -74,7 +76,6 @@ En resumen, hemos instalado dos programas:
 | **MongoDB.Server** | El servidor de MongoDB     | `mongod`, servicio de Windows |
 | **MongoDB.Shell**  | El cliente para conectarte | `mongosh`                     |
 
-
 ---
 
 ## Instalación tradicional 
@@ -89,3 +90,5 @@ A diferencia del método anterior, puedes descargar el instalador oficial para W
 Ingresa a [https://www.mongodb.com/try/download/community](https://www.mongodb.com/try/download/community){:target='_blank'} y descarga la versión correspondiente a la arquitectura de tu máquina. Generalmente, el sitio detecta esta información automáticamente al ingresar.
 
 ![Download Comunnity](mongodb/website-download-comunnity.webp)
+
+Una vez descargado, sigue las instrucciones del asistente y espera a finalizar el proceso.

@@ -38,6 +38,6 @@ const profile = {
   }
 };
 ```
-{:file="about-me.js" .typing }
+{:file="about-me.js" .typing .typing-fast }
 
 </div>
