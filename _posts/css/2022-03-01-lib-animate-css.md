@@ -1,6 +1,6 @@
 ---
-title: "Animaciones básicas con Animate.css "
-categories: [CSS, Lib]
+title: "CSS: Animaciones básicas con Animate.css "
+categories: [CSS, CSS_02-Animaciones]
 animate: true
 image:
   path: poster/animate-css.webp
@@ -25,7 +25,7 @@ Para usar a través de una __CDN__ agrega esto a tu `<head>`:
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 ```
-{: .nolineno }
+{: .nolineno .typing}
 
 ### 2. Con npm
 
@@ -34,13 +34,15 @@ Para tener la librería instalada en el proyecto, usa __npm__:
 ```terminal
 npm install animate.css --save
 ```
+{: .typing}
+
 
 Y luego importalo en tu CSS o JavaScript:
 
 ```js
 import 'animate.css';
 ```
-{:.nolineno .noheader .fit-content}
+{:.nolineno .typing }
 
 ## Cómo usar las animaciones
 
