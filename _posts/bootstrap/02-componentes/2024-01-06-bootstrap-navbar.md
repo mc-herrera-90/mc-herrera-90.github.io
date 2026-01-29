@@ -41,7 +41,7 @@ Bootstrap define distintos puntos de quiebre (**breakpoints**):
 
 ## Contenedor interno<br/>&nbsp;__container__ o __container-fluid__
 
-Una vez ya definimos la barra de navegación, define un contenedor para los elementos al interior. Por ejemplo
+Una vez ya definimos la barra de navegación, define un contenedor para los elementos al interior. Por ejemplo:
 
 ```html
 <nav class="navbar navbar-expand-lg">

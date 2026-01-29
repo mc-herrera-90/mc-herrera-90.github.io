@@ -1,6 +1,6 @@
 ---
 title: "Github: Configurar llaves SSH"
-categories: [GitHub, Github-Productividad]
+categories: [GitHub, "Github_02-Seguridad"]
 image:
   path: poster/github-ssh.webp
   lqip: data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAADwAwCdASoUAAsAPpE6l0eloyIhMAgAsBIJaQDE98ADJBC6S2Eu3hCgAP75F+v3r/812STLvVahP9a+/bhjEy+yCP779iBwh/eYjMwuMJdrXV5iHL/+++G/Klt/hhz996GhSaB29Uf+7t9BBcsRRkqQMPO/9UY0RPTngcj1QvS5Dz0K+NRD0LDEFkAAAA==

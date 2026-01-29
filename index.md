@@ -9,6 +9,8 @@ scripts:
   - https://cdn.jsdelivr.net/npm/marked/marked.min.js
 ---
 
+{{ jekyll.environment }}
+
 <div class="content" markdown="1">
 
 <h1 data-toc-skip class="text-center mb-4" style="color: var(--heading-color-title);">

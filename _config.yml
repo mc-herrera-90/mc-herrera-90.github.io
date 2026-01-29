@@ -1,8 +1,11 @@
+# Configuración del sitio
+
+# El tema importado (css principal)
 theme: jekyll-theme-chirpy
 
-# The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
-# If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
-# otherwise, the layout language will use the default value of 'en'.
+# El lenguaje del sitio › http://www.lingoes.net/en/translator/langcode.htm
+# Aquí en `_data/locales`, están los datos soportados.
+# la clave `lang` debe coincidir con el archivo. Por ejemplo es-Es.yml
 lang: es-ES
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
@@ -25,9 +28,8 @@ twitter:
   username: mcherrera911
 
 social:
-  # Change to your full name.
-  # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: mcherrera
+  # En la clave `name` cuenta como el nombre de autor por defecto en los posts y en el copyright en el footer.
+  name: Marco Contreras Herrera
   email: contacto@mcherrera.dev # change to your email address
   links:
     # The first element serves as the copyright owner's link

@@ -4,9 +4,7 @@ categories: [Bootstrap, Bootstrap_02-Componentes]
 badge: bootstrap
 ---
 
-# Uso de botones en Bootstrap
-
-Los botones son uno de los componentes más utilizados en cualquier interfaz web. En Bootstrap, los botones vienen listos para usar, con estilos consistentes, accesibles y fáciles de personalizar, lo que permite mantener una interfaz coherente sin escribir reglas CSS desde cero.
+Los botones son uno de los componentes más utilizados en cualquier interfaz web. En __Bootstrap__, los botones vienen listos para usar, con estilos consistentes, accesibles y fáciles de personalizar, lo que permite mantener una interfaz coherente sin escribir reglas CSS desde cero.
 
 En este post veremos cómo funcionan los botones en Bootstrap, qué clases existen y combinarlos de diferentes maneras.
 
@@ -18,7 +16,7 @@ Sin esta clase, Bootstrap no aplica ningún estilo especial al elemento.
 ```html
 <button class="btn">Botón</button>
 ```
-{: .nolineno .fit-content }
+{: .nolineno .typing }
 
 Por sí sola, `.btn` aplica:
 
@@ -44,7 +42,7 @@ Bootstrap ofrece distintas variantes para representar acciones con diferente niv
 <button class="btn btn-light">Claro</button>
 <button class="btn btn-dark">Oscuro</button>
 ```
-{: .nolineno }
+{: .nolineno .typing }
 {% endtab %}
 {% tab codigo_1 Demo %}
 <button class="btn btn-primary">Primario</button>
