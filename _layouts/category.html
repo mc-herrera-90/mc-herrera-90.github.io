@@ -21,7 +21,13 @@ permalink: categorias
   <ul class="content ps-0">
     {% for post in page.posts reversed %}
       <li class="d-flex justify-content-between px-md-3">
-        <a href="{{ post.url | relative_url }}">{{ post.title | strip_html }}</a>
+        <a href="{{ post.url | relative_url }}">
+          {% if post.title contains ":" %}
+            {{ post.title | split: ":" | last | strip }}
+          {% else %}
+            {{ post.title }}
+          {% endif %}  
+        </a>
         <span class="dash flex-grow-1"></span>
         {% include datetime.html date=post.date class='text-muted small text-nowrap' lang=lang %}
       </li>

@@ -1,10 +1,10 @@
 ---
-title: "Bootstrap - Offcanvas"
-categories: [Bootstrap, Bootstrap-Componentes]
+title: "Bootstrap: Componente Offcanvas (panel lateral)"
+categories: [Bootstrap, Bootstrap_02-Componentes]
 badge: bootstrap
 ---
 
-El componente **Offcanvas** de Bootstrap permite mostrar contenido oculto fuera del viewport que se despliega desde un borde de la pantalla. Es especialmente útil para menús laterales, paneles de configuración, filtros o vistas secundarias.
+El componente **Offcanvas** de **Bootstrap** permite mostrar contenido oculto fuera del viewport que se despliega desde un borde de la pantalla. Es especialmente útil para menús laterales, paneles de configuración, filtros o vistas secundarias.
 
 A diferencia de un modal, el offcanvas **no bloquea completamente la interacción** y está pensado para interfaces más fluidas, especialmente en móviles.
 

@@ -1,6 +1,6 @@
 ---
-title: Bootstrap - Botones
-categories: [Bootstrap, Bootstrap-Componentes]
+title: "Bootstrap: Componente Buttons (botones)"
+categories: [Bootstrap, Bootstrap_02-Componentes]
 badge: bootstrap
 ---
 

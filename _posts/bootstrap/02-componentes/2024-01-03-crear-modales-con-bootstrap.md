@@ -1,6 +1,6 @@
 ---
-title: Bootstrap - Modal
-categories: [Bootstrap, Bootstrap-Componentes]
+title: "Bootstrap: Componente Modal (ventanas emergentes)"
+categories: [Bootstrap, Bootstrap_02-Componentes]
 badge: bootstrap
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Angular: Señales en Angular 21"
-categories: [Angular, Angular-Reactividad]
+categories: [Angular, Angular_02-Arquitectura]
 badge: angular
 ---
 

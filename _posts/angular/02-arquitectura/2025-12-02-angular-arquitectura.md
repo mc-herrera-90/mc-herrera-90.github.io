@@ -5,49 +5,15 @@ badge: angular
 mermaid: true
 ---
 
-_Angular_ es un framework frontend completo, orientado a aplicaciones de gran escala, que se apoya fuertemente en una arquitectura bien definida. A partir de _Angular_ 16 y consolidado en _Angular_ 17, 18, 19 y versiones posteriores, la arquitectura ha evolucionado para ser más **modular**, **reactiva** y **flexible**, manteniendo compatibilidad con proyectos tradicionales.
+_Angular_ es un framework frontend completo, orientado a aplicaciones de gran escala, que se apoya fuertemente en una arquitectura bien definida. A partir de __Angular 16__ y consolidado en __Angular 17__, __18__, __19__ y versiones posteriores, la arquitectura ha evolucionado para ser más **modular**, **reactiva** y **flexible**, manteniendo compatibilidad con proyectos tradicionales.
 
 Este artículo analizaremos la arquitectura moderna de _Angular_, cómo se organizan sus piezas principales y qué cambios conceptuales debes entender si trabajas con versiones recientes.
 
 ## Visión general de la arquitectura
 
-_Angular_ usa una __arquitectura basada en componentes__, con separación por __responsabilidad__. La arquitectura de _Angular_ se basa en los siguientes pilares:
+_Angular_ usa una __arquitectura basada en componentes__, con separación por __responsabilidad__. La arquitectura se basa en los siguientes pilares:
 
-```mermaid
-flowchart LR
-    A["Aplicación Angular"]:::root
-
-    A --> B["Componentes"]
-    B --> C["Templates"]
-
-    B --> D["Servicios"]
-    D --> E["Inyección de Dependencias"]
-
-    B --> F["Ruteo"]
-    F --> G["Componentes por ruta"]
-
-    B --> H["Estado y Reactividad"]
-    H --> H1["Signals"]
-    H --> H2["RxJS / Observables"]
-
-    A --> I["Modularidad"]
-    I --> I1["Arquitectura Standalone"]
-    I --> I2["NgModules"]
-
-    A --> J[Compilación y Renderizado]
-    J --> J1["Ahead-of-Time (AOT)"]
-    J --> J2[Hydration]
-    J --> J3[Change Detection]
-```
-
-* Componentes
-* Templates
-* Servicios
-* Inyección de dependencias
-* Ruteo
-* Estado y reactividad
-* Modularidad (NgModules y arquitectura standalone)
-* Compilación y renderizado
+![Arquitectura](angular/arquitectura-angular.webp)
 
 Todo gira en torno a **componentes reactivos**, conectados por servicios y orquestados por el router.
 
@@ -63,11 +29,11 @@ Un componente es la unidad fundamental de Angular. Define:
 
 Desde Angular 17 en adelante, el enfoque recomendado es usar **componentes standalone**, lo que elimina la dependencia obligatoria de NgModules.
 
-### Componentes standalone
+## Componentes Standalone
 
 Características:
 
-* No requieren NgModule
+* No requieren `NgModule`
 * Declaran directamente sus dependencias
 * Facilitan lazy loading y testing
 * Reducen complejidad estructural
@@ -77,9 +43,21 @@ Ejemplo conceptual:
 * Un componente importa otros componentes, pipes o directivas directamente
 * El árbol de dependencias es explícito
 
-Esto mejora la legibilidad y escalabilidad del proyecto.
+Ejemplo de componente:
 
----
+```ts
+@Component({
+  selector: 'app-user-card',
+  imports: [CommonModule],
+  templateUrl: './user-card.component.html'
+})
+export class UserCardComponent {
+  @Input() user!: User;
+}
+```
+{: .nolineno .typing}
+
+
 
 ## Templates y sistema de renderizado
 
@@ -198,7 +176,6 @@ Ventajas:
 
 RxJS sigue siendo clave para flujos complejos y asincronía avanzada.
 
----
 
 ## NgModules vs arquitectura moderna
 
@@ -235,7 +212,6 @@ En producción:
 
 Esto se gestiona mediante configuraciones de build definidas en angular.json.
 
----
 
 ## Organización recomendada del proyecto
 
@@ -280,16 +256,3 @@ export class ProductService {
 }
 ```
 {:file="product-service.ts"}
-
-
-## Conclusión
-
-La arquitectura de Angular 21 en adelante apuesta por:
-
-* Componentes standalone
-* Reactividad nativa con signals
-* Menos boilerplate
-* Mejor rendimiento
-* Mayor claridad estructural
-
-Entender esta arquitectura es clave para desarrollar aplicaciones Angular modernas, escalables y mantenibles, alineadas con las mejores prácticas actuales del framework.
