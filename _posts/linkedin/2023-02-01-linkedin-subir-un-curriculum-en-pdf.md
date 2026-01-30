@@ -1,5 +1,5 @@
 ---
-title: "LinkedIn: Cómo subir tu currículum en PDF"
+title: "LinkedIn: Cómo subir tu currículum en PDF para destacar tu perfil profesional en LinkedIn"
 categories: [LinkedIn, "LinkedIn_01-Perfil profesional"]
 tags: [social, linkedin]
 badge: linkedin
@@ -90,3 +90,19 @@ El encabezado de tu perfil será lo primero que el reclutador vea y el lugar don
 De ejemplo, te muestro un encabezado basado en mi currículum.
 
 ![Cabecera currículum](extras/cv-cabecera.webp)
+
+### Experiencia
+
+El apartado de **Experiencia** debe presentarse en **orden cronológico inverso**, destacando primero la experiencia __más reciente__. Cada entrada debe incluir **cargo**, **organización**, **ubicación** y **fechas**, seguidos de viñetas breves que describan **logros concretos**, no solo responsabilidades.
+
+![Experiencia estructura](extras/cv-experiencia-estructura.webp)
+
+> __Harvard__ recomienda utilizar **verbos de acción**, cuantificar resultados cuando sea posible (impacto, mejoras, métricas) y priorizar la información más relevante para el puesto al que se postula.
+> Estos verbos de acción suelen asociarse al método **STAR** (Situación, Tarea, Acción, Resultado).
+{:.prompt-info}
+
+El método **STAR se usa principalmente en entrevistas**, pero también es muy útil para redactar el apartado de experiencia en el currículum solo que de forma implícita.
+
+Al describir un rol, se prioriza el **resultado y la acción** sobre la situación completa, lo que permite destacar logros concretos, el impacto generado y el valor aportado. De esta forma, STAR ayuda a estructurar viñetas claras, con verbos de acción y métricas relevantes, sin extenderse innecesariamente. Por ejemplo:
+
+![Aplicar start en experiencias](extras/cv-experiencia-metodo-star.webp)
