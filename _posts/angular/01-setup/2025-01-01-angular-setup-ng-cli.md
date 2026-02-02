@@ -273,7 +273,7 @@ Salida:
 
 <i class="fa-regular fa-folder"></i> `dist/first-angular-app/`
 
-Optimizado, minificado y listo para desplegar. A continuación, puede revisar el despliegue hecho en la plataforma netlify:
+Optimizado, minificado y listo para desplegar. A continuación, puedes revisar el despliegue hecho en la plataforma netlify:
 
 > [https://first-angular-application.netlify.app/](https://first-angular-application.netlify.app/){:target='_blank'}
 
