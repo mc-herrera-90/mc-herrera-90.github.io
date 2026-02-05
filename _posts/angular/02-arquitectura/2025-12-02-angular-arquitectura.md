@@ -21,22 +21,124 @@ Todo gira en torno a **componentes reactivos**, conectados por servicios y orque
 
 Un componente es la unidad fundamental de Angular. Define:
 
-* <i class="devicon--typescript"></i> Una clase (lógica) 
-* <i class="fa-brands fa-html5" style="color: #F06529"></i> Un template HTML (vista)
-* <i class="fa-brands fa-css" style="color: #663399"></i> Estilos (CSS/SCSS)
+<i class="devicon--typescript"></i> Una clase (lógica). Por ejemplo:
+
+```ts
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-user-card',
+  standalone: true,
+  templateUrl: './user-card.component.html',
+  styleUrls: ['./user-card.component.scss'],
+})
+export class UserCardComponent {
+  @Input() name!: string;
+  @Input() role!: string;
+  @Input() isActive: boolean = true;
+
+  toggleStatus(): void {
+    this.isActive = !this.isActive;
+  }
+}
+```
+{:file="user-card.component.ts"}
+
+El archivo muestra:
+
+- Clase del componente (lógica)
+- `standalone: true` (NO es estrictamente necesario desde Angular 17+)
+- Decorador `@Component`
+- Uso de `@Input()` para comunicación
+
+{% include circle-line.html %}
+
+<i class="fa-brands fa-html5" style="color: #F06529"></i> Un template HTML (vista). Por ejemplo:
+
+{% raw %}
+```html
+<div class="user-card" [class.inactive]="!isActive">
+  <h3>{{ name }}</h3>
+  <p>{{ role }}</p>
+
+  <button (click)="toggleStatus()">
+    {{ isActive ? 'Desactivar' : 'Activar' }}
+  </button>
+</div>
+```
+{:file="user-card.component.html"}
+{% endraw %}
+
+El archivo muestra:
+
+- Interpolación {% raw %}`{{ }}`{% endraw %}
+- Bindig de clases
+- Manejo de eventos `(click)`
+
+{% include circle-line.html %}
+
+<i class="fa-brands fa-css" style="color: #663399"></i> Estilos (CSS/SCSS)
+
+```scss
+.user-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 6px;
+  max-width: 250px;
+
+  h3 {
+    margin: 0 0 0.5rem;
+  }
+
+  button {
+    margin-top: 0.5rem;
+    cursor: pointer;
+  }
+
+  &.inactive {
+    opacity: 0.5;
+  }
+}
+```
+{:file="user-card.component.scss"}
+
+EL archivo muestra:
+
+- Estilos encapsulados al componente
+- Uso de SCSS
+
 * <i class="fa-solid fa-database" style="color: rgb(36, 134, 184)"></i> Metadatos
 {:.list-unstyled}
 
-Desde Angular 17 en adelante, el enfoque recomendado es usar **componentes standalone**, lo que elimina la dependencia obligatoria de NgModules.
-
 ## Componentes Standalone
+
+Los componentes independientes, también conocidos como "standalone components" en inglés, son unidades independientes que no requieren ser declarados en un `NgModule`. Introducidos para simplificar el desarrollo (estable desde v15, predeterminado en v17+), gestionan sus propias dependencias importando módulos, directivas o componentes directamente en el decorador.
 
 Características:
 
-* No requieren `NgModule`
-* Declaran directamente sus dependencias
-* Facilitan lazy loading y testing
-* Reducen complejidad estructural
+* __Independencia__: No requieren ser declarado en un módulo padre.
+* __Importaciones directas__: El componente importa sus propias dependencias (`imports: [...]`).
+* __Menos código__: Se elimina la necesidad de crear un `NgModule` por cada componente, simplificando la estructura.
+* __Reutilización__: Son más fáciles de mover y usar en diferentes partes de la aplicación.
+* __Rendimiento__: Mejoran el "tree-shaking", permitiendo a Angular eliminar código no utilizado de manera más eficiente.
+
+### Generar componentes standalone con Angular CLI
+
+Crear estos componentes en versiones superiores a v14, es un proceso bien simple. Puedes usar __Angular CLI__ o crear componentes manualmente en el decarador de componentes de Angular.
+
+Ejemplo, para crear un componente usando Angular CLI:
+
+```terminal
+ng generate component "nombre-componente" --standalone
+```
+{:.typing}
+
+> En Angular 17 (y superiores: 18, 19, 20...) standalone es el comportamiento por defecto. El CLI asume que todo es standalone y basta con:
+> ```terminal
+> ng generate component "nombre-componente"
+> ```
+> {:.typing}
+{:.prompt-info}
 
 Ejemplo conceptual:
 
@@ -56,8 +158,6 @@ export class UserCardComponent {
 }
 ```
 {: .nolineno .typing}
-
-
 
 ## Templates y sistema de renderizado
 
