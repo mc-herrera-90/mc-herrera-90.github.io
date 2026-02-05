@@ -49,7 +49,11 @@ El archivo muestra:
 - Clase del componente (lógica)
 - `standalone: true` (NO es estrictamente necesario desde Angular 17+)
 - Decorador `@Component`
+  - <i class="fa-solid fa-database" style="color: rgb(36, 134, 184)"></i> Metadatos el objeto del decorador
 - Uso de `@Input()` para comunicación
+
+> El símbolo `!`, por ejemplo `@Input() name!: string;` es el *Non-Null Assertion Operator* de TypeScript. Indica al compilador que la propiedad **será inicializada más adelante** (por Angular), aunque no tenga un valor en el constructor, evitando errores de compilación por variables no asignadas.
+{: .prompt-info }
 
 {% include circle-line.html %}
 
@@ -106,9 +110,6 @@ EL archivo muestra:
 
 - Estilos encapsulados al componente
 - Uso de SCSS
-
-* <i class="fa-solid fa-database" style="color: rgb(36, 134, 184)"></i> Metadatos
-{:.list-unstyled}
 
 ## Componentes Standalone
 
