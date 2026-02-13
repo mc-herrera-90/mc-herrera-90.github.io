@@ -111,9 +111,51 @@ EL archivo muestra:
 - Estilos encapsulados al componente
 - Uso de SCSS
 
+{% include circle-line.html %}
+
+En cualquier otro componente standalone podemos reutilizar el componente anterior sin necesidad de declararlo en un módulo. Por ejemplo:
+
+```ts
+import { UserCardComponent } from './components/user-card/user-card.component';
+
+@Component({
+  standalone: true,
+  imports: [UserCardComponent],
+  template: `
+    <app-user-card
+      name="Marco Contreras"
+      role="Full Stack Developer | Cloud Architect "
+    />
+  `,
+})
+export class HomeComponent {}
+```
+{:.nolineno .typing}
+
+De lo contrario, utilizando el enfoque tradicional basado en `NgModule`, el componente no es standalone y las dependencias deben declararse en un módulo. Por ejemplo, para habilitar *two-way binding* con `ngModel`, es necesario importar `FormsModule` en el módulo principal:
+
+```ts
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, FormsModule],
+})
+export class AppModule {}
+```
+{:file="app.module.ts" .nolineno .typing}
+
+Luego, el componente puede utilizar los distintos tipos de binding sin declarar dependencias propias:
+
+```html
+<!-- app.component.html -->
+<input [(ngModel)]="username" />
+```
+{:.nolineno .typing}
+
+En este enfoque, la configuración se centraliza en el módulo, a diferencia del modelo standalone, donde cada componente declara explícitamente lo que necesita.
+
 ## Componentes Standalone
 
-Los componentes independientes, también conocidos como "standalone components" en inglés, son unidades independientes que no requieren ser declarados en un `NgModule`. Introducidos para simplificar el desarrollo (estable desde v15, predeterminado en v17+), gestionan sus propias dependencias importando módulos, directivas o componentes directamente en el decorador.
+Como ya hemos mencionado, los componentes independientes, también conocidos como "standalone components" en inglés, son unidades independientes que no requieren ser declarados en un `NgModule`. Introducidos para simplificar el desarrollo (estable desde v15, predeterminado en v17+), gestionan sus propias dependencias importando módulos, directivas o componentes directamente en el decorador.
 
 Características:
 
@@ -175,19 +217,70 @@ Los templates en Angular:
 * Event binding
 * Two-way binding
 
+### Interpolación
+
+Se utiliza para mostrar datos desde la clase hacia la vista.
+
+{% raw %}
+```html
+<h2>Hola {{ username }}</h2>
+<p>Edad: {{ age }}</p>
+```
+{:.nolineno}
+{% endraw %}
+
+Componente `.ts`
+
+```ts
+username = 'Marco';
+age = 28;
+```
+{:.nolineno}
+
 ### Nuevo control de flujo
 
-Desde Angular 17 se introducen nuevas sintaxis como:
+Desde **Angular 17** se incorporan nuevas **estructuras de control** basadas en sintaxis declarativa, entre las que destacan:
 
-* @if
-* @for
-* @switch
+* `@if`
+* `@for`
+* `@switch`
 
-Estas reemplazan progresivamente a *ngIf y *ngFor, ofreciendo:
+Estas nuevas directivas reemplazan progresivamente a `*ngIf`, `*ngFor` y `*ngSwitch`, alineándose con la arquitectura moderna de Angular y los componentes *standalone*.
 
-* Mejor rendimiento
-* Mejor análisis estático
-* Sintaxis más clara
+Antes, con la sintaxis tradicional:
+
+{% raw %}
+```html
+<div *ngIf="user">
+  <p>{{ user.name }}</p>
+</div>
+```
+{:.nolineno .typing}
+{% endraw %}
+
+Ahora, usando la nueva sintaxis:
+
+{% raw %}
+```html
+@if (user) {
+  <p>{{ user.name }}</p>
+}
+```
+{:.nolineno .typing} 
+{% endraw %}
+
+Y para listas:
+
+{% raw %}
+```html
+@for (item of items; track item.id) {
+  <li>{{ item.name }}</li>
+}
+```
+{:.nolineno .typing}
+{% endraw %}
+
+Este enfoque hace que las plantillas sean más fáciles de leer, mantener y optimizar, acercando Angular a una experiencia más declarativa y predecible.
 
 ---
 
@@ -212,20 +305,50 @@ Buenas prácticas:
 
 ## Inyección de dependencias (DI)
 
-Angular tiene un sistema de DI jerárquico y altamente optimizado.
+Angular cuenta con un sistema de **inyección de dependencias jerárquico y altamente optimizado**, que permite administrar y compartir servicios de forma eficiente a lo largo de la aplicación.
 
-Características:
+Este sistema se basa en un **árbol de inyectores**, donde cada nivel (aplicación, rutas y componentes) puede definir sus propios *providers*, heredando o sobrescribiendo dependencias según sea necesario.
 
-* Providers a nivel global, componente o ruta
-* Árbol de inyectores
-* Instancias controladas automáticamente
+### Características principales
 
-Desde versiones modernas, se promueve:
+* **Providers a distintos niveles**: global, componente o ruta
+* **Árbol de inyectores**, que define el alcance y reutilización de las instancias
+* **Gestión automática de instancias**, sin necesidad de crear o destruir servicios manualmente
 
-* Providers en componentes y rutas
-* Uso de inject() en lugar de constructor cuando corresponde
+### Enfoque en versiones modernas de Angular
 
-Esto permite mayor control del ciclo de vida y mejor encapsulación.
+En las versiones más recientes de Angular se promueve un uso más explícito y controlado de la DI, priorizando:
+
+* **Providers definidos directamente en componentes y rutas**, en lugar de centralizarlos solo en módulos
+* **Uso de la función `inject()`**, evitando constructores innecesarios cuando el servicio se utiliza de forma puntual
+
+### Ejemplo con `inject()`
+
+{% raw %}
+```ts
+import { Component, inject } from '@angular/core';
+import { UserService } from './user.service';
+
+@Component({
+  standalone: true,
+  selector: 'app-user',
+  template: `{{ userService.getUserName() }}`,
+  providers: [UserService]
+})
+export class UserComponent {
+  private userService = inject(UserService);
+}
+```
+{:.nolineno .typing}
+{% endraw %}
+
+En este ejemplo, el servicio queda **encapsulado dentro del componente**, asegurando que su ciclo de vida esté directamente ligado a él.
+
+### Beneficios de este enfoque
+
+* Mayor **control del ciclo de vida** de las dependencias
+* Mejor **encapsulación y aislamiento** entre componentes
+* Código más claro y alineado con la arquitectura *standalone*
 
 ---
 

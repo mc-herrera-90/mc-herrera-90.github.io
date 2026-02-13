@@ -173,10 +173,10 @@ collections:
     permalink: /:collection/:name/
   slides:
     output: true
-    permalink: /:collection/:name/
 
   documents:
     output: true
+
 defaults:
   - scope:
       path: "" # An empty string here means all files in the project
@@ -203,7 +203,11 @@ defaults:
       path: "_pages"
     values:
       layout: page
-
+  - scope:
+      path: ""
+      type: slides
+    values:
+      layout: reveal
 sass:
   style: compressed
 

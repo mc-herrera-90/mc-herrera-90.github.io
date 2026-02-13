@@ -1,0 +1,20 @@
+{% assign folder = include.folder %}
+{% assign images = site.static_files
+  | where_exp: "file", "file.path contains folder and file.extname == '.webp'"
+  | sort: "name" %}
+
+<div markdown="0" class="folder-gallery">
+{% for image in images %}
+{% assign clean_path = image.path | remove_first: '/assets/media/' %}
+<img src="{{ folder  }}/{{ image.name  }}" alt="{{ image.name }}" {% unless forloop.first %}style="display:none;"{% endunless %}/>
+{% endfor %}
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.querySelector(".folder-popup")) {
+    GLightbox({
+      selector: ".folder-popup"
+    });
+  }
+});
+</script>

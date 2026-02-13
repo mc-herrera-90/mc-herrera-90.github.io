@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .forEach(img => {
       const a = img.closest('a.popup.img-link');
       if (!a) return;
-
       a.replaceWith(img);
     });
 })

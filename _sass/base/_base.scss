@@ -71,29 +71,6 @@ body {
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   font-family: v.$font-family-base;
-  background-image:
-    /* Profundidad superior (horizonte lejano) */
-    radial-gradient(
-      1400px 600px at 50% -300px,
-      color-mix(in srgb, var(--text-color) 2.2%, transparent),
-      transparent 75%
-    ),
-
-    /* Profundidad inferior (vacío) */
-    radial-gradient(
-      1200px 500px at 50% 130%,
-      color-mix(in srgb, var(--text-color) 1.6%, transparent),
-      transparent 78%
-    ),
-
-    /* Variación tonal casi imperceptible */
-    linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--text-color) 0.6%, transparent),
-      transparent 65%
-    );
-
-  background-attachment: fixed;
 }
 
 h1.dynamic-title {
