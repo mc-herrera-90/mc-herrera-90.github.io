@@ -160,6 +160,33 @@ Este proceso puede tardar entre 20 a 30 minutos según las características del 
 
 Una vez finalizada la instalación, el sistema regresará al menú principal del script. En ese momento, simplemente cierra la ventana y busca **rpie** (o ejecuta `emulationstation` desde la terminal).
 
-Al iniciar el front-end, ya podemos acceder a la interfaz principal y comenzar a disfrutar tus juegos clásicos.
+Al iniciar el front-end, ya podemos acceder a la interfaz principal y comenzar a cargar juegos ROMs clásicos.
+
+## Cargar juegos
+
+Una vez instalado y configurado **RetroPie**, el sistema inicia correctamente pero aún no muestra consolas ni juegos. Esto es normal, ya que RetroPie solo habilita los sistemas cuando detecta ROMs en sus carpetas correspondientes.
+
+Las ROMs deben copiarse en el directorio:
+
+<i class="fa fa-folder"></i> `/home/pi/RetroPie/roms` (o el usuario que estés usando en PC)
+
+Dentro encontrarás subcarpetas para cada sistema (nes, snes, megadrive, psx, etc.). Basta con copiar los juegos en la carpeta correcta y reiniciar EmulationStation para que aparezcan en el menú.
+
+![Carpeta ROMs RetroPie](extras/carpeta-roms-retropie-light.webp){:.light}
+![Carpeta ROMs RetroPie](extras/carpeta-roms-retropie-dark.webp){:.dark}
+
+## Configuración de controles
+
+Al iniciar por primera vez, EmulationStation solicita configurar un mando.
+Este paso permite mapear botones y navegar por la interfaz.
+
+En una recreativa, normalmente se configuran:
+
+* Joystick → direcciones
+* Botones principales → acción
+* Start / Select → navegación
+
+Luego, los ajustes pueden refinarse desde el menú **RetroPie Setup**.
+
 
 ![EmulationStation](linux/frontend-emulationstation.webp)
