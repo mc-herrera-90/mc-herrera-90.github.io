@@ -12,7 +12,7 @@ title: Instalación de Lubuntu 20.04
     - 10 GB de disco
     - CPU 64-bit
     <br/><br/>
-    <small>Descarga la imagen desde este enlace: <a target='_blank' href='https://releases.ubuntu.com/focal/'>https://releases.ubuntu.com/focal/</a></small>
+    <small>Descarga la imagen desde este enlace: <a target='_blank' href='https://cdimage.ubuntu.com/lubuntu/releases/focal/release/'>https://cdimage.ubuntu.com/lubuntu/releases/focal/release/</a></small>
     ---
     <!-- .slide: 
       data-background-image="/assets/media/linux/instalacion-lubuntu20/02-seleccionar-region.webp"

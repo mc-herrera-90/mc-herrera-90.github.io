@@ -1,7 +1,7 @@
 ---
-title: "Linux: Instalar RetroPie en distribuciones basadas en Debian"
+title: "Linux: Recreativa con una PC antigua usando RetroPie en distros basadas en Debian"
 categories: [Linux, Linux_03-Proyectos]
-badge: rpie
+image: poster/convertir-pc-en-retro-arcade.avif
 ---
 
 ## Motivación del proyecto
@@ -12,20 +12,44 @@ En mi caso, contaba con un equipo reciclado que fue recuperado desde una empresa
 
 ### Contexto del hardware utilizado
 
-Se trata de una placa madre __Gigabyte GA-G31M-ES2L__, basada en el chipset Intel G31 y socket LGA 775, una plataforma muy común entre 2007 y 2010.
+Se trata de una placa madre __Gigabyte GA-G31M-ES2L__, basada en el chipset Intel G31 y socket __LGA 775__, una plataforma muy común entre 2007 y 2010.
 
-Entre sus características principales:
+![Placa madre](extras/placa-base-ga-g31m-es2l.webp)
 
-* Chipset Intel G31 + ICH7.
-* Procesador __Intel Celeron serie 3000__.
-* Soporte para dos memorias __DDR2__.
-* Gráficos integrados Intel GMA 3100.
-* Puertos SATA II y PCIe 1.0.
-* Disco duro Samsung HD502HI de 500 GB (SATA II, 7200 RPM).
-* Fuente de poder Corsair CX850M (sobredimensionada para el equipo, pero reutilizada).
-* Gabinete ATX clásico con bahías para unidad óptica DVD.
+### Componentes principales internos
 
-El sistema no cuenta con tarjeta gráfica dedicada, por lo que todo el rendimiento gráfico depende de la GPU integrada y de un correcto soporte de drivers y OpenGL en el sistema operativo. 
+Chipset Intel G31 + ICH7
+: Conjunto de controladores de la placa base donde el G31 se encarga de la comunicación entre el procesador, la memoria y los gráficos integrados, mientras que el ICH7 gestiona las conexiones y periféricos como puertos SATA, USB y audio.
+
+![Chipset G31 + ICH7](extras/chipset-g31-ich7.webp){:w="300" style="display:block; margin:auto;"}
+
+Gráficos integrados Intel GMA 3100
+: Es más que suficiente para emulación de consolas clásicas (NES, SNES, Mega Drive, arcade, etc.), pero se queda corta para emuladores más pesados como PS2 o GameCube.
+
+![GMA 3100](extras/gma3100.webp){:w="300" style="display:block; margin:auto;"}
+
+Procesador Intel Celeron serie 3000
+: Es un procesador económico y modesto, suficiente para tareas básicas y para emulación de consolas clásicas.
+
+![Procesador](extras/intel-celeron-e3300.webp){:w="300" style="display:block; margin:auto;"}
+
+Soporte para dos memorias DDR2
+: En este modelo, cada ranura admite normalmente **hasta 2 GB**, alcanzando un **máximo total de 4 GB**, suficiente para mover bien el sistema y nuestro proyectos de emulación retro.
+
+![Ram DDR2](extras/ram-dd2-2gb.webp){:w="300" style="display:block; margin:auto;"}
+
+Disco duro Samsung HD502HJ de 500 GB (SATA II, 7200 RPM)
+: Unidad de almacenamiento mecánica con interfaz SATA II. Ofrece capacidad suficiente para instalar el sistema operativo, emuladores y una biblioteca amplia de títulos retro.
+
+![HDD 500GB](extras/hdd-samsumg-hd502hj.webp){:w="300" style="display:block; margin:auto;"}
+
+Fuente de poder Corsair CX850M
+: Fuente de alimentación que suministra energía estable a todos los componentes del sistema. Aunque su capacidad es superior a lo que requiere el equipo, se reutiliza para garantizar fiabilidad, eficiencia y margen suficiente para futuras ampliaciones.
+
+![Fuente de poder](extras/corsair-cx-850m.webp){:w="300" style="display:block; margin:auto;"}
+
+> El sistema no cuenta con tarjeta gráfica dedicada, por lo que todo el rendimiento gráfico depende de la GPU integrada y de un correcto soporte de drivers y OpenGL en el sistema operativo. 
+{:.prompt-info}
 
 ## Elección del sistema operativo
 
@@ -49,21 +73,26 @@ A continuación, te dejo una guía breve de su instalación en formato presentac
 
 ## ¿Qué es RetroPie?
 
-El proyecto **RetroPie** se originó como una plataforma para permitir que usuarios de **Raspberry Pi** jueguen títulos retro de manera simple y optimizada. Con el tiempo, la comunidad ha desarrollado un conjunto de herramientas y scripts que permiten instalar RetroPie también en sistemas basados en Debian/Ubuntu.
+El proyecto **RetroPie** se originó como una plataforma para permitir que usuarios de **Raspberry Pi** jueguen títulos retro mediante una imagen del sistema optimizada y fácil de instalar. Con el tiempo, la comunidad ha desarrollado un conjunto de herramientas y scripts que permiten instalar RetroPie también en sistemas basados en Debian/Ubuntu.
 
-Este soporte se mantiene en el repositorio oficial [**RetroPie-Setup**](https://github.com/RetroPie/RetroPie-Setup){:target='_blank'}, el cual contiene scripts de instalación, configuración y componentes necesarios para desplegar RetroPie sobre distribuciones como Lubuntu. Gracias a este repositorio, es posible adaptar la plataforma de emulación a hardware reciclado o PCs antiguos, como el usado en este proyecto. Lo más importante es entender que RetroPie tiene:
+<div align="center" markdown="1">
+{% include techs/rpie.svg %}{:width="150"}
+</div>
+
+Este soporte se mantiene en el repositorio oficial [**RetroPie-Setup**](https://github.com/RetroPie/RetroPie-Setup){:target='_blank'}, el cual contiene scripts de instalación, configuración y componentes necesarios para RetroPie. Gracias a este repositorio, es posible adaptar la plataforma de emulación a hardware antiguo, como el usado en este proyecto. Lo más importante es entender que RetroPie tiene:
 
 - [x] __El sistema base__: Raspberry Pi distribuyen una imagen personalizada con RetroPie preinstalado. En este proyecto, en cambio, se mantiene la base Ubuntu/Lubuntu y se instala RetroPie encima.
 - [x] __Emuladores__: RetroPie incluye los emuladores más populares para distintas consolas clásicas.
-- [x] __Script de instalación__: simplifica la descarga, compilación y configuración de los paquetes necesarios.
-- [x] __Front-end__: utiliza [EmulationStation](https://emulationstation.org/){:target='_blank0} como interfaz gráfica para organizar y lanzar los juegos..
+- [x] __Script de instalación__: Simplifica la descarga, compilación y configuración de los paquetes necesarios.
+- [x] __Front-end__: Utiliza [EmulationStation](https://emulationstation.org/){:target='_blank0} como interfaz gráfica para organizar y lanzar los juegos..
 
 ### ¿Qué son las BIOS?
 
-La BIOS es el único componente de software que se instala en una computadora antes de instalar un sistema operativo. En una PC, se puede usar para configurar opciones como orden de arranque de los dispositivos, la fecha y hora, las preferencia de hardware, etc.
+La **BIOS** (Basic Input/Output System) es un firmware que se ejecuta al encender una computadora antes de cargar el sistema operativo. En un PC permite configurar opciones como el orden de arranque, la fecha y hora o ciertos parámetros del hardware.
 
-En una consola de juego, indica cómo debería funcionar la computadora, por lo que el emulador podría necesitarla para ejecutar juegos.
+En el caso de las consolas de videojuegos, la BIOS define cómo funciona el sistema, por lo que algunos emuladores (como los usados en **RetroPie**) la necesitan para poder iniciar y ejecutar juegos correctamente.
 
+Por ejemplo, plataformas como PlayStation o Neo Geo requieren su BIOS correspondiente para lograr una emulación precisa y compatible.
 
 ## Instalar RetroPie
 
@@ -99,7 +128,7 @@ git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
 ```
 {:.typing}
 
-Ahora, cambia de directorio a RetroPie-Setup:
+Ahora, debemos cambiarnos al directorio RetroPie-Setup:
 
 ```terminal
 cd RetroPie-Setup
@@ -108,7 +137,7 @@ cd RetroPie-Setup
 
 ### Ejecutar el script de instalación
 
-Finalmente, ejecuta el siguiente comando para inicializar el script de instalación:
+Finalmente, ejecutamos el siguiente comando para inicializar el script de instalación:
 
 ```terminal
 sudo ./retropie_setup.sh
@@ -127,10 +156,10 @@ Presiona nuevamente <kbd>Enter</kbd> para confirmar y comenzar el proceso:
 
 ![RetroPie Setup](linux/retropie-setup-3.webp)
 
-Este proceso puede tardar entre 20 a 30 minutos según las características del hardware y el ancho de banda de tu conexión a internet.
+Este proceso puede tardar entre 20 a 30 minutos según las características del hardware y el ancho de banda de nuestra conexión a internet.
 
 Una vez finalizada la instalación, el sistema regresará al menú principal del script. En ese momento, simplemente cierra la ventana y busca **rpie** (o ejecuta `emulationstation` desde la terminal).
 
-Al iniciar el front-end, ya podrás acceder a la interfaz principal y comenzar a disfrutar tus juegos clásicos.
+Al iniciar el front-end, ya podemos acceder a la interfaz principal y comenzar a disfrutar tus juegos clásicos.
 
 ![EmulationStation](linux/frontend-emulationstation.webp)
