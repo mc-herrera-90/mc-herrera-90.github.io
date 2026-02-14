@@ -166,19 +166,34 @@ Al iniciar el front-end, ya podemos acceder a la interfaz principal y comenzar a
 
 Una vez instalado y configurado **RetroPie**, el sistema inicia correctamente pero aún no muestra consolas ni juegos. Esto es normal, ya que RetroPie solo habilita los sistemas cuando detecta ROMs en sus carpetas correspondientes.
 
-Las ROMs deben copiarse en el directorio:
+Las ROMs deben copiarse en el directorio del usuario en la siguiente ruta. Por ejemplo:
 
-<i class="fa fa-folder"></i> `/home/pi/RetroPie/roms` (o el usuario que estés usando en PC)
+<i class="fa fa-folder"></i> `/home/pi/RetroPie/roms`
 
 Dentro encontrarás subcarpetas para cada sistema (nes, snes, megadrive, psx, etc.). Basta con copiar los juegos en la carpeta correcta y reiniciar EmulationStation para que aparezcan en el menú.
 
 ![Carpeta ROMs RetroPie](extras/carpeta-roms-retropie-light.webp){:.light}
 ![Carpeta ROMs RetroPie](extras/carpeta-roms-retropie-dark.webp){:.dark}
 
+### Sobre las ROMs
+
+Los emuladores como RetroPie son legales, pero la mayoría de las **ROMs están protegidas por derechos de autor**.
+
+Puedes encontrar material en sitios de preservación o buscando términos como **“ROMs SNES”** o **“ROM set”**, pero lo recomendable es usar copias de juegos que poseas legalmente.
+
+![Retro roms set](extras/retro-roms-set.webp)
+
+Cuando ya tengamos las ROMs, podemos arrastrarlas a la carpeta correspondiente de cada plataforma. Por ejemplo, para NES:
+
+![Agregar ROMs](extras/copiar-roms-en-nes-dark.webp){:.dark}
+![Agregar ROMs](extras/copiar-roms-en-nes-light.webp){:.light}
+
 ## Configuración de controles
 
 Al iniciar por primera vez, EmulationStation solicita configurar un mando.
 Este paso permite mapear botones y navegar por la interfaz.
+
+![Configurar input](extras/retropie-configurar-mando.webp)
 
 En una recreativa, normalmente se configuran:
 
@@ -186,7 +201,24 @@ En una recreativa, normalmente se configuran:
 * Botones principales → acción
 * Start / Select → navegación
 
+![Configurar teclado como mando](extras/retropie-configurar-mando-keyboard.webp)
+
 Luego, los ajustes pueden refinarse desde el menú **RetroPie Setup**.
 
+## Personalizar RetroPie usando temas
 
-![EmulationStation](linux/frontend-emulationstation.webp)
+Ya tenemos cargada varias ROMs, iniciamos RetroPie y observamos ya las plataformas diponibles:
+
+![Plataformas disponibles](extras/retropie-consolas-disponibles-por-roms.webp)
+
+Como puedes notar, la interfaz es bastante simple e intuitiva, lo que facilita navegar por las consolas y juegos sin complicaciones.
+
+Aun así, RetroPie permite personalizar la apariencia instalando distintos **temas e interfaces**, por lo que puedes elegir un estilo más visual, minimalista o similar a otras consolas retro según tus preferencias.
+
+Ingresamos al menú de RetroPie y busca la opción __ES THEMES__:
+
+![ES THEMES](extras/retropie-es-themes.webp)
+
+Al seleccionar la opción se solicitará tu contraseña del sistema, luego buscamos un tema para descargar:
+
+![Descargar tema](extras/retropie-buscar-temas-para-descargar.webp)
