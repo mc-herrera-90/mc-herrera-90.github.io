@@ -222,3 +222,11 @@ Ingresamos al menú de RetroPie y busca la opción __ES THEMES__:
 Al seleccionar la opción se solicitará tu contraseña del sistema, luego buscamos un tema para descargar:
 
 ![Descargar tema](extras/retropie-buscar-temas-para-descargar.webp)
+
+Una vez descargado, presiona el botón de __Start__ para abrir el menú y entrar en __UI SETTINGS__, luego selecciona el tema descargado:
+
+![Seleccionar tema descargado](extras/seleccionar-el-tema-descargado.webp)
+
+Al presionar el botón __Atrás__ o salir del menú, el tema se aplicará automáticamente. El tema que descargamos se visualiza de la siguiente manera:
+
+![Tema Zoid](extras/retropie-tema-zoid.webp)
