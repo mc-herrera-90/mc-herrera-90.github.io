@@ -123,15 +123,55 @@ Asigna cada botón cuando el sistema lo solicite (es muy intuitivo).
 
 ### 1. El juego no abre
 
-En algunos casos puede faltar el core o no ser compatible; esto suele ocurrir cuando corremos juegos de GameCube. Por ejemplo:
+En algunos casos puede faltar el core o no ser compatible; esto suele ocurrir cuando corremos ciertos juegos. Por ejemplo, en mi caso que estoy usando el chip __Apple M4__ no me funcionan los juegos de GameCube:
 
 ![Core no es compatible](macos/openemu-nucleo-no-compatible.webp)
+
+> Hasta el momento no he encontrado una solución dentro de OpenEmu, así que me toca descargar y usar Dolphin directamente para poder jugar.
+{:.prompt-info}
 
 ### 2. No reconoce el mando
 
 Revisa la configuración en Controls o vuelve a conectarlo. Si lo configuraste por Bluetooth, intenta emparejarlo nuevamente.
 
 ![Conectar mando de PS4](macos/conectar-mando-ps4-por-bluetooth.webp)
+
+
+
+## Cambiar el destino de la biblioteca en OpenEmu
+
+En mi caso decidí mover la biblioteca de **OpenEmu** a un disco externo, principalmente para liberar espacio en el Mac y mantener todos los juegos en un solo lugar. Si tienes muchas ROMs o archivos pesados, es una buena práctica porque la biblioteca puede crecer bastante con el tiempo y los juegos y carátulas pueden ocupar varios gigabytes.
+
+
+### 1. Cerrar OpenEmu
+
+Antes de mover nada, asegúrate de que la aplicación esté completamente cerrada.
+
+### 2. Ir a la carpeta de la biblioteca actual
+
+Puedes abrir el spotlight y pegar esta ruta:
+
+<i class="fa fa-folder"></i> `~/Library/Application Support/OpenEmu`
+
+![Carpeta OpenEmu](macos/carpeta-biblioteca-openemu.webp)
+
+### 3. Copiar la biblioteca al disco externo
+
+Copia la carpeta **OpenEmu** completa al disco externo (por ejemplo: `DiscoExterno/OpenEmu`).
+
+![Pegar carpeta en disco externo](macos/pegar-carpeta-openemu-en-disco-externo.webp)
+
+### 4. Abrir OpenEmu con selección de biblioteca
+
+Mantén presionada la tecla **Option (⌥)** y bbre OpenEmu
+
+![Abrir OpenEmu](macos/mantener-tecla-option-presionada-al-abrir-openemu.webp){:.rounded}
+
+Haz clic en **Elegir Biblioteca** y selecciona la carpeta que copiaste al disco externo.
+
+![Elegir biblioteca](macos/openemu-elegir-biblioteca.webp)
+
+OpenEmu ahora usará esa ubicación como biblioteca principal.
 
 {% include circle-line.html %}
 
