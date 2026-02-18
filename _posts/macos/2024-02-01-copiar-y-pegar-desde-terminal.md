@@ -1,6 +1,6 @@
 ---
-title: "Copiar y pegar en portapapeles"
-categories: [Sistemas Operativos, macOS]
+title: "macOS: Copiar y pegar en portapapeles"
+categories: [macOS, macOS_01-Utilidades]
 tags: [Sistemas Operativos, macOS]
 ---
 
