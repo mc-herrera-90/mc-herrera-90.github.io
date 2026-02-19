@@ -12,13 +12,13 @@ En este tutorial, cubriremos la instalación de Python en **Windows**, **macOS**
 
 ### Requisitos
 
-- **Sistema operativo**: Windows 7 o superior (se recomienda Windows 10/11).
-- **Arquitectura**: 32 bits o 64 bits (preferible 64 bits). 
-- **Espacio en el disco**: Al menos **1GB** de espacio libre.
-- **RAM**: Mínimo **512 MB** (se recomienda **1GB** o más).
-- **Permisos de administrador** para la instalación.
+- <i class="fa-brands fa-microsoft"></i> **Sistema operativo**: Windows 7 o superior (se recomienda Windows 10/11).
+- <i class="fa-solid fa-microchip"></i> **Arquitectura**: 32 bits o 64 bits (preferible 64 bits). 
+- <i class="fa-solid fa-hard-drive"></i> **Espacio en el disco**: Al menos **1GB** de espacio libre.
+- <i class="fa-solid fa-memory"></i> **RAM**: Mínimo **512 MB** (se recomienda **1GB** o más).
+- <i class="fa-solid fa-user-tie"></i> **Permisos de administrador** para la instalación.
 
-### Usando el instalador
+### __Método 1__: instalación normal
 
 1. Descargar el archivo ejecutable de instalación de la versión más reciente de Python que sea compatible con tu sistema operativo desde la [página de descargas](https://www.python.org/downloads/ "Página oficial de descargas"){:target='_blank'}
 2. Ejecuta el archivo de instalación de Python que se descargó anterioremente. Selecciona las siguientes opciones en la ventana del instalador de Python para configurar los pasos de instalación.
@@ -37,7 +37,7 @@ pip --version
 </iframe>
 </div>
 
-### Instalación silenciosa
+### __Método 2__: instalación silenciosa
 
 Todas las opciones disponibles desde la interfaz de usuario del instalador (como en el caso anterior) también pueden especificarse desde la línea de comandos.
 
@@ -64,8 +64,6 @@ python-3.12.1.exe /uninstall /quiet
 {% endtab %}
 {% endtabs %}
 
-
-
 ## Instalación en Linux
 
 Para instalar Python 3 en Linux específicamente en distribuciones basadas en Debian, abre una nueva Terminal con <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> y sigue estos pasos:
@@ -75,18 +73,21 @@ Para instalar Python 3 en Linux específicamente en distribuciones basadas en De
 ```terminal
 sudo apt update
 ```
+{:.typing}
 
 2\. Instalar Python3
 : 
 ```terminal
 sudo apt install python3
 ```
+{:.typing}
 
 3\. Instalar `pip` (gestor de paquetes para Python)
 : 
 ```terminal
 sudo apt install python3-pip
 ```
+{:.typing}
 
 4\. Verificar la instalación
 : Comprueba que Python3 y pip están instalado correctamente
@@ -94,6 +95,7 @@ sudo apt install python3-pip
 python3 --version
 pip3 --version
 ```
+{:.typing}
 
 ## Instalación en MacOS
 

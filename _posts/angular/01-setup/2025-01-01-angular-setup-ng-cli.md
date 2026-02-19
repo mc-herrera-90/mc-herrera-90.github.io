@@ -7,11 +7,11 @@ scripts:
 ---
 
 
-Al empezar con __Angular__, lo primero es configurar el entorno de desarrollo. Luego podrás crear tu primer proyecto. Con pocos pasos, estarás listo para construir aplicaciones en __Angular__.
+Al comenzar con **Angular**, lo primero es preparar el entorno de desarrollo. Después podrás crear tu primer proyecto y, en pocos pasos, ya estarás listo para empezar a construir aplicaciones aprovechando todo su ecosistema.
 
 ## Requisitos previos
 
-__Angular__ depende fuertemente del ecosistema Node, por lo que es importante partir con versiones actuales.
+__Angular__ depende fuertemente del ecosistema de Node, por lo que es importante partir con versiones actuales.
 - [Node.js (versión ≥ 20)](https://nodejs.org/en/){:target='_blank'}.
 - [npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager){:target='_blank'} (o [yarn](https://yarnpkg.com/){:target='_blank'}).
 
@@ -28,9 +28,9 @@ v24.8.0
 
 ## Instalar Angular CLI
 
-El CLI es parte del framework y es la forma estándar de crear y gestionar proyectos.
+El CLI forma parte de **Angular** y es la herramienta estándar para crear y gestionar proyectos. Destaca porque automatiza muchas tareas de desarrollo, especialmente las repetitivas, haciendo el flujo de trabajo mucho más ágil.
 
-Instalación global:
+Para instalarlo de forma global (recomendado):
 
 ```terminal
 npm install -g @angular/cli
@@ -167,7 +167,7 @@ https://angular.dev/ai/develop-with-ai</strong> <span class='hl'>None</span>
 
 ## Estructura base del proyecto
 
-Angular genera más archivos que React, pero **cada uno cumple una función clara**. Veamos que tenemos en nuestra aplicación:
+Angular genera más archivos que otros frameworks o librerías como React, pero cada uno cumple una función clara. Veamos que tenemos en nuestra aplicación:
 
 {% include file-viewer.html files=site.data.generated.repo-first-angular-app.files name="first_app" %}
 
@@ -218,12 +218,14 @@ NOTE: Raw file sizes do not reflect development server per-request transformatio
 {% endcapture %}
 {% include terminal-wrapper.html content=ng_serve %}
 
-Angular recompila en caliente y mantiene el estado cuando es posible.
+Al abrir el proyecto en el navegador, verás el contenido generado automáticamente por la CLI de Angular.
 
 ![Lanzar angular](angular/first-project-server-run.webp){: .bg-secondary-subtle .rounded }
 
-## Generación de componentes
+> Angular recompila la aplicación en caliente y mantiene el estado, por lo que los cambios se reflejan casi al instante durante el desarrollo.
+{:.prompt-info}
 
+## Generación de componentes
 
 En __Angular__ no se crean componentes uno por uno manualmente. El CLI los genera automáticamente con todo lo necesario.
 
@@ -261,12 +263,16 @@ Angular maneja el routing de forma declarativa y predecible.
 
 ## Build de producción
 
+Cuando la aplicación ya está lista para publicarse, el siguiente paso es generar una versión optimizada para producción. Para ello, se utiliza el comando `build` en la terminal: 
+
 ```terminal
-ng build
+ng build --configuration production
 ```
 {:.typing}
 
-> En _Angular_ 21, `ng build` ya está usando el modo `production` por defecto.
+Este proceso crea archivos más livianos y eliminar código innecesario (_tree-shaking_), pensados para mejorar el rendimiento y la carga en el navegador.
+
+> En versiones modernas de Angular, `ng build` ya está usando el modo `production` por defecto.
 {:.prompt-info}
 
 Salida:

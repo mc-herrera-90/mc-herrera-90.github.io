@@ -61,7 +61,11 @@
       </pre>
       {% if file.language == "md" %}
         <div class="md-preview file-content py-0 px-3" style="display:none; white-space: wrap">
-          {{ file.content_file | markdownify }}
+          {{ file.content_file 
+             | markdownify 
+             | replace: '<h2', '<h2 data-toc-skip'
+             | replace: '<h3', '<h3 data-toc-skip'
+             | replace: '<h4', '<h4 data-toc-skip' }}
         </div>
       {% else %}
         <div class="md-preview file-content pt-5" style="display:none;"></div>
