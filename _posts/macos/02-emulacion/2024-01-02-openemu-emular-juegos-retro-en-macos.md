@@ -1,5 +1,4 @@
 ---
-
 title: "macOS: Jugar juegos retro con OpenEmu"
 categories: [macOS, macOS_02-Juegos]
 image: poster/macos-openemu.webp
