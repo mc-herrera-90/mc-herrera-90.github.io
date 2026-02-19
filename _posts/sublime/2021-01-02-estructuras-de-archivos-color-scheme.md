@@ -1,12 +1,33 @@
 ---
-title: "Estructura de un archivo .sublime-color-scheme"
-categories: ["Editores, IDEs", SublimeText]
-icon: icon/sublime.svg
+title: "SublimeText: Crear esquemas personalizados con archivos .sublime-color-scheme"
+categories: [SublimeText, "SublimeText_01-Personalización"]
 image: poster/sublimetext.webp
 tags: [sublime-text, configuracion]
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
+
+Más allá de instalar paquetes o modificar configuraciones básicas, **Sublime Text** permite ajustar la capa visual con un nivel de detalle sorprendente, moldeable fácilmente a tu flujo de trabajo.
+
+Antes de profundizar en la personalización, es importante entender cómo se organiza su interfaz. De forma general, podemos dividirla en dos áreas principales:
+
+1. **El área de edición**, donde escribes y trabajas directamente con el código.
+
+![Area de edicion](sublime/area-de-edicion.webp)
+
+2. **La interfaz de soporte**, que incluye elementos como la barra lateral, las pestañas, la barra de estado y otros componentes del entorno.
+
+![Area de interfaz de soporte](sublime/area-de-soporte.webp)
+
+## ¿Qué es un archivo .sublime-color-scheme?
+
+Es un archivo en JSON que describe la apariencia del editor a nivel de sintaxis. Permite controlar:
+
+- Colores globales del editor
+- Estilos tipográficos por tipo de token
+- Resaltado de elementos activos
+
+Este formato es el reemplazo de los archivos `.tmThemes`.
 
 ## Dónde se guardan estos archivos
 
