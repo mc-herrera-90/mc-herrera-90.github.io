@@ -11,13 +11,15 @@ Más allá de instalar paquetes o modificar configuraciones básicas, **Sublime 
 
 Antes de profundizar en la personalización, es importante entender cómo se organiza su interfaz. De forma general, podemos dividirla en dos áreas principales:
 
-1. **El área de edición**, donde escribes y trabajas directamente con el código.
+**1\. El área de edición**, donde escribes y trabajas directamente con el código.
 
 ![Area de edicion](sublime/area-de-edicion.webp)
 
-2. **La interfaz de soporte**, que incluye elementos como la barra lateral, las pestañas, la barra de estado y otros componentes del entorno.
+**2\. La interfaz de soporte**, que incluye elementos como la barra lateral, las pestañas, la barra de estado y otros componentes del entorno.
 
 ![Area de interfaz de soporte](sublime/area-de-soporte.webp)
+
+Los archivos `.sublime-color-scheme` se encargan de modificar principalmente el área de edición, es decir, cómo se renderiza el código: colores de sintaxis, fondo, selección y otros elementos visuales relacionados con la lectura del texto.
 
 ## ¿Qué es un archivo .sublime-color-scheme?
 
