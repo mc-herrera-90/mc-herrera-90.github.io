@@ -90,15 +90,20 @@ Este soporte se mantiene en el repositorio oficial [**RetroPie-Setup**](https://
 
 La **BIOS** (Basic Input/Output System) es un firmware que se ejecuta al encender una computadora antes de cargar el sistema operativo. En un PC permite configurar opciones como el orden de arranque, la fecha y hora o ciertos parámetros del hardware.
 
-En el caso de las consolas de videojuegos, la BIOS define cómo funciona el sistema, por lo que algunos emuladores (como los usados en **RetroPie**) la necesitan para poder iniciar y ejecutar juegos correctamente.
+En el caso de las consolas de videojuegos, la BIOS también es una pequeña pieza de software que le dice al hardware cóm trabajar. Muchos emuladores emulan el BIOS de su sistema, pero algunos emuladores requieren que se proporcione un archivo BIOS para poder iniciar y ejecutar juegos correctamente.
 
-Por ejemplo, plataformas como PlayStation o Neo Geo requieren su BIOS correspondiente para lograr una emulación precisa y compatible.
+> Algunos BIOS también tienen derecho de autor y, por lo tanto, no se incluyen con RetroPie.
+{:.prompt-info}
+
+Por ejemplo, plataformas como PlayStation o Neo Geo requieren su BIOS correspondiente para lograr una emulación precisa.
 
 ## Instalar RetroPie
 
-Lo primero es contar con una distribucíon actualizada (Ubuntu, Xubuntu, Ubuntu Mate, Lubuntu, etc.)
+Lo primero es contar con una distribución basada en Debian (como Ubuntu, Linux Mint, Ubuntu MATE o Lubuntu). En nuestro caso utilizamos Lubuntu 20.04, pero su [guía oficial](https://retropie.org.uk/docs/Debian/){:target='_blank'} indica que es compatible con Ubuntu 18.04 LTS o versiones posteriores.
 
-### Actualizar el sistema
+A continuación, iremos paso a paso. Ten en cuenta que, para ejecutar los comandos y el script de RetroPie-Setup, debes pertenecer al grupo de administradores (root/admin), es decir, contar con privilegios `sudo`.
+
+### 1. Actualizar el sistema
 
 Comienza por actualizar el sistema. Abre una terminal <kbd>Ctrl</kbd>+<kbd>T</kbd> y ejecuta los siguientes comandos:
 
@@ -108,7 +113,7 @@ sudo apt upgrade -y
 ```
 {:.typing}
 
-### Instalar los paquetes necesarios
+### 2. Instalar los paquetes necesarios
 
 Una vez listo, se requieren algunos paquetes antes de comenzar la instalación, puedes instalar todos los paquetes con el siguiente comando:
 
@@ -119,7 +124,7 @@ sudo apt install git dialog unzip xmlstarlet
 
 El script lo vamos a descargar desde su repositorio de GitHub, por eso es necesario que estos paquetes estén instalados.
 
-### Clonar el proyecto de GitHub
+### 3. Clonar el proyecto de GitHub
 
 El primer paso es clonar los archivos del proyecto RetroPie de GitHub. Ejecuta el siguiente comando:
 
@@ -135,7 +140,7 @@ cd RetroPie-Setup
 ```
 {:.typing}
 
-### Ejecutar el script de instalación
+### 4. Ejecutar el script de instalación
 
 Finalmente, ejecutamos el siguiente comando para inicializar el script de instalación:
 
@@ -151,6 +156,9 @@ El script comenzará a ejecutarse e instalará paquetes adicionales, tras unos b
 Presiona <kbd>Enter</kbd> y repite el proceso para la siguiente ventana:
 
 ![RetroPie Setup](linux/retropie-setup-2.webp)
+
+> Esto instalará los principales paquetes que son equivalente a lo que se proporciona con la imagen de RetroPie con la diferencia que __esta será la versión de 32 bits__ de RetroPie lo que significa que algunos emuladores no funcionarán ya que solo funcionan con la versión de 64 bits.
+{:.prompt-info}
 
 Presiona nuevamente <kbd>Enter</kbd> para confirmar y comenzar el proceso:
 
@@ -195,11 +203,11 @@ Este paso permite mapear botones y navegar por la interfaz.
 
 ![Configurar input](extras/retropie-configurar-mando.webp)
 
-En una recreativa, normalmente se configuran:
+Si no tienes un Joystick, se debe mantener cualquier tecla presionada para comenzar a definir:
 
-* Joystick → direcciones
-* Botones principales → acción
-* Start / Select → navegación
+* Direcciones
+* Botones principales de acción
+* Start / Select
 
 ![Configurar teclado como mando](extras/retropie-configurar-mando-keyboard.webp)
 
@@ -230,3 +238,37 @@ Una vez descargado, presiona el botón de __Start__ para abrir el menú y entrar
 Al presionar el botón __Atrás__ o salir del menú, el tema se aplicará automáticamente. El tema que descargamos se visualiza de la siguiente manera:
 
 ![Tema Zoid](extras/retropie-tema-zoid.webp)
+
+## Qué es el scraping
+
+En el contexto de RetroPie, **scrapear** significa obtener automáticamente información de tus juegos desde internet para que tu biblioteca se vea más completa y visualmente atractiva.
+
+Cuando realizas el scraping, el sistema descarga datos como:
+
+* 🎮 Carátulas (box art)
+* 📝 Descripciones
+* ⭐ Calificaciones
+* 📅 Año de lanzamiento
+* 🎬 Videos o previews (según el scraper)
+
+Esto hace que la interfaz de **EmulationStation** pase de ser solo una lista de ROMs a una biblioteca visual mucho más atractiva.
+
+## Cómo scrapear juegos
+
+Para scrapear, inicia __EmulationStation__ y realiza lo siguiente.
+
+### 1. Abre el menú principal en **EmulationStation**
+
+Presiona el botón **Start** en tu control o teclado y entra a la opción __Scraper__:
+
+![Seleccionar opcion Scraper](extras/retropie-seleccionar-opcion-scraper.webp)
+
+### 2. Configura las opciones principales
+
+Se debe seleccionar una __fuente de datos__ normalmente __ScreenScraper__ o __TheGamesDB__ siendo la primera la opción más completa y con mejor cobertura (puede tener límites de descarga sin cuenta) y la segunda alternativa es más simple y rápida pero con menos catálogo en su base de datos.
+
+![Fuente del scraper](extras/retropie-opciones-y-fuente-para-el-scraper.webp)
+
+RetroPie comenzará a buscar coincidencias para cada juego y descargará la información automáticamente.
+
+![Iniciar el scraper](extras/retropie-iniciar-scraper.webp)
