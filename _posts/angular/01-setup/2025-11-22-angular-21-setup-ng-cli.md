@@ -1,17 +1,19 @@
 ---
-title: "Angular: Configuración del entorno local"
+title: "Angular: Configuración del entorno de desarollo en local con Angular 21"
 categories: [Angular, Angular_01-Setup]
-badge: angular
+image: poster/setup-angular-21-en-local.avif
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
 
+Angular sigue evolucionando con un enfoque fuerte en __rendimiento__, __simplicidad__ y desarrollo moderno.
 
-Al comenzar con **Angular**, lo primero es preparar el entorno de desarrollo. Después podrás crear tu primer proyecto y, en pocos pasos, ya estarás listo para empezar a construir aplicaciones aprovechando todo su ecosistema.
+Al comenzar con esta nueva versión de Angular el proceso para preparar el entorno de desarrollo no varía demasiado en los pasos, aunque sí cambian algunas preguntas durante la configuración. En este artículo vamos a instalar Angular 21 desde cero y analizar sus mejoras más importantes.
 
 ## Requisitos previos
 
-__Angular__ depende fuertemente del ecosistema de Node, por lo que es importante partir con versiones actuales.
+Angular depende fuertemente del ecosistema de Node, por lo que es importante partir con versiones actuales.
+
 - [Node.js (versión ≥ 20)](https://nodejs.org/en/){:target='_blank'}.
 - [npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager){:target='_blank'} (o [yarn](https://yarnpkg.com/){:target='_blank'}).
 
@@ -37,14 +39,14 @@ npm install -g @angular/cli
 ```
 {:.typing}
 
-Verificación:
+Verificación rápida:
 
 ```terminal
 ng version
 ```
 {:.typing}
 
-El resultado, debería ser como el siguiente:
+El resultado, debería ser parecido a lo siguiente:
 
 {% capture angular_version %}
 <span class='hl'>$ ng version</span>
@@ -64,11 +66,9 @@ Operating System  : darwin arm64
 {% endcapture %}
 {% include terminal-wrapper.html content=angular_version %}
 
-Si eso está correcto, el entorno está listo.
-
 ## Creación del proyecto
 
-En tu terminal, ejecuta el comando `ng new` con el nombre del proyecto deseado. Por ejemplo, usaremos el nombre de proyecto `first-angular-app`:
+En una terminal, se debe usar el comando de siempre (`ng new`) junto al nombre del proyecto deseado. Por ejemplo, usaremos el nombre de proyecto `first-angular-app`:
 
 ```terminal
 ng new first-angular-app
@@ -162,8 +162,10 @@ https://angular.dev/ai/develop-with-ai</strong> <span class='hl'>None</span>
 {% endcapture %}
 {% include terminal-wrapper.html content=autocomplete_cli %}
 
-![Proyecto creado](angular/first-project-angular-cli-dark.webp){:.dark}
-![Proyecto creado](angular/first-project-angular-cli-light.webp){:.light}
+> ![Proyecto creado](angular/first-project-angular-cli-dark.webp){:.dark}
+> ![Proyecto creado](angular/first-project-angular-cli-light.webp){:.light}
+> Si observamos bien, se puede notar que el archivo tradicional `app.component.ts` ya no aparece con ese nombre. En su lugar, el CLI genera archivos como `app.ts`, `app.html` y `app.css`, reflejando la nueva convención de nomenclatura para el componente raíz, la cual resulta más simple y directa.
+{:.prompt-info}
 
 ## Estructura base del proyecto
 
@@ -257,7 +259,7 @@ export const routes: Routes = [
   { path: '', component: Home }
 ];
 ```
-{:file="src/app/app.routes.ts" .typing}
+{:file="src/app/app.routes.ts"}
 
 Angular maneja el routing de forma declarativa y predecible.
 

@@ -27,12 +27,11 @@
 /* Contenedor de la tabla con scroll elegante */
 .table-wrapper {
   overflow-y: auto;
-
   & table {
     width: 100%;
+    margin: 1rem auto;
     @include bp.xxxl {
       width: 85%;
-      margin: 1rem auto;
     }
   }
 

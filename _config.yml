@@ -16,13 +16,13 @@ timezone:
 title: "mcherrera"
 tagline: "~/dev/cloud-architect"
 description: Blog y portafolio personal
-url: "https://mc-herrera-90.github.io"
+url: "mcherrera.dev"
 author:
   name: "Marco Contreras"
-  url: https://github.com/mc-herrera-90
+  url: https://github.com/mcherrera-cl/
 
 github:
-  username: mc-herrera-90
+  username: mcherrera-cl
 
 twitter:
   username: mcherrera911
@@ -33,8 +33,8 @@ social:
   email: contacto@mcherrera.dev # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
-    - https://github.com/username # change to your GitHub homepage
+    - https://twitter.com/mcherrera911 # change to your Twitter homepage
+    - https://github.com/mcherrera-cl # change to your GitHub homepage
     - https://about.me/mcherrera
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
@@ -79,11 +79,11 @@ pageviews:
 # and there will be a toggle to switch the theme between dark and light
 # on the bottom left of the sidebar.
 #
-# Available options:
+# Opciones disponible:
 #
-#     light — Use the light color scheme
-#     dark — Use the dark color scheme
-#
+#     light — Usa el esquema [light color scheme]
+#     dark — Usa el esquema [dark color scheme]
+#     Sin definir — Muestra el botón para alternar el esquema de colores
 theme_mode: # [light | dark]
 
 # The CDN endpoint for media resources.

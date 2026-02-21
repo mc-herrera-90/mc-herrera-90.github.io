@@ -1,35 +1,5 @@
 ---
 layout: default
-toc: false
 ---
 
 {{ content }}
-
-<div class="my-4 py-4">
-
-  <h1 data-toc-skip class="text-center mb-4" style="color: var(--heading-color-title);">
-    Explora mis skills
-  </h1>
-  <p class="mb-3 small mb-md-4 text-center fs-5">
-    Si quieres saber más sobre mis habilidades como Fullstack, ejecuta la query en el editor de abajo.
-  </p>
-    <div class="icon-wrapper">
-        {% include icon/dbplay.svg  %}
-    </div>
-  <div class="mt-3">
-    {% include sql-editor.html %}
-  </div>
-</div>
-  <h1 data-toc-skip class="text-center mb-4" style="color: var(--heading-color-title);">Tech Stack</h1>
-  <p class="mb-3 small mb-md-4 text-center fs-5">Conjunto de tecnologías y herramientas que forman la base de mis proyectos.</p>
-  {% include techs.html %}
-
-  <h1 data-toc-skip class="text-center mb-4" style="color: var(--heading-color-title);">
-    Proyectos
-  </h1>
-<p class="mb-3 small mb-md-4 text-center fs-5">
-  Selección de proyectos donde aplico diseño, arquitectura y desarrollo
-</p>
-
-{% include file-viewer.html files=site.data.codes.personal.files name="personal" %}
-

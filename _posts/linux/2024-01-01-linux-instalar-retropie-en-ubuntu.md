@@ -253,6 +253,8 @@ Cuando realizas el scraping, el sistema descarga datos como:
 
 Esto hace que la interfaz de **EmulationStation** pase de ser solo una lista de ROMs a una biblioteca visual mucho más atractiva.
 
+![Ejemplo de scraper](extras/retropie-ejemplo-de-scraper.webp)
+
 ## Cómo scrapear juegos
 
 Para scrapear, inicia __EmulationStation__ y realiza lo siguiente.
