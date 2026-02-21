@@ -16,7 +16,8 @@ timezone:
 title: "mcherrera"
 tagline: "~/dev/cloud-architect"
 description: Blog y portafolio personal
-url: "mcherrera.dev"
+url: "https://mcherrera.dev"
+baseurl: ""
 author:
   name: "Marco Contreras"
   url: https://github.com/mcherrera-cl/
