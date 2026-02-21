@@ -228,3 +228,19 @@ kbd.command-icon::before {
 header h1 {
   visibility: hidden; /* Oculta sin romper layout */
 }
+
+.bg-thumbnail {
+  width:clamp(90px, 12vw, 140px);
+  aspect-ratio:1/1;
+  border-radius:50%;
+  background-image:url('/assets/media/me.webp');
+  background-color: #191919;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  image-rendering:-webkit-optimize-contrast;
+  image-rendering:high-quality;
+  transform:translateZ(0);
+  border:3px solid #ddd;
+  margin: .9rem auto;
+}

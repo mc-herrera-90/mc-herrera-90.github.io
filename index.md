@@ -9,30 +9,13 @@ scripts:
 toc: false
 ---
 
-<div class="content text-center" markdown="1">
+<div class="text-center" markdown="1">
 
 # Marco Contreras
 
-<div style="display:flex; justify-content:center;" class="my-3">
-  <div
-    style="
-      width:clamp(90px, 12vw, 140px);
-      aspect-ratio:1/1;
-      border-radius:50%;
-      background-image:url('/assets/media/me.webp');
-      background-color: #191919;
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      image-rendering:-webkit-optimize-contrast;
-      image-rendering:high-quality;
-      transform:translateZ(0);
-      border:3px solid #ddd;
-    "
-  ></div>
-</div>
+<div class="bg-thumbnail shadow"></div>
 
-<p class="mb-3 small mb-md-4 text-center fs-5">
+<p class="mb-3 small mb-md-4">
   <i class="fa-solid fa-code"></i> Full-Stack | 
   <i class="fa-solid fa-cloud"></i> Cloud | 
   <i class="fa-solid fa-gamepad"></i> RetroGeek
