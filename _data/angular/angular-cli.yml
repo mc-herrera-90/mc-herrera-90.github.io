@@ -1,0 +1,121 @@
+- title: Crear y generar proyectos
+  content: |
+    Permiten inicializar una nueva aplicación Angular o generar estructuras base del proyecto.
+
+    ```terminal
+    ng new mi-app
+    ```
+    {:.typing}
+
+    El comando anterior crea un proyecto completo con la configuración inicial.
+
+    ```terminal
+    CREATE mi-app (Angular workspace)
+    ✔ Packages installed successfully.
+    ```{: .nolineno .noheader }
+
+    > Se puede usar `--standalone` o `--routing` para definir la configuración inicial del proyecto.
+    > {: .prompt-info }
+
+- title: Generar componentes y artefactos
+  content: |
+    Estos comandos crean piezas de la aplicación como componentes, servicios,
+    directivas o módulos sin tener que hacerlo manualmente.
+
+    ```terminal
+    ng generate component usuarios
+    ```
+    {:.typing}
+
+    También puedes usar la forma corta:
+
+    ```terminal
+    ng g service auth
+    ng g directive highlight
+    ng g pipe capitalizar
+    ```
+    {:.typing}
+
+- title: Servidor de desarrollo
+  content: |
+    Permite ejecutar la aplicación en un entorno local con recarga automática
+    cada vez que se detectan cambios en el código.
+
+    ```terminal
+    ng serve
+    ```
+    {:.typing}
+
+    Por defecto el servidor se ejecuta en:
+
+    ```terminal
+    http://localhost:4200
+    ```
+    {: .nolineno .noheader }
+
+    > Puedes cambiar el puerto con `ng serve --port 4300`
+    {: .prompt-info }
+
+- title: Construcción del proyecto (build)
+  content: |
+    Genera la versión optimizada de la aplicación lista para producción.
+
+    ```terminal
+    ng build
+    ```
+    {:.typing}
+
+    Para un build optimizado:
+
+    ```terminal
+    ng build --configuration production
+    ```
+    {:.typing}
+
+    El resultado se genera en la carpeta `dist/`.
+
+- title: Ejecutar pruebas
+  content: |
+    Angular CLI integra herramientas para ejecutar pruebas unitarias
+    y pruebas end-to-end.
+
+    ```terminal
+    ng test
+    ```
+    {:.typing}
+
+    Ejecuta pruebas e2e (si están configuradas):
+
+    ```terminal
+    ng e2e
+    ```
+    {:.typing}
+
+- title: Linting y análisis de código
+  content: |
+    Permite analizar el código para detectar errores de estilo o problemas potenciales.
+
+    ```terminal
+    ng lint
+    ```
+    {:.typing}
+
+    > Ayuda a mantener un código consistente y alineado con las buenas prácticas.
+    {: .prompt-info }
+
+- title: Configuración y ayuda
+  content: |
+    Incluye comandos para consultar información del entorno o ver ayuda sobre cualquier comando disponible.
+
+    ```terminal
+    ng version
+    ```
+    {:.typing}
+
+    ```terminal
+    ng help
+    ```
+    {:.typing}
+
+    > Se puede usar `ng help <comando>` para ver opciones específicas, por ejemplo `ng help build`.
+    {: .prompt-info }

@@ -1,6 +1,7 @@
 ---
 layout: main
 title: "Developer"
+animate: true
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"
@@ -9,16 +10,16 @@ scripts:
 toc: false
 ---
 
-<div class="text-center" markdown="1">
+<div class="text-center animate__animated animate__zoomIn" markdown="1">
 
 # Marco Contreras
 
 <div class="bg-thumbnail shadow"></div>
 
 <p class="mb-3 small mb-md-4">
-  <i class="fa-solid fa-code"></i> Full-Stack | 
-  <i class="fa-solid fa-cloud"></i> Cloud | 
-  <i class="fa-solid fa-gamepad"></i> RetroGeek
+  <i class="fa-solid fa-code text-warning"></i> Full-Stack | 
+  <i class="fa-solid fa-cloud text-info"></i> Cloud | 
+  <i class="fa-solid fa-gamepad text-danger"></i> RetroGeek
 </p>
 </div>
 
