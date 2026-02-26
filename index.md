@@ -21,9 +21,11 @@ toc: false
   <i class="fa-solid fa-cloud text-info"></i> Cloud | 
   <i class="fa-solid fa-gamepad text-danger"></i> RetroGeek
 </p>
-</div>
 
 {% include circle-line.html %}
+</div>
+
+<div class="animate__animated animate__slideInUp" markdown="1">
 
 ```js
 const profile = {
@@ -45,6 +47,7 @@ const profile = {
 };
 ```
 {:file="profile.js" .typing .typing-fast }
+</div>
 
 <div class="content text-center" markdown="1">
 

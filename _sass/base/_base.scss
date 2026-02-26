@@ -183,15 +183,6 @@ img.drop-shadow {
     }
 
   }
-  em {
-    font-style: normal;
-    color: var(--em-color);
-    background: var(--em-bg);
-    padding: 0.1em 0.35em;
-    border-radius: 6px;
-    border: 1px solid var(--em-border);
-    white-space: nowrap;
-  }
   a {
     &.popup {
       @extend %no-cursor;
