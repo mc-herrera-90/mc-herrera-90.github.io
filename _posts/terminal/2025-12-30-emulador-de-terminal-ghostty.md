@@ -193,7 +193,7 @@ La paleta se puede abrir mediante el atajo predeterminado:
 
 Al activarla, aparece un cuadro de búsqueda donde puedes escribir el nombre de la acción que deseas ejecutar.
 
-![Abriendo paleta de comandos](config/ghostty-open-command-palette.webp)
+![Abriendo paleta de comandos](terminal/ghostty-open-command-palette.webp)
 
 La paleta de comandos facilita el acceso a distintas funcionalidades, por ejemplo:
 
