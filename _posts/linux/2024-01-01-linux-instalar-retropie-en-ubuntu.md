@@ -274,3 +274,29 @@ Se debe seleccionar una __fuente de datos__ normalmente __ScreenScraper__ o __Th
 RetroPie comenzará a buscar coincidencias para cada juego y descargará la información automáticamente.
 
 ![Iniciar el scraper](extras/retropie-iniciar-scraper.webp)
+
+## Configuración de RetroArch
+
+Después de la instalación de __RetroPie__ usando el script oficial del repositorio, el sistema genera una variedad de archivos de configuración de [__RetroArch__](https://www.retroarch.com/){:target='_blank'} para cada plataforma.
+
+### Configuración global
+
+Este es el archivo más importante para modificar la configuración, ya que afecta a todas las plataformas que no tengan esas opciones definidas explícitamente.
+
+Este archivo base se encuentra en:
+
+- `/opt/retropie/configs/all/retroarch.cfg`
+
+Aquí puedes cambiar un montón de cosas, entre ellas el mapeo de controles específico para cada sistema.
+
+Una de las cosas que a mí me resulta molesta son las decoraciones de ventana, que en algunos casos vienen habilitadas por defecto. Por eso es una opción que prefiero desactivar para todos los sistemas, y se define en ese archivo de configuración.
+
+![Decoraciones de ventana](linux/retropie-decoraciones-de-ventana.webp)
+
+Esa opción viene comentada en el archivo (en mi caso, alrededor de la línea 177). Solo se debe descomentar y cambiar su valor a `false`, como se muestra a continuación:
+
+![Cambiar opción de las decoraciones de ventanas](linux/retropie-cambiar-opcion-de-retroarch-decoraciones-de-ventanas.webp)
+
+Al reiniciar, podrás notar el cambio. Otro ajuste que puedes configurar de forma global son las dimensiones de la pantalla. Si la imagen no ocupa el 100 % del área, se verá un fondo negro o, en caso de tenerlo configurado, se mostrará el overlay.
+
+![espacios en la pantalla](linux/retropie-dimensiones-vacias-de-pantalla.webp)

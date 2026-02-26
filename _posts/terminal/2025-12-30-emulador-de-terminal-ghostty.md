@@ -1,6 +1,6 @@
 ---
 title: "Ghostty: Emulador de terminal moderno para desarrolladores"
-category: [Terminal, "Terminal_01-Emuladores"]
+categories: [Terminal, "Terminal_01-Emuladores"]
 image: terminal/ghostty.gif
 ---
 
