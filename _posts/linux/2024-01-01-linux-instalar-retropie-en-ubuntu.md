@@ -275,11 +275,51 @@ RetroPie comenzará a buscar coincidencias para cada juego y descargará la info
 
 ![Iniciar el scraper](extras/retropie-iniciar-scraper.webp)
 
-## Configuración de RetroArch
+## Archivos de configuración RetroArch
 
-Después de la instalación de __RetroPie__ usando el script oficial del repositorio, el sistema genera una variedad de archivos de configuración de [__RetroArch__](https://www.retroarch.com/){:target='_blank'} para cada plataforma.
+Después de la instalación de __RetroPie__ usando el script oficial del repositorio, el sistema genera una variedad de archivos de configuración de [__RetroArch__](https://www.retroarch.com/){:target='_blank'} para establecer opciones de manera global o específica para cada plataforma.
 
-### Configuración global
+```terminal
+sudo find / -name "retroarch.cfg" 2>/dev/null
+[sudo] password for marco:
+/opt/retropie/emulators/retroarch/etc/retroarch.cfg
+/opt/retropie/emulators/retroarch/retroarch.cfg
+/opt/retropie/configs/atari5200/retroarch.cfg
+/opt/retropie/configs/gba/retroarch.cfg
+/opt/retropie/configs/snes/retroarch.cfg
+/opt/retropie/configs/atarilynx/retroarch.cfg
+/opt/retropie/configs/atari2600/retroarch.cfg
+/opt/retropie/configs/neogeo/retroarch.cfg
+/opt/retropie/configs/channelf/retroarch.cfg
+/opt/retropie/configs/psx/retroarch.cfg
+/opt/retropie/configs/all/retroarch.cfg
+/opt/retropie/configs/vectrex/retroarch.cfg
+/opt/retropie/configs/arcade/retroarch.cfg
+/opt/retropie/configs/n64/retroarch.cfg
+/opt/retropie/configs/amstradcpc/retroarch.cfg
+/opt/retropie/configs/ngpc/retroarch.cfg
+/opt/retropie/configs/gamegear/retroarch.cfg
+/opt/retropie/configs/mame-libretro/retroarch.cfg
+/opt/retropie/configs/pcengine/retroarch.cfg
+/opt/retropie/configs/fba/retroarch.cfg
+/opt/retropie/configs/zxspectrum/retroarch.cfg
+/opt/retropie/configs/mastersystem/retroarch.cfg
+/opt/retropie/configs/atari7800/retroarch.cfg
+/opt/retropie/configs/ngp/retroarch.cfg
+/opt/retropie/configs/msx/retroarch.cfg
+/opt/retropie/configs/gb/retroarch.cfg
+/opt/retropie/configs/gbc/retroarch.cfg
+/opt/retropie/configs/fds/retroarch.cfg
+/opt/retropie/configs/segacd/retroarch.cfg
+/opt/retropie/configs/sg-1000/retroarch.cfg
+/opt/retropie/configs/megadrive/retroarch.cfg
+/opt/retropie/configs/atari800/retroarch.cfg
+/opt/retropie/configs/coleco/retroarch.cfg
+/opt/retropie/configs/sega32x/retroarch.cfg
+/opt/retropie/configs/nes/retroarch.cfg
+```
+
+## Configuración global de RetroArch
 
 Este es el archivo más importante para modificar la configuración, ya que afecta a todas las plataformas que no tengan esas opciones definidas explícitamente.
 
@@ -297,6 +337,63 @@ Esa opción viene comentada en el archivo (en mi caso, alrededor de la línea 17
 
 ![Cambiar opción de las decoraciones de ventanas](linux/retropie-cambiar-opcion-de-retroarch-decoraciones-de-ventanas.webp)
 
-Al reiniciar, podrás notar el cambio. Otro ajuste que puedes configurar de forma global son las dimensiones de la pantalla. Si la imagen no ocupa el 100 % del área, se verá un fondo negro o, en caso de tenerlo configurado, se mostrará el overlay.
+Al reiniciar, podrás notar el cambio.
+
+## Configurar overlay
+
+Otro aspecto que podemos configurar y mejora el aspecto visual, son los overlays. Si la imagen del juego no ocupa el 100 % del área, se verá un fondo negro o, en caso de tenerlo configurado, se mostrará el overlay.
+
+La __relación de aspecto__ es la proporción entre el ancho y el alto de la imagen en la emulación. Por defecto, viene la opción definida de la siguiente manera:
+
+```ini
+video_aspect_ratio_auto = "true"
+```
+{:file="retroarch.cfg" .nolineno .typing}
+
+Esta opción le dice a RetroArch que calcule automáticamente la relación aspecto correcta, se puede decir que intenta mostrar el juego como se veía en su hardware original. Si la proporción se respeta, se rellenará con el fondo negro.
 
 ![espacios en la pantalla](linux/retropie-dimensiones-vacias-de-pantalla.webp)
+
+### Usar Bezel Project
+
+__The Bezel Project__ es un proyecto comunitario que automatiza la descarga e instalación de __overlays (bezels)__ para RetroPie y otros sistemas de emulación.
+
+En pocas palabras:
+
+- Instala los marcos decorativos para cada sistema.
+- Crea automáticamente los archivos de configuración-
+
+El proyecto no viene instalado por defecto en RetroPie. Para que aparezca en el menú debemos añadir su script manualmente. Para ello, hace lo siguiente:
+
+1. Salir de EmulationStation con <kbd>F4</kbd>.
+2. Ejecuta el siguiente comando
+
+```terminal
+cd ~/RetroPie/retropiemenu
+wget https://raw.githubusercontent.com/thebezelproject/BezelProject/master/bezelproject.sh
+chmod +x bezelproject.sh
+```
+{:.typing}
+
+{:start="3"}
+3. Reiniciar EmulationStation
+
+Después debería aparecer como opción. Tal como se muestra a continuación:
+
+![Opción bezel project](extras/retropie-opcion-bezelproject.webp)
+
+Al seleccionar la opción, se nos solicitará la contraseña de superusuario y aparecerá un cuadro informativo, el cual aceptamos presionando <kbd>Enter</kbd>.
+
+![Aceptar el mensaje de información](extras/retropie-abrir-opcion-bezelproject.webp)
+
+Y ahora estamos en el menú, donde encontramos la opción 3 para descargar marcos decorativos. Por ejemplo, podemos descargar el bezel para Super Nintendo, es decir, para la plataforma SNES:
+
+![Descargar bezel para la snes](extras/retropie-descargar-bezel-snes.webp)
+
+Una vez descargado, volvemos al menú para habilitarlo desde la opción 5 y luego seleccionamos la plataforma correspondiente.
+
+![Habilitar bezel](extras/retropie-habilitar-bezel.webp)
+
+Por último, cuando carguemos un juego de la Susper Nintendo, pasaremos del fondo negro a lo siguiente:
+
+![Juego mk3 usando bezel](extras/retropie-mk-usando-bezel.webp)
