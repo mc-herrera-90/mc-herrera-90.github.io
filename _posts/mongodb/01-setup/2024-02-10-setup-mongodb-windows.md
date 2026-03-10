@@ -4,7 +4,7 @@ categories: [MongoDB, "MongoDB_01-Setup"]
 badge: mongodb
 ---
 
-_MongoDB_ es una base de datos NoSQL orientada a documentos. Se usa mucho en aplicaciones modernas porque permite trabajar con datos en formato JSON y no exige un esquema rígido desde el inicio.
+__MongoDB__ es una base de datos NoSQL orientada a documentos. Se usa mucho en aplicaciones modernas porque permite trabajar con datos en formato JSON y no exige un esquema rígido desde el inicio.
 
 ![mongodb](mongodb/mongosh-instalar-mongo.webp){:.light}
 ![mongodb](mongodb/mongosh-instalar-mongo-dark.webp){:.dark}

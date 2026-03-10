@@ -1,6 +1,6 @@
 ---
 title: "ES6 String HTML: HTML legible dentro de template strings"
-categories: ["Visual Studio Code", "Extensiones"]
+categories: ["Visual Studio Code", "VSCode_01-Extensiones"]
 badge: vscode 
 ---
 
@@ -17,7 +17,7 @@ La extensión **ES6 String HTML** en Visual Studio Code añade **resaltado de si
 
 O puedes abrir su página en el Marketplace y añadirlo:
 
-{% include vscode-extension.html logo="https://tobermory.gallerycdn.vsassets.io/extensions/tobermory/es6-string-html/2.17.0/1733307395603/Microsoft.VisualStudio.Services.Icons.Default" name="ES6 String HTM" description="Agrega soporte para resaltar sintaxis para código, ubicado en cadenas multilínea es6" url="https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html" %}
+{% include vscode-extension.html logo="https://tobermory.gallerycdn.vsassets.io/extensions/tobermory/es6-string-html/2.17.0/1733307395603/Microsoft.VisualStudio.Services.Icons.Default" name="ES6 String HTML" description="Agrega soporte para resaltar sintaxis para código, ubicado en cadenas multilínea es6" url="https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html" %}
 
 ## Cuándo usarla
 

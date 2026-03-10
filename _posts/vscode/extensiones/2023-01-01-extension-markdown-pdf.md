@@ -1,6 +1,6 @@
 ---
-title: "Markdown a PDF"
-categories: ["Visual Studio Code", "Extensiones"]
+title: "VS Code: Markdown PDF, extensión para convertir archivos a diferentes formatos"
+categories: ["Visual Studio Code", "VSCode_01-Extensiones"]
 badge: vscode
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js

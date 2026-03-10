@@ -4,7 +4,7 @@ categories: [MongoDB, "MongoDB_01-Setup"]
 badge: mongodb
 ---
 
-MongoDB es una base de datos **NoSQL orientada a documentos**, ampliamente utilizada en entornos backend modernos por su flexibilidad, rendimiento y facilidad de integración.
+__MongoDB__ es una base de datos **NoSQL orientada a documentos**, ampliamente utilizada en entornos backend modernos por su flexibilidad, rendimiento y facilidad de integración.
 
 En este post realizaremos la **instalación y configuración** de _MongoDB_ en _Linux_ concretamente en distribuciones basadas en Debian como Ubuntu.
 
