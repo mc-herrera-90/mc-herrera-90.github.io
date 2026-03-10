@@ -25,7 +25,12 @@ toc: false
 {% include circle-line.html %}
 </div>
 
-<div class="animate__animated animate__slideInUp" markdown="1">
+<div class="text-center animate__animated animate__zoomIn" markdown="1">
+## Mi perfil
+</div>
+
+<div class="animate__animated animate__slideInUp" id="codingpc"></div>
+
 
 ```js
 const profile = {
@@ -47,16 +52,15 @@ const profile = {
 };
 ```
 {:file="profile.js" .typing .typing-fast }
-</div>
 
 <div class="content text-center" markdown="1">
 
-## Consulta mis skills
+## Mis skills
 
 <div class="icon-wrapper">
     {% include icon/dbplay.svg  %}
 </div>
-<p class="mb-3 small mb-md-4 fs-5">Explora mi perfil ejecutando o editando las queries en el editor interactivo.</p>
+<p class="mb-3 small mb-md-4 fs-5">Explora mis habilidades ejecutando queries en el editor interactivo.</p>
 </div>
 
 <div class="mt-3">

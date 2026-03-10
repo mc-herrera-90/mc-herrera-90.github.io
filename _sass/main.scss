@@ -31,7 +31,7 @@
     width: 100%;
     margin: 1rem auto;
     @include bp.xxxl {
-      width: 85%;
+      width: 100%;
     }
   }
 
@@ -243,4 +243,15 @@ header h1 {
   transform:translateZ(0);
   border:3px solid #ddd;
   margin: .9rem auto;
+}
+
+#codingpc {
+  height: 200px;
+  background-image: url('/assets/media/extras/coding.gif');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

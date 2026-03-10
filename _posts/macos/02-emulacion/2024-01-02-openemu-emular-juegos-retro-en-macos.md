@@ -9,21 +9,21 @@ image: poster/macos-openemu.webp
 Este artículo va directo a lo importante: cómo instalarlo, cargar juegos y dejarlo configurado correctamente.
 
 
-## Instalación
+## 1. Instalación
 
-### 1. Descarga la aplicación
+### 1.1 Descarga la aplicación
 
 Descarga la aplicación desde su [__sitio oficial__](https://openemu.org/){:target="_blank"}.
 
 ![Descargar OpenEmu](macos/descargar-openemu.webp)
 
-### 2. Mover a la carpeta Aplicaciones
+### 1.2 Mover a la carpeta Aplicaciones
 
 Arrastra OpenEmu a la carpeta **Aplicaciones**.
 
 ![Arrastrar OpenEmu](macos/arrastrar-openemu-a-aplicaciones.webp)
 
-### 3. Abrir OpenEmu
+### 1.3 Abrir OpenEmu
 
 Al abrir por primera vez nos saltará la alerta de seguridad.
 
@@ -44,15 +44,15 @@ Cuando muestra el lista de los núcleos, puedes marcar o desmarcar las opciones.
 
 ![Seleccionar núcleos](macos/openemu-seleccionar-nucleos.webp)
 
-## Cómo añadir juegos
+## 2. Cómo añadir juegos
 
-### 1. Abre OpenEmu y selecciona la plataforma
+### 2.1 Abre OpenEmu y selecciona la plataforma
 
 En la pantalla principal, el menú lateral muestra las consolas disponibles. Debemos seleccionar la que corresponda a los ROMs que queremos cargar; por ejemplo, N64.
 
 ![Plataforma n64](macos/openemu-plataforma-n64.webp)
 
-### 2. Descarga el juego y arrastralo a la plataforma
+### 2.2 Descarga el juego y arrastralo a la plataforma
 
 Arrastra tus archivos de juego a la ventana principal de la consola.
 
@@ -63,21 +63,21 @@ Arrastra tus archivos de juego a la ventana principal de la consola.
 {:.prompt-info}
 
 
-## Cómo jugar
+## 3. Cómo jugar
 
-### 1. En la barra lateral, elige la consola.
+### 3.1 En la barra lateral, elige la consola.
 
 Desplazate por las consola en la barra lateral y selecciona la que tengas juegos añadidos.
 
 ![Seleccionar consola](macos/openemu-seleccionar-plataforma.webp)
 
-### 2. Seleccionar el juego
+### 3.2 Seleccionar el juego
 
 Posicionate sobre el juego y haz doble clic.
 
 ![Abrir juego](macos/openemu-abrir-juego.webp)
 
-### 3. Esperar que se inicialice el juego
+### 3.3 Esperar que se inicialice el juego
 
 Se abrirá el reproductor con el juego listo para disfrutar.
 
@@ -92,9 +92,17 @@ Durante la partida puedes:
 
 Todo desde el menú superior o atajos de teclado.
 
-## Configurar un mando
+### 3.4 Instalar núcleo desde OpenEmu para jugar
 
-### 1. Conecta el mando por USB o Bluetooth.
+En algunos casos, **OpenEmu** puede no tener instalado el **núcleo (core) del emulador** necesario para ejecutar un juego determinado. Cuando esto ocurre, al intentar abrir o cargar la ROM, el programa muestra un mensaje indicando que **no se encontró el núcleo correspondiente**.
+
+En ese momento, OpenEmu ofrece automáticamente la **opción de descargar e instalar el núcleo necesario**. Una vez instalado, el juego puede ejecutarse normalmente sin necesidad de configuraciones adicionales.
+
+![OpenEmu instalar núcleo para la plataforma nes](macos/openemu-instalar-nucleo-para-plataforma-nes.webp)
+
+## 4. Configurar un mando
+
+### 4.1 Conecta el mando por USB o Bluetooth.
 
 OpenEmu reconoce la mayoría de mandos automáticamente, incluyendo controles tipo PlayStation y Xbox. Por ejemplo, el mando de ps4.
 
@@ -106,21 +114,21 @@ Por Bluetooth:
 
 ![Conectar mando de PS4](macos/conectar-mando-ps4-por-bluetooth.webp)
 
-### 2. Configurar el control conectado
+### 4.2 Configurar el control conectado
 
 Ve a la consola y haz clic derecho sobre ella y selecciona __editar controles de juego__.
 
 ![Editar controles](macos/openemu-editar-controles.webp)
 
-### 3. Asignar botones
+### 4.3 Asignar botones
 
 Asigna cada botón cuando el sistema lo solicite (es muy intuitivo).
 
 ![Configurar mando](macos/openemu-configurar-mando.webp)
 
-## Problemas comunes
+## 5. Problemas comunes
 
-### 1. El juego no abre
+### 5.1 El juego no abre
 
 En algunos casos puede faltar el core o no ser compatible; esto suele ocurrir cuando corremos ciertos juegos. Por ejemplo, en mi caso que estoy usando el chip __Apple M4__ no me funcionan los juegos de GameCube:
 
@@ -129,24 +137,21 @@ En algunos casos puede faltar el core o no ser compatible; esto suele ocurrir cu
 > Hasta el momento no he encontrado una solución dentro de OpenEmu, así que me toca descargar y usar Dolphin directamente para poder jugar.
 {:.prompt-info}
 
-### 2. No reconoce el mando
+### 5.2 No reconoce el mando
 
 Revisa la configuración en Controls o vuelve a conectarlo. Si lo configuraste por Bluetooth, intenta emparejarlo nuevamente.
 
 ![Conectar mando de PS4](macos/conectar-mando-ps4-por-bluetooth.webp)
 
-
-
-## Cambiar el destino de la biblioteca en OpenEmu
+## 6. Cambiar el destino de la biblioteca en OpenEmu
 
 En mi caso decidí mover la biblioteca de **OpenEmu** a un disco externo, principalmente para liberar espacio en el Mac y mantener todos los juegos en un solo lugar. Si tienes muchas ROMs o archivos pesados, es una buena práctica porque la biblioteca puede crecer bastante con el tiempo y los juegos y carátulas pueden ocupar varios gigabytes.
 
-
-### 1. Cerrar OpenEmu
+### 6.1 Cerrar OpenEmu
 
 Antes de mover nada, asegúrate de que la aplicación esté completamente cerrada.
 
-### 2. Ir a la carpeta de la biblioteca actual
+### 6.2 Ir a la carpeta de la biblioteca actual
 
 Puedes abrir el spotlight y pegar esta ruta:
 
@@ -154,15 +159,15 @@ Puedes abrir el spotlight y pegar esta ruta:
 
 ![Carpeta OpenEmu](macos/carpeta-biblioteca-openemu.webp)
 
-### 3. Copiar la biblioteca al disco externo
+### 6.3 Copiar la biblioteca al disco externo
 
 Copia la carpeta **OpenEmu** completa al disco externo (por ejemplo: `DiscoExterno/OpenEmu`).
 
 ![Pegar carpeta en disco externo](macos/pegar-carpeta-openemu-en-disco-externo.webp)
 
-### 4. Abrir OpenEmu con selección de biblioteca
+### 6.4 Abrir OpenEmu con la opción para selección de biblioteca
 
-Mantén presionada la tecla **Option (⌥)** y bbre OpenEmu
+Mantén presionada la tecla **Option (⌥)** y abre OpenEmu
 
 ![Abrir OpenEmu](macos/mantener-tecla-option-presionada-al-abrir-openemu.webp){:.rounded}
 
@@ -170,7 +175,16 @@ Haz clic en **Elegir Biblioteca** y selecciona la carpeta que copiaste al disco 
 
 ![Elegir biblioteca](macos/openemu-elegir-biblioteca.webp)
 
+### 6.5 Seleccionar el archivo Library.storedata
+
+Cuando buscamos el destino, el único archivo que acepta OpenEmu, es uno llamado `Library.storedata` porque ese archivo es la base de datos principal.
+
+![Seleccionar el archivo para actualizar la información de la biblioteca](macos/seleccionar-biblioteca-openemu.webp)
+
 OpenEmu ahora usará esa ubicación como biblioteca principal.
+
+> Un aspecto importante es que, aunque la biblioteca de OpenEmu esté ubicada en un almacenamiento externo, las ROMs no deben copiarse manualmente dentro de la carpeta ROMs. Las ROMs deben importarse arrastrándolas a la aplicación como siempre. De esta manera, OpenEmu los procesa y actualiza el archivo `Library.storedata`.
+{:.prompt-info}
 
 {% include circle-line.html %}
 

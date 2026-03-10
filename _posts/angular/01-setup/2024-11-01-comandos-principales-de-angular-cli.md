@@ -7,7 +7,7 @@ badge: angular
 La Angular CLI es la herramienta oficial del ecosistema Angular para crear y gestionar aplicaciones. Permite automatizar tareas comunes como la generación de código, ejecución del servidor de desarrollo, compilación y pruebas para un flujo de trabajo más productivo.
 
 
-## Instalación
+## 1. Instalación
 
 Para instalar Angular CLI, asegúrese de tener instalado __Node.js__ (que incluye npm) y ejecuta el siguiente comando:
 
@@ -20,7 +20,7 @@ A continuación se presenta una referencia organizada de los comandos más utili
 
 {% include accordion.html items=site.data.angular.angular-cli %}
 
-## Flujo de trabajo típico
+## 2. Flujo de trabajo típico
 
 En un flujo de trabajo típico:
 
