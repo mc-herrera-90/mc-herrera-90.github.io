@@ -58,7 +58,7 @@ export const routes: Routes = [
 
 El punto central de una app Angular es `main.ts`. Aquí es donde se inicializa la app con `bootstrapApplication()`.
 
-La configuración del router en Angular 21, viene de la siguiente forma:
+La configuración del router en Angular, viene de la siguiente forma:
 
 ```ts
 import { bootstrapApplication } from '@angular/platform-browser';
@@ -504,11 +504,11 @@ export const appConfig: ApplicationConfig = {
 ```
 {:file="src/app/app.config.ts"}
 
-## 10. Lazy loading en Angular 21+
+## 10. Lazy loading en Angular
 
 Lazy loading significa cargar módulos o rutas solo cuando el usuario las visita. Esto reduce el tamaño inicial de la app.
 
-En Angular 21 se usa así:
+Desde Angular 14+ se usa así:
 
 ```ts
 {
@@ -563,7 +563,7 @@ Uso en rutas:
 
 ## Consideraciones
 
-En Angular 21+:
+En Angular 14+:
 
 * El router se configura en `main.ts` con `provideRouter(routes)`
 * Las rutas se definen en `app.routes.ts`

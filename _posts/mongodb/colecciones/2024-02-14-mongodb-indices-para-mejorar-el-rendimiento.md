@@ -1,6 +1,6 @@
 ---
 title: "MongoDB: Índices en colecciones - mejor rendimiento en consultas"
-categories: [MongoDB, "MongoDB-Colecciones"]
+categories: [MongoDB, "MongoDB_02-Colecciones"]
 badge: mongodb
 ---
 
