@@ -1,6 +1,6 @@
 ---
 title: "Funciones escalares en SQL Server"
-categories: [Bases de Datos Relacionales, "SQL Server"]
+categories: ["SQL Server", "SQL Server_02-Funciones"]
 tags: [Bases de Datos, "Relacionales", "SQL"]
 image:
    path: poster/sql-server-funciones-ecalares.webp

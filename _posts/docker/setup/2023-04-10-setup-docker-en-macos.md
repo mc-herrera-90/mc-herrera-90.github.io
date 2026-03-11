@@ -1,6 +1,6 @@
 ---
 title: "Docker: Instalar Docker Desktop en macOS"
-categories: [Docker, Docker-Setup]
+categories: [Docker, Docker_01-Setup]
 badge: docker
 ---
 

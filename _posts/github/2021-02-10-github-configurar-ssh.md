@@ -1,5 +1,5 @@
 ---
-title: "Github: Configurar llaves SSH"
+title: "Github: Configurar llaves SSH para conectar con una cuenta de GitHub"
 categories: [GitHub, "Github_02-Seguridad"]
 image:
   path: poster/github-ssh.webp
@@ -18,6 +18,7 @@ Vamos a seguir algunos sencillos pasos para agregar una clave SSH a tu cuenta de
 > ```terminal
 > ls -al ~/.ssh
 > ```
+> {:.typing}
 > Busca archivos de claves públicas como `id_rsa.pub` o `id_ecdsa.pub`. Si existen, puedes reutilizarlos. Si no, genera una nueva clave.
 {:.prompt-info}
 
@@ -30,6 +31,7 @@ Comenzamos abriendo una terminal con <kbd>Ctrl</kbd> + <kbd>T</kbd> y pega el si
 ```terminal
 ssh-keygen -t rsa -b 4096 -C "user@mail.com"
 ```
+{:.typing}
 
 > - `-t rsa`: Especifica el tipo de clave (RSA es el más común).
 > - `-b 4096`: Especifica que tan compleja es la llave (el tamaño 4096 bits se considera seguro).
@@ -65,13 +67,14 @@ Selecciona la ubicación de tu preferencia o solo presiona <kbd>Enter</kbd>.
 
 ### 2. Agregar la clave privada al servicio de ssh-agent
 
-El comando `ssh-agent` es un programa auxiliar que realiza seguimiento de las claves de identidad del usuario y sus frases de contraseñas. A continuación, sigue las instrucciones para agregar
+El comando `ssh-agent` es un programa auxiliar que realiza seguimiento de las claves de identidad del usuario y sus frases de contraseñas en un proceso en segundo plano. Para agregar la llave generada, realiza lo siguiente:
 
 Verificar si el programa se está ejecutando:
 
 ```terminal
 eval $(ssh-agent -s)
 ```
+{:.typing}
 
 Esto debería mostrar un PID (_Process ID_). Por ejemplo:
 
@@ -87,17 +90,20 @@ Agregamos la llave privada al agente SSH. Si la creaste con otro nombre, asegúr
 ```terminal
 ssh-add ~/.ssh/id_rsa
 ```
+{:.typing}
 {% endtab %}
 {% tab add_ssh POWERSHELL %}
 ```powershell
 ssh-add $env:USERPROFILE\.ssh\id_rsa
 ```
+{:.typing}
 {:.nolineno}
 {% endtab %}
 {% tab add_ssh CMD %}
 ```terminal
 ssh-add %USERPROFILE%\.ssh\id_rsa
 ```
+{:.typing}
 {% endtab %}
 {% endtabs %}
 
@@ -138,12 +144,14 @@ En sistemas Linux, puedes usar herramientas como `xclip`. Asegúrate de instalar
 ```terminal
 sudo apt install xclip
 ```
+{:.typing}
 
 Para copiar la clave, ejecuta el siguiente comando, ajustando la ruta según la ubicación de tu clave pública:
 
 ```terminal
 cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
 ```
+{:.typing}
 
 Una vez que tengamos la clave copiada en el portapapeles, el siguiente paso es registrarla en nuestra cuenta de GitHub. Para ello, sigue estos pasos:
 
@@ -162,6 +170,7 @@ Para verificar que todo funciona correctamente, comprobamos la conexión con Git
 ```terminal
 ssh -T git@github.com
 ```
+{:.typing}
 
 Si todo está configurado correctamente, deberías recibir un mensaje como el siguiente:
 
@@ -196,7 +205,7 @@ Crea el archivo `~/.ssh/config` para definir accesos rápidos por alias:
 Host github
   HostName github.com
   User git
-  IdentityFile ~/.ssh/github_ed26520
+  IdentityFile ~/.ssh/id_rsa
 
 Host empresa
   HostName 192.168.1.100
@@ -205,17 +214,27 @@ Host empresa
 ```
 {: file=".ssh/config" }
 
+* **`Host github`**: Es el **alias o nombre corto** que defines. Te permite conectarte sin escribir la dirección real del servidor.
+
+* **`HostName github.com`**: Es la **dirección real del servidor** (en este caso GitHub). SSH usará este destino cuando invoques el alias.
+
+* **`User git`**: Es el **usuario con el que te autenticas por SSH**. En GitHub siempre debe ser `git`, independientemente de tu usuario de la plataforma.
+
+* **`IdentityFile ~/.ssh/mcherrera-cl`**: Es la **ruta de la llave privada** que se usará para la autenticación. Define exactamente qué credencial SSH utilizar para esa conexión.
+
 Ahora, simplemente conectas con algún servidor a través de un nombre de Host. Por ejemplo:
 
 ```terminal
 ssh github
 ```
+{:.typing}
 
 La línea anterior se traduce internamente:
 
 ```terminal
-ssh -i ~/.ssh/github_ed26520 git@github.com
+ssh -i ~/.ssh/id_rsa git@github.com
 ```
+{:.typing}
 
 Como resultado, debería mostrar en el caso de github un mensaje:
 
@@ -223,6 +242,7 @@ Como resultado, debería mostrar en el caso de github un mensaje:
 Hi <tu usuario>! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 {: .noheader }
+
 
 ### 3. Limpieza rápida de claves en uso
 

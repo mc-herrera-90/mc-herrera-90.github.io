@@ -1,10 +1,10 @@
 ---
 title: "Instalación en diferentes Sistemas Operativos"
-categories: [Bases de Datos Relacionales, "SQL Server"]
+categories: ["SQL Server", "SQL Server_01-Setup"]
 image:
    path: poster/instalar-sql-server.webp
    lqip: data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwBACdASoUAAsAPzmEulOvKKWisAgB4CcJbACdMoRwFf/gMkWvJhQJ/EK2DLSAAO8rgizc1oA7jhiJY1T3dHJfSlwzueCDL6Dbh4Ipj71oM3bXXDXOBNOvuvjwNGVAzhUGWFbpWB7AAA==
-tags: [Bases de Datos, "SQL"]
+tags: [sql, sql-server]
 ---
 
 Microsoft SQL Server es uno de los gestores de bases de datos más utilizados en entornos empresariales y con esto nos referimos a lo siguiente:
