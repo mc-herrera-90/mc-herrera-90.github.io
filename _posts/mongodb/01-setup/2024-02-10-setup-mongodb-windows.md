@@ -1,15 +1,14 @@
 ---
-title: "MongoDB: Instalación y configuración en Windows"
+title: "MongoDB: Instalación y configuración de MongoDB en Windows"
 categories: [MongoDB, "MongoDB_01-Setup"]
 badge: mongodb
 ---
 
 __MongoDB__ es una base de datos NoSQL orientada a documentos. Se usa mucho en aplicaciones modernas porque permite trabajar con datos en formato JSON y no exige un esquema rígido desde el inicio.
 
-![mongodb](mongodb/mongosh-instalar-mongo.webp){:.light}
-![mongodb](mongodb/mongosh-instalar-mongo-dark.webp){:.dark}
+![MongoDB](mongodb/mongodb-proto.avif)
 
-En este artículo veremos las **opciones de instalación en Windows**, para dejar el entorno listo antes de empezar a trabajar con _MongoDB_.
+En este artículo veremos las **opciones de instalación en Windows**, para dejar el entorno listo antes de empezar a trabajar con MongoDB.
 
 ## Instalar con WinGet
 
@@ -26,7 +25,7 @@ winget install -e --id MongoDB.Server
 
 ![Instalar Mongo usando winget](mongodb/mongo-install-winget.webp)
 
-Para comprobar su instalación, ejecuta el comando `mongod --version` en caso de que __no reconozca el comando__, debes añadir el destino de instalación a la variable _PATH_:
+Para comprobar su instalación, ejecuta el comando `mongod --version` en caso de que __no reconozca el comando__, debes añadir el destino de instalación a la __variable PATH_:
 
 ![Agregar al PATH](mongodb/agregar-al-path-en-windows.webp)
 
