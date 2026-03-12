@@ -1,7 +1,7 @@
 ---
-title: "MongoDB: MongoDB Compass interfaz gráfica para explorar bases de datos MongoDB"
+title: "MongoDB: MongoDB Compass interfaz gráfica para explorar y administrar bases de datos MongoDB"
 categories: [MongoDB, "MongoDB_03-Tools"]
-badge: mongodb
+image: poster/mongodb-compass.avif
 ---
 
 Cuando trabajas con **MongoDB**, muchas veces interactúas desde la terminal utilizando `mongosh`. Sin embargo, existe una herramienta oficial que facilita enormemente la exploración y administración de las bases de datos: **MongoDB Compass**.

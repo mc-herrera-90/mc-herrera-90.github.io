@@ -2,9 +2,11 @@
   color-scheme: dark;
 
   /* Framework color */
-  --main-bg: #181818;
-  --mask-bg: rgb(68, 69, 70);
-  --main-border-color: rgb(44, 45, 45);
+  --main-bg: #1f242b;
+  // --mask-bg: rgb(68, 69, 70);
+  --mask-bg: rgb(45, 51, 59);
+  // --main-border-color: rgb(44, 45, 45);
+  --main-border-color: rgb(58, 64, 72);
 
   /* Common color */
   --em-color: #b3ca9b;
@@ -26,7 +28,7 @@
   --btn-border-color: #2e2f31;
   --btn-backtotop-color: var(--text-color);
   --btn-backtotop-border-color: #212122;
-  --card-header-bg: #292929;
+  --card-header-bg: #21262d;
   --checkbox-color: rgb(118, 120, 121);
   --checkbox-checked-color: var(--link-color);
   --img-bg: radial-gradient(circle, rgb(22, 22, 24) 0%, rgb(32, 32, 32) 100%);
@@ -43,15 +45,14 @@
   --site-subtitle-color: #868686;
   --sidebar-bg: #161616;
   /* Components */
-  --accordion-bg: #202020;
-  --accordion-btn-focus-color: rgba(142, 167, 206, 0.25);
-
+  --accordion-bg: #252b33;
+  --accordion-btn-focus-color: rgba(120, 150, 210, 0.28);
 
   --sidebar-border-color: #242424;
   --sidebar-muted-color: #868686;
   --sidebar-active-color: rgb(255, 255, 255, 0.95);
-  --sidebar-hover-bg: #262626;
-  --sidebar-btn-bg: #232328;
+  --sidebar-hover-bg: #272e36;
+  --sidebar-btn-bg: #2b323c;
   --sidebar-btn-color: #787878;
   --avatar-border-color: rgb(206, 206, 206, 0.9);
 
@@ -77,7 +78,7 @@
   --footnote-target-bg: rgb(63, 81, 181);
   --btn-share-color: #6c757d;
   --btn-share-hover-color: #bfc1ca;
-  --card-bg: #1e1e1e;
+  --card-bg: #252b33;
   // --card-bg: rgb(23, 25, 31);
   --card-hovor-bg: #464d51;
   --card-shadow: rgb(21, 21, 21, 0.72) 0 6px 18px 0,
@@ -118,17 +119,15 @@
   /* Code highlight colors */
   --language-border-color: #474747;
   // --language-border-color: #232323;
-  // --highlight-bg-color: #1f1f1f;
-  --highlight-bg-color: #202020;
+  --highlight-bg-color: #242a31;
   --highlighter-rouge-color: #c9def1;
   --highlight-lineno-color: #808080;
   --inline-code-bg: rgba(255, 255, 255, 0.05);
   --code-color: #b0b0b0;
   --code-header-text-color: #ccc;
   // --code-header-bg: #3f4043;
-  --code-header-bg: #232323;
-
-  --code-header-muted-color: #353535;
+  --code-header-bg: #1c2127;
+  --code-header-muted-color: #6b7380;
   --code-header-icon-color: #aaa;
   --clipboard-checked-color: #2bcc2b;
   --filepath-text-color: #cacaca;
@@ -168,11 +167,11 @@
   #archives li:nth-child(odd) {
     background-image: linear-gradient(
       to left,
-      rgb(26, 26, 30),
-      rgb(39, 39, 45),
-      rgb(39, 39, 45),
-      rgb(39, 39, 45),
-      rgb(26, 26, 30)
+      #1f242b,
+      #252b33,
+      #2a3038,
+      #252b33,
+      #1f242b
     );
   }
 
