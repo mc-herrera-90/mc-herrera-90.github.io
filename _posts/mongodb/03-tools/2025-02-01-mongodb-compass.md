@@ -113,6 +113,102 @@ En la colección buscas el documento y presionas el ícono para editar:
 
 ![Editar documento](mongodb/compass-icono-editar-documentos.webp)
 
-Modifica los valores necesario y para actualizar presiona el botón de __Update__:
+Modifica los valores necesarios y para actualizar presiona el botón de __Update__:
 
 ![Modificar valores](mongodb/compass-editar-valores-del-documento.webp)
+
+## 6. Diferentes formas de visualizar documentos
+
+MongoDB Compass ofrece varias formas de visualizar los documentos dentro de una colección. A continuación se puede observar las 3 opciones disponibles:
+
+![Diferentes vistas de los documentos](mongodb/compass-diferentes-vistas-de-documentos.webp)
+
+## 7. Crear nuevas colecciones
+
+Para crear nuevas colecciones desde MongoDB Compass:
+
+1. Selecciona la base de datos.
+2. Haz clic sobre el ícono (`+`).
+3. Nombra la colección y haz clic en __Create Collection__.
+
+![Crear nuevas colecciones desde MongoDB Compass](mongodb/compass-crear-nuevas-colecciones.webp)
+
+## 8. MongoDB Shell desde MongoDB Compass
+
+Además de la interfaz gráfica, __MongoDB Compass__ incluye un __shell integrado__ que permite ejecutar comandos directamente contra la base de datos.
+
+### 8.1 Abrir MongoDB Shell
+
+Una vez conectado a una base de datos en MongoDB Compass:
+
+1. Observa la parte superior de la ventana de MongoDB Compass.
+2. Haz __clic__ en `>_ Open MongoDB shell`.
+3. Se abrirá una consola interactiva en una nueva pestaña.
+
+![Botón de abrir mongodb Shell](mongodb/compass-boton-open-mongodb-shell.webp)
+
+### 8.2 Ejecutar comandos en MongoDB Shell
+
+Una vez abierta la consola, puedes ejecutar comandos directamente.
+
+![Mongosh comandos](mongodb/compass-mongosh-comandos.webp)
+
+La ventaja de esto es poder ejecutar __bloques de código JavaScript__ para automatizar tareas.
+
+![Comando foreach en Mongosh](mongodb/compass-comando-foreach-en-mongosh.webp)
+
+## 9. Barra de filtros de MongoDB Compass
+
+Una vez que tienes documentos dentro de una colección, puedes buscar información usando filtros.
+
+Para aplicar un filtro:
+
+1. Abre una colección.
+2. En la parte superior encontrarás el campo para escribir el filtro.
+3. Una vez escrita la consulta presiona el botón __Find__.
+
+![Compass Barra de Filtros](mongodb/compass-usar-barra-de-filtros.webp)
+
+## 10. Visualización del esquema en una colección
+
+En la pestaña **Schema** de **MongoDB Compass** puedes analizar rápidamente la **estructura y distribución de los datos** almacenados en una colección.
+
+### 10.1 Analizar una colección
+
+Para generar este análisis debes presionar el botón **Analyze**, ubicado en la parte superior de la pestaña **Schema**.
+
+![Visualización del esquema](mongodb/compass-schema-analyze.webp)
+
+En el ejemplo de la imagen, se está analizando la colección **`products`** dentro de la base de datos `playground`. Compass genera automáticamente un **reporte basado en una muestra de documentos**, en este caso **51 documentos**, para mostrar cómo están organizados los datos.
+
+Esto permite verificar rápidamente si los documentos siguen una estructura consistente.
+
+En el ejemplo:
+
+* El campo **`category`** muestra que aproximadamente **33 % de los productos pertenecen a la categoría `electronics`**.
+* El resto de las categorías aparecen con menor frecuencia en el gráfico.
+
+Esto ayuda a entender **qué valores son más comunes dentro de la colección**.
+
+También puedes aplicar un **filtro previo** en el campo de consulta, por ejemplo:
+
+```json
+{ "category": "electronics" }
+```
+{: .nolineno .typing }
+
+De esta manera se analizará únicamente los documentos que cumplan esa condición.
+
+### 10.2 Exportar el esquema
+
+La herramienta también permite exportar el análisis usando el botón **Export Schema**.
+
+![Exportar schema](mongodb/compass-export-schema-standard.webp)
+
+Esto resulta útil para:
+
+* documentar la estructura de la base de datos
+* compartir el modelo de datos con otros desarrolladores
+* analizar inconsistencias en los documentos
+
+En colecciones grandes, esta vista es especialmente útil para **comprender rápidamente cómo están estructurados los datos y detectar posibles problemas en el diseño o en la calidad de los datos**.
