@@ -12,8 +12,8 @@
   --em-color: #b3ca9b;
   --em-bg:rgba(93, 220, 210, 0.12);
   --em-border:#b3ca9b8A;
-  --text-color: rgb(175, 176, 177);
-  --text-color-b: #e5eef9;
+  --text-color: #c9d3df;
+  --text-color-b: #f2f7ff;
   --text-muted-color: #868686;
   --text-muted-highlight-color: #aeaeae;
   --heading-color: #e4e4e0;
@@ -43,7 +43,8 @@
   /* Sidebar */
   --site-title-color: #717070;
   --site-subtitle-color: #868686;
-  --sidebar-bg: #161616;
+  // --sidebar-bg: #161616;
+  --sidebar-bg: #181e25;
   /* Components */
   --accordion-bg: #252b33;
   --accordion-btn-focus-color: rgba(120, 150, 210, 0.28);
@@ -72,8 +73,8 @@
   --toc-highlight: rgb(116, 178, 243);
   --toc-popup-border-color: #373737;
   --tag-hover: rgb(43, 56, 62);
-  --tb-odd-bg: #252526; /* odd rows of the posts' table */
-  --tb-even-bg: rgb(31, 31, 34); /* even rows of the posts' table */
+  --tb-odd-bg: #252b33;   /* filas impares */
+  --tb-even-bg: #222830;  /* filas pares */
   --tb-border-color: var(--tb-odd-bg);
   --footnote-target-bg: rgb(63, 81, 181);
   --btn-share-color: #6c757d;
@@ -90,9 +91,11 @@
   --prompt-tip-bg: rgba(36, 50, 42, 0.64);
   --prompt-tip-border: rgb(15, 164, 15, 0.81);
   --prompt-tip-icon-color: rgb(15, 164, 15, 0.81);
-  --prompt-info-border: rgb(7, 59, 104, 1);
-  --prompt-info-bg: rgb(7, 59, 104, 0.35);
-  --prompt-info-icon-color: #0075d1;
+  --prompt-info-border: #2e5f8a;
+  --prompt-info-bg: rgba(46, 95, 138, 0.18);
+  --prompt-info-icon-color: #6ea8fe;
+  --prompt-info-text: #d4deea;
+  --prompt-info-strong: #9cc4ff;
   --prompt-warning-bg: rgb(90, 69, 3, 0.4);
   --prompt-warning-border: rgb(90, 69, 3, 0.8);
   --prompt-warning-icon-color: rgb(255, 165, 0, 0.8);
@@ -117,7 +120,8 @@
   --timeline-year-dot-color: var(--timeline-color);
 
   /* Code highlight colors */
-  --language-border-color: #474747;
+  // --language-border-color: none;
+  --language-border-color: #3f4752;
   // --language-border-color: #232323;
   --highlight-bg-color: #242a31;
   --highlighter-rouge-color: #c9def1;
@@ -333,4 +337,13 @@
   .language-terminal .highlight {
     background-color: var(--terminal-bg);
   }
+}
+
+h2 strong,
+h3 strong,
+h4 strong {
+  color: #9cc4ff;
+  text-shadow: 
+    0 0 6px rgba(156, 196, 255, 0.35),
+    0 0 2px rgba(156, 196, 255, 0.25);
 }
