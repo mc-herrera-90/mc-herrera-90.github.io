@@ -7,6 +7,8 @@ title: "Detalle"
 
 <p class="fs-5">{{ page.description }}</p>
 
+<div class="text-center mb-3">
+    <a href="{{ page.src | relative_url }}#zoom=page-fit" target="_blank">Abrir en nueva ventana <i class="fa-solid fa-up-right-from-square"></i></a>
+</div>
 
-<a href="{{ page.src | relative_url }}" target="_blank" class="btn btn-secondary">Abrir en nueva ventana</a>
 {% include embed/pdf.html file=page.src target=page.target %}

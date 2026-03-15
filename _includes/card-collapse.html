@@ -1,0 +1,89 @@
+<style>
+/* Card Collapse */
+.card-collapse{
+  border:1px solid var(--main-border-color);
+  border-radius:10px;
+  padding:1.25rem;
+  margin:1.5rem 0;
+  background:var(--card-bg);
+  position:relative;
+}
+
+/* contenido truncado */
+
+.collapse-content{
+  max-height:140px;
+  overflow:hidden;
+  position:relative;
+  transition:max-height .35s ease;
+  line-height:1.7;
+}
+
+/* degradado para indicar que hay más texto */
+
+.collapse-content::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:60px;
+  background:linear-gradient(
+    transparent,
+    var(--card-bg)
+  );
+}
+
+/* estado abierto */
+
+.card-collapse.open .collapse-content{
+  max-height:1000px;
+}
+
+.card-collapse.open .collapse-content::after{
+  display:none;
+}
+/* botón */
+
+.collapse-btn{
+  margin-top:0.8rem;
+  border:none;
+  background:none;
+  color:var(--link-color);
+  font-size:.9rem;
+  cursor:pointer;
+  padding:0;
+}
+
+.collapse-btn:hover{
+  text-decoration:underline;
+}    
+</style>
+<div class="card-collapse">
+  <div class="collapse-content">
+    {{ include.content | markdownify }}
+  </div>
+
+  <button class="collapse-btn">
+    Ver más
+  </button>
+</div>
+
+<script>
+document.querySelectorAll(".card-collapse").forEach(card => {
+
+  const btn = card.querySelector(".collapse-btn")
+
+  btn.addEventListener("click", () => {
+
+    card.classList.toggle("open")
+
+    btn.textContent =
+      card.classList.contains("open")
+      ? "Ver menos"
+      : "Ver más"
+
+  })
+
+})
+</script>

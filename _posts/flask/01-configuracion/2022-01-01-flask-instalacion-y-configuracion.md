@@ -1,6 +1,6 @@
 ---
-title: "Flask: Instalación y primer proyecto"
-categories: [Flask, Flask-Setup]
+title: "Flask: Instalación y configuración de Flask para tu primer proyecto"
+categories: [Flask, "Flask_01-Configuración"]
 tags: [flask, python, backend, setup]
 badge: flask
 ---
@@ -8,8 +8,8 @@ badge: flask
 Flask es un microframework de Python para crear aplicaciones web de forma rápida y simple.  
 En este artículo vamos a instalar Flask y crear un proyecto básico con un “Hola Mundo”.
 
-
 ## 1. Requisitos
+
 Antes de comenzar, necesitas:
 
 - Python instalado (recomendado Python 3.10+)
@@ -102,7 +102,7 @@ def home():
 if __name__ == "__main__":
     app.run(debug=True)
 ```
-{:file="app.py" .typing}
+{:file="app.py" .typing .typing-fast}
 
 
 ## 5. Ejecutar el proyecto
