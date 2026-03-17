@@ -84,15 +84,15 @@ Este tipo de instancia ofrece recursos básicos y es suficiente para realizar pr
 
 ---
 
-## 6. Crear o seleccionar una clave SSH
+## 6. Crear o configurar una clave SSH
 
 Para conectarte al servidor necesitarás una **clave SSH**.
 
 Durante este paso puedes:
 
 * Crear una nueva **Key Pair**
-* Descargar el archivo `.pem`
-* Guardarlo en tu computadora
+* Selecciona el formato `.pem`
+* Descarga y guarda en un lugar seguro en tu computadora
 
 ![Generar nueva par de claves](aws/ec2-generar-par-de-clave.webp)
 
@@ -108,59 +108,61 @@ AWS utiliza **grupos de seguridad** para controlar el tráfico de red hacia la i
 
 Las configuraciones más comunes son:
 
-* **SSH (puerto 22)** → para conectarte al servidor
-* **HTTP (puerto 80)** → para servidores web
-* **HTTPS (puerto 443)** → para tráfico seguro
+* **SSH (puerto 22)**: para conectarte al servidor
+* **HTTP (puerto 80)**: para servidores web
+* **HTTPS (puerto 443)**: para tráfico seguro
 
-Para comenzar, puedes habilitar al menos:
+Para comenzar, puedes habilitar al menos el tráfico de SSH:
 
-```
-SSH - 22
-```
+![Habilitar SSH](aws/ec2-configuraciones-de-red-ssh-mi-ip.webp)
 
 Esto permitirá conectarte al servidor desde tu computadora.
+
+> Si configuras SSH con la opción **Mi IP**, solo podrás conectarte desde la dirección IP actual desde la que creaste la instancia. Si cambias de red (por ejemplo, otra Wi-Fi o ubicación), tu IP cambiará y no podrás acceder hasta actualizar la regla de seguridad.  
+> Puedes permitir acceso desde **cualquier IP (`0.0.0.0/0`)** por motivos de movilida, pero recuerda que **igual será necesario utilizar la llave privada `.pem` para autenticarse**, lo que mantiene el acceso protegido.
+{:.prompt-warning}
 
 ---
 
 ## 8. Lanzar la instancia
 
-Una vez configurados todos los parámetros, haz clic en:
+Una vez configurados los parámetros básicos, haz clic en:
 
-**Launch Instance**
+<kbd style="background: #ec7211; color: black">Launch Instance</kbd>
+
+![Lanzar instancia](aws/ec2-lanzar-la-instancia-mi-primer-servidor.webp)
 
 AWS comenzará a crear tu servidor virtual.
 
 El proceso suele tardar **menos de un minuto**.
 
-Cuando termine, la instancia aparecerá en el panel de **Instances** con el estado:
+Cuando el proceso termine, aparecerá una notificación indicando que **la instancia se inició correctamente**. Desde ese momento podrás verla en la lista de instancias y en ese mismo instante nos muestra la opción **“Conectarse a la instancia”** para acceder a ella.
 
-```
-Running
-```
-
-Esto significa que el servidor ya está activo.
+![Conectarse a la instancia](aws/ec2-opcion-de-conectarse-a-la-instancia.webp)
 
 ---
 
 ## 9. Conectarse al servidor
 
-Para conectarte a tu VPS puedes utilizar **SSH**.
-
 Primero debes obtener la **IP pública** de la instancia desde el panel de EC2.
+
+![Ver instrucciones de conexión desde el panel de EC2](aws/ec2-panel-de-instancia-y-buscar-instrucciones-para-conectarse.webp)
 
 Luego ejecuta en tu terminal:
 
-```bash
+```terminal
+chmod 400 "mi-clave-aws.pem"
 ssh -i mi-clave-aws.pem ubuntu@IP_PUBLICA
 ```
+{:.typing}
 
 Ejemplo:
 
-```bash
-ssh -i mi-clave-aws.pem ubuntu@3.85.120.10
-```
+![Conectarse desde la Terminal](aws/conectarse-desde-la-terminal-por-ssh-a-ec2.webp)
 
-Si todo está correcto, accederás directamente al servidor.
+Si todo está correcto, accederás directamente al servidor y puedes comprobarlo observando como cambia el __prompt__.
+
+![Conexión](aws/ec2-conexion-exitosa-desde-terminal.webp)
 
 ---
 
@@ -168,22 +170,18 @@ Si todo está correcto, accederás directamente al servidor.
 
 Una vez conectado puedes ejecutar algunos comandos básicos:
 
-```bash
+```terminal
 sudo apt update
 ```
+{:.typing}
 
 o instalar un servidor web como **NGINX**:
 
-```bash
+```terminal
 sudo apt install nginx
 ```
+{:.typing}
 
-Después de instalarlo, podrás acceder desde el navegador usando la **IP pública del servidor**.
-
----
-
-## Conclusión
-
-Crear un VPS en **Amazon Web Services** mediante **Amazon EC2** es uno de los primeros pasos para trabajar con infraestructura en la nube. A través de este servicio es posible desplegar servidores en cuestión de minutos y utilizarlos para alojar aplicaciones, sitios web o entornos de desarrollo.
+Después de instalarlo, podrás acceder desde el navegador usando la **IP pública del servidor**, pero eso lo veremos más adelante.
 
 Aprender a lanzar instancias EC2 permite comprender cómo funcionan los servidores en la nube y constituye una habilidad fundamental dentro del mundo del **cloud computing**.
