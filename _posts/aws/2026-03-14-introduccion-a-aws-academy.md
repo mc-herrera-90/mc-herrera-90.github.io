@@ -20,7 +20,7 @@ A diferencia de otros cursos más teóricos, AWS Academy está diseñado para **
 
 ## 2. Acceso mediante invitación
 
-Para usar __AWS Academy__ es necesario ser invitado por un __docente__ o __administrador__ de una institución eductiva asociada (no es una plaforma de acceso libre).
+Para usar __AWS Academy__ es necesario ser invitado por un __docente__ o __administrador__ de una institución eductiva asociada (no es una plataforma de acceso libre).
 
 La invitación llega por correo electrónico para unirse a un curso específico, permitiendo el acceso a laboratorios y recursos sin costo.
 

@@ -1,5 +1,5 @@
 ---
-title: "AWS: Cómo lanzar tu primer VPS con una instancia EC2"
+title: "AWS: Cómo lanzar tu primera instancia EC2"
 categories: [AWS, "AWS_01-AWS Academy"]
 badge: aws
 ---
