@@ -1,6 +1,6 @@
 ---
 title: "Flask: Desplegar una aplicación básica"
-categories: [Flask, Flask-Deploy]
+categories: [Flask, "Flask_04-Deploy"]
 badge: flask
 ---
 
