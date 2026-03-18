@@ -150,6 +150,10 @@ Ahora desplazate hasta encontrar el botón de __"Guardar cambios"__:
 
 ![Guardar políticas](aws/s3-guardar-politicas.webp)
 
-Establecidas las nuevas políticas, puedes visitar nuevamente la url pública del archivo `index.html` del sitio y visualizar los cambios:
+Establecidas las nuevas políticas, puedes visitar nuevamente la URL pública del archivo `index.html` del sitio y visualizar los cambios.
 
 {% include embed/video.html src="aws/visitar-sitio-con-politicas-editadas.webm" %}
+
+---
+
+Con esto, hemos completado una guía básica para desplegar un sitio web estático en un bucket de Amazon S3. A lo largo del proceso, configuramos permisos, políticas de acceso y validamos la correcta visualización del contenido.
