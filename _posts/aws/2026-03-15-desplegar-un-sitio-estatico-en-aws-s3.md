@@ -76,7 +76,6 @@ Desde la consola principal de AWS, busca __“S3”__ en la barra de búsqueda d
 
 ![Buscar el servicio de S3](aws/aws-console-buscar-s3.webp)
 
-
 ## 4. Crear un nuevo Bucket
 
 En la página de inicio de S3, encontrará un botón para __crear un nuevo bucket__:
@@ -126,3 +125,27 @@ Para solucionarlo, debemos ir al bucket y luego hacer clic sobre la pestaña __P
 
 ![Editar politicas del bucket](aws/editar-politicas-s3-boton.webp)
 
+Ahora, añade el siguiente fragmento en formato __JSON__ en el cuadro disponible:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::NOMBRE-DE-TU-BUCKET/*"
+    }
+  ]
+}
+```
+{:.nolineno .typing .typing-fast }
+
+> Asegúrate de cambiar `NOMBRE-DE-TU-BUCKET` por el nombre del bucket creado.
+{:.prompt-info}
+
+Ahora desplazate hasta encontrar el botón de __"Guardar cambios"__:
+
+![Guardar políticas](aws/s3-guardar-politicas.webp)
