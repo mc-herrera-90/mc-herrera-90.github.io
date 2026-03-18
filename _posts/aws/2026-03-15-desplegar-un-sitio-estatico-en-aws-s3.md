@@ -149,3 +149,7 @@ Ahora, añade el siguiente fragmento en formato __JSON__ en el cuadro disponible
 Ahora desplazate hasta encontrar el botón de __"Guardar cambios"__:
 
 ![Guardar políticas](aws/s3-guardar-politicas.webp)
+
+Establecidas las nuevas políticas, puedes visitar nuevamente la url pública del archivo `index.html` del sitio y visualizar los cambios:
+
+{% include embed/video.html src="aws/visitar-sitio-con-politicas-editadas.webm" %}
