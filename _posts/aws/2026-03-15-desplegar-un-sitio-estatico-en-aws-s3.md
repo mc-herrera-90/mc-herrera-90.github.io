@@ -1,6 +1,6 @@
 ---
 title: "AWS: Desplegar una Web Estática en AWS S3"
-categories: [AWS, "AWS_02-AWS Guías"]
+categories: [AWS, "AWS_02-Guías"]
 image: poster/aws-s3.webp
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
