@@ -6,6 +6,9 @@ badge: vscode
 
 Esta extensión es una __integración no oficial__ para usar la herramienta de diagramación [Excalidraw](https://excalidraw.com/){:target='_blank'} en VS Code y dibujar directamente dentro del editor.
 
+> Además, una ventaja importante es que puedes trabajar con múltiples archivos de forma simultánea, guardando distintos diagramas dentro de un directorio. A diferencia de la versión web, donde normalmente trabajas sobre un solo archivo a la vez, aquí puedes abrir y editar varios sin problemas dentro de VS Code.
+{:.prompt-tip}
+
 ## 1. Instalación
 
 1. Abre Visual Studio Code
@@ -61,3 +64,13 @@ De forma predeterminada, la extensión utiliza la configuración de VS Code, si 
 {:file="settings.json" .nolineno .typing}
 
 ![Cambiar el idioma](vscode/extension-excalidraw-cambiar-idioma.webp){:.rounded}
+
+## 5. Importar bibliotecas públicas
+
+Puedes importar bibliotecas públicas desde [libraries.excalidraw.com](https://libraries.excalidraw.com/){:target='_blank'}  que son un conjunto de elementos reutilizables (dibujos, íconos, formas, diagramas, etc.). Para ver todas las bibliotecas, haz clic en el botón __"Explorar bibliotecas"__:
+
+![Explorar bibliotecas](vscode/explorar-bibliotecas-en-excalidraw.webp){:.rounded}
+
+Luego, puedes agregar las que necesites. A continuación, se puede observar cómo se hace:
+
+{% include embed/video.html src="vscode/importar-bibliotecas-excalidraw-en-vscode.webm" %}
