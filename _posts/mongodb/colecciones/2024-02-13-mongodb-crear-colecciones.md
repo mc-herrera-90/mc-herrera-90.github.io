@@ -1,6 +1,6 @@
 ---
 title: "MongoDB: Crear y listar colecciones"
-categories: [MongoDB, "MongoDB_02-Colecciones"]
+categories: [MongoDB, "MongoDB_02-Colecciones y Documentos"]
 badge: mongodb
 ---
 

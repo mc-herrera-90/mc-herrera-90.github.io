@@ -1,6 +1,6 @@
 ---
 title: "MongoDB: Qué son las colecciones en MongoDB"
-categories: [MongoDB, "MongoDB_02-Colecciones"]
+categories: [MongoDB, "MongoDB_02-Colecciones y Documentos"]
 badge: mongodb
 ---
 

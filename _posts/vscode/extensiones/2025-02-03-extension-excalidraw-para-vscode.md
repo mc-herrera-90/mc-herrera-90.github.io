@@ -74,3 +74,12 @@ Puedes importar bibliotecas públicas desde [libraries.excalidraw.com](https://l
 Luego, puedes agregar las que necesites. A continuación, se puede observar cómo se hace:
 
 {% include embed/video.html src="vscode/importar-bibliotecas-excalidraw-en-vscode.webm" %}
+
+## 6. Tip para productividad
+
+
+### 6.1 Split del editor
+
+Podemos dividir el editor en VS Code para visualizar y editar varios archivos de forma simultánea. Esto resulta muy cómodo, ya que permite trabajar en paralelo y arrastrar elementos dentro de la misma instancia, evitando tener que abrir y cerrar archivos constantemente, especialmente cuando los diagramas o contenidos comparten elementos.
+
+![Split down](vscode/excalidraw-split-down.webp){:.rounded}
