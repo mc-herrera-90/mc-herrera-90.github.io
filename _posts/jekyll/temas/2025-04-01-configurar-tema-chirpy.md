@@ -1,6 +1,6 @@
 ---
-title: "Jekyll: Configurar el tema Chirpy"
-categories: [Jekyll, Jekyll-Temas]
+title: "Jekyll: Configurar el tema Chirpy en Jekyll"
+categories: [Jekyll, Jekyll_03-Temas]
 badge: jekyll
 ---
 
@@ -8,19 +8,19 @@ badge: jekyll
 
 [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]{:target='_blank'}
 
-## Requisitos previos
+## 1. Requisitos previos
 
 Antes de empezar, asegúrate de tener:
 
-* **Git**
-* **Ruby** (preferiblemente ≥ 2.7)
-* **Bundler** (`gem install bundler`)
-* **Jekyll** (`gem install jekyll`)
-* **Node.js** y **Yarn** (necesarios para activos como JS/CSS)
+- [x] **Git**
+- [x] **Ruby** (preferiblemente ≥ 2.7)
+- [x] **Bundler** (`gem install bundler`)
+- [x] **Jekyll** (`gem install jekyll`)
+- [x] **Node.js** y **Yarn** (necesarios para los activos como JS/CSS)
 
-## Configuración Local
+## 2. Configuración Local
 
-### Paso 1: Clonar Chirpy y ejecutar `init.sh`
+### Paso 1: Clonar el repsotorio del tema Chirpy
 
 Clona el repositorio oficial de Chirpy:
 
@@ -28,6 +28,8 @@ Clona el repositorio oficial de Chirpy:
 git clone https://github.com/cotes2020/jekyll-theme-chirpy.git my_blog
 cd my_blog
 ```
+
+### Paso 2: Ejecutar el script inicializador __init.sh__
 
 Ejecuta el script `init.sh` (esto limpia cosas del tema demo y te da un punto limpio):
 
@@ -41,13 +43,12 @@ Este script:
 * Cambia algunas configuraciones básicas
 * Inicializa tu propio repositorio
 
-![run script init](jekyll/init-theme-chirpy.webp)
+![run script init](jekyll/init-theme-chirpy.webp){:.rounded}
 
 > Asegúrate de darle permisos de ejecución si no lo tiene: `chmod +x tools/init.sh`
 {:.prompt-info }
 
-
-### Paso 2: Instalar dependencias
+### Paso 3: Instalar dependencias
 
 Después de ejecutar `init.sh`, instala las dependencias:
 
@@ -55,10 +56,9 @@ Después de ejecutar `init.sh`, instala las dependencias:
 bundle install
 ```
 
-![Bundle install](jekyll/chirpy-bundle-install.webp)
+![Bundle install](jekyll/chirpy-bundle-install.webp){:.rounded}
 
-
-### Paso 3: Servir localmente
+### Paso 4: Servir localmente
 
 Ya con todo listo, puedes correr el servidor local de Jekyll:
 
@@ -70,23 +70,53 @@ Abre en tu navegador: [http://localhost:4000](http://localhost:4000)
 
 ![Bundle install](jekyll/chirpy-run-script.webp)
 
+Puedes ver que el tema está correctamente configurado y se presenta de forma limpia y listo para trabajar:
 
-## Configuraciones Extras
+{% include embed/video.html src="jekyll/iniciando-tema-chirpy.webm" %}
 
-### Configura `_config.yml`
+## 3. Configuraciones Extras
+
+### Configurar opciones en el __config.yml__
 
 Revisa y edita `_config.yml` según tus necesidades. Algunos cambios útiles:
 
 ```yml
 title: Tu Blog
-description: Tu descripción
+tagline: Una frase corta
 url: "https://tu-usuario.github.io"
 baseurl: "" # si lo estás sirviendo desde la raíz
 ```
-{:file="_config.yml"}
+{:file="_config.yml" .nolineno}
 
-Y en `site.*`, ajusta tus datos personales, redes sociales, etc.
+Por ejemplo, a continuación cambiamos el `title`, `tagline` y el idioma `lang`:
 
+![Cambiar titulo y tagline](jekyll/cambiar-titulo-y-tagline-chirpy.webp){:.rounded}
+
+> __Recuerda__ que cada vez que realices cambios en el archivo `_config.yml` debes reiniciar el servidor para que se apliquen correctamente.
+{:.prompt-info}
+
+Más abajo en el archivo encontrarás la opción para cambiar el avatar del sidebar.
+
+```yml
+avatar: "assets/tu-avatar.png" # igual puede ser una imagen remota
+```
+{:file="_config.yml" .nolineno}
+
+![Cambiar avatar](jekyll/cambiar-avatar-tema-chirpy.webp){:.rounded}
+
+### Cambiar los favicons
+
+El tema Chirpy ya está preparado para funcionar como una PWA, por lo que es importante reemplazar los favicons e íconos por los tuyos. Estos son visibles tanto al instalar el sitio como al compartir enlaces, mejorando la apariencia y la identidad de tu página.
+
+> Para generar los *favicons* de forma más cómoda, puedes usar la herramienta [Real Favicon Generator](https://realfavicongenerator.net){:target='_blank'}. Solo necesitas subir un logo en alta resolución, y la plataforma generará automáticamente un archivo `.zip` con todos los íconos en distintos tamaños y formatos, además del código listo para integrarlos.
+{:.prompt-tip}
+
+![Arrastrar logo](extras/arrastrar-logo-a-rfg.webp){:.rounded}
+_Arrastrar imagen a la herramienta Real Favicon Generator_
+
+Una vez generados los _favicons_, reemplaza únicamente los archivos de imágenes en el directorio:
+
+<i class="fa-regular fa-folder"></i> `assets/img/favicons`{:.filepath}
 
 ### Despliegue en GitHub Pages
 

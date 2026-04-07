@@ -83,7 +83,7 @@ A diferencia del método anterior, puedes descargar el instalador oficial para W
 
 - MongoDB Server
 - MongoDB Shell (mongosh)
-- MongoDB Compass (GUI)
+- Opcionalmente MongoDB Compass (gui)
 - Herramientas de línea de comando (Database Tools)
 
 Ingresa a [https://www.mongodb.com/try/download/community](https://www.mongodb.com/try/download/community){:target='_blank'} y descarga la versión correspondiente a la arquitectura de tu máquina. Generalmente, el sitio detecta esta información automáticamente al ingresar.
@@ -91,3 +91,5 @@ Ingresa a [https://www.mongodb.com/try/download/community](https://www.mongodb.c
 ![Download Comunnity](mongodb/website-download-comunnity.webp)
 
 Una vez descargado, sigue las instrucciones del asistente y espera a finalizar el proceso.
+
+{% include embed/iframe.html src="/slides/instalacion-mongodb-en-windows.html" target="true" %}

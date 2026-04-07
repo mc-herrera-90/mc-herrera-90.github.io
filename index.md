@@ -10,26 +10,25 @@ scripts:
 toc: false
 ---
 
-<div class="text-center animate__animated animate__zoomIn" markdown="1">
 
-# Marco Contreras
+<div class="text-center animate__animated animate__fadeIn" markdown="1">
 
-<div class="bg-thumbnail shadow"></div>
+## Hola, soy Marco Contreras <span style="display:inline-block;width:30px;height:30px;background-image:url('https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></span>
 
-<p class="mb-3 small mb-md-4">
-  <i class="fa-solid fa-code text-warning"></i> Full-Stack | 
-  <i class="fa-solid fa-cloud text-info"></i> Cloud | 
-  <i class="fa-solid fa-gamepad text-danger"></i> RetroGeek
-</p>
 
-{% include circle-line.html %}
+<p class="mt-4 small mb-md-4 fs-5">Por aquí comparto mis cosas sobre: <strong>ingeniería</strong>, <strong>programación</strong>, <strong>tecnología</strong> y todo tipo de experimento que voy construyendo en este rincón de internet.</p>
+
+---
+
+{% include profile-me.html %}
+
 </div>
 
-<div class="text-center animate__animated animate__zoomIn" markdown="1">
-## Mi perfil
-</div>
+---
 
-<div class="animate__animated animate__slideInUp" id="codingpc"></div>
+<div class="text-center animate__animated animate__zoomIn" markdown="1">
+## Rol y habilidades
+</div>
 
 
 ```js
@@ -53,6 +52,8 @@ const profile = {
 ```
 {:file="profile.js" .typing .typing-fast }
 
+---
+
 <div class="content text-center" markdown="1">
 
 ## Mis skills
@@ -67,16 +68,20 @@ const profile = {
   {% include sql-editor.html %}
 </div>
 
+---
+
 <h2 class="text-center mb-4">Tech Stack</h2>
 <p class="mb-3 small mb-md-4 text-center fs-5">Conjunto de tecnologías y herramientas que forman la base de mis proyectos.</p>
 {% include techs.html %}
 
 <div class="content text-center" markdown="1">
 
+---
+
 ## Proyectos
 
   <p class="mb-3 small mb-md-4 fs-5">
-    Selección de proyectos donde aplico diseño, arquitectura y desarrollo.
+    Algunos proyectos donde pongo en práctica diseño y desarrollo.
   </p>
 </div>
 

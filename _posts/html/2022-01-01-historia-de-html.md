@@ -1,6 +1,6 @@
 ---
 title: "HTML: Historia del lenguaje y sus bases"
-categories: [HTML, Html-Bases]
+categories: [HTML, Html_01-Bases]
 tags: [HTML]
 image: poster/html-internet.avif
 pin: true

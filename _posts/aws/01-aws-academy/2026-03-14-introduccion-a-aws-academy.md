@@ -1,6 +1,6 @@
 ---
 title: "AWS: Introducción a AWS Academy y sus herramientas"
-categories: [AWS, "AWS_01-AWS Academy"]
+categories: [AWS, "AWS_01-Academy"]
 badge: aws
 ---
 
@@ -131,3 +131,7 @@ Para hacerlo:
 Esto cerrará el entorno temporal y evitará consumir los créditos asignados.
 
 ![End Lab](aws/learner-lab-end.webp)
+
+---
+
+Si estás comenzando en la nube, AWS Academy es un excelente punto de partida, ya que nos permite pasar de la teoría a la práctica. La nube no se aprende solo estudiando, se aprende implementando.

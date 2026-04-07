@@ -1,6 +1,6 @@
 ---
 title: "AWS: Cómo lanzar tu primera instancia EC2"
-categories: [AWS, "AWS_01-AWS Academy"]
+categories: [AWS, "AWS_01-Academy"]
 badge: aws
 ---
 

@@ -3,8 +3,8 @@
 - type: github
   icon: "fab fa-github"
 
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
+# - type: twitter
+#   icon: "fa-brands fa-x-twitter"
 
 - type: email
   icon: "fas fa-envelope"
@@ -25,8 +25,8 @@
 #   url:  ''                  # Fill with your Linkedin homepage
 #
 - type: stack-overflow
-  icon: 'stack-overflow'
-  url:  'https://stackoverflow.com/users/31667898/marco-contreras-herrera'                  # Fill with your stackoverflow homepage
+  icon: "stack-overflow"
+  url: "https://stackoverflow.com/users/31667898/marco-contreras-herrera" # Fill with your stackoverflow homepage
 
 # - type: bluesky
 #   icon: 'fa-brands fa-bluesky'

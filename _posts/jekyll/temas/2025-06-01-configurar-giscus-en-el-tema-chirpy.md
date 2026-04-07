@@ -1,6 +1,6 @@
 ---
-title: "Jekyll: Integrar Giscus en el tema Chirpy"
-categories: [Jekyll, Jekyll-Temas]
+title: "Jekyll: Integrar Giscus en el tema Chirpy en Jekyll"
+categories: [Jekyll, Jekyll_03-Temas]
 badge: jekyll
 ---
 

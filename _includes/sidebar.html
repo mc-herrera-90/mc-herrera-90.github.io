@@ -1,48 +1,18 @@
 <!-- SideBar -->
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper">
+  <header class="profile-wrapper mb-3">
     {% comment %} <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle mx-auto bg-dark">
       <img src="/assets/media/iame.webp" width="112" height="112" alt="avatar" onerror="this.style.display='none'" style="width: 100%">
     </a> {% endcomment %}
+    <div class="bg-thumbnail shadow"></div>
     <div class="mx-auto text-center">
     <a class="site-title d-block" href="{{ '/' | relative_url }}"><span style="color: var(--heading-color-title);">@</span>{{ site.title }}</a>
-    <p class="site-subtitle fst-italic mb-0"><span class="text-info">➜</span> {{ site.tagline }}</p>
+    {% comment %} <p class="site-subtitle fst-italic mb-0"><span class="text-info">➜</span> {{ site.tagline }}</p> {% endcomment %}
+     
     </div>
   </header>
   <!-- .profile-wrapper -->
-
-  <nav class="flex-column flex-grow-1 w-100 ps-0">
-    <ul class="nav">
-      <!-- home -->
-      <li class="nav-item{% if page.layout == 'main' %}{{ " active" }}{% endif %}">
-        <a href="{{ '/' | relative_url }}" class="nav-link">
-          <i class="fa-fw fas fa-home fs-5" style="color: #fd7e14"></i>
-          <span style="color: var(--link-color)">{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
-        </a>
-      </li>
-    <!-- blog -->
-    <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
-      <a href="{{ '/blog/' | relative_url }}" class="nav-link">
-        <i class="fas fa-newspaper fs-5" style="color: #0078d7"></i>
-        <span style="color: var(--link-color)">{{ 'blog' | upcase }}</span>
-      </a>
-    </li>
-      <!-- the real tabs -->
-      {% for tab in site.tabs %}
-        <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
-          <a href="{{ tab.url | relative_url }}" class="nav-link">
-            <i class="fa-fw {{ tab.icon }} fs-5"></i>
-            {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
-
-            <span style="color: var(--link-color)">{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
-          </a>
-        </li>
-        <!-- .nav-item -->
-      {% endfor %}
-    </ul>
-  </nav>
-
-  <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
+  <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100 mb-3">
     {% unless site.theme_mode %}
       <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
         <i class="fas fa-adjust"></i>
@@ -98,5 +68,38 @@
     {% endfor %}
   </div>
   <!-- .sidebar-bottom -->
+  <nav class="flex-column flex-grow-1 w-100 ps-0">
+    <ul class="nav">
+      <!-- home -->
+       
+      <li class="nav-item{% if page.layout == 'main' %}{{ " active" }}{% endif %}">
+        <a href="{{ '/' | relative_url }}" class="nav-link">
+          <i class="fa-fw fas fa-home fs-5" style="color: #fd7e14"></i>
+          <span style="color: var(--link-color)">{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
+        </a>
+      </li>
+    <!-- blog -->
+    <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
+      <a href="{{ '/blog/' | relative_url }}" class="nav-link">
+        <i class="fas fa-newspaper fs-5" style="color: #0078d7"></i>
+        <span style="color: var(--link-color)">{{ 'blog' | upcase }}</span>
+      </a>
+    </li>
+      <!-- the real tabs -->
+      {% for tab in site.tabs %}
+        <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
+          <a href="{{ tab.url | relative_url }}" class="nav-link">
+            <i class="fa-fw {{ tab.icon }} fs-5"></i>
+            {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
+
+            <span style="color: var(--link-color)">{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
+          </a>
+        </li>
+        <!-- .nav-item -->
+      {% endfor %}
+    </ul>
+  </nav>
+
+
 </aside>
 <!-- #sidebar -->

@@ -1,6 +1,6 @@
 ---
 title: "HTML: Etiquetas y semántica web"
-categories: [HTML, Html-Bases]
+categories: [HTML, Html_01-Bases]
 tags: [HTML]
 badge: html
 ---

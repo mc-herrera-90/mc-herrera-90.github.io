@@ -83,3 +83,7 @@ Luego, puedes agregar las que necesites. A continuación, se puede observar cóm
 Podemos dividir el editor en VS Code para visualizar y editar varios archivos de forma simultánea. Esto resulta muy cómodo, ya que permite trabajar en paralelo y arrastrar elementos dentro de la misma instancia, evitando tener que abrir y cerrar archivos constantemente, especialmente cuando los diagramas o contenidos comparten elementos.
 
 ![Split down](vscode/excalidraw-split-down.webp){:.rounded}
+
+### 6.2 Usar la paleta de comandos
+
+Podemos usar la paleta de comandos para crear un nuevo que es más rápido de llegar a la interfaz para comenzar a dibujar
