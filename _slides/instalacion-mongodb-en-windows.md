@@ -4,6 +4,13 @@ title: Instalación de MongoDB y Mongo Compass en Windows
 
 <section data-markdown>
   <textarea data-template>
+    # Instalar MongoDB Community Server
+    ## Descarga en 👇
+
+    <a href="https://www.mongodb.com/try/download/community" target="_blank">
+      https://www.mongodb.com/try/download/community
+    </a>
+    ---
     <!-- .slide: 
       data-background-image="/assets/media/mongodb/instalacion-windows/_01.webp"
       data-background-size="contain"

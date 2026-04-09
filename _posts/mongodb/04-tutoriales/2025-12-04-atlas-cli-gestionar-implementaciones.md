@@ -32,7 +32,7 @@ La diferencia más importante es la arquitectura:
 
 ---
 
-## Instalar herramientas
+## Instalar Atlas CLI y dependencias
 
 - __Atlas CLI__: Interfaz de línea de comandos que permite gestionar las implementaciones desde la terminal
 - __MongoDB Shell__: Herramienta interactiva que se conecta a una implementación (la herramienta Mongo Compass ya la incluye)
@@ -83,7 +83,6 @@ sudo apt install -y mongodb-atlas-cli
 
 > Los comandos anteriores instalan la aplicación [Docker Desktop](https://docs.docker.com/desktop){:target='_blank'}. Una vez completa la instalación, se debe crear una cuenta de Docker e iniciar la aplicación.
 {:.prompt-info}
-
 
 ## Autenticación con Atlas
 
@@ -202,18 +201,69 @@ brew install mongodb-database-tools
 ```
 {:.typing}
 
-Luego, ejecuta el siguiente comando para cargar los datos de muestra:
+Ahora, descargamos el dataset oficial de MongoDB que incluye bases de datos listas con arta data:
 
 ```terminal
-curl https://atlas-education.s3.amazonaws.com/sampledata.archive -o sampledata.archive
-mongorestore --archive=sampledata.archive --port <PORT>
+curl https://atlas-education.s3.amazonaws.com/sampledata.archive -o data.archive
 ```
 {:.typing .typing-fast}
 
-> Sustituir el marcador `<PORT>`con el número de puerto de la implementación. Puedes encontrar el número de puerto en Docker Desktop.
+> Esto puede tardar dependiendo de tu conexión a internet y es un archivo que comprimido ya pesa aprox ~300MB.
 {:.prompt-info}
 
+Y ahora con `mongorestore`, cargamos el dataset en MongoDB, lo que crea varias bases de datos con sus datos de ejemplo:
+
+```terminal
+mongorestore --archive=data.archive --port <PORT>
+```
+{:.typing .typing-fast}
+
+> Sustituir el marcador `<PORT>`con el número de puerto de la implementación. Puedes encontrar el número de puerto en Docker Desktop o usando el comando `docker ps`.
+> ![Salida puerto contenedor](mongodb/atlas-cli/output-deployments-docker-ps-show-ports.webp)
+{:.prompt-info}
+
+![Cargar dataset con mongorestore](mongodb/atlas-cli/atlas-cli-load-dataset-con-mongorestore.webp)
+
 ---
+
+## Pasar de MongoDB local a Atlas Cloud
+
+Migrar de local a cloud no es más que trasladar tus datos manteniendo su estructura e integridad.
+
+Este proceso sigue una lógica muy clara:
+
+1. Exportar la base de datos (mongodump)
+2. Crear cluster en Atlas Cloud
+3. Importar los datos (mongorestore)
+
+Esto cuando ya quieres tener acceso a remoto
+
+### 1. Exportar los datos desde el entorno local
+
+Si es que llegamos a un punto donde decides llevar tus datos a una implementación en la nube, lo primero es exportar la o las bases de datos.
+
+Exportar una base de datos del dataset de ejemplo:
+
+```terminal
+mongodump --db sample_mflix --port 27018 --out ./backup
+```
+{:.typing .typing-fast}
+
+El resultado es un respaldo completo de la base de datos:
+
+![Exportar datos de ejemplo](mongodb/atlas-cli/mongodump-db-sample-mflix.webp)
+
+### 2. Implementar el cluster en Atlas Cloud
+
+Estando autenticado con Atlas CLI, el comando para hacerlo de forma interactiva es simplemente:
+
+```terminal
+atlas setup
+```
+{:.typing}
+
+---
+
 
 ## Eliminar una implementación local
 
