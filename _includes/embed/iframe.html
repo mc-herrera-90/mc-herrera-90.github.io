@@ -1,6 +1,6 @@
 <div class="resource mb-4 position-relative">
 	{% if include.target %}
-	<a class="mb-4 d-inline-block fs-6" target="_blank" href="{{ include.src }}">Abrir en una nueva ventana</a>
+	<a class="mb-4 d-inline-block fs-6" target="_blank" href="{{ include.src }}">Abrir en una nueva ventana <i class="fa-solid fa-up-right-from-square"></i></a>
 	{% endif %}
 	<iframe allowfullscreen src="{{ include.src | relative-url }}" style="width: 100%; min-height: 500px; overflow: hidden; border-radius: 8px" frameborder="0" id="ifr-{{ include.src | slugify }}"></iframe>
 </div>

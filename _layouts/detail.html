@@ -7,8 +7,11 @@ title: "Detalle"
 
 <p class="fs-5">{{ page.description }}</p>
 
+{% if page.isPDF %}
 <div class="text-center mb-3">
     <a href="{{ page.src | relative_url }}" target="_blank">Abrir en nueva ventana <i class="fa-solid fa-up-right-from-square"></i></a>
 </div>
-
 {% include embed/pdf.html file=page.src target=page.target %}
+{% else %}
+{% include embed/iframe.html src=page.src target="true" %}
+{% endif %}

@@ -209,6 +209,12 @@ defaults:
       type: slides
     values:
       layout: reveal
+  - scope:
+      type: documents
+    values:
+      layout: detail
+      isPDF: true
+    
 sass:
   style: compressed
 

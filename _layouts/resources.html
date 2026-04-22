@@ -5,23 +5,31 @@ layout: page
 {% assign grouped_documents = site.documents | group_by: "category" %}
 
 {% for category in grouped_documents %}
-  <h2>{{ category.name | upcase }}</h2>
+  <h2 class="category-title">{{ category.name | upcase }}</h2>
+
   <div class="table-wrapper">
-  <table>
-    <thead>
-      <tr>
-        <th>Título</th>
-        <th>Enlace</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for document in category.items %}
-        <tr>
-          <td>{{ document.title }}</td>
-          <td><a href="{{ document.url }}">Ver detalles</a></td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
+    <table class="doc-table"s>
+      <tbody>
+        {% for document in category.items %}
+          <tr class="doc-row" onclick="window.location='{{ document.url }}'" style="cursor: pointer;">
+            
+            <td class="icon-cell">
+              {% if document.isPDF %}
+                <i class="fa-solid fa-file-pdf file-icon pdf"></i>
+              {% else %}
+                <i class="fa-solid fa-display file-icon slide"></i>
+              {% endif %}
+            </td>
+
+            <td class="content-cell">
+              <div class="doc-title">{{ document.title }}</div>
+              <div class="doc-description">
+                {{ document.description | default: "Sin descripción disponible" | truncate: 120 }}
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endfor %}
