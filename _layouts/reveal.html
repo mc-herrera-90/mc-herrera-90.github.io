@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css">
-  <link id="reveal-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/{{ page.theme | default: 'black'}}.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.css">
+  <link id="reveal-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/theme/{{ page.theme | default: 'black'}}.min.css">
 
   <style>
     body {
@@ -24,8 +24,8 @@
 </div>
 
 <!-- Reveal.js desde CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/markdown/markdown.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.js"></script>
 <script>
   const themeLink = document.getElementById("reveal-theme");
 
@@ -34,7 +34,7 @@
 
     const theme = isDark ? "black" : "white";
 
-    themeLink.href = 
+    themeLink.href =
       `https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/${theme}.min.css`;
   }
   window.addEventListener("load", setTheme);

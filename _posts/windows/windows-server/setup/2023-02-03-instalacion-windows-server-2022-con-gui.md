@@ -24,32 +24,31 @@ Antes de comenzar, asegúrate de tener:
 ## Instalación de Windows Server 2022
 
 ### 1. Selecciona idioma y formato
-![Seleccionar idioma](windows/windows-server-2022/asistente-seleccionar-idioma.webp)
+![Seleccionar idioma](windows/windows-server-2022/01_asistente-seleccionar-idioma)
 
 ### 2. Haz clic en **"Install now"**
-![Install now](windows/windows-server-2022/install-now.webp)
+![Install now](windows/windows-server-2022/02_seleccionar_install-now.webp)
 
 ### 3. Elige la edición (Datacenter desktop)
-![Seleccionar versión datacenter desktop](windows/windows-server-2022/seleccionar-version-datacenter-desktop.webp)
+![Seleccionar versión datacenter desktop](windows/windows-server-2022/03_seleccionar-version-datacenter-desktop.webp)
 
 ### 4. Acepta los términos
-![Aceptar licencia](windows/windows-server-2022/aceptar-licencia-us.webp)
+![Aceptar licencia](windows/windows-server-2022/04_aceptar-licencia-us.webp)
 
 ### 5. Selecciona **Custom: Install**
-![Seleccionar custom install](windows/windows-server-2022/seleccionar-custom-install.webp)
+![Seleccionar custom install](windows/windows-server-2022/05_seleccionar-custom-install.webp)
 
 ### 6. Elige el disco y continúa
-![Seleccionar el disco a instalar](windows/windows-server-2022/seleccionar-el-disco-a-instalar.webp)
+![Seleccionar el disco a instalar](windows/windows-server-2022/06_seleccionar-el-disco-a-instalar.webp)
 
 ### 7. Espera mientras se completa la instalación (puede tardar varios minutos)
-![Finalizar el proceso](windows/windows-server-2022/terminar-el-proceso-de-instalacion.webp)
-
+![Finalizar el proceso](windows/windows-server-2022/07_terminar-el-proceso-de-instalacion.webp)
 
 ## Configuración inicial
 
 ### Define la contraseña del usuario **Administrador**
 
-![Define credenciales](windows/windows-server-2022/define-password-para-administrator.webp)
+![Define credenciales](windows/windows-server-2022/08_define-password-para-administrator.webp)
 
 Presiona `Ctrl + Alt + Supr` para iniciar sesión
 
@@ -61,8 +60,8 @@ Presiona `Ctrl + Alt + Supr` para iniciar sesión
 
 Después de instalar:
 
-2. 
-3. Accede al **Administrador del servidor (Server Manager)**
+1. 
+2. Accede al **Administrador del servidor (Server Manager)**
 
 ---
 
@@ -72,23 +71,3 @@ Después de instalar:
 * Configurar red (IP fija si es necesario)
 * Instalar roles (ej: Active Directory, DNS, DHCP)
 * Ejecutar Windows Update
-
----
-
-## ⚠️ Problemas comunes
-
-❌ **La VM va lenta**
-✔ Aumenta RAM y CPU desde la configuración
-
-❌ **No detecta red**
-✔ Verifica que Boxes esté usando NAT correctamente
-
-❌ **Pantalla pequeña**
-✔ Instala herramientas de integración o ajusta resolución
-
----
-
-## 🧠 Conclusión
-
-Instalar **Windows Server 2022** en **GNOME Boxes** es una excelente forma de aprender y experimentar sin riesgos. Gracias a su simplicidad, puedes levantar un entorno de laboratorio en pocos minutos, ideal para practicar administración de servidores, Active Directory o despliegues.
-
