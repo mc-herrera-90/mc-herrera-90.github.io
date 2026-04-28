@@ -24,7 +24,7 @@ Antes de comenzar, asegúrate de tener:
 ## Instalación de Windows Server 2022
 
 ### 1. Selecciona idioma y formato
-![Seleccionar idioma](windows/windows-server-2022/01_asistente-seleccionar-idioma)
+![Seleccionar idioma](windows/windows-server-2022/01_asistente-seleccionar-idioma.webp)
 
 ### 2. Haz clic en **"Install now"**
 ![Install now](windows/windows-server-2022/02_seleccionar_install-now.webp)
