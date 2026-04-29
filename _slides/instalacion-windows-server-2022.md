@@ -73,22 +73,32 @@ title: Instalación de Windows Server 2022
     -->
     <img src="/assets/media/windows/windows-server-2022/08_define-password-para-administrator.webp" width="50%" data-preview-image data-preview-fit="contain">
     ---
-    <!-- .slide: 
-      data-background-image="/assets/media/mongodb/instalacion-windows/_09.webp"
-      data-background-size="contain"
-      data-background-position="center"
-    -->
+    ## Después de definir la contraseña, presiona
+    ### <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Supr</kbd> 
+    ### Para iniciar sesión
     ---
-    <!-- .slide: 
-      data-background-image="/assets/media/mongodb/instalacion-windows/_10.webp"
+    <!-- .slide:
+      data-background-image="/assets/media/ubuntu/fondo-de-pantalla.webp"
       data-background-size="contain"
       data-background-position="center"
     -->
+    <video data-autoplay src="/assets/media/windows/windows-server-2022/inicio-de-sesion-administrator.mp4"></video>
     ---
-    <!-- .slide: 
-      data-background-image="/assets/media/mongodb/instalacion-windows/_11.webp"
-      data-background-size="contain"
-      data-background-position="center"
-    -->
+    ## Configuración inicial
+
+    Después de iniciar sesión, es importante realizar una serie de configuraciones iniciales para asegurarse de que el servidor esté listo para desempeñar sus funciones de manera efectiva.
+    ---
+
+    # 1. Configuración de Red
+
+    ---
+
+    ## Asignación de Dirección IP
+    
+    - Abrir el __Server Manager__.
+    - Ir a __Local Server__ y hacer clic en el enlace de __Ethernet__.
+    - Clic derecho en __Properties__ en el __Network Connections__.
+    - Seleccionar __Internet Protocol Versión 4 (TCP/IPv4)__ y clic en __Properties__.
+    - Asignar una dirección IP estática, máscara de subred, puerta de enlace predeterminada y servidores DNS según las necesidades de la red.
   </textarea>
 </section>

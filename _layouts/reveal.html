@@ -13,6 +13,25 @@
       padding: 0;
       overflow: hidden;
     }
+    kbd {
+      display: inline-block;
+      padding: 6px 10px;
+      font-family: monospace;
+      color: #222;
+      background: linear-gradient(#f9f9f9, #dcdcdc);
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      box-shadow:
+        0 2px 0 #aaa,
+        0 3px 4px rgba(0,0,0,0.2);
+    }
+
+    kbd:active {
+      transform: translateY(2px);
+      box-shadow:
+        0 1px 0 #aaa,
+        0 2px 3px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
