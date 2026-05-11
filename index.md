@@ -10,7 +10,6 @@ scripts:
 toc: false
 ---
 
-
 <div class="text-center animate__animated animate__fadeIn" markdown="1">
 
 ## Hola, soy Marco Contreras <span style="display:inline-block;width:30px;height:30px;background-image:url('https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></span>

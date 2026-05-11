@@ -2,7 +2,8 @@
 title: Instalación de Windows Server 2022
 ---
 
-<section data-markdown>
+<section data-markdown
+         data-separator-vertical="^\n--\n$">>
   <textarea data-template>
     # Instalar Windows Server 2022
     ## Descarga la ISO en👇
@@ -11,13 +12,39 @@ title: Instalación de Windows Server 2022
       https://www.microsoft.com/es-es/evalcenter/download-windows-server-2022
     </a>
     ---
+    ### Virt Manager
+
+    Es una interfaz de escritorio para entornos Linux que permite administrar máquinas virtuales mediante <a href="https://libvirt.org/" target="_blank">libvirt</a>
+
+    #### Instalar
+    
+    <a href="#/1/1" class="navigate-down"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1)" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+
+    --
+
+    Instálalo desde tu distribución de preferencia, está disponible para:
+    
+    - <i class="fa-brands fa-debian"></i> Debian
+    - <i class="fa-brands fa-fedora"></i> Fedora
+  
+
+    --
+
+    ```bash
+    sudo apt-get install virt-manager (Debian)
+    ```
+
+    ---
+
     <!-- .slide:
       data-background="#51d1f6"
       data-background-size="contain"
       data-background-position="center"
     -->
     <img src="/assets/media/windows/windows-server-2022/01_asistente-seleccionar-idioma.webp" width="50%" data-preview-image data-preview-fit="contain">
+
     ---
+
     <!-- .slide: 
       data-background="#51d1f6"
       data-background-size="cover"
@@ -60,6 +87,8 @@ title: Instalación de Windows Server 2022
       data-background-position="center"
     -->
     <img src="/assets/media/windows/windows-server-2022/07_terminar-el-proceso-de-instalacion.webp" width="50%" data-preview-image data-preview-fit="contain">
+    
+    #### Esperamos a que termine el proceso
     ---
     # Después de la instalación
     ## Se reiniciará y te solicitará
