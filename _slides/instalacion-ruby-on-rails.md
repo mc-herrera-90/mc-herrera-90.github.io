@@ -104,15 +104,18 @@
     rbenv install 3.4.9
     ```
 
-    <p align="center>
+    <div style="display: flex; justify-content: space-evenly">
     <img src="/assets/media/ubuntu/rbenv-listar-versiones.webp" width="40%" data-preview-image data-preview-fit="contain">
-    </p>
+    <img src="/assets/media/ubuntu/rbenv-install-v349.webp" width="40%" data-preview-image data-preview-fit="contain">
+    </div>
 
     ---
 
-    ### Establecer la versión global
+    <!-- .slide: style="text-align: left" -->
 
-    <p align="left">Para indicar la versión que acabamos de instalar como la nueva predeterminada, utiliza comando `rbenv global`. Por ejemplo:</p>
+    <h2 align="center">Establecer la versión global</h2>
+
+    Para indicar la versión que acabamos de instalar como la nueva predeterminada, utiliza comando `rbenv global`. Por ejemplo:
 
     ```bash
     rbenv global 3.4.9
@@ -124,6 +127,33 @@
     ruby --version
     ```
 
+    ---
 
+    ## Cambiar entre versiones
+
+    Puedes alternar fácilmente entre distintas versiones de Ruby que tengas instalada con __rbenv__ y utilizar según las necesidades de cada proyecto.
+
+    ---
+
+    <img src="/assets/media/ubuntu/rbenv-cambio-de-versiones.webp" width="60%" data-preview-image data-preview-fit="contain">
+
+    ---
+
+    <!-- .slide: style="text-align: left" -->
+    <h2 align="center">Uso de Gemas</h2>
+
+    Las gemas son el medio de distribución de las librerías de Ruby y tenemos el comando `gem` para poder administrar gemas.
+
+    > Usaremos este comando para instalar __Rails__.
+
+    ---
+
+    <!-- .slide: style="text-align: left" -->
+
+    La forma adecuada para instalar gemas, es la siguiente:
+
+    ```bash
+    echo "gem: --no-document" > ~/.gemrc
+    ```
   </textarea>
 </section>
