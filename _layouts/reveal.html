@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.css">
   <link id="reveal-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/theme/{{ page.theme | default: 'black'}}.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css">
+  <link rel="stylesheet" href="{{ 'assets/plugins/copycode.css' | relative_url }}">
 
   <style>
     body {
@@ -16,9 +17,13 @@
       padding: 0;
       overflow: hidden;
     }
+
+    .reveal p, .reveal p code, .reveal ul, .reveal ol {
+      font-size: .75em;
+    }
     kbd {
       display: inline-block;
-      padding: 6px 10px;
+      padding: 2px 10px;
       font-family: monospace;
       color: #222;
       background: linear-gradient(#f9f9f9, #dcdcdc);
@@ -35,6 +40,33 @@
         0 1px 0 #aaa,
         0 2px 3px rgba(0,0,0,0.2);
     }
+    .codeblock {
+      --cc-code-bg: #fafafa;
+      color: #222;
+      box-shadow: 1px 1px 2px 1px #dfdfdf;
+      border-radius: 8px;
+      padding: 0 !important;
+      overflow: clip;
+    }
+
+    .codeblock pre {
+      white-space: normal;
+      background-color: #fff;
+      width: 100%;
+      padding-left: 5px;
+    }
+
+    .cc-window-bar {
+      padding-bottom: 0 !important;
+      border-bottom: 1px solid #d0d0d0;
+      margin: 4px;
+      color: #222;
+      width: 100%;
+      --cc-window-title-color: #222;
+    }
+    code.bash {
+      white-space: pre;
+    }
   </style>
 </head>
 <body>
@@ -48,6 +80,8 @@
 <!-- Reveal.js desde CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/markdown/markdown.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.js"></script>
+<script src="{{ 'assets/plugins/copycode.js' | relative_url }}"></script>
+
 <script>
   const themeLink = document.getElementById("reveal-theme");
 
@@ -66,8 +100,24 @@
   Reveal.initialize({
     hash: true,
     slideNumber: true,
-    plugins: [RevealMarkdown]
+    copycode: {
+      display: "icons",
+      text: {
+        copy: "Copiar",
+        copied: "¡Copiado!"
+      },
+      window: {
+        title: "Terminal"
+      },
+      style: {
+        copybg: "transparent",
+        radius: "0.4em"
+      }
+    },
+    plugins: [RevealMarkdown, CopyCode]
+
   });
+
 </script>
 
 </body>

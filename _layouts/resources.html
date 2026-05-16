@@ -12,7 +12,7 @@ layout: page
       <tbody>
         {% for document in category.items %}
           <tr class="doc-row" onclick="window.location='{{ document.url }}'" style="cursor: pointer;">
-            
+
             <td class="icon-cell">
               {% if document.isPDF %}
                 <i class="fa-solid fa-file-pdf file-icon pdf"></i>

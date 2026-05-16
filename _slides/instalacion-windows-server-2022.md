@@ -3,7 +3,7 @@ title: Instalación de Windows Server 2022
 ---
 
 <section data-markdown
-         data-separator-vertical="^\n--\n$">>
+         data-separator-vertical="^\n--\n$">
   <textarea data-template>
     # Instalar Windows Server 2022
     ## Descarga la ISO en👇
@@ -30,10 +30,13 @@ title: Instalación de Windows Server 2022
 
     --
 
-    ```bash
-    sudo apt-get install virt-manager (Debian)
-    ```
+    ### En Ubuntu
 
+    Abre una nueva Terminal con <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> y ejecuta:
+
+    ```bash
+    sudo apt-get install virt-manager
+    ```
     ---
 
     <!-- .slide:

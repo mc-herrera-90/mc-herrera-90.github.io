@@ -1,0 +1,69 @@
+- title: Crear o cambiar a una base de datos
+  content: |
+    MongoDB crea automáticamente la base de datos cuando insertas el primer documento. El comando `use` permite cambiar o preparar una nueva base de datos.
+
+    ```javascript
+    use("nombre_base_datos")
+    ```
+    {:.typing .nolineno .language-terminal }
+
+    > **Nota:** En versiones antiguas de MongoDB Shell (`mongo`) era común utilizar:
+    >
+    > ```javascript
+    > use nombre_base
+    > ```
+    > {:.typing .nolineno .language-terminal }
+    >
+    > Sin embargo, actualmente se recomienda usar:
+    >
+    > ```javascript
+    > use("nombre_base")
+    > ```
+    > {:.typing .nolineno .language-terminal }
+    >
+    > ya que es más compatible con `mongosh` (la shell moderna de MongoDB), evita errores de sintaxis y además funciona correctamente tanto en versiones antiguas como modernas.
+    >
+    > También permite utilizar nombres con caracteres especiales, por ejemplo:
+    >
+    > ```javascript
+    > use("tienda-online")
+    > ```
+    > {:.typing .nolineno .language-terminal }
+    {: .prompt-info }
+
+- title: Listar bases de datos existentes
+  content: |
+    Muestra todas las bases de datos disponibles actualmente en el servidor MongoDB.
+
+    ```javascript
+    show dbs
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Ver la base de datos actual
+  content: |
+    Permite identificar en qué base de datos estás trabajando actualmente.
+
+    ```javascript
+    db
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Eliminar una base de datos
+  content: |
+    Borra completamente la base de datos seleccionada junto con todas sus colecciones y documentos.
+
+    ```javascript
+    db.dropDatabase()
+    ```
+    {:.typing .nolineno .language-terminal }
+
+- title: Renombrar una base de datos
+  content: |
+    MongoDB no posee un comando directo para renombrar bases de datos. Generalmente se utiliza `mongodump` y `mongorestore` para copiar el contenido a una nueva base de datos.
+
+    ```bash
+    mongodump --db viejoNombre
+    mongorestore --db nuevoNombre dump/viejoNombre
+    ```
+    {:.typing .nolineno .language-terminal }
