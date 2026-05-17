@@ -3,12 +3,32 @@
 
 <section data-markdown data-separator-vertical="^\n--\n$">
   <textarea data-template>
+
+    <img src="/assets/media/extras/ruby-ror.webp" width="20%"/>
+
     ## Instalar Ruby y Ruby on Rails
     ### Por:
 
     <a href="mailto:contacto@mcherrera.dev">
       contacto@mcherrera.dev
     </a>
+    ---
+    <!-- .slide: style="text-align: left" -->
+
+    ## Requisitos previos
+
+    Antes de comenzar, instala las dependencias según tu sistema operativo:
+
+    * <i class="fa-brands fa-windows"></i> Windows: <a href="https://rubyinstaller.org/" target="_blank">RubyInstaller</a>
+    * <i class="fa-brands fa-apple"></i> macOS: <a href="https://brew.sh/" target="_blank">Homebrew</a>
+    * <i class="fa-brands fa-linux"></i> Linux (Ubuntu/Debian): <a href="https://gorails.com/setup/ubuntu" target="_blank">Guía oficial para Ubuntu</a>
+
+    Herramientas necesarias:
+
+    * <i class="fa-brands fa-git-alt"></i> **Git** → control de versiones
+    * <i class="fa-brands fa-node-js"></i> **Node.js** → compilación de assets y JavaScript en Rails
+    * <i class="fa-solid fa-database"></i> **SQLite o PostgreSQL** → base de datos de la aplicación
+
     ---
     <!-- .slide: style="text-align: left" -->
 
@@ -82,6 +102,8 @@
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
     ```
 
+    > <a href="https://github.com/rbenv/ruby-build#readme" target="_blank">ruby-build</a> es un complemento para __rbenv__ que permite instalar diferentes versiones de Ruby. Se puede utilizar como un programa independiente. Está disponible para macOS y otros sistemas operativos similares a UNIX.
+
     ---
 
     ## Instalar Ruby
@@ -113,7 +135,7 @@
 
     <!-- .slide: style="text-align: left" -->
 
-    <h2 align="center">Establecer la versión global</h2>
+    <h3 align="center">Establecer la versión global</h3>
 
     Para indicar la versión que acabamos de instalar como la nueva predeterminada, utiliza comando `rbenv global`. Por ejemplo:
 
