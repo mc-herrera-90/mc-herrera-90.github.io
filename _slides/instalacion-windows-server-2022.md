@@ -9,7 +9,6 @@ title: Instalación de Windows Server 2022
 
     ### Con interfaz gráfica
 
-    ### Por:
 
     <a href="mailto:contacto@mcherrera.dev">
       contacto@mcherrera.dev
@@ -29,11 +28,11 @@ title: Instalación de Windows Server 2022
 
     ### Virt Manager
 
-    <p align="left">Es una interfaz de escritorio para entornos Linux que permite administrar máquinas virtuales mediante <a href="https://libvirt.org/" target="_blank">libvirt</a>. Se distribuye en repositorios oficiales de la mayoría de las distribuciones (Fedora, Ubuntu, etc).</p>
+    Es una interfaz de escritorio para entornos Linux que permite administrar máquinas virtuales mediante <a href="https://libvirt.org/" target="_blank">libvirt</a>. Se distribuye en repositorios oficiales de la mayoría de las distribuciones (Fedora, Ubuntu, etc).
 
     #### Instalar
     
-    <a href="#/2/1" class="navigate-down"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1)" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
 
     --
 
@@ -42,8 +41,11 @@ title: Instalación de Windows Server 2022
     Abre una nueva Terminal con <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> y ejecuta:
 
     ```bash
-    sudo apt-get install virt-manager
+    sudo apt update && sudo apt upgrade
+    sudo apt install virt-manager
     ```
+
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
 
     --
 
@@ -51,7 +53,23 @@ title: Instalación de Windows Server 2022
 
     Una vez instalado, busca la aplicación _"Virtual Machine Manager"_:
 
-    <img src="/assets/media/ubuntu/buscar-virtual-machine-manager.webp" width="55%" data-preview-image data-preview-fit="contain">
+    <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
+      <img
+        src="/assets/media/ubuntu/buscar-virtual-machine-manager.webp"
+        width="55%"
+        data-preview-image
+        data-preview-fit="contain"
+      >
+      <a onclick="Reveal.down(); return false;">
+        <img
+          class="r-frame"
+          style="background: rgba(255,255,255,0.1); cursor:pointer;"
+          src="https://static.slid.es/reveal/arrow.png"
+          width="120"
+          alt="Down arrow"
+        >
+      </a>
+    </div>
 
     --
 
@@ -59,7 +77,23 @@ title: Instalación de Windows Server 2022
 
     Al abrir __Virt-Manager__ por primera vez, es normal ver un error de conexión a la API de virtualización <a href="https://libvirt.org/" target="_blank">libvirt</a>.
 
-    <img src="/assets/media/ubuntu/error-al-conectar-con-libvirt.webp" width="55%" data-preview-image data-preview-fit="contain">
+    <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
+      <img
+        src="/assets/media/ubuntu/error-al-conectar-con-libvirt.webp"
+        width="55%"
+        data-preview-image
+        data-preview-fit="contain"
+      >
+      <a onclick="Reveal.down(); return false;">
+        <img
+          class="r-frame"
+          style="background: rgba(255,255,255,0.1); cursor:pointer;"
+          src="https://static.slid.es/reveal/arrow.png"
+          width="120"
+          alt="Down arrow"
+        >
+      </a>
+    </div>
 
     --
 
@@ -75,14 +109,40 @@ title: Instalación de Windows Server 2022
     ```
 
     Luego, cierra sesión y vuelve a entrar o reinicia el sistema
-    
+
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto">
+      <img
+        class="r-frame"
+        style="background: rgba(255,255,255,0.1); cursor:pointer;"
+        src="https://static.slid.es/reveal/arrow.png"
+        width="120"
+        alt="Down arrow"
+      >
+    </a>  
+
     --
 
     ### Crear una nueva máquina virtual
 
     Al entrar nuevamente a __virt-manager__, continua con el proceso de crear una nueva máquina virtual:
 
-    <img src="/assets/media/ubuntu/crear-una-nueva-maquina-con-virt-manager-paso-1.webp" width="55%" data-preview-image data-preview-fit="contain">
+    <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
+      <img
+        src="/assets/media/ubuntu/crear-una-nueva-maquina-con-virt-manager-paso-1.webp"
+        width="55%"
+        data-preview-image
+        data-preview-fit="contain"
+      >
+      <a onclick="Reveal.down(); return false;">
+        <img
+          class="r-frame"
+          style="background: rgba(255,255,255,0.1); cursor:pointer;"
+          src="https://static.slid.es/reveal/arrow.png"
+          width="120"
+          alt="Down arrow"
+        >
+      </a>
+    </div>
 
     --
 
@@ -111,6 +171,33 @@ title: Instalación de Windows Server 2022
 
     > Para el entorno gráfico, IIS, Active Directory o varias máquinas virtuales, considera asignar más RAM y CPU.
   
+    ---
+  
+    ### Interfaces de red de la máquina virtual
+
+    Se recomienda añadir dos adaptores:
+
+    | Adaptador | Uso |
+    |---|---|
+    | NAT | Acceso a internet |
+    | Red interna / Host-Only | Comunicación del laboratorio |
+
+    
+    ### ¿Por qué usar dos interfaces?
+
+    Permite separar la red del laboratorio del acceso a internet, facilitando el control y la comunicación con otras máquinas virtuales que son parte del laboratorio.
+
+    ---
+
+    <!-- .slide:
+      data-background-image="/assets/media/ubuntu/fondo-de-pantalla.webp"
+      data-background-size="contain"
+      data-background-position="center"
+      style="text-align: center"
+    -->
+
+    <img src="/assets/media/ubuntu/virt-manager-crear-nueva-red.webp" width="55%" data-preview-image data-preview-fit="contain">
+
     ---
 
     ### 1. Seleccionar idioma y formato regional
@@ -167,36 +254,66 @@ title: Instalación de Windows Server 2022
 
     ### 8. Configuración de contraseña
 
-    Define la contraseña del usuario administrador del servidor.
+    Define la contraseña del usuario administrador del servidor y haz click en _"Finish"_ para reiniciar el sistema.
 
     <img src="/assets/media/windows/windows-server-2022/08_define-password-para-administrator.webp" width="50%" data-preview-image data-preview-fit="contain">
     ---
 
     ### 9. Inicio de sesión
 
-    Ingresa con la cuenta Administrator utilizando la contraseña configurada.
+    <p align="left">Al reiniciar, se mostrará la pantalla de inicio de sesión, donde podrás ingresar con la cuenta <strong>Administrator</strong> utilizando la contraseña configurada.</p>
 
-    Presiona <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Supr</kbd> para desbloquear la pantalla de inicio de sesión.
 
-    ---
+    <p align="left">Presiona <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Supr</kbd> para desbloquear la pantalla de inicio de sesión.</p>
+
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto">
+      <img
+        class="r-frame"
+        style="background: rgba(255,255,255,0.1); cursor:pointer;"
+        src="https://static.slid.es/reveal/arrow.png"
+        width="120"
+        alt="Down arrow"
+      >
+    </a>
+
+    --
+
     <!-- .slide:
       data-background-image="/assets/media/ubuntu/fondo-de-pantalla.webp"
       data-background-size="contain"
       data-background-position="center"
+      style="text-align: center"
     -->
+
     <video data-autoplay src="/assets/media/windows/windows-server-2022/inicio-de-sesion-administrator.mp4" data-preview-video="/assets/media/windows/windows-server-2022/inicio-de-sesion-administrator.mp4"></video>
-    ---
-    ## Configuración inicial
-
-    Después de iniciar sesión, es importante realizar una serie de configuraciones iniciales para asegurarse de que el servidor esté listo para desempeñar sus funciones de manera efectiva.
-    ---
-
-    # 1. Configuración de Red
 
     ---
 
-    ## Asignación de Dirección IP
+    ### 10. Configuración de IP estática
+  
+    Primero necesitas que el servidor tenga una dirección fija antes de cualquier servicio de red (como Active Directory o DNS).
     
+    Porque si la IP cambia, se rompe el acceso al dominio, falla el DNS y los clientes no encontrarán el servidor.
+
+    > La IP estática se asignará a la interfaz de red interna del laboratorio que se creó para la comunicación entre máquinas virtuales.
+
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto">
+      <img
+        class="r-frame"
+        style="background: rgba(255,255,255,0.1); cursor:pointer;"
+        src="https://static.slid.es/reveal/arrow.png"
+        width="120"
+        alt="Down arrow"
+      >
+    </a>
+
+    --
+    
+       
+
+    ---
+
+
     - Abrir el __Server Manager__.
     - Ir a __Local Server__ y hacer clic en el enlace de __Ethernet__.
     - Clic derecho en __Properties__ en el __Network Connections__.

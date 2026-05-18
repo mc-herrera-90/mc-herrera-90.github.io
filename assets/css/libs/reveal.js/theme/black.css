@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Source Sans Pro';
-  src: url('../../../../fonts/source-sans-3_5.2.9_latin-400-normal.')
+  src: url('../../../../fonts/source-sans-3_5.2.9_latin-400-normal.woff')
     format('woff');
   font-weight: 400;
   font-style: normal;
@@ -43,7 +43,7 @@ section.has-light-background h6 {
 :root {
   --r-background-color: #191919;
   --r-main-font: 'Source Sans Pro', Helvetica, sans-serif;
-  --r-main-font-size: 42px;
+  --r-main-font-size: 34px;
   --r-main-color: #fff;
 
   --r-block-margin: 20px;
@@ -76,6 +76,23 @@ section.has-light-background h6 {
   --r-overlay-element-fg-color: 0, 0, 0;
 
   --r-blockquote-background: rgba(255, 255, 255, 0.06);
+  
+}
+
+.codeblock {
+  --cc-code-bg: #333;
+}
+
+.codeblock pre {
+  background: #252521;
+}
+
+.cc-window-bar {
+  --cc-window-title-color: #fff;
+}
+
+.codeblock svg {
+  --cc-copy-color: #f1f1f1;
 }
 
 .reveal-viewport {
@@ -241,7 +258,7 @@ section.has-light-background h6 {
   width: 90%;
   margin: var(--r-block-margin) auto;
   text-align: left;
-  font-size: 0.55em;
+  font-size: 0.65em;
   font-family: var(--r-code-font);
   line-height: 1.2em;
   word-wrap: break-word;
@@ -271,9 +288,10 @@ section.has-light-background h6 {
 }
 
 .reveal table {
-  margin: auto;
   border-collapse: collapse;
-  border-spacing: 0;
+  font-size: .75em;
+  width: 100%;
+  margin: var(--r-block-margin) 0;
 }
 
 .reveal table th {
@@ -284,7 +302,7 @@ section.has-light-background h6 {
 .reveal table th {
   text-align: left;
   padding: 0.2em 0.5em;
-  border-bottom: 1px solid;
+  border: 1px solid #aaa;
 }
 
 .reveal table td[align='center'],
@@ -295,11 +313,6 @@ section.has-light-background h6 {
 .reveal table td[align='right'],
 .reveal table th[align='right'] {
   text-align: right;
-}
-
-.reveal table tbody tr:last-child td,
-.reveal table tbody tr:last-child th {
-  border-bottom: none;
 }
 
 .reveal sup {
