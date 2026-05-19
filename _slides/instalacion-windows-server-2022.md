@@ -196,7 +196,7 @@ title: Instalación de Windows Server 2022
       style="text-align: center"
     -->
 
-    <img src="/assets/media/ubuntu/virt-manager-crear-nueva-red.webp" width="55%" data-preview-image data-preview-fit="contain">
+    <img src="/assets/media/ubuntu/virt-manager-crear-nueva-red.webp" width="65%" data-preview-image data-preview-fit="cover">
 
     ---
 

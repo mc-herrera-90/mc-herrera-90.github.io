@@ -4,42 +4,53 @@ title: Instalación de MongoDB y Mongo Compass en Windows
 
 <section data-markdown>
   <textarea data-template>
-    # Instalar MongoDB Community Server
+
+    ![](/assets/media/mongodb/mongodb-proto.avif)
+
+    ## Instalar MongoDB Community Server
     ## Descarga en 👇
 
     <a href="https://www.mongodb.com/try/download/community" target="_blank">
       https://www.mongodb.com/try/download/community
     </a>
     ---
-    <!-- .slide: 
-      data-background-image="/assets/media/mongodb/instalacion-windows/_01.webp"
-      data-background-size="contain"
-      data-background-position="center"
-    -->
+    
+    :::row
+    ![](/assets/media/mongodb/mongodb-proto.avif)
+    
+    Hello world
+    :::
+
     ---
-    <!-- .slide: 
-      data-background-image="/assets/media/mongodb/instalacion-windows/_02.webp"
-      data-background-size="cover"
-      data-background-position="center"
-    -->
+
+    ### 1. Descargar y ejecutar el asistente
+
+    <img src="/assets/media/mongodb/instalacion-windows/_01.webp" width="100%" data-preview-image data-preview-fit="cover">
+
     ---
-    <!-- .slide: 
-      data-background-image="/assets/media/mongodb/instalacion-windows/_03.webp"
-      data-background-size="contain"
-      data-background-position="center"
-    -->
+
+    ### 2. Aceptar términos
+
+    <img src="/assets/media/mongodb/instalacion-windows/_02.webp" width="100%" data-preview-image data-preview-fit="cover">
+
     ---
-    <!-- .slide: 
-      data-background-image="/assets/media/mongodb/instalacion-windows/_04.webp"
-      data-background-size="contain"
-      data-background-position="center"
-    -->
+
+    ### 3. Tipo de instalación
+
+    <img src="/assets/media/mongodb/instalacion-windows/_03.webp" width="100%" data-preview-image data-preview-fit="cover">
+
     ---
-    <!-- .slide: 
-      data-background-image="/assets/media/mongodb/instalacion-windows/_05.webp"
-      data-background-size="contain"
-      data-background-position="center"
-    -->
+
+    ### 4. Destino de instalación
+
+    <img src="/assets/media/mongodb/instalacion-windows/_04.webp" width="100%" data-preview-image data-preview-fit="cover">
+
+    ---
+
+    ### 5. Configurar el servicio de MongoDB
+
+    <img src="/assets/media/mongodb/instalacion-windows/_05.webp" width="100%" data-preview-image data-preview-fit="cover">
+
     ---
     <!-- .slide: 
       data-background-image="/assets/media/mongodb/instalacion-windows/_06.webp"
