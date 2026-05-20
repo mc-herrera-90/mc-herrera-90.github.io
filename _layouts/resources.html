@@ -4,32 +4,174 @@ layout: page
 
 {% assign grouped_documents = site.documents | group_by: "category" %}
 
-{% for category in grouped_documents %}
-  <h2 class="category-title">{{ category.name | upcase }}</h2>
+<style>
+  .docs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
-  <div class="table-wrapper">
-    <table class="doc-table"s>
-      <tbody>
+.docs-group {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.group-label {
+  width: fit-content;
+
+  padding: .35rem .75rem;
+
+  border-radius: 999px;
+
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+
+  background: color-mix(in srgb, var(--text-color) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text-color) 8%, transparent);
+
+  opacity: .85;
+}
+
+.docs-list {
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  background: var(--card-bg, #111);
+}
+
+.doc-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem 1.2rem;
+
+  color: inherit;
+  text-decoration: none;
+
+  transition: background .2s ease;
+}
+
+.doc-item + .doc-item {
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.doc-item:hover {
+  background: rgba(255,255,255,.03);
+}
+
+.doc-icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,.05);
+
+  font-size: 1rem;
+}
+
+.doc-icon .pdf {
+  color: #ff5f57;
+}
+
+.doc-icon .slide {
+  color: #58a6ff;
+}
+
+.doc-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.doc-title {
+  font-size: .98rem;
+  font-weight: 600;
+}
+
+.doc-description {
+  margin-top: .3rem;
+
+  font-size: .88rem;
+  line-height: 1.45;
+
+  opacity: .68;
+}
+
+.doc-meta {
+  flex-shrink: 0;
+
+  padding: .3rem .6rem;
+
+  border-radius: 999px;
+
+  font-size: .7rem;
+  font-weight: 700;
+
+  background: rgba(255,255,255,.05);
+
+  opacity: .75;
+}
+</style>
+<div class="docs-container">
+
+  {% for category in grouped_documents %}
+    <section class="docs-group">
+
+      <div class="group-label">
+        {{ category.name | upcase }}
+      </div>
+
+      <div class="docs-list">
         {% for document in category.items %}
-          <tr class="doc-row" onclick="window.location='{{ document.url }}'" style="cursor: pointer;">
 
-            <td class="icon-cell">
+          <a href="{{ document.url }}" class="doc-item">
+
+            <div class="doc-icon">
               {% if document.isPDF %}
-                <i class="fa-solid fa-file-pdf file-icon pdf"></i>
+                <i class="fa-solid fa-file-pdf pdf"></i>
               {% else %}
-                <i class="fa-solid fa-display file-icon slide"></i>
+                <i class="fa-solid fa-display slide"></i>
               {% endif %}
-            </td>
+            </div>
 
-            <td class="content-cell">
-              <div class="doc-title">{{ document.title }}</div>
-              <div class="doc-description">
-                {{ document.description | default: "Sin descripción disponible" | truncate: 120 }}
+            <div class="doc-content">
+              <div class="doc-title">
+                {{ document.title }}
               </div>
-            </td>
-          </tr>
+
+              <div class="doc-description">
+                {{ document.description
+                  | default: "Sin descripción disponible"
+                  | truncate: 110 }}
+              </div>
+            </div>
+
+            <div class="doc-meta">
+              {% if document.isPDF %}
+                PDF
+              {% else %}
+                SLIDE
+              {% endif %}
+            </div>
+
+          </a>
+
         {% endfor %}
-      </tbody>
-    </table>
-  </div>
-{% endfor %}
+      </div>
+
+    </section>
+  {% endfor %}
+
+</div>

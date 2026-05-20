@@ -60,7 +60,7 @@
       color: #222;
       width: 100%;
     }
-    code.bash {
+    code {
       white-space: pre;
     }
   </style>
@@ -73,7 +73,7 @@
   </div>
 </div>
 
-<!-- Reveal.js desde CDN -->
+<!-- Reveal.js  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/markdown/markdown.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.js"></script>
 <script src="{{ 'assets/plugins/copycode.js' | relative_url }}"></script>
@@ -114,6 +114,29 @@
 
   });
 
+  Reveal.on('ready', () => {
+    document.querySelectorAll(".codeblock").forEach(block => {
+
+      const code = block.querySelector("code");
+      const title = block.querySelector(".cc-window-title");
+
+      if (!code || !title) return;
+
+      const languageClass = [...code.classList][0];
+
+      if (!languageClass) return;
+
+      const language = languageClass
+        .replace("language-", "")
+        .replace(/^js$/, "JavaScript")
+        .replace(/^html$/, "HTML")
+        .replace(/^css$/, "CSS")
+        .replace(/^bash$/, "Terminal")
+        .replace(/^shell$/, "Shell");
+
+      title.textContent = language
+      })
+    })
 </script>
 
 </body>
