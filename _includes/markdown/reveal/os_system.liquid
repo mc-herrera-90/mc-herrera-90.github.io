@@ -50,8 +50,8 @@
   </a>
 
   <a href="#/linux">
-    <i class="fa-brands fa-linux linux"></i>
-    <span>Linux</span>
+    <i class="fa-brands fa-{{ include.os_linux | default: 'linux' }} linux" style="color: {{ include.color_linux | '' }}"></i>
+    <span>{{ include.os_linux |  default: 'Linux' | capitalize }}</span>
   </a>
 
   <a href="#/macos">
