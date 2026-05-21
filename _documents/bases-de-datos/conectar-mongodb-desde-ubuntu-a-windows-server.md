@@ -1,9 +1,9 @@
 ---
 layout: detail
 category: "MongoDB"
-title: "Instalación de MongoDB en Windows"
-src: "/slides/instalacion-mongodb-en-windows.html"
-description: "Proceso para instalar y configurar MongoDB Community Server"
+title: "Instalación de MongoDB y MongoDB Compass"
+src: "/slides/instalacion-mongodb-y-mongodb-compass.html"
+description: "Proceso para instalar y configurar MongoDB Community Server en todas las plataformas"
 target: true
 isPDF: false
 ---
