@@ -31,9 +31,9 @@ title: Instalación de MongoDB y Mongo Compass
     ### 1. Descargar y ejecutar el asistente
 
     <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
-    <img src="/assets/media/mongodb/instalacion-windows/_01.webp" width="100%" data-preview-image data-preview-fit="cover">
+    <img src="/assets/media/mongodb/instalacion-windows/_01.webp" width="90%" data-preview-image data-preview-fit="cover">
 
-    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
     </div>
 
     --
@@ -42,10 +42,10 @@ title: Instalación de MongoDB y Mongo Compass
 
     ### 2. Aceptar términos
 
-    <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
-    <img src="/assets/media/mongodb/instalacion-windows/_02.webp" width="100%" data-preview-image data-preview-fit="cover">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
+    <img src="/assets/media/mongodb/instalacion-windows/_02.webp" data-preview-image data-preview-fit="cover" width="90%">
 
-    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+    <a onclick="Reveal.down(); return false;"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
     </div>
 
     --
@@ -56,9 +56,9 @@ title: Instalación de MongoDB y Mongo Compass
 
     <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
 
-    <img src="/assets/media/mongodb/instalacion-windows/_03.webp" width="100%" data-preview-image data-preview-fit="cover">
+    <img src="/assets/media/mongodb/instalacion-windows/_03.webp" width="90%" data-preview-image data-preview-fit="cover">
 
-    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
     </div>
 
     --
@@ -69,9 +69,9 @@ title: Instalación de MongoDB y Mongo Compass
 
     <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
 
-    <img src="/assets/media/mongodb/instalacion-windows/_04.webp" width="100%" data-preview-image data-preview-fit="cover">
+    <img src="/assets/media/mongodb/instalacion-windows/_04.webp" width="90%" data-preview-image data-preview-fit="cover">
 
-    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
     </div>
 
     --
@@ -82,9 +82,9 @@ title: Instalación de MongoDB y Mongo Compass
 
     <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
 
-    <img src="/assets/media/mongodb/instalacion-windows/_05.webp" width="100%" data-preview-image data-preview-fit="cover">
+    <img src="/assets/media/mongodb/instalacion-windows/_05.webp" width="90%" data-preview-image data-preview-fit="cover">
 
-    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
     </div>
 
     --
@@ -97,9 +97,9 @@ title: Instalación de MongoDB y Mongo Compass
 
     <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
 
-    <img src="/assets/media/mongodb/instalacion-windows/_06.webp" width="100%" data-preview-image data-preview-fit="cover">
+    <img src="/assets/media/mongodb/instalacion-windows/_06.webp" width="90%" data-preview-image data-preview-fit="cover">
 
-    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
     </div>
 
     --

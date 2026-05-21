@@ -90,6 +90,6 @@ Ingresa a [https://www.mongodb.com/try/download/community](https://www.mongodb.c
 
 ![Download Comunnity](mongodb/website-download-comunnity.webp)
 
-Una vez descargado, sigue las instrucciones del asistente y espera a finalizar el proceso.
+Una vez descargado, sigue las instrucciones del asistente y espera a finalizar el proceso. A continuación, se puede revisar el siguiente material para acceder a todo el proceso paso a paso:
 
-{% include embed/iframe.html src="/slides/instalacion-mongodb-en-windows.html" target="true" %}
+{% include embed/iframe.html src="/slides/instalacion-mongodb-y-mongodb-compass.html" target="true" %}
