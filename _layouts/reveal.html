@@ -8,6 +8,7 @@
 
   <link rel="stylesheet" href="{{ '/assets/css/libs/reveal.js/reveal.min.css' | relative_url }}">
   <link id="reveal-theme" rel="stylesheet" href="/assets/css/libs/reveal.js/theme/{{ page.theme | default: 'black'}}.css">
+  <link id="highlight-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css">
   <link rel="stylesheet" href="{{ 'assets/plugins/copycode.css' | relative_url }}">
 
@@ -80,10 +81,12 @@
 <!-- Reveal.js  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/markdown/markdown.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/highlight/highlight.js"></script>
 <script src="{{ 'assets/plugins/copycode.js' | relative_url }}"></script>
 
 <script>
   const themeLink = document.getElementById("reveal-theme");
+  const highlightTheme = document.getElementById("highlight-theme");
 
   function setTheme() {
     const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -92,6 +95,11 @@
 
     themeLink.href =
       `/assets/css/libs/reveal.js/theme/${theme}.css`;
+
+    highlightTheme.href = isDark
+      ? "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css"
+      : "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css";
+
   }
   window.addEventListener("load", setTheme);
   window.matchMedia("(prefers-color-scheme: dark)")
@@ -114,7 +122,7 @@
         radius: "0.4em"
       }
     },
-    plugins: [RevealMarkdown, CopyCode]
+    plugins: [RevealMarkdown, CopyCode, RevealHighlight]
 
   });
 
