@@ -12,7 +12,13 @@
 
     ---
 
-    ## Push
+    # <i class="fa-solid fa-plus" style="color: rgb(10, 141, 67)"></i><br/>Añadir elementos
+
+    Estos métodos sirven para **insertar nuevos elementos** en un array, ya sea al inicio o al final, modificando el array original.
+
+    ---
+
+    # Push
 
     El método `.push()` agrega un nuevo elemento al final del arreglo y modifica el original.
 
@@ -21,6 +27,12 @@
     <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
 
     --
+
+    <a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
+    <a onclick="Reveal.prev()" class="nav-btn">PUSH <i class="fa-solid fa-arrow-up"></i></a>
+    <a class="nav-btn" onclick="Reveal.next()"><span id="nextTitle">UNSHIFT</span> <i class="fa-solid fa-arrow-right"></i></a>
+
+    ## Agregar al final
 
     En el siguiente ejemplo agregaremos nuevos héroes al final del arreglo usando `.push()`.
 
@@ -36,7 +48,7 @@
 
     <div style="display: flex; justify-content: space-evenly">
 
-    <a href="https://onecompiler.com/embed/javascript/44q9cacgb?version=v1&fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false&hideLanguageSelection=true&hideTitle=true" data-preview-link>
+    <a href="https://onecompiler.com/embed/javascript/44q9cacgb?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false&hideLanguageSelection=true&hideTitle=true" data-preview-link>
     <i class="fa-solid fa-circle-play fa-xl" title="Ejecutar"></i>
     </a>
     <a data-preview-image="/assets/media/javascript/arrays/push-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
@@ -44,7 +56,7 @@
   
     ---
 
-    ## Unshift
+    # Unshift
 
     El método `.unshift()` agrega uno o más elementos al inicio del arreglo y modifica el original.
 
@@ -53,6 +65,12 @@
     <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
 
     --
+
+    <a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
+    <a onclick="Reveal.prev()" class="nav-btn">UNSHIFT <i class="fa-solid fa-arrow-up"></i></a>
+    <a class="nav-btn" onclick="Reveal.next()"><span id="nextTitle">ELIMINAR</span> <i class="fa-solid fa-arrow-right"></i></a>
+
+    ## Agrega al inicio
 
     En el siguiente ejemplo agregaremos nuevos jugadores al inicio del equipo usando `.unshift()`.
 
@@ -74,10 +92,50 @@
     <a data-preview-image="/assets/media/javascript/arrays/unshift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
     </div>
 
+    ---
+
+    # <i class="fa-solid fa-trash" style="color: rgb(230, 28, 69);"></i><br/>Eliminar elementos
+
+    Se utilizan para __remover elementos existentes__, ya sea al inicio, final o en posiciones específicas.
 
     ---
 
-    ## Shift
+    # Pop
+
+    El método `.pop()` elimina el último elemento del arreglo y modifica el original.
+
+    ### Ejemplo
+
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+
+    --
+
+    <a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
+    <a onclick="Reveal.prev()" class="nav-btn">POP <i class="fa-solid fa-arrow-up"></i></a>
+    <a class="nav-btn" onclick="Reveal.next()"><span id="nextTitle">SHIFT</span> <i class="fa-solid fa-arrow-right"></i></a>
+
+    ## Eliminar el último
+
+    En el siguiente ejemplo eliminaremos el último jugador del equipo usando `.pop()`.
+  
+    ```javascript
+    const equipo = ["Messi", "Suárez", "Neymar"];
+
+    console.log(equipo);
+
+    equipo.pop();
+
+    console.log(equipo);
+    ```
+
+    <div style="display: flex; justify-content: space-evenly">
+    <a href="https://onecompiler.com/embed/javascript/44q9m9sv3?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false" data-preview-link><i class="fa-solid fa-circle-play fa-xl" title="Ejecutar"></i></a>
+    <a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
+    </div>
+
+    ---
+
+    # Shift
 
     El método `.shift()` elimina el primer elemento del arreglo y desplaza los demás elementos hacia atrás.
 
@@ -87,6 +145,11 @@
 
     --
 
+    <a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
+    <a onclick="Reveal.prev()" class="nav-btn">SHIFT <i class="fa-solid fa-arrow-up"></i></a>
+    <a class="nav-btn" onclick="Reveal.next()"><span>FILTRAR Y BUSCAR</span> <i class="fa-solid fa-arrow-right"></i></a>
+
+    ## Eliminar el primero
 
     En el siguiente ejemplo eliminaremos la primera tarea del arreglo y veremos cómo cambian sus índices.
 
@@ -108,39 +171,114 @@
     <a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
     </div>
 
+
     ---
 
-    ## Pop
+    # <i class="fa-solid fa-magnifying-glass" style="color:#2563eb;"></i><i class="fa-solid fa-filter" style="color:#f59e0b;"></i><br/> Filtrar y buscar
 
-    El método `.pop()` elimina el último elemento del arreglo y modifica el original.
+    Permiten consultar información dentro del array sin modificarlo directamente (o creando nuevos resultados).
 
-    ### Ejemplo
+    ---
+
+    ## Includes
+
+    El método `.includes()` verifica si un valor existe dentro de un arreglo o una cadena de texto, devolviendo `true` si lo encuentra y `false` si no está presente.
 
     <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
 
     --
 
-    En el siguiente ejemplo eliminaremos el último jugador del equipo usando `.pop()`.
-  
-    ```javascript
-    const equipo = ["Messi", "Suárez", "Neymar"];
+    <a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
+    <a onclick="Reveal.prev()" class="nav-btn">INCLUDES <i class="fa-solid fa-arrow-up"></i></a>
+    <a class="nav-btn" onclick="Reveal.next()"><span id="nextTitle">INDEXOF</span> <i class="fa-solid fa-arrow-right"></i></a>
+    
+    ## Verifica si un elemento existe
 
-    console.log(equipo);
+    En el siguiente ejemplo comprobamos si una fruta está dentro del arreglo usando `.includes()`.
 
-    equipo.pop();
+    ```js
+    const frutas = ["manzana", "plátano", "naranja"];
 
-    console.log(equipo);
+    console.log(frutas.includes("plátano"));
+    console.log(frutas.includes("uva"));
     ```
 
     <div style="display: flex; justify-content: space-evenly">
-    <a href="https://onecompiler.com/embed/javascript/44q9m9sv3?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false" data-preview-link><i class="fa-solid fa-circle-play fa-xl" title="Ejecutar"></i></a>
+    <a href="https://onecompiler.com/embed/javascript/44qah35m2?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false" data-preview-link>
+    <i class="fa-solid fa-circle-play fa-xl" title="Ejecutar"></i>
+    </a>
+    <a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
+    </div>
+
+    ---
+
+    # indexOf
+
+    El método `.indexOf()` devuelve la posición (índice) de la primera aparición de un elemento dentro de un arreglo o cadena de texto, o `-1` si no lo encuentra.
+
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+
+    --
+
+    <a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
+    <a onclick="Reveal.prev()" class="nav-btn">INDEXOF <i class="fa-solid fa-arrow-up"></i></a>
+    <a class="nav-btn" onclick="Reveal.next()"><span id="nextTitle">FIND</span> <i class="fa-solid fa-arrow-right"></i></a>
+
+    ## Conocer la posición
+
+    En el siguiente ejemplo buscamos la posición de dos equipos dentro del arreglo usando `.indexOf()` y vemos el índice que devuelve en consola.
+
+    ```javascript
+    const equipos = ["Colo Colo", "U de Chile", "Universidad Católica", "O'Higgins"];
+
+    console.log(equipos.indexOf("Universidad Católica"));
+    console.log(equipos.indexOf("Palestino"));
+    ```
+
+    <div style="display: flex; justify-content: space-evenly">
+    <a href="https://onecompiler.com/embed/javascript/44qaked7f?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false" data-preview-link>
+    <i class="fa-solid fa-circle-play fa-xl" title="Ejecutar"></i>
+    </a>
+    <a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
+    </div>
+
+    ---
+
+    # FIND
+
+    El método `.find()` devuelve el primer elemento de un arreglo que cumpla con una condición, o `undefined` si no encuentra ninguno.
+
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+
+    --
+
+    <a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
+    <a onclick="Reveal.prev()" class="nav-btn">FIND <i class="fa-solid fa-arrow-up"></i></a>
+    <a class="nav-btn" onclick="Reveal.next()"><span id="nextTitle">FILTER</span> <i class="fa-solid fa-arrow-right"></i></a>
+
+    ## Buscar el primero
+
+    En el siguiente ejemplo buscamos el primer número que sea mayor o igual a 18 dentro del arreglo usando `.find()` y mostramos el resultado en consola.
+
+    ```javascript
+    const edades = [12, 18, 25, 17, 30];
+
+    const mayorEdad = edades.find(edad => edad >= 18);
+
+    console.log(mayorEdad);
+    ```
+
+    <div style="display: flex; justify-content: space-evenly">
+    <a href="https://onecompiler.com/embed/javascript/44qakv9kf?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false" data-preview-link>
+    <i class="fa-solid fa-circle-play fa-xl" title="Ejecutar"></i>
+    </a>
     <a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
     </div>
 
 
     ---
 
-    ## Filter
+    # Filter
 
     El método `.filter()` crea un nuevo arreglo con los elementos que cumplen una condición
 
@@ -149,6 +287,14 @@
     <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
 
     --
+
+    <a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
+    <a onclick="Reveal.prev()" class="nav-btn">FILTER <i class="fa-solid fa-arrow-up"></i></a>
+    <a class="nav-btn" onclick="Reveal.next()"><span id="nextTitle">TRANSFORMAR Y RECORRER</span> <i class="fa-solid fa-arrow-right"></i></a>
+
+    ## Filtrar por condición
+
+    <font size="5">En el siguiente ejemplo usamos `.filter()` para obtener un nuevo arreglo con solo los números pares, redondeando cada valor antes de evaluarlo.</font>
 
     ```js
     const numbers = [10, 20, 55.33, 23];
@@ -168,5 +314,63 @@
     </a>
     <a data-preview-image="/assets/media/javascript/arrays/filter-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
     </div>
+
+    ---
+
+    # <i class="fa-solid fa-wand-magic-sparkles" style="color:#7c4dff;"></i>&nbsp;&nbsp;<i class="fa-solid fa-repeat" style="color:#4f8cff;"></i><br/>Transformar y recorrer
+
+    ---
+
+    # Map
+
+    El método `.map()` crea un nuevo arreglo aplicando una función a cada elemento del arreglo original, transformando sus valores sin modificar el arreglo inicial.
+
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+
+    --
+
+    <a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
+    <a onclick="Reveal.prev()" class="nav-btn">MAP <i class="fa-solid fa-arrow-up"></i></a>
+    <a class="nav-btn" onclick="Reveal.next()"><span id="nextTitle">FOREACH</span> <i class="fa-solid fa-arrow-right"></i></a>
+
+    ## Un nuevo array transformando
+
+    En el siguiente ejemplo transformamos un arreglo de nombres de jedis en frases sobre el uso de la Fuerza usando `.map()` y mostramos el resultado en consola.
+
+    ```javascript
+    const jedis = ["Anakin", "Luke", "Rey"];
+
+    const ladosFuerza = jedis.map(jedi => `${jedi} usa la Fuerza`);
+
+    console.log(ladosFuerza);
+    ```
+
+    <div style="display: flex; justify-content: space-evenly">
+    <a href="https://onecompiler.com/embed/javascript/44qamyzhn?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false" data-preview-link>
+    <i class="fa-solid fa-circle-play fa-xl" title="Ejecutar"></i>
+    </a>
+    <a data-preview-image="/assets/media/javascript/arrays/filter-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
+    </div>
+
+    ---
+
+    # Foreach
+
+    El método `.forEach()` recorre cada elemento de un arreglo y ejecuta una función para cada uno, sin crear un nuevo arreglo.
+
+    <a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+
+    --
+
+    En el siguiente ejemplo recorremos un arreglo de héroes usando `.forEach()` y mostramos cada elemento en consola.
+
+    ```javascript
+    const heroes = ["Iron Man", "Thor", "Hulk"];
+
+    heroes.forEach(hero => {
+      console.log(hero);
+    });
+    ```
+
   </textarea>
 </section>

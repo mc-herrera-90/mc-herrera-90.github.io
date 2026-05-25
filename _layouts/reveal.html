@@ -7,12 +7,16 @@
   <title>{{ page.title }}</title>
 
   <link rel="stylesheet" href="{{ '/assets/css/libs/reveal.js/reveal.min.css' | relative_url }}">
-  <link id="reveal-theme" rel="stylesheet" href="/assets/css/libs/reveal.js/theme/{{ page.theme | default: 'black'}}.css">
   <link id="highlight-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+  <link id="reveal-theme" rel="stylesheet" href="/assets/css/libs/reveal.js/theme/{{ page.theme | default: 'black'}}.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css">
   <link rel="stylesheet" href="{{ 'assets/plugins/copycode.css' | relative_url }}">
 
   <style>
+
+    p code {
+      font-size: xx-large !important;
+    }
     .slides p, .slides ol, .slides ul {
       text-align: left;
     }
@@ -67,6 +71,51 @@
 
     .white * {
       color: white !important;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 14px;
+
+      border: 1px solid #e5e7eb;
+      background: white;
+      color: #111;
+
+      font-size: 0.85em;
+      font-weight: 500;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      transition: all 0.15s ease;
+    }
+
+    .nav-btn:hover {
+      background: #f9fafb;
+      border-color: #d1d5db;
+    }
+
+    /* icono limpio */
+    .nav-btn i[class*="fa-arrow"] {
+      font-size: 0.85em;
+      opacity: 0.7;
+    }
+
+    /* opcional: versión dark mode simple */
+    @media (prefers-color-scheme: dark) {
+      .nav-btn {
+        background: #111;
+        color: #f3f4f6;
+        border: 1px solid #2a2a2a;
+      }
+
+      .nav-btn:hover {
+        background: #212121;
+        border-color: #6a6a6a;
+      }
     }
   </style>
 </head>
@@ -149,6 +198,7 @@
       title.textContent = language
       })
     })
+
 </script>
 
 </body>
