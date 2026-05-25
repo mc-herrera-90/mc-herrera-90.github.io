@@ -36,7 +36,7 @@
 
     <div style="display: flex; justify-content: space-evenly">
 
-    <a href="https://onecompiler.com/embed/javascript/44q9cacgb?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false" data-preview-link>
+    <a href="https://onecompiler.com/embed/javascript/44q9cacgb?version=v1&fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false&hideLanguageSelection=true&hideTitle=true" data-preview-link>
     <i class="fa-solid fa-circle-play fa-xl" title="Ejecutar"></i>
     </a>
     <a data-preview-image="/assets/media/javascript/arrays/push-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
@@ -68,7 +68,7 @@
 
     <div style="display: flex; justify-content: space-evenly">
 
-    <a href="https://onecompiler.com/embed/javascript/44q9jmpw7?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false" data-preview-link>
+    <a href="https://onecompiler.com/embed/javascript/44q9jmpw7?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=falsee&hideLanguageSelection=true" data-preview-link>
     <i class="fa-solid fa-circle-play fa-xl" title="Ejecutar"></i>
     </a>
     <a data-preview-image="/assets/media/javascript/arrays/unshift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
