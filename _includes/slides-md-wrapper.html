@@ -1,0 +1,9 @@
+<section data-markdown data-separator-vertical="^\n--\n$">
+  <textarea data-template>
+  {% capture slide_content %}
+  {% include {{ include.file }} %}
+  {% endcapture %}
+
+  {{ slide_content | markdownify }}
+  </textarea>
+</section>
