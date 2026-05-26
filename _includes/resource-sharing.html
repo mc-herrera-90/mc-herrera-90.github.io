@@ -1,14 +1,16 @@
 <style>
-  .resource__iconBtn {
+.resource__iconBtn {
   background: transparent;
   border: 1px solid transparent;
   color: var(--text-muted-color);
   padding: 4px 6px;
   border-radius: 6px;
   cursor: pointer;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   transition: all .15s ease;
 }
 
@@ -22,6 +24,7 @@
   color: var(--text-color);
 }
 </style>
+
 <div class="resource__bottom">
 
   <div>
@@ -31,36 +34,65 @@
   <div style="display:flex; gap:10px; align-items:center;">
 
     <!-- SHARE -->
-    <button class="resource__iconBtn"
-      onclick="shareResource('{{ include.src }}')"
+    <button
+      class="resource__iconBtn"
+      onclick="shareResource(this)"
       title="Compartir">
+
       <i class="fa-solid fa-share-nodes"></i>
+
     </button>
 
     <!-- HELP -->
-    <div class="resource__help"
+    <div
+      class="resource__help"
       onclick="document.getElementById('resourceModal').style.display='flex'">
+
       <i class="fa-solid fa-circle-question"></i>
       atajos
+
     </div>
 
   </div>
 
 </div>
+
 <script>
-async function shareResource(url) {
-  const fullUrl = new URL(url, window.location.origin).href;
+async function shareResource(btn) {
+
+  const fullUrl = window.location.href;
 
   if (navigator.share) {
+
     try {
+
       await navigator.share({
         title: document.title,
         url: fullUrl
       });
+
     } catch (e) {}
+
   } else {
-    navigator.clipboard.writeText(fullUrl);
-    alert("Link copiado al portapapeles");
+
+    try {
+
+      await navigator.clipboard.writeText(fullUrl);
+
+      const original = btn.innerHTML;
+
+      btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+      setTimeout(() => {
+        btn.innerHTML = original;
+      }, 1200);
+
+    } catch (e) {
+
+      console.error('No se pudo copiar el enlace');
+
+    }
+
   }
 }
 </script>
