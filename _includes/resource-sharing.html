@@ -1,0 +1,66 @@
+<style>
+  .resource__iconBtn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted-color);
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s ease;
+}
+
+.resource__iconBtn i {
+  font-size: 0.9rem;
+}
+
+.resource__iconBtn:hover {
+  background: var(--sidebar-hover-bg);
+  border-color: var(--btn-border-color);
+  color: var(--text-color);
+}
+</style>
+<div class="resource__bottom">
+
+  <div>
+    <kbd>F</kbd> pantalla completa
+  </div>
+
+  <div style="display:flex; gap:10px; align-items:center;">
+
+    <!-- SHARE -->
+    <button class="resource__iconBtn"
+      onclick="shareResource('{{ include.src }}')"
+      title="Compartir">
+      <i class="fa-solid fa-share-nodes"></i>
+    </button>
+
+    <!-- HELP -->
+    <div class="resource__help"
+      onclick="document.getElementById('resourceModal').style.display='flex'">
+      <i class="fa-solid fa-circle-question"></i>
+      atajos
+    </div>
+
+  </div>
+
+</div>
+<script>
+async function shareResource(url) {
+  const fullUrl = new URL(url, window.location.origin).href;
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: document.title,
+        url: fullUrl
+      });
+    } catch (e) {}
+  } else {
+    navigator.clipboard.writeText(fullUrl);
+    alert("Link copiado al portapapeles");
+  }
+}
+</script>

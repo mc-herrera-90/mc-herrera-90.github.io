@@ -199,20 +199,9 @@
     {% endif %}
 
     <iframe allowfullscreen src="{{ include.src | relative-url }}"></iframe>
+{% include resource-sharing.html url=include.src title=page.title %}
 
-    <div class="resource__bottom">
 
-      <div>
-        <kbd>F</kbd> pantalla completa
-      </div>
-
-      <div class="resource__help"
-        onclick="document.getElementById('resourceModal').style.display='flex'">
-        <i class="fa-solid fa-circle-question"></i>
-        atajos
-      </div>
-
-    </div>
 
   </div>
 </div>
