@@ -3,7 +3,7 @@ layout: page
 title: "Detalle"
 ---
 
-<h2 class="fw-bold">{{ page.title }}</h2>
+<h2 class="fw-bold display-3 text-center">{{ page.title }}</h2>
 
 <p class="fs-5">{{ page.description }}</p>
 
@@ -13,5 +13,5 @@ title: "Detalle"
 </div>
 {% include embed/pdf.html file=page.src target=page.target %}
 {% else %}
-{% include embed/iframe.html src=page.src target="true" %}
+{% include embed/ifr-reveal.html src=page.src target="true" %}
 {% endif %}

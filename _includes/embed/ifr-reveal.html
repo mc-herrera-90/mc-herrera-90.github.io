@@ -1,0 +1,296 @@
+<style>
+.resource {
+  max-width: 100%;
+  margin: 1.5rem 0;
+}
+
+/* FRAME */
+.resource__frame {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  box-shadow: var(--card-shadow);
+}
+
+/* TOPBAR */
+.resource__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--sidebar-bg);
+  border-bottom: 1px solid var(--sidebar-border-color);
+}
+
+.resource__status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--text-muted-color);
+}
+
+.resource__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+/* BOTÓN */
+.resource__btn {
+  font-size: 0.75rem;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: var(--button-bg);
+  border: 1px solid var(--btn-border-color);
+  color: var(--text-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.resource__btn i {
+  color: var(--link-color);
+}
+
+.resource__btn:hover {
+  background: var(--sidebar-hover-bg);
+}
+
+/* IFRAME */
+.resource__frame iframe {
+  width: 100%;
+  height: 520px;
+  border: none;
+  display: block;
+}
+
+/* BOTTOM BAR */
+.resource__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  color: var(--text-muted-color);
+  background: var(--tb-odd-bg);
+  border-top: 1px solid var(--tb-border-color);
+}
+
+/* HELP */
+.resource__help {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.resource__help i {
+  color: var(--em-color);
+}
+
+/* KBD */
+.resource__bottom kbd {
+  font-family: monospace;
+  font-size: 0.65rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--kbd-bg-color);
+  border: 1px solid var(--kbd-wrap-color);
+  color: var(--kbd-text-color);
+}
+
+/* MODAL */
+.resource-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.resource-modal__content {
+  width: 380px;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+
+.resource-modal__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  background: var(--sidebar-bg);
+  border-bottom: 1px solid var(--sidebar-border-color);
+}
+
+.resource-modal__close {
+  cursor: pointer;
+  color: var(--text-muted-color);
+}
+
+.resource-modal__body {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.75rem;
+  color: var(--text-color);
+}
+
+.resource-modal__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.resource-modal kbd {
+  font-family: monospace;
+  font-size: 0.65rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--kbd-bg-color);
+  border: 1px solid var(--kbd-wrap-color);
+}
+
+/* MOBILE */
+@media(max-width: 435px) {
+  .resource__frame iframe {
+    height: 270px;
+  }
+  .resource__frame {
+    border-radius: 0;
+    margin: auto -1.2rem;
+  }
+}
+@media (min-width: 435px) and (max-width: 768px) {
+  .resource__frame iframe {
+    height: 380px;
+  }
+}
+</style>
+
+<div class="resource">
+
+  <div class="resource__frame">
+
+    {% if include.target %}
+    <div class="resource__topbar">
+
+      <div class="resource__status">
+        <span class="resource__dot"></span>
+        <span>Vista previa</span>
+      </div>
+
+      <a class="resource__btn" target="_blank" href="{{ include.src }}">
+        <i class="fa-solid fa-up-right-from-square"></i>
+        Abrir
+      </a>
+
+    </div>
+    {% endif %}
+
+    <iframe allowfullscreen src="{{ include.src | relative-url }}"></iframe>
+
+    <div class="resource__bottom">
+
+      <div>
+        <kbd>F</kbd> pantalla completa
+      </div>
+
+      <div class="resource__help"
+        onclick="document.getElementById('resourceModal').style.display='flex'">
+        <i class="fa-solid fa-circle-question"></i>
+        atajos
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL ATAJOS REVEAL -->
+<div id="resourceModal" class="resource-modal"
+  onclick="this.style.display='none'">
+
+  <div class="resource-modal__content"
+    onclick="event.stopPropagation()">
+
+    <div class="resource-modal__header">
+      <span>Atajos</span>
+      <span class="resource-modal__close"
+        onclick="document.getElementById('resourceModal').style.display='none'">✕</span>
+    </div>
+
+    <div class="resource-modal__body">
+
+      <div class="resource-modal__row">
+        <span><kbd>→</kbd> / <kbd>Space</kbd></span>
+        <span>Siguiente</span>
+      </div>
+
+      <div class="resource-modal__row">
+        <span><kbd>←</kbd></span>
+        <span>Anterior</span>
+      </div>
+
+      <div class="resource-modal__row">
+        <span><kbd>↓</kbd></span>
+        <span>Siguiente subnivel</span>
+      </div>
+
+      <div class="resource-modal__row">
+        <span><kbd>↑</kbd></span>
+        <span>Subnivel anterior</span>
+      </div>
+
+      <div class="resource-modal__row">
+        <span><kbd>F</kbd></span>
+        <span>Pantalla completa</span>
+      </div>
+
+      <div class="resource-modal__row">
+        <span><kbd>O</kbd></span>
+        <span>Vista general</span>
+      </div>
+
+      <div class="resource-modal__row">
+        <span><kbd>B</kbd></span>
+        <span>Pantalla en negro</span>
+      </div>
+
+      <div class="resource-modal__row">
+        <span><kbd>S</kbd></span>
+        <span>Notas del presentador</span>
+      </div>
+
+      <div class="resource-modal__row">
+        <span><kbd>Esc</kbd></span>
+        <span>Salir</span>
+      </div>
+
+      <div class="resource-modal__row">
+        <span><kbd>Ctrl</kbd> + click</span>
+        <span>Activar enlaces</span>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === "Escape") {
+    document.getElementById('resourceModal').style.display = 'none';
+  }
+});
+</script>
