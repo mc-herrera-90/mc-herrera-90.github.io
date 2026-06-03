@@ -117,6 +117,17 @@
         border-color: #6a6a6a;
       }
     }
+
+    @media(hover: hover) {
+      .h-gray-to-color {
+        filter: grayscale(100%) opacity(0.75);
+        transition: filter 0.3s ease;
+      }
+      .h-gray-to-color:hover {
+        filter: grayscale(0%) opacity(1);
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -154,6 +165,17 @@
       ? "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css"
       : "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css";
 
+    document.querySelectorAll("section[data-bg-light]").forEach(slide => {
+
+    slide.setAttribute(
+      "data-background-image",
+      isDark
+        ? slide.dataset.bgDark
+        : slide.dataset.bgLight
+    );
+
+});
+
   }
   window.addEventListener("load", setTheme);
   window.matchMedia("(prefers-color-scheme: dark)")
@@ -162,6 +184,7 @@
   Reveal.initialize({
     hash: true,
     slideNumber: true,
+    embedded: false,
     copycode: {
       display: "icons",
       text: {

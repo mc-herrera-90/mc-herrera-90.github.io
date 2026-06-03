@@ -1,0 +1,223 @@
+---
+---
+
+# Modelo TCP/IP
+
+## Fundamentos de Redes y Comunicación
+
+---
+
+<!-- .slide: data-background-image="/assets/media/extras/bg-digital-dark.webp" data-background-blend-mode="multiply" data-auto-animate class="white" -->
+
+<h2 class="r-fit-text">¿Qué es TCP/IP?</h2>
+
+
+---
+
+<!-- .slide: data-auto-animate -->
+
+<h2 class="r-fit-text">¿Qué es TCP/IP?</h2>
+
+TCP es un protocolo de comunicación que permite enviar información de forma segura y ordenada entre dispositivos conectados a Internet, asegurando que los datos lleguen correctamente.
+
+---
+
+<style scoped>
+ .fragment.blur {
+    filter: blur(5px);
+  }
+  .fragment.blur.visible {
+    filter: none;
+  }
+
+.editorial{
+  list-style:none;
+  padding:0;
+  counter-reset:item;
+  font-size:1.4rem;
+}
+
+.editorial li{
+  counter-increment:item;
+  display:flex;
+  gap:20px;
+  margin: 0;
+  align-items:center;
+}
+
+.editorial li::before{
+  content:counter(item, decimal-leading-zero);
+  font-size: 2.2rem;
+  line-height:1;
+  color:#d0c7b7;
+  font-weight:bold;
+}
+</style>
+
+# ¿Qué significa TCP/IP?
+
+<div style="display: flex; gap: 40px; margin-bottom: 20px: justify-content: space-between;">
+
+<div>
+
+## TCP
+
+<h4 class="fragment fragment custom blur"><em>Transmission Control<br/>Protocol</em></h4>
+
+
+<ul class="fragment editorial">
+  <li>Garantiza el envío correcto de los datos.</li>
+  <li>Verifica errores.</li>
+  <li>Divide y reordena paquetes.</li>
+</ul>
+
+</div>
+
+
+<div>
+
+## IP
+
+<h4 class="fragment fragment custom blur"><em>Internet<br/>Protocol</em></h4>
+
+
+<ul class="fragment editorial">
+  <li>Se encarga del direccionamiento.</li>
+  <li>Identifica origen y destino.</li>
+  <li>Dirige los paquetes al destino.</li>
+</ul>
+
+</div>
+
+
+---
+
+<!-- .slide: data-transition="concave-out" -->
+
+
+# Capas del Modelo TCP/IP
+
+
+<p style="font-size: 1.5rem;">El modelo TCP/IP se compone de 4 capas. <strong><em>Es importante no confundirlo con el modelo OSI, ya que ambos organizan la red de forma distinta</em></strong></p>
+
+
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 2.5rem auto; cursor: pointer"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+--
+
+<!-- .slide: data-background-transition="concave-in concave-out" data-transition="concave-in concave-out" data-background="#eef8ef" data-background-size="contain" data-background-position="center" -->
+
+# Capa 4: Aplicación
+
+<p style="font-size: 1.5rem;">Es la capa más cercana al usuario y donde funcionan las aplicaciones que usamos diariamente, como navegadores web, correos electrónicos, videojuegos y plataformas de mensajería. Aquí se generan y reciben los datos que viajarán por la red.</p>
+
+<img src="/assets/media/redes/tcp-ip/capa-4-aplicacion.webp" width="100%" data-preview-image>
+
+
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+--
+
+<!-- .slide: data-background-transition="concave-in concave-out" data-transition="concave-in concave-out" data-background="#e9f3fd" data-background-size="contain" data-background-position="center" -->
+
+# Capa 3: Transporte
+
+<p style="font-size: 1.5rem;">Es la capa encargada de la transmisión de datos entre dispositivos, asegurando la entrega correcta y el control del flujo. Aquí operan protocolos como TCP y UDP.</p>
+
+<img src="/assets/media/redes/tcp-ip/capa-3-transporte.webp" width="100%" data-preview-image>
+
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+--
+
+<!-- .slide: data-background-transition="concave-in concave-out" data-transition="concave-in concave-out" data-background="#fdf5e9" data-background-size="contain" data-background-position="center" -->
+
+# Capa 2: Internet
+
+<p style="font-size: 1.5rem">Es la capa encargada del direccionamiento y enrutamiento de los datos entre redes, utilizando direcciones IP para enviar la información hacia su destino.</p>
+
+<img src="/assets/media/redes/tcp-ip/capa-2-internet.webp" width="100%" data-preview-image>
+
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+--
+
+<!-- .slide: data-background-transition="concave-in concave-out" data-transition="concave-in concave-out" data-background="#f6f3fa" data-background-size="contain" data-background-position="center" -->
+
+# Capa 1: Acceso a red
+
+<p style="font-size: 1.5rem;">
+Es la capa encargada de la transmisión de datos a través del medio físico o inalámbrico, incluyendo tecnologías como Ethernet, Wi-Fi, redes móviles (4G/5G) y enlaces satelitales.
+</p>
+
+
+<img src="/assets/media/redes/tcp-ip/capa-1-acceso-a-la-red.webp" width="100%" data-preview-image>
+
+--
+
+<!-- .slide: data-background-transition="concave-in" data-transition="concave-in" data-background="#fafbfa" data-background-size="contain" data-background-position="center" -->
+
+<p style="font-size: 1.5rem;">El flujo de datos en el modelo TCP/IP comienza en la capa de Aplicación, desciende por Transporte e Internet, y finalmente llega a la capa de Acceso a la red para ser transmitido físicamente. En el destino, el proceso se invierte hasta llegar a la aplicación final.</p>
+
+<img src="/assets/media/redes/modelo-de-capas-tcp-ip-bg-light.webp" width="100%" data-preview-image>
+
+---
+
+# Capa de Transporte
+
+### Protocolos
+
+| Protocolo | Función principal | Ejemplo de uso | ¿Cómo funciona? |
+|-----------|------------------|----------------|:-------:|
+| __TCP__ | Proporciona comunicación confiable, control de errores y entrega ordenada de datos. | HTTP/HTTPS, FTP, SSH. | <a data-preview-image="/assets/media/redes/como-funciona-tcp.webp"><i class="fa-solid fa-image"></i></a> |
+| __UDP__ | Envía datos rápidamente sin establecer conexión ni garantizar la entrega. | DNS, VoIP, streaming, videojuegos en línea. | <a data-preview-image="/assets/media/redes/como-funciona-udp.webp"><i class="fa-solid fa-image"></i></a> |
+| __SCTP__ | Transmite mensajes de forma confiable permitiendo múltiples flujos en una misma conexión. | Telecomunicaciones y señalización de redes. | <a data-preview-image="/assets/media/redes/como-funciona-sctp.webp"><i class="fa-solid fa-image"></i></a> |
+| __DCCP__ | Proporciona control de congestión para aplicaciones que priorizan la velocidad sobre la confiabilidad. | Streaming multimedia en tiempo real. | <a data-preview-image="/assets/media/redes/como-funciona-dccp.webp"><i class="fa-solid fa-image"></i></a> |
+
+
+---
+
+
+# Comparación TCP vs UDP
+
+<img src="/assets/media/redes/tcp.avif" width="40%" data-preview-image="/assets/media/redes/como-funciona-tcp.webp" class="h-gray-to-color">
+
+<img src="/assets/media/redes/udp.avif" width="40%" data-preview-image="https://imgfz.com/i/UiSD9Im.gif" class="h-gray-to-color">
+
+---
+
+# Capa de Internet
+
+### Protocolos
+
+| Protocolo | Función principal | Ejemplo de uso | ¿Cómo funciona? |
+|-----------|------------------|----------------|:-------:|
+| IP | Direccionamiento y enrutamiento de paquetes. | Comunicación entre redes. | <a data-preview-image="/assets/media/redes/como-funciona-icmp.webp"><i class="fa-solid fa-image"></i></a> |
+| ICMP | Diagnóstico y control de errores. | __ping__, __traceroute__. | <a data-preview-image="/assets/media/redes/como-funciona-icmp.webp"><i class="fa-solid fa-image"></i></a> |
+| ARP | Obtiene la dirección MAC a partir de una IP. | Comunicación en una LAN. | <a data-preview-image="/assets/media/redes/como-funciona-arp.webp"><i class="fa-solid fa-image"></i></a> |
+| IGMP | Gestión de grupos multicast. | Streaming y videoconferencias. | <a data-preview-image="/assets/media/redes/como-funciona-igmp.webp"><i class="fa-solid fa-image"></i></a> |
+
+---
+
+# Dirección IP
+
+## ¿Qué es?
+
+Identificador único de un dispositivo dentro de una red.
+
+## Tipos
+
+### IPv4
+
+```text
+192.168.1.1
+```
+
+### IPv6
+
+```text
+2001:0db8:85a3:0000:0000:8a2e:0370:7334
+```
+
+
+
