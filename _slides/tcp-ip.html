@@ -256,7 +256,6 @@ Cada acción del usuario en la red se apoya en protocolos de la capa de aplicaci
 | Enviar un correo electrónico | SMTP | <a data-preview-image="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDEwNnJwNG54cW5tcGdoMDFtampkcGMya3IyaDVlZXRhZW9xMjUxOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kIFrWIF6AAe4M/giphy.gif"><i class="fa-solid fa-image"></i></a> |
 | Descargar archivos de un servidor | FTP\/SFTP | <a data-preview-image="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDEwNnJwNG54cW5tcGdoMDFtampkcGMya3IyaDVlZXRhZW9xMjUxOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kIFrWIF6AAe4M/giphy.gif"><i class="fa-solid fa-image"></i></a> |
 
-
 ---
 
 ## QUIZ
@@ -267,16 +266,37 @@ Cada acción del usuario en la red se apoya en protocolos de la capa de aplicaci
 
 <div class="quiz">
 <div class="row">
-  <div class="card answer" data-correct="false">5</div>
-  <div class="card answer" data-correct="true" data-feedback="Correcto. El modelo TCP/IP está compuesto por 4 capas.">4</div>
+  <div class="card answer"
+       data-correct="false"
+       data-feedback="❌ Incorrecto. El modelo TCP/IP no está compuesto por 5 capas.">
+    5
+  </div>
+
+  <div class="card answer"
+       data-correct="true"
+       data-feedback="✅ Correcto. El modelo TCP/IP está compuesto por 4 capas: Aplicación, Transporte, Internet y Acceso a Red.">
+    4
+  </div>
 </div>
 
 <div class="row">
-  <div class="card answer" data-correct="false">6</div>
-  <div class="card answer" data-correct="false">2</div>
+  <div class="card answer"
+       data-correct="false"
+       data-feedback="❌ Incorrecto. TCP/IP no posee 6 capas.">
+    6
+  </div>
+
+  <div class="card answer"
+       data-correct="false"
+       data-feedback="❌ Incorrecto. TCP/IP tiene más de 2 capas.">
+    2
+  </div>
 </div>
+
 <p class="result"></p>
 </div>
+<a onclick="Reveal.down(); return false;" style="display: none; margin: 1rem auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
 
 --
 
@@ -288,13 +308,13 @@ Cada acción del usuario en la red se apoya en protocolos de la capa de aplicaci
 <div class="card answer"
      data-correct="false"
      data-feedback="❌ Incorrecto. El direccionamiento IP corresponde a la capa de Internet.">
-     Asignar direcciones IP
+     (A) Asignar direcciones IP
 </div>
 
 <div class="card answer"
      data-correct="true"
      data-feedback="✅ Correcto. La capa de aplicación proporciona servicios de red directamente a las aplicaciones del usuario.">
-    Proporcionar servicios de red
+    (B) Proporcionar servicios de red
 </div>
 </div>
 
@@ -302,13 +322,52 @@ Cada acción del usuario en la red se apoya en protocolos de la capa de aplicaci
 <div class="card answer"
      data-correct="false"
      data-feedback="❌ Incorrecto. La transmisión física corresponde a la capa de acceso a red.">
-    Transmitir señales
+    (C) Transmitir señales
 </div>
 
 <div class="card answer"
      data-correct="false"
      data-feedback="❌ Incorrecto. El control de errores es una función de TCP en la capa de transporte.">
-    Controlar errores
+    (D) Controlar errores
+</div>
+</div>
+
+<p class="result"></p>
+
+</div>
+<a onclick="Reveal.down(); return false;" style="display: none; margin: 1rem auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+--
+
+### ¿Qué protocolo de la capa de aplicación permite administrar un servidor de forma remota y segura?
+
+<div class="quiz">
+
+<div class="row">
+<div class="card answer"
+     data-correct="false"
+     data-feedback="❌ Incorrecto. HTTP se utiliza para la navegación web.">
+     (A) HTTP
+</div>
+
+<div class="card answer"
+     data-correct="false"
+     data-feedback="❌ Incorrecto. DNS resuelve nombres de dominio a direcciones IP.">
+    (B) DNS
+</div>
+</div>
+
+<div class="row">
+<div class="card answer"
+     data-correct="true"
+     data-feedback="✅ Correcto. SSH permite acceder y administrar equipos remotamente mediante una conexión cifrada.">
+    (C) SSH
+</div>
+
+<div class="card answer"
+     data-correct="false"
+     data-feedback="❌ Incorrecto. FTP se utiliza para transferir archivos.">
+    (D) FTP
 </div>
 </div>
 

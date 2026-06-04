@@ -15,11 +15,26 @@ window.addEventListener("load", () => {
 
         result.textContent = card.dataset.feedback;
 
-        card.classList.add(
-          card.dataset.correct === "true"
-            ? "correct"
-            : "incorrect"
-        );
+        const nextButton = quiz.parentElement.querySelector(".next-slide");
+
+        if (card.dataset.correct === "true") {
+
+          card.classList.add("correct");
+
+          if (nextButton) {
+            nextButton.style.display = "table";
+          }
+
+        } else {
+
+          card.classList.add("incorrect");
+
+          if (nextButton) {
+            nextButton.style.display = "none";
+          }
+
+        }
+
 
       });
 
