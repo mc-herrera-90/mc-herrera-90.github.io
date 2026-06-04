@@ -1,0 +1,62 @@
+.row {
+  padding: 0;
+  margin: 20px 0;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+
+.card {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+
+  padding: 18px 10px;
+  margin: 10px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+
+  min-width: 160px;
+  text-align: center;
+  transition: box-shadow 0.2s ease;
+  flex: 1 1 0;
+}
+
+/* hover sutil */
+.card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* título dentro de la card */
+.card h1,
+.card h2,
+.card h3 {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.answer {
+  cursor: pointer;
+}
+
+/* texto */
+.card p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.correct {
+  background-color: rgb(12, 101, 12);
+  color: #fff;
+}
+.incorrect {
+  background-color: rgb(124, 26, 4);
+  color: #fff;
+}
+
+.correct ~ #result {
+  color: rgb(40, 118, 40);
+}

@@ -2,190 +2,199 @@
 ---
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="utf-8">
-  <title>{{ page.title }}</title>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
 
-  <link rel="stylesheet" href="{{ '/assets/css/libs/reveal.js/reveal.min.css' | relative_url }}">
-  <link id="highlight-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
-  <link id="reveal-theme" rel="stylesheet" href="/assets/css/libs/reveal.js/theme/{{ page.theme | default: 'black'}}.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css">
-  <link rel="stylesheet" href="{{ 'assets/plugins/copycode.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/libs/reveal.js/reveal.min.css' | relative_url }}">
+    <link
+      id="highlight-theme"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+    <link
+      id="reveal-theme"
+      rel="stylesheet"
+      href="/assets/css/libs/reveal.js/theme/{{ page.theme | default: 'black'}}.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ 'assets/plugins/copycode.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/libs/reveal.js/custom.css' | relative_url }}">
 
-  <style>
+    <style>
 
-    p code {
-      font-size: xx-large !important;
-    }
-    .slides p, .slides ol, .slides ul {
-      text-align: left;
-    }
+      p code {
+        font-size: xx-large !important;
+      }
+      .slides p,
+      .slides ol,
+      .slides ul {
+        text-align: left;
+      }
 
-    .reveal blockquote {
-      width: 95%;
-      margin: 1.5rem 0;
-      padding: 1rem 1.25rem;
-      border-left: 4px solid #4f8cff;
-      font-size: 0.7em;
-      border-radius: 6px;
-      box-shadow: none;
-    }
+      .reveal blockquote {
+        width: 95%;
+        margin: 1.5rem 0;
+        padding: 1rem 1.25rem;
+        border-left: 4px solid #4f8cff;
+        font-size: 0.7em;
+        border-radius: 6px;
+        box-shadow: none;
+      }
 
-    kbd {
-      display: inline-block;
-      padding: 0 5px;
-      font-family: monospace;
-      color: #222;
-      background: linear-gradient(#f9f9f9, #dcdcdc);
-      border: 1px solid #aaa;
-      border-radius: 5px;
-    }
+      kbd {
+        display: inline-block;
+        padding: 0 5px;
+        font-family: monospace;
+        color: #222;
+        background: linear-gradient(#f9f9f9, #dcdcdc);
+        border: 1px solid #aaa;
+        border-radius: 5px;
+      }
 
-    kbd:active {
-      transform: translateY(2px);
-      box-shadow:
-        0 1px 0 #aaa,
-        0 2px 3px rgba(0,0,0,0.2);
-    }
-    .codeblock {
-      border-radius: 8px;
-      padding: 0 !important;
-      overflow: clip;
-    }
+      kbd:active {
+        transform: translateY(2px);
+        box-shadow: 0 1px 0 #aaa
+        , 0 2px 3px rgba(0, 0, 0, 0.2);
+      }
+      .codeblock {
+        border-radius: 8px;
+        padding: 0 !important;
+        overflow: clip;
+      }
 
-    .codeblock pre {
-      white-space: normal;
-      width: 100%;
-      padding: 6px;
-    }
+      .codeblock pre {
+        white-space: normal;
+        width: 100%;
+        padding: 6px;
+      }
 
-    .cc-window-bar {
-      padding-bottom: 0 !important;
-      margin: 4px;
-      color: #222;
-      width: 100%;
-    }
-    code {
-      white-space: pre;
-    }
+      .cc-window-bar {
+        padding-bottom: 0 !important;
+        margin: 4px;
+        color: #222;
+        width: 100%;
+      }
+      code {
+        white-space: pre;
+      }
 
-    .white * {
-      color: white !important;
-    }
-    .nav-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-
-      padding: 8px 14px;
-
-      border: 1px solid #e5e7eb;
-      background: white;
-      color: #111;
-
-      font-size: 0.85em;
-      font-weight: 500;
-
-      border-radius: 8px;
-
-      cursor: pointer;
-
-      transition: all 0.15s ease;
-    }
-
-    .nav-btn:hover {
-      background: #f9fafb;
-      border-color: #d1d5db;
-    }
-
-    /* icono limpio */
-    .nav-btn i[class*="fa-arrow"] {
-      font-size: 0.85em;
-      opacity: 0.7;
-    }
-
-    /* opcional: versión dark mode simple */
-    @media (prefers-color-scheme: dark) {
+      .white * {
+        color: white !important;
+      }
       .nav-btn {
-        background: #111;
-        color: #f3f4f6;
-        border: 1px solid #2a2a2a;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        padding: 8px 14px;
+
+        border: 1px solid #e5e7eb;
+        background: white;
+        color: #111;
+
+        font-size: 0.85em;
+        font-weight: 500;
+
+        border-radius: 8px;
+
+        cursor: pointer;
+
+        transition: all 0.15s ease;
       }
 
       .nav-btn:hover {
-        background: #212121;
-        border-color: #6a6a6a;
+        background: #f9fafb;
+        border-color: #d1d5db;
       }
-    }
 
-    @media(hover: hover) {
-      .h-gray-to-color {
-        filter: grayscale(100%) opacity(0.75);
-        transition: filter 0.3s ease;
+      /* icono limpio */
+      .nav-btn i[class*="fa-arrow"] {
+        font-size: 0.85em;
+        opacity: 0.7;
       }
-      .h-gray-to-color:hover {
-        filter: grayscale(0%) opacity(1);
+
+      /* opcional: versión dark mode simple */
+      @media (prefers-color-scheme: dark) {
+        .nav-btn {
+          background: #111;
+          color: #f3f4f6;
+          border: 1px solid #2a2a2a;
+        }
+
+        .nav-btn:hover {
+          background: #212121;
+          border-color: #6a6a6a;
+        }
       }
-    }
 
-  </style>
-</head>
-<body>
+      @media(hover: hover) {
+        .h-gray-to-color {
+          filter: grayscale(100%) opacity(0.75);
+          transition: filter 0.3s ease;
+        }
+        .h-gray-to-color:hover {
+          filter: grayscale(0%) opacity(1);
+        }
+      }
 
-<div class="reveal">
-  <div class="slides">
-    <section data-markdown data-separator-vertical="^\n--\n$">
-      <textarea data-template>
-        {{ content }}
-      </textarea>
-    </section>
-  </div>
-</div>
+    </style>
+  </head>
+  <body>
 
-<!-- Reveal.js  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/markdown/markdown.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/highlight/highlight.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/math/math.js"></script>
-<script src="{{ 'assets/plugins/copycode.js' | relative_url }}"></script>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator-vertical="^\n--\n$">
+          <textarea data-template>
+            {{ content }}
+          </textarea>
+        </section>
+      </div>
+    </div>
 
-<script>
-  const themeLink = document.getElementById("reveal-theme");
-  const highlightTheme = document.getElementById("highlight-theme");
+    <!-- Reveal.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/math/math.js"></script>
+    <script src="{{ 'assets/plugins/copycode.js' | relative_url }}"></script>
+    <script src="{{ 'assets/js/trivia.js' | relative_url }}"></script>
 
-  function setTheme() {
-    const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    <script>
+        const themeLink = document.getElementById("reveal-theme");
+        const highlightTheme = document.getElementById("highlight-theme");
 
-    const theme = isDark ? "black" : "white";
+        function setTheme() {
+          const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    themeLink.href =
+          const theme = isDark ? "black" : "white";
+
+          themeLink.href =
       `/assets/css/libs/reveal.js/theme/${theme}.css`;
 
-    highlightTheme.href = isDark
+          highlightTheme.href = isDark
       ? "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css"
       : "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css";
 
-    document.querySelectorAll("section[data-bg-light]").forEach(slide => {
+          document.querySelectorAll("section[data-bg-light]").forEach(slide => {
 
-    slide.setAttribute(
+          slide.setAttribute(
       "data-background-image",
       isDark
         ? slide.dataset.bgDark
         : slide.dataset.bgLight
-    );
+          );
 
-});
+      });
 
-  }
-  window.addEventListener("load", setTheme);
-  window.matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", setTheme);
+        }
+        window.addEventListener("load", setTheme);
+        window.matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", setTheme);
 
-  Reveal.initialize({
-    hash: true,
-    slideNumber: true,
-    embedded: false,
-    copycode: {
+        Reveal.initialize({
+          hash: true,
+          slideNumber: true,
+          embedded: false,
+          copycode: {
       display: "icons",
       text: {
         copy: "Copiar",
@@ -198,13 +207,13 @@
         copybg: "transparent",
         radius: "0.4em"
       }
-    },
-    plugins: [RevealMarkdown, CopyCode, RevealHighlight, RevealMath.KaTeX]
+          },
+          plugins: [RevealMarkdown, CopyCode, RevealHighlight, RevealMath.KaTeX]
 
-  });
+        });
 
-  Reveal.on('ready', () => {
-    document.querySelectorAll(".codeblock").forEach(block => {
+        Reveal.on('ready', () => {
+          document.querySelectorAll(".codeblock").forEach(block => {
 
       const code = block.querySelector("code");
       const title = block.querySelector(".cc-window-title");
@@ -225,9 +234,9 @@
 
       title.textContent = language
       })
-    })
+          })
 
-</script>
+    </script>
 
-</body>
+  </body>
 </html>

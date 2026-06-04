@@ -199,25 +199,119 @@ Es la capa encargada de la transmisión de datos a través del medio físico o i
 
 ---
 
-# Dirección IP
+# Capa de aplicación
 
-## ¿Qué es?
+La capa de aplicación del __modelo TCP/IP__ engloba en el modelo OSI a 3 capas:
 
-Identificador único de un dispositivo dentro de una red.
+<a data-preview-image="/assets/media/redes/tcp-ip/relacion-entre-modelos-tcp-y-osi-aplicacion.webp">
 
-## Tipos
+<div class="row">
+<div class="card">
 
-### IPv4
+#### Aplicación
+<center>TCP/IP - Capa 4</center>
+</div>
 
-```text
-192.168.1.1
-```
+</div>
 
-### IPv6
+<div class="row">
 
-```text
-2001:0db8:85a3:0000:0000:8a2e:0370:7334
-```
+<div class="card">
+
+#### Aplicación
+<center>OSI - Capa 7</center>
+
+</div>
+
+<div class="card">
+
+#### Presentación
+<center>OSI - Capa 6</center>
+
+</div>
+
+<div class="card">
+
+#### Sesión
+<center>OSI - Capa 5</center>
+
+</div>
+</div>
+</a>
 
 
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
 
+--
+
+## Acciones y Protocolos
+
+Cada acción del usuario en la red se apoya en protocolos de la capa de aplicación.
+
+| Acción | Protocolo  | ¿Cómo funciona? |
+| ------ | :--------: | :--:  |
+| Abrir Google | HTTP\/HTTPS | |
+| Buscar una página | DNS | <a data-preview-image="https://www.manageengine.com/products/oputils/images/IPAM-in-DNS-resolution-2.gif"><i class="fa-solid fa-image"></i></a> |
+| Conectarse remotamente a otro equipo  | SSH | <a data-preview-image="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDEwNnJwNG54cW5tcGdoMDFtampkcGMya3IyaDVlZXRhZW9xMjUxOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kIFrWIF6AAe4M/giphy.gif"><i class="fa-solid fa-image"></i></a> |
+| Enviar un correo electrónico | SMTP | <a data-preview-image="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDEwNnJwNG54cW5tcGdoMDFtampkcGMya3IyaDVlZXRhZW9xMjUxOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kIFrWIF6AAe4M/giphy.gif"><i class="fa-solid fa-image"></i></a> |
+| Descargar archivos de un servidor | FTP\/SFTP | <a data-preview-image="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDEwNnJwNG54cW5tcGdoMDFtampkcGMya3IyaDVlZXRhZW9xMjUxOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kIFrWIF6AAe4M/giphy.gif"><i class="fa-solid fa-image"></i></a> |
+
+
+---
+
+## QUIZ
+
+--
+
+## ¿Cuántas capas componen el TCP/IP?
+
+<div class="quiz">
+<div class="row">
+  <div class="card answer" data-correct="false">5</div>
+  <div class="card answer" data-correct="true" data-feedback="Correcto. El modelo TCP/IP está compuesto por 4 capas.">4</div>
+</div>
+
+<div class="row">
+  <div class="card answer" data-correct="false">6</div>
+  <div class="card answer" data-correct="false">2</div>
+</div>
+<p class="result"></p>
+</div>
+
+--
+
+## ¿Qué función tiene la capa de aplicación?
+
+<div class="quiz">
+
+<div class="row">
+<div class="card answer"
+     data-correct="false"
+     data-feedback="❌ Incorrecto. El direccionamiento IP corresponde a la capa de Internet.">
+     Asignar direcciones IP
+</div>
+
+<div class="card answer"
+     data-correct="true"
+     data-feedback="✅ Correcto. La capa de aplicación proporciona servicios de red directamente a las aplicaciones del usuario.">
+    Proporcionar servicios de red
+</div>
+</div>
+
+<div class="row">
+<div class="card answer"
+     data-correct="false"
+     data-feedback="❌ Incorrecto. La transmisión física corresponde a la capa de acceso a red.">
+    Transmitir señales
+</div>
+
+<div class="card answer"
+     data-correct="false"
+     data-feedback="❌ Incorrecto. El control de errores es una función de TCP en la capa de transporte.">
+    Controlar errores
+</div>
+</div>
+
+<p class="result"></p>
+
+</div>
