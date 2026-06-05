@@ -33,7 +33,6 @@ __Fórmula__:
 * (n) = bits para hosts
 * Se restan 2 porque una IP es de red y otra de broadcast.
 
-
 ---
 
 ## Laboratorios (800 hosts)
@@ -202,7 +201,7 @@ En binario:
 \begin{array}{cccc}
 \textcolor{green}{11111111} &
 \textcolor{green}{11111111} &
-\textcolor{green}{11111110} &
+\textcolor{green}{1111111}0 &
 00000000 \\\\
 255 & 255 & 254 & 0
 \end{array}
@@ -233,79 +232,276 @@ En binario:
 
 ## Invitados (120 hosts)
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 18px">
+<center>Buscamos el menor valor de (n):</center>
 
-\\[2^6 -2 = 62\\]
+<div style="display: flex; justify-content: space-evenly; align-items: center;">
+
+<div class="card-fit">
+
+\\[2^6 - 2 = 62\\]
 
 (no alcanza)
 
 </div>
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 18px">
+<div class="card-fit">
 
-\\[2^7 -2 = 126\\]
+\\[2^7 - 2 = 126\\]
 
 (si alcanza)
 
 </div>
 
-### Prefijo
+</div>
 
-\\[32 - 7 = /25\\]
+<div style="display: flex; justify-content: space-evenly; align-items: start;">
 
-Máscara:
+<div class="card-fit">
 
-**255.255.255.128**
+#### Prefijo
+
+<font size="5">
+
+\\[
+{\scriptstyle
+\begin{array}{cccc}
+32 & - & 7 & = /25 \\\\
+\text{Total} & \text{} & \text{Host} & \text{CIDR}
+\end{array}
+}
+\\]
+
+<br/>
+
+\\[
+\text{CIDR } /25 =
+\begin{cases}
+25 \text{ bits de red} \\\\
+7 \text{ bits de host}
+\end{cases}
+\\]
+
+</font>
+
+</div>
+
+<div class="card-fit">
+
+#### Máscara de Subred
+
+En binario:
+
+<font size="4">
+
+\\[
+\begin{array}{cccc}
+\textcolor{green}{11111111} &
+\textcolor{green}{11111111} &
+\textcolor{green}{11111111} &
+\textcolor{green}{1}0000000 \\\\
+255 & 255 & 255 & 128
+\end{array}
+\\]
+
+</font>
+
+<font size="5">
+
+<br/>
+
+\\[
+\text{Cada bit representa potencias de 2:}
+\\]
+\\[
+\begin{array}{cccccccc}
+128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\\\
+2^7 & 2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0
+\end{array}
+\\]
+
+</font>
+
+</div>
 
 ---
 
 ## WAN (2 hosts)
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 18px">
+<center>Buscamos el menor valor de (n):</center>
 
-\\[2^2 -2 = 2\\]
+<div style="display: flex; justify-content: space-evenly; align-items: center;">
+
+<div class="card-fit">
+
+\\[2^1 - 2 = 0\\]
+
+(no alcanza)
+
+</div>
+
+<div class="card-fit">
+
+\\[2^2 - 2 = 2\\]
 
 (exacto)
 
 </div>
 
-### Prefijo
+</div>
 
-\\[32 - 2 = /30\\]
+<div style="display: flex; justify-content: space-evenly; align-items: start;">
 
-Máscara:
+<div class="card-fit">
 
-**255.255.255.252**
+#### Prefijo
+
+<font size="5">
+
+\\[
+{\scriptstyle
+\begin{array}{cccc}
+32 & - & 2 & = /30 \\\\
+\text{Total} & \text{} & \text{Host} & \text{CIDR}
+\end{array}
+}
+\\]
+
+<br/>
+
+\\[
+\text{CIDR } /30 =
+\begin{cases}
+30 \text{ bits de red} \\\\
+2 \text{ bits de host}
+\end{cases}
+\\]
+
+</font>
+
+</div>
+
+<div class="card-fit">
+
+#### Máscara de Subred
+
+En binario:
+
+<font size="4">
+
+\\[
+\begin{array}{cccc}
+\textcolor{green}{11111111} &
+\textcolor{green}{11111111} &
+\textcolor{green}{11111111} &
+\textcolor{green}{111111}00 \\\\
+255 & 255 & 255 & 252
+\end{array}
+\\]
+
+</font>
+
+<font size="5">
+
+<br/>
+
+\\[
+\text{Cada bit representa potencias de 2:}
+\\]
+\\[
+\begin{array}{cccccccc}
+128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\\\
+2^7 & 2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0
+\end{array}
+\\]
+
+</font>
+
+</div>
 
 ---
 
-## Paso 2: Asignar las redes (VLSM)
+## Paso 2
+### Asignar las redes (VLSM)
 
 <center>Se asignan desde la más grande a la más pequeña.</center>
 
 ---
 
-## Laboratorios
+#### Laboratorios
+
+
+<div style="display: flex; justify-content: space-evenly; align-items: start;">
+
+<div class="card-fit">
+
+<font size="5">
 
 Red:
 
 **172.16.0.0/22**
 
-Bloque:
+<br/>
 
-\\[256 - 252 = 4\\]
+#### Bloque
 
+\\[
+256 - 252 = 4
+\\]
 
 Avanza de 4 en el tercer octeto.
 
-Rango:
+</font>
+</div>
 
-* Primera IP: 172.16.0.1
-* Última IP: 172.16.3.254
+<div class="card-fit">
 
-Broadcast:
+<font size="4">
 
-* 172.16.3.255
+\\[
+\text{Rango de hosts} =
+\begin{cases}
+\text{Primera IP: 172.16.0.1} \\\\
+\text{Última IP: 172.16.3.254}
+\end{cases}
+\\]
+
+</font>
+<br/>
+
+<div style="display: flex; justify-content: center;">
+<font size="4">
+
+\\[
+\begin{array}{|c|}
+\hline
+\text{Puerta de enlace} \\\\
+\hline
+172.16.0.1 \\\\
+\hline
+\end{array}
+\\]
+
+</font>
+
+<font size="4">
+
+\\[
+\begin{array}{|c|}
+\hline
+\text{Broadcast} \\\\
+\hline
+172.16.3.255 \\\\
+\hline
+\end{array}
+\\]
+
+</font>
+
+</div>
+
+</div>
+
+</div>
 
 ---
 
