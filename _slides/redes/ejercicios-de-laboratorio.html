@@ -1,0 +1,276 @@
+---
+---
+
+**Datos del problema**
+
+Red: **172.16.0.0/16**
+
+Necesitas crear subredes para:
+
+| Área  | Hosts requeridos |
+| :-------------- | :---------------- |
+| Laboratorios | 800 |
+| Administración | 400 |
+| Invitados | 120 |
+| Enlace WAN | 2 |
+
+
+---
+
+## Paso 1: Calcular el prefijo de cada subred
+
+## Fórmula
+
+\\[
+2^n - 2 \geq Hosts
+\\]
+
+Donde:
+
+* (n) = bits para hosts
+* Se restan 2 porque una IP es de red y otra de broadcast.
+
+---
+
+## Laboratorios (800 hosts)
+
+
+<center>Buscamos el menor valor de (n):</center>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 18px">
+
+\\[2^9 - 2 = 510\\]
+
+(no alcanza)
+
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 18px">
+
+\\[2^{10} - 2 = 1022\\]
+
+(si alcanza)
+
+</div>
+
+### Prefijo
+
+\\[32 - 10 = /22\\]
+
+
+Máscara:
+
+**255.255.252.0**
+
+---
+
+## Administración (400 hosts)
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 18px">
+
+\\[2^8 -2 = 254\\]
+
+(no alcanza)
+
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 18px">
+
+\\[2^9 -2 = 510\\]
+
+(so alcanza)
+
+</div>
+
+### Prefijo
+
+\\[32 - 9 = /23\\]
+
+Máscara:
+
+**255.255.254.0**
+
+---
+
+## Invitados (120 hosts)
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 18px">
+
+\\[2^6 -2 = 62\\]
+
+(no alcanza)
+
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 18px">
+
+\\[2^7 -2 = 126\\]
+
+(si alcanza)
+
+</div>
+
+### Prefijo
+
+\\[32 - 7 = /25\\]
+
+Máscara:
+
+**255.255.255.128**
+
+---
+
+## WAN (2 hosts)
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 18px">
+
+\\[2^2 -2 = 2\\]
+
+(exacto)
+
+</div>
+
+### Prefijo
+
+\\[32 - 2 = /30\\]
+
+Máscara:
+
+**255.255.255.252**
+
+---
+
+## Paso 2: Asignar las redes (VLSM)
+
+<center>Se asignan desde la más grande a la más pequeña.</center>
+
+---
+
+## Laboratorios
+
+Red:
+
+**172.16.0.0/22**
+
+Bloque:
+
+\\[256 - 252 = 4\\]
+
+
+Avanza de 4 en el tercer octeto.
+
+Rango:
+
+* Primera IP: 172.16.0.1
+* Última IP: 172.16.3.254
+
+Broadcast:
+
+* 172.16.3.255
+
+---
+
+## Administración
+
+Siguiente red disponible:
+
+**172.16.4.0/23**
+
+Bloque:
+
+\\[256 - 254 = 2\\]
+
+Rango:
+
+* Primera IP: 172.16.4.1
+* Última IP: 172.16.5.254
+
+Broadcast:
+
+* 172.16.5.255
+
+---
+
+## Invitados
+
+Siguiente red:
+
+**172.16.6.0/25**
+
+Bloque:
+
+\\[256 - 128 = 128\\]
+
+Rango:
+
+* Primera IP: 172.16.6.1
+* Última IP: 172.16.6.126
+
+Broadcast:
+
+* 172.16.6.127
+
+---
+
+## Enlace WAN
+
+Siguiente red:
+
+**172.16.6.128/30**
+
+Bloque:
+
+\\[256 - 252 = 4\\]
+
+Rango:
+
+* Primera IP: 172.16.6.129
+* Última IP: 172.16.6.130
+
+Broadcast:
+
+* 172.16.6.131
+
+---
+
+# Resultado final
+
+| Área           | Red          | Prefijo | Máscara         | Primera IP   | Última IP    | Broadcast    |
+| -------------- | ------------ | ------- | --------------- | ------------ | ------------ | ------------ |
+| Laboratorios   | 172.16.0.0   | /22     | 255.255.252.0   | 172.16.0.1   | 172.16.3.254 | 172.16.3.255 |
+| Administración | 172.16.4.0   | /23     | 255.255.254.0   | 172.16.4.1   | 172.16.5.254 | 172.16.5.255 |
+| Invitados      | 172.16.6.0   | /25     | 255.255.255.128 | 172.16.6.1   | 172.16.6.126 | 172.16.6.127 |
+| WAN            | 172.16.6.128 | /30     | 255.255.255.252 | 172.16.6.129 | 172.16.6.130 | 172.16.6.131 |
+
+### Fórmulas utilizadas
+
+**1. Hosts necesarios**
+
+\\[2^n - 2 \geq Hosts\\]
+
+
+Determina cuántos bits de host necesitas.
+
+---
+
+**2. Prefijo**
+
+\\[32 - n\\]
+
+
+Obtiene la máscara CIDR.
+
+---
+
+**3. Tamaño del bloque**
+
+\\[256 - \text{octeto de la máscara}\\]
+
+Sirve para encontrar dónde comienza la siguiente subred.
+
+Ejemplos:
+
+* /22 → 255.255.252.0 → (256-252=4)
+* /23 → 255.255.254.0 → (256-254=2)
+* /25 → 255.255.255.128 → (256-128=128)
+* /30 → 255.255.255.252 → (256-252=4)
