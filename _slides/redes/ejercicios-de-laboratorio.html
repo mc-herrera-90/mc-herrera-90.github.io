@@ -137,29 +137,97 @@ En binario:
 
 ## Administración (400 hosts)
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 18px">
+<center>Buscamos el menor valor de (n):</center>
 
-\\[2^8 -2 = 254\\]
+<div style="display: flex; justify-content: space-evenly; align-items: center;">
+
+<div class="card-fit">
+
+\\[2^8 - 2 = 254\\]
 
 (no alcanza)
 
 </div>
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 18px">
+<div class="card-fit">
 
-\\[2^9 -2 = 510\\]
+\\[2^9 - 2 = 510\\]
 
-(so alcanza)
+(si alcanza)
 
 </div>
 
-### Prefijo
+</div>
 
-\\[32 - 9 = /23\\]
+<div style="display: flex; justify-content: space-evenly; align-items: start;">
 
-Máscara:
+<div class="card-fit">
 
-**255.255.254.0**
+#### Prefijo
+
+<font size="5">
+
+\\[
+{\scriptstyle
+\begin{array}{cccc}
+32 & - & 9 & = /23 \\\\
+\text{Total} & \text{} & \text{Host} & \text{CIDR}
+\end{array}
+}
+\\]
+
+<br/>
+
+\\[
+\text{CIDR } /23 =
+\begin{cases}
+23 \text{ bits de red} \\\\
+9 \text{ bits de host}
+\end{cases}
+\\]
+
+</font>
+
+</div>
+
+<div class="card-fit">
+
+#### Máscara de Subred
+
+En binario:
+
+<font size="4">
+
+\\[
+\begin{array}{cccc}
+\textcolor{green}{11111111} &
+\textcolor{green}{11111111} &
+\textcolor{green}{11111110} &
+00000000 \\\\
+255 & 255 & 254 & 0
+\end{array}
+\\]
+
+</font>
+
+<font size="5">
+
+<br/>
+
+\\[
+\text{Cada bit representa potencias de 2:}
+\\]
+\\[
+\begin{array}{cccccccc}
+128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\\\
+2^7 & 2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0
+\end{array}
+\\]
+
+</font>
+
+</div>
+
 
 ---
 
