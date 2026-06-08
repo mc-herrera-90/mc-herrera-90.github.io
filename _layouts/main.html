@@ -2,10 +2,10 @@
 layout: page
 ---
 
-<h2 class="display-4 fw-bold text-center">¿Quién soy?</h2>
+<h2 class="display-1 fw-bold text-center text-muted">¿Quién soy?</h2>
 
 <div class="d-flex flex-column flex-xl-row align-items-center gap-3">
-  <img src="/assets/media/io.webp" alt="yo" class="img-fluid col-8 col-sm-6 col-md-4 col-lg-3 mx-auto mb-3 mb-xl-0 border border-2">
+  <img src="/assets/media/yo.webp" alt="yo" class="img-fluid col-8 col-sm-6 col-md-4 col-lg-3 mx-auto mb-3 mb-xl-0 border border-2 rounded-circle">
 
   <div class="text">
     <p class="lead">!Hola! {% include higif.html %} Me llamo Marco Contreras Herrera, o simplemente mcherrera. Soy un
@@ -19,12 +19,21 @@ layout: page
   </div>
 </div>
 
-{% include profile-me.html %}
+<hr>
 
-<h2 class="display-4 fw-bold text-center">Proyectos</h2>
+<h2 class="display-2 fw-bold text-center text-muted">Mi Stack</h2>
+
+<p class="lead">He trabajado con muchas herramientas y tecnologías. Sin embargo, mi caja de herramientas definitiva para diseñar, desarrollar y desplegar son las siguientes.</p>
+
+{% include techs.html %}
+
+<hr>
+
+<h2 class="display-2 fw-bold text-center text-muted">Proyectos</h2>
 
 <p class="lead">
   Más que una galería de proyectos, esto es una colección de archivos que describen el proyecto, sus características y tecnologías utilizadas. Al activar la vista previa, podrás activar los link para visitar el sitio.
 </p>
 
 {% include file-viewer.html files=site.data.codes.personal.files name="personal" hl="preview" %}
+
