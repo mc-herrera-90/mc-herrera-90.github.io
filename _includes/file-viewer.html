@@ -9,7 +9,7 @@
       <div class="d-flex gap-1">
       <button id="md-preview-btn-{{ include.name }}"
               class="btn btn-sm"
-              style="background:none;border:none;color:var(--text-muted); display:none;"
+              style="background:none;border:none;color:var(--text-muted); display:none; {% if include.hl == 'preview' %}border: 2px solid red{%endif%}"
               title="Vista previa Markdown">
         <i class="fa-regular fa-eye"></i>
       </button>
@@ -61,8 +61,8 @@
       </pre>
       {% if file.language == "md" %}
         <div class="md-preview file-content py-0 px-3" style="display:none; white-space: wrap">
-          {{ file.content_file 
-             | markdownify 
+          {{ file.content_file
+             | markdownify
              | replace: '<h2', '<h2 data-toc-skip'
              | replace: '<h3', '<h3 data-toc-skip'
              | replace: '<h4', '<h4 data-toc-skip' }}

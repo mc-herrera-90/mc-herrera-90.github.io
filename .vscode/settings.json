@@ -11,7 +11,8 @@
   },
   // Formatter
   "[html][liquid]": {
-    "editor.defaultFormatter": "Shopify.theme-check-vscode"
+    "editor.defaultFormatter": "Shopify.theme-check-vscode",
+    "editor.formatOnSave": false
   },
   "[shellscript]": {
     "editor.defaultFormatter": "mkhl.shfmt"
@@ -31,8 +32,8 @@
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[liquid]": {
-    "editor.defaultFormatter": "sissel.shopify-liquid",
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.formatOnSave": false
   },
   "[scss]": {
     "editor.formatOnSave": false

@@ -1,9 +1,30 @@
 ---
-layout: default
+layout: page
 ---
 
-<div class="content">
+<h2 class="display-4 fw-bold text-center">¿Quién soy?</h2>
 
-{{ content }}
+<div class="d-flex flex-column flex-xl-row align-items-center gap-3">
+  <img src="/assets/media/io.webp" alt="yo" class="img-fluid col-8 col-sm-6 col-md-4 col-lg-3 mx-auto mb-3 mb-xl-0 border border-2">
 
+  <div class="text">
+    <p class="lead">!Hola! {% include higif.html %} Me llamo Marco Contreras Herrera, o simplemente mcherrera. Soy un
+      Retrogeek 👾 apasionado de las tecnologías que marcaron mi época, desde los videojuegos hasta los sistemas
+      informáticos.</p>
+
+    <p class="lead">Hoy canalizo esa inspiración con el desarrollo de software <span
+        class='border-bottom border-success'>full stack <i class='fa fa-code'></i></span>, apostando por soluciones
+      simples, funcionales y minimalistas. Prefiero crear herramientas que sean útiles y fáciles de usar antes que
+      perseguir diseños recargados o complejidad innecesaria.</p>
+  </div>
 </div>
+
+{% include profile-me.html %}
+
+<h2 class="display-4 fw-bold text-center">Proyectos</h2>
+
+<p class="lead">
+  Más que una galería de proyectos, esto es una colección de archivos que describen el proyecto, sus características y tecnologías utilizadas. Al activar la vista previa, podrás activar los link para visitar el sitio.
+</p>
+
+{% include file-viewer.html files=site.data.codes.personal.files name="personal" hl="preview" %}

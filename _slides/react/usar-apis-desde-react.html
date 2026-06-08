@@ -1,0 +1,43 @@
+---
+---
+
+## `Hook useState`
+
+Al pedir información, tenemos que crear un estado que se encarhará de guardar el resultado de la petición.
+
+```jsx
+import { useState } from 'react';
+
+export default () => {
+  const [characters, setCharacters] = useState([]);
+}
+```
+
+---
+
+
+```jsx
+import { useState, useEffect } from "react";
+import { Container, Row, Col, Card } from "react-bootstrap";
+
+export default () => {
+  const [characters, setCharacters] = useState([]);
+  const [page, setpage] = useState(1);
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      try {
+        const response = await fetch(
+          `https://rickandmortyapi.com/api/character?page=${page}`,
+        );
+        const data = await response.json();
+        setCharacters(data.results);
+      } catch (e) {
+        console.log(e.message);
+      }
+    };
+
+    fetchApi();
+  }, [page]);
+};
+```

@@ -14,11 +14,6 @@ toc: false
 
 ## Hola, soy Marco Contreras <span style="display:inline-block;width:30px;height:30px;background-image:url('https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></span>
 
-
-<p class="mt-4 small mb-md-4 fs-5">Por aquí comparto mis cosas sobre: <strong>ingeniería</strong>, <strong>programación</strong>, <strong>tecnología</strong> y todo tipo de experimento que voy construyendo en este rincón de internet.</p>
-
----
-
 {% include profile-me.html %}
 
 </div>
