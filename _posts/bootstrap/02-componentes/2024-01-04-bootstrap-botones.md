@@ -70,14 +70,14 @@ Bootstrap permite estilizar enlaces como botones, útil cuando la acción es nav
 {% tabs codigo_2 %}
 {% tab codigo_2 Código %}
 ```html
-<a href="/about" class="btn btn-primary">
+<a href="/index.html" class="btn btn-primary">
   Ir a mi perfil
 </a>
 ```
 {:.nolineno }
 {% endtab %}
 {% tab codigo_2 Demo %}
-<a href="/about" class="btn btn-primary">
+<a href="/index.html" class="btn btn-primary">
   Ir a mi perfil
 </a>
 {% endtab %}
