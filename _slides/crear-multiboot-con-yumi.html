@@ -8,19 +8,82 @@ title: "Yumi"
 ### Guía paso a paso
 ---
 
-<!-- .slide: style="text-align: left" -->
+<h1 class="text-glow">¿Qué es YUMI?</h1>
 
-## ¿Qué es YUMI?
+YUMI ( _Your Universal Multiboot Installer_ ) es una herramienta que permite crear unidades USB booteables con múltiples sistemas operativos, ideal para probar diferentes sistemas operativos desde un solo dispositivo.
 
-Es una herramienta que permite crear unidades USB con múltiples sistemas operativos.
+<img src="/assets/media/yumi/yumi-usb-multiboot.webp" width="40%" style="filter: drop-shadow(2px 3px 8px rgb(215, 151, 14));">
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 0 auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
 
-## ¿Cómo funciona YUMI?
+--
 
-Organiza múltiples sistemas operativos y herramientas en una sola memoria USB para poder iniciarlos desde el arranque del equipo.
+Organiza múltiples sistemas operativos y herramientas en una sola memoria USB, permitiendo iniciarlos desde un menú al arrancar el equipo.
+
+<div style="display: flex; align-items: center; gap: 15px; justify-content: center">
+  <video data-autoplay src="/assets/media/yumi/menu-yumi.mp4" data-preview-video="/assets/media/yumi/menu-yumi.mp4" width="65%" style="filter: drop-shadow(2px 3px 8px rgb(215, 151, 14));"></video>
+  <a onclick="Reveal.next(); return false;" style="cursor: pointer" class="next-slide"><i class="fa-solid fa-right-long fa-beat fa-2xl"></i></a>
+</div>
 
 ---
 
-## 1. Abrir el programa
+# Preparar unidad USB <i class="fa-brands fa-usb"></i>
 
-<img src="/assets/media/yumi/preparar_usb.webp" width="50%" data-preview-image data-preview-fit="contain">
+Con la unidad USB ya conectada al equipo, vamos a seguir algunos pasos para prepararla antes de utilizar YUMI.
 
+<br/>
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 0 auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+--
+
+## Abrir CMD como administrador
+
+<div style="display: flex; align-items: center">
+
+<img src="/assets/media/extras/abrir-cmd-como-administrador.webp" width="90%" data-preview-image>
+<a onclick="Reveal.down(); return false;" style="cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+</div>
+
+--
+
+## Abrir Diskpart y Listar discos y unidades conectadas
+
+<div style="display: flex; align-items: center">
+
+<a onclick="Reveal.up(); return false;" style="cursor: pointer;" class="next-slide"><i class="fa-solid fa-up-long fa-bounce fa-2xl"></i></a>
+
+<img src="/assets/media/extras/abrir-diskpart-y-listar-discos.webp" width="90%" data-preview-image>
+<a onclick="Reveal.down(); return false;" style="cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+</div>
+
+--
+
+## Seleccionar unidad y formatear
+
+<div style="display: flex; align-items: center; gap: 15px">
+  <img src="/assets/media/yumi/formatear-unidad-usb-diskpart.webp" width="80%" data-preview-image>
+  <a onclick="Reveal.next(); return false;" style="cursor: pointer" class="next-slide"><i class="fa-solid fa-right-long fa-beat fa-2xl"></i></a>
+</div>
+
+---
+
+## Descargar YUMI y ejecutar programa
+
+<a href="https://pendrivelinux.com/yumi-multiboot-usb-creator/#yumi-exfat-download" target="_blank">https://pendrivelinux.com/yumi-multiboot-usb-creator/#yumi-exfat-download</a>
+
+<img src="/assets/media/yumi/descargar-yumi.webp" width="90%" data-preview-image>
+
+---
+
+## Ejecutar programa de todas formas
+
+<img src="/assets/media/extras/ejecutar-de-todas-formas.webp" width="60%" data-preview-image style="filter: drop-shadow(2px 3px 8px rgb(215, 151, 14));">
+
+---
+
+## Elección de Sistema Operativo
+
+Cada sistema arranca diferente y esta opción le permite a YUMI configurar el inicio correcto para que la ISO funcione.
+
+<img src="/assets/media/yumi/seleccionar-la-distribucion.webp" width="53%" data-preview-image style="filter: drop-shadow(2px 3px 8px rgb(215, 151, 14));">

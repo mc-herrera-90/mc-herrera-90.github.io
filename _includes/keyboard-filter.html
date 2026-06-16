@@ -1,0 +1,48 @@
+<!-- ========================= -->
+<!-- Teclado alfabético visual -->
+<!-- ========================= -->
+<div class="alfabeto-teclado mb-3">
+  <!-- Primera fila: ESC + A–J -->
+  <div class="alphabet-row">
+    <kbd class="alphabet-btn special-btn" role="button" tabindex="0" data-letter="ESC">
+      ESC
+    </kbd>
+    {% assign row1 = "ABCDEFGHIJK" | split: "" %}
+    {% for letter in row1 %}
+    <kbd class="alphabet-btn" role="button" tabindex="0" data-letter="{{ letter }}">
+      {{ letter }}
+    </kbd>
+    {% endfor %}
+  </div>
+
+  <!-- Segunda fila: L–T -->
+  <div class="alphabet-row">
+    {% assign row2 = "LMNOPQRST" | split: "" %}
+    {% for letter in row2 %}
+    <kbd class="alphabet-btn" role="button" tabindex="0" data-letter="{{ letter }}">
+      {{ letter }}
+    </kbd>
+    {% endfor %}
+  </div>
+
+  <!-- Tercera fila: U–Z + “Todos” -->
+  <div class="alphabet-row">
+    {% assign row3 = "UVWXYZ" | split: "" %}
+    {% for letter in row3 %}
+    <kbd class="alphabet-btn" role="button" tabindex="0" data-letter="{{ letter }}">
+      {{ letter }}
+    </kbd>
+    {% endfor %}
+    <kbd class="alphabet-btn special-btn" role="button" tabindex="0" data-letter="SPACE">
+      SPACE
+    </kbd>
+
+    <kbd class="alphabet-btn special-btn" role="button" tabindex="0" data-letter="BACKSPACE">
+      ⌫
+    </kbd>
+  </div>
+</div>
+<!-- ========================= -->
+<!--          Output           -->
+<!-- ========================= -->
+<div id="screen"></div>

@@ -2,6 +2,8 @@
 layout: page
 ---
 
+{% include keyboard-filter.html %}
+
 {% assign grouped_documents = site.documents | group_by: "category" %}
 
 <style>
@@ -142,7 +144,7 @@ layout: page
       <div class="docs-list">
         {% for document in category.items %}
 
-          <a href="{{ document.url }}" class="doc-item">
+          <a href="{{ document.url }}" class="doc-item" data-search="{{ document.title | upcase }}">
 
             <div class="doc-icon">
               {% if document.isPDF %}
@@ -177,5 +179,104 @@ layout: page
 
     </section>
   {% endfor %}
-
 </div>
+<script>
+  const resources = document.querySelectorAll(".doc-item");
+  let buffer = "";
+
+  function filterByBuffer() {
+    const query = buffer.toUpperCase();
+    resources.forEach(resource => {
+      const text = resource.dataset.search;
+
+      resource.style.display =
+        query === "" || text.includes(query)
+          ? ""
+          : "none";
+    });
+
+    hideEmptyGroups();
+  }
+
+  function hideEmptyGroups() {
+    document.querySelectorAll(".docs-group").forEach(group => {
+      const visibleItems = group.querySelectorAll(
+        '.doc-item:not([style*="display: none"])'
+      );
+
+      group.style.display =
+        visibleItems.length > 0 ? "" : "none";
+    });
+  }
+
+  const alphabetButtons = document.querySelectorAll(".alphabet-btn");
+  const screen = document.getElementById("screen");
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  function renderScreen() {
+    screen.textContent = buffer || "▋";
+  }
+
+  function resetFilter() {
+    buffer = "";
+    renderScreen();
+    resources.forEach(cat => (cat.style.display = ""));
+    alphabetButtons.forEach(btn =>
+      btn.classList.remove("active-letter")
+    );
+  }
+
+  function handleKey(key) {
+    const sonido = new Audio("/assets/media/audios/key.ogg");
+    sonido.currentTime = 0;
+    sonido.play();
+
+    if (key === "ESC") {
+      resetFilter();
+      return;
+    }
+
+    if (key === "BACKSPACE") {
+      buffer = buffer.slice(0, -1);
+      renderScreen();
+      filterByBuffer();
+      return;
+    }
+
+    if (key === "SPACE") {
+      buffer += " ";
+      renderScreen();
+      filterByBuffer();
+      return;
+    }
+
+    if (!alphabet.includes(key)) return;
+
+    buffer += key;
+    renderScreen();
+    filterByBuffer();
+  }
+
+  /* =========================
+     Teclado visual
+     ========================= */
+  alphabetButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      handleKey(btn.dataset.letter);
+    });
+  });
+
+  /* =========================
+     Teclado físico
+     ========================= */
+  document.addEventListener("keydown", event => {
+    const key = event.key.toUpperCase();
+
+    if (key === "ESCAPE") handleKey("ESC");
+    else if (key === "BACKSPACE") handleKey("BACKSPACE");
+    else if (key === " ") handleKey("SPACE");
+    else if (alphabet.includes(key)) handleKey(key);
+  });
+
+  renderScreen();
+</script>

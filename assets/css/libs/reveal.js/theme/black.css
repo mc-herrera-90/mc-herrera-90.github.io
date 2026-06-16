@@ -79,6 +79,10 @@ section.has-light-background h6 {
 
 }
 
+.text-glow {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.4) !important;
+}
+
 .codeblock {
   --cc-code-bg: #333;
 }
@@ -132,13 +136,13 @@ section.has-light-background h6 {
 .reveal h5,
 .reveal h6 {
   margin: var(--r-heading-margin);
-  color: var(--r-heading-color);
+  /* color: var(--r-heading-color); */
+  color: #00E5FF;
   font-family: var(--r-heading-font);
   font-weight: var(--r-heading-font-weight);
   line-height: var(--r-heading-line-height);
   letter-spacing: var(--r-heading-letter-spacing);
   text-transform: var(--r-heading-text-transform);
-  text-shadow: var(--r-heading-text-shadow);
   word-wrap: break-word;
 }
 
