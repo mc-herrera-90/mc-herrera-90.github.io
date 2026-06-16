@@ -62,7 +62,7 @@
         {%- capture tab_key -%}{{ page.url | split: '/' }}{%- endcapture -%}
         {{- site.data.locales[include.lang].tabs[tab_key] | default: page.title -}}
       {% else %}
-        {{- site.data.locales[include.lang].layout[page.layout] | default: page.title | capitalize -}}
+        {{- site.data.locales[include.lang].layout[page.layout] | default: 'Recurso' | capitalize -}}
       {% endif %}
     </div>
 
