@@ -5,66 +5,194 @@
 
 ---
 
+<h2 class="text-glow">¿Qué es una Promesa?</h2>
 
-## ¿Qué es una Promesa?
+__`Promise`__ es un objeto que proporciona una construcción útil cuando se trabaja con tareas asincrónicas.
 
-Promise es un objeto que proporciona una construcción útil cuando se trabaja con tareas asincrónicas.
 
-<div style="display:grid; grid-template-columns:1fr 1fr; align-items: start">
+<div style="display: flex; gap: 2rem; align-items: center;">
+
+<div style="flex: 1;">
 
 ```js
 // Crear una promesa
-const p = new Promise((resolve, reject) => {
+const promesa = new Promise((resolve, reject) => {
   setTimeout(() => {
     if (true) {
-      resolve('Successfull login');
+      resolve({
+        status: 200,
+        ok: true,
+        message: "Inicio de sesión exitoso",
+      });
     } else {
-      reject('Login failed');
+      reject({
+        status: 401,
+        ok: false,
+        message: "Credenciales inválidas",
+      });
     }
   }, 1000);
 });
-```
+````
 
-```js
-// Usar una promesa
-p.then((res) => {
-  console.log(res);
-})
-.catch((err) => {
-  console.log(err);
-})
-```
+</div>
 
+<div style="flex: 2; background: var(--r-background-color); padding: 1rem" class="card">
 
+<center><b>¿Qué ocurre aquí?</b></center>
+
+<font size="5">Esta promesa simula un inicio de sesión. Tras 1 segundo, ejecuta __resolve()__ con una respuesta __200 OK__ o __reject()__ con un error __401 Unauthorized__, representando el comportamiento asíncrono de una API.</font>
+
+</div>
 
 </div>
 
 ---
 
-## Crear proyecto
+<h2 class="text-glow">¿Cómo se consume una promesa?</h2>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 128 128">
-	<path d="M0 0h128v128H0z" fill="none" />
-	<defs>
-		<linearGradient id="SVGN1cfrT9y" x1="6" x2="235" y1="33" y2="344" gradientTransform="translate(0 .937)scale(.3122)" gradientUnits="userSpaceOnUse">
-			<stop offset="0" stop-color="#41d1ff" />
-			<stop offset="1" stop-color="#bd34fe" />
-		</linearGradient>
-		<linearGradient id="SVGk86M3d2e" x1="194.651" x2="236.076" y1="8.818" y2="292.989" gradientTransform="translate(0 .937)scale(.3122)" gradientUnits="userSpaceOnUse">
-			<stop offset="0" stop-color="#ffea83" />
-			<stop offset=".083" stop-color="#ffdd35" />
-			<stop offset="1" stop-color="#ffa800" />
-		</linearGradient>
-	</defs>
-	<path fill="url(#SVGN1cfrT9y)" d="M124.766 19.52L67.324 122.238c-1.187 2.121-4.234 2.133-5.437.024L3.305 19.532c-1.313-2.302.652-5.087 3.261-4.622L64.07 25.187a3.1 3.1 0 0 0 1.11 0l56.3-10.261c2.598-.473 4.575 2.289 3.286 4.594m0 0" />
-	<path fill="url(#SVGk86M3d2e)" d="M91.46 1.43L48.954 9.758a1.56 1.56 0 0 0-1.258 1.437l-2.617 44.168a1.563 1.563 0 0 0 1.91 1.614l11.836-2.735a1.562 1.562 0 0 1 1.88 1.836l-3.517 17.219a1.562 1.562 0 0 0 1.985 1.805l7.308-2.223c1.133-.344 2.223.652 1.985 1.812l-5.59 27.047c-.348 1.692 1.902 2.614 2.84 1.164l.625-.968l34.64-69.13c.582-1.16-.421-2.48-1.69-2.234l-12.185 2.352a1.558 1.558 0 0 1-1.793-1.965l7.95-27.562A1.56 1.56 0 0 0 91.46 1.43m0 0" />
-</svg>
+Una de las primeras formas de trabajar con promesas es mediante __`.then()`__ y __`.catch()`__, que permiten gestionar respuestas exitosas y errores de manera asíncrona.
+
+
+<div style="display:flex; gap:2rem; align-items:center;">
+
+<div style="flex:2;">
+
+```js
+// Consumir una promesa
+promesa
+  .then((respuesta) => {
+    console.log(respuesta.status);
+    console.log(respuesta.message);
+  })
+  .catch((error) => {
+    console.error(error.status);
+    console.error(error.message);
+  });
+````
+
+</div>
+
+<div style="flex:1; background: var(--r-background-color); padding: 1rem" class="card">
+
+<center><b>¿Qué ocurre aquí?</b></center>
+
+<font size="5">Una vez creada la promesa, podemos manejar con __.then()__ los casos exitosos y __.catch()__ para capturar posibles errores durante la ejecución.</font>
+
+</div>
+
+</div>
+
+---
+
+<h2 class="text-glow">Enfoque moderno con async/await</h2>
+
+Una forma más moderna de trabajar con promesas es mediante __`async`__ y __`await`__, lo que permite escribir código asíncrono de manera más clara y fácil de entender.
+
+<div style="display:flex; gap:2rem; align-items:center;">
+
+<div style="flex:2;">
+
+```js
+// Consumir una promesa
+async function iniciarSesion() {
+  try {
+    const respuesta = await promesa;
+
+    console.log(respuesta.status);
+    console.log(respuesta.message);
+  } catch (error) {
+    console.error(error.status);
+    console.error(error.message);
+  }
+}
+
+iniciarSesion();
+```
+
+</div>
+
+<div style="flex:1; background: var(--r-background-color); padding: 1rem" class="card">
+
+<center><b>¿Qué ocurre aquí?</b></center>
+
+<font size="5">La palabra clave __await__ espera el resultado de la promesa. Si ocurre un error, este puede gestionarse fácilmente mediante un bloque __try/catch__.</font>
+
+</div>
+
+</div>
+
+---
+
+<!-- .slide: data-background-image="https://miro.medium.com/v2/resize:fit:1400/0*DZZjrKbTxFTssqRK.jpg" data-background-opacity="0.3" -->
+
+
+<img src="/assets/media/extras/react-vite-love.avif" width="25%">
+
+<h1 class="text-glow">Generar proyecto</h1>
+
+Vite nos ayuda a iniciar un proyecto React en pocos segundos. Ejecuta:
 
 ```bash
 npm create vite@latest react-demo-api-rick-and-morty -- --template react
 ```
 
+<br/>
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+--
+
+<h2 class="text-glow">Ejecutando la aplicación</h2>
+
+<video data-autoplay src="/assets/media/react/react-setup-vite.mp4" data-preview-video></video>
+
 ---
+
+## Estructura de carpetas
+
+Esta estructura permite mantener un código más ordenado, reutilizable y fácil de mantener.
+
+<img src="/assets/media/react/react-estructura-de-carpetas.webp" data-preview-image width="100%">
+
+---
+
+<h2 class="text-glow">Servicios</h2>
+
+Este módulo se encarga de la comunicación con la API para obtener y gestionar personajes de la serie.
+
+```js
+const API_URL = "https://rickandmortyapi.com/api";
+
+export async function getCharacters() {
+  try {
+    const response = await fetch(`${API_URL}/character`);
+
+    if (!response.ok) {
+      throw new Error(`Error HTTP: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error al obtener personajes:", error);
+    return null;
+  }
+}
+```
+
+--
+
+<h2 class="text-glow">Prueba del servicio</h2>
+
+El servicio puede ejecutarse de forma independiente para validar la respuesta de la API.
+
+```js
+getCharacters().then(console.log);
+```
+
+---
+
+
 
 ## `Hook useState`
 

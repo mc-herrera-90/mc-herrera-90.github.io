@@ -17,7 +17,7 @@
   padding: 18px 10px;
   margin: 10px;
 
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
 
   min-width: 160px;
   text-align: center;
@@ -25,9 +25,13 @@
   flex: 1 1 0;
 }
 
+.card strong {
+ color: var(--r-link-color-hover, rgb(219, 185, 15));
+}
+
 /* hover sutil */
 .card:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.35);
 }
 
 /* título dentro de la card */
@@ -72,6 +76,7 @@
   line-height: 1;
   text-align: center !important;
 }
+
 .card-fit p * {
   margin: 0;
 }

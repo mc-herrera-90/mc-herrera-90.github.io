@@ -1,4 +1,11 @@
 files:
+  - name: "mi-cv.md"
+    language: "md"
+    content_file: |
+      # Mi CV
+
+      - Sitio: <https://cv.mcherrera.dev/>
+
   - name: "onlyflans.md"
     language: "md"
     content_file: |
