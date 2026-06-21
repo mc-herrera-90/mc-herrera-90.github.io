@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../../../../fonts/source-sans-3_5.2.9_latin-400-normal.woff')
+    format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../../../../fonts/source-sans-3_5.2.9_latin-400-italic.woff')
+    format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../../../../fonts/source-sans-3_5.2.9_latin-600-normal.woff')
+    format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../../../../fonts/source-sans-3_5.2.9_latin-600-italic.woff')
+    format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
+
+section.has-dark-background,
+section.has-dark-background h1,
+section.has-dark-background h2,
+section.has-dark-background h3,
+section.has-dark-background h4,
+section.has-dark-background h5,
+section.has-dark-background h6 {
+  color: #fff;
+}
+
+.reveal dl,
+.reveal ol,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em;
+  padding-left: 1rem !important;
+}
+
+.reveal-viewport {
+  background: var(--r-background-color);
+  background-color: var(--r-background-color);
+}
+
+.reveal h1 {
+  font-size: var(--r-heading1-size);
+}
+
+.reveal h2 {
+  font-size: var(--r-heading2-size);
+}
+
+.reveal h3 {
+  font-size: var(--r-heading3-size);
+}
+
+.reveal h4 {
+  font-size: var(--r-heading4-size);
+}
+
+.reveal h1 {
+  text-shadow: var(--r-heading1-text-shadow);
+}
+
+
+.reveal table td[align='center'],
+.reveal table th[align='center'] {
+  text-align: center;
+}
+
+.reveal table td[align='right'],
+.reveal table th[align='right'] {
+  text-align: right;
+}
+
+.cc-run-btn {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  height: 100%;
+  background-color: transparent;
+  padding: 0 10px;
+  font-size: 1.2rem;
+}
+/* Listas */
+.reveal ol {
+  list-style-type: decimal;
+}
+/* Listas margin */
+.reveal ol ol,
+.reveal ol ul,
+.reveal ul ol,
+.reveal ul ul {
+  display: block;
+  margin-left: 20px;
+}

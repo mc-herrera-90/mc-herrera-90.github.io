@@ -1,34 +1,4 @@
-@font-face {
-  font-family: 'Source Sans Pro';
-  src: url('../../../../fonts/source-sans-3_5.2.9_latin-400-normal.woff')
-    format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: 'Source Sans Pro';
-  src: url('../../../../fonts/source-sans-3_5.2.9_latin-400-italic.woff')
-    format('woff');
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Source Sans Pro';
-  src: url('../../../../fonts/source-sans-3_5.2.9_latin-600-normal.woff')
-    format('woff');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Source Sans Pro';
-  src: url('../../../../fonts/source-sans-3_5.2.9_latin-600-italic.woff')
-    format('woff');
-  font-weight: 600;
-  font-style: italic;
-}
 
 section.has-light-background,
 section.has-light-background h1,
@@ -99,10 +69,6 @@ section.has-light-background h6 {
   --cc-copy-color: #f1f1f1;
 }
 
-.reveal-viewport {
-  background: #191919;
-  background-color: var(--r-background-color);
-}
 
 .reveal {
   font-family: var(--r-main-font);
@@ -196,13 +162,6 @@ section.has-light-background h6 {
   font-style: italic;
 }
 
-.reveal dl,
-.reveal ol,
-.reveal ul {
-  display: inline-block;
-  text-align: left;
-  margin: 0 0 0 1em;
-}
 
 .reveal ol {
   list-style-type: decimal;
@@ -262,9 +221,8 @@ section.has-light-background h6 {
   width: 90%;
   margin: var(--r-block-margin) auto;
   text-align: left;
-  font-size: 0.65em;
+  font-size: 0.8em;
   font-family: var(--r-code-font);
-  line-height: 1.2em;
   word-wrap: break-word;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
@@ -309,15 +267,6 @@ section.has-light-background h6 {
   border: 1px solid #aaa;
 }
 
-.reveal table td[align='center'],
-.reveal table th[align='center'] {
-  text-align: center;
-}
-
-.reveal table td[align='right'],
-.reveal table th[align='right'] {
-  text-align: right;
-}
 
 .reveal sup {
   vertical-align: super;

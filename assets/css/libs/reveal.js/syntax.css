@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Victor Mono";
+  src: url("../../../fonts/VictorMono-Regular.woff2") format("woff2");
+}
+
+.codeblock {
+  border: 2px solid var(--cc-code-bg);
+}
+.cc-window-bar {
+  margin: 0 !important;
+}
+
+.hljs table,
+pre,
+.codeblock code {
+  --font-size: 1.25rem;
+  font-family: "Victor Mono", monospace !important;
+  font-size: var(--font-size, 0.6em) !important;
+  line-height: calc(var(--font-size) * 1.4);
+  font-weight: bolder;
+}
+
+.cc-window-right {
+  justify-content: end;
+}
+
+.codeblock[data-cc-window] button[data-cc] {
+    margin-left: 0;
+}
