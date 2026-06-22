@@ -248,21 +248,22 @@ export default function CharacterCard({ character }) {
 
 <h2 class="text-glow">Servicios</h2>
 
-Este módulo se encarga de la comunicación con la API para obtener y gestionar personajes de la serie.
+<p class="r-fit-text">El módulo <span class="badge">api.js</span> centraliza las peticiones a la API para obtener y gestionar personajes. Tenemos la siguiente función para configurar la URL de la API y realizar la petición con <span class="badge"><code>fetch()</code></span> y manejamos la paginación por parámetro.</p>
 
-```js [1]
-const API_URL = "https://rickandmortyapi.com/api";
+```js run
+const API_BASE_URL = "https://rickandmortyapi.com/api";
 
-export async function getCharacters() {
+export async function getCharacters(page = 1) {
   try {
-    const response = await fetch(`${API_URL}/character`);
+    const url = `${API_BASE_URL}/character?page=${page}`;
+    const response = await fetch(url);
 
     if (!response.ok) {
       throw new Error(`Error HTTP: ${response.status}`);
     }
+    const datos = await response.json();
+    return datos.results;
 
-    const data = await response.json();
-    return data;
   } catch (error) {
     console.error("Error al obtener personajes:", error);
     return null;

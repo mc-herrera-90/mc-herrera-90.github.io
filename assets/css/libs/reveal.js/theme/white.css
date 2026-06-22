@@ -36,6 +36,9 @@
   --r-overlay-element-fg-color: 240, 240, 240;
 
   --r-blockquote-background: #f6f8fa;
+
+  /* CODE */
+  --bg-hljs-code-wrapper: #fefefe;
 }
 
 .text-glow {
@@ -50,15 +53,10 @@ text-shadow:
    --cc-code-bg: #ebebeb;
 }
 
-.codeblock pre {
-  background: #fff;
-}
-
 .cc-window-bar {
   --cc-window-title-color: #222;
   padding: 0;
 }
-
 
 
 .reveal {
@@ -183,14 +181,6 @@ text-shadow:
   font-family: var(--r-code-font);
   text-transform: none;
   tab-size: 2;
-}
-
-.reveal pre code {
-  display: block;
-  padding: 5px;
-  overflow: auto;
-  max-height: 400px;
-  word-wrap: normal;
 }
 
 .reveal .code-wrapper {

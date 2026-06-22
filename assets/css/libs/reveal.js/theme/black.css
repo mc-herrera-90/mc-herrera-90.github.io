@@ -47,6 +47,8 @@ section.has-light-background h6 {
 
   --r-blockquote-background: rgba(255, 255, 255, 0.06);
 
+  /* CODE  */
+  --bg-hljs-code-wrapper: #252521;
 }
 
 .text-glow {
@@ -56,11 +58,6 @@ section.has-light-background h6 {
 .codeblock {
   --cc-code-bg: #333;
 }
-
-.codeblock pre {
-  background: #252521;
-}
-
 .cc-window-bar {
   --cc-window-title-color: #fff;
 }
@@ -68,7 +65,6 @@ section.has-light-background h6 {
 .codeblock svg {
   --cc-copy-color: #f1f1f1;
 }
-
 
 .reveal {
   font-family: var(--r-main-font);
@@ -233,13 +229,13 @@ section.has-light-background h6 {
   tab-size: 2;
 }
 
-.reveal pre code {
+/* .reveal pre code {
   display: block;
   padding: 5px;
   overflow: auto;
   max-height: 400px;
   word-wrap: normal;
-}
+} */
 
 .reveal .code-wrapper {
   white-space: normal;
