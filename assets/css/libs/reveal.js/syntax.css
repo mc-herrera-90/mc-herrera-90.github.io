@@ -6,12 +6,14 @@
 .codeblock {
   border: 2px solid var(--cc-code-bg);
 }
+
 .cc-window-bar {
   margin: 0 !important;
 }
 
 .hljs table,
 pre,
+
 .codeblock code {
   --font-size: 1.25rem;
   font-family: "Victor Mono", monospace !important;
@@ -25,5 +27,22 @@ pre,
 }
 
 .codeblock[data-cc-window] button[data-cc] {
-    margin-left: 0;
+  margin-left: 0;
+}
+
+.cc-run-btn {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  height: 100%;
+  background-color: transparent;
+  padding: 0 10px;
+  color: var(--r-main-color);
+  font-size: 1.2rem;
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+}
+
+.cc-run-btn:hover{
+  opacity: 1;
 }

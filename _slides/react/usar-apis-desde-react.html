@@ -5,16 +5,18 @@
 
 ---
 
+
+<!-- .slide: data-preview="44syxrb27" -->
+
 <h2 class="text-glow" align="center">¿Qué es una Promesa?</h2>
 
-__Promise__ es un objeto que proporciona una construcción útil cuando se trabaja con tareas asincrónicas.
-
+<p class="f-fit-text">Promise es un objeto que proporciona una construcción útil cuando se trabaja con tareas asincrónicas.</p>
 
 <div style="display: flex; gap: 2rem;">
 
 <div style="width: 60%">
 
-```js [1-18]
+```js [1-18] run
 // Crear una promesa
 const promesa = new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -33,7 +35,7 @@ const promesa = new Promise((resolve, reject) => {
     }
   }, 1000);
 });
-````
+```
 
 </div>
 
@@ -56,6 +58,8 @@ Se crea una promesa que simula un inicio de sesión tras 1 segundo. Todas las pr
 
 ---
 
+<!-- .slide: data-preview="44syxrb27" -->
+
 <h2 class="text-glow">¿Cómo se consume una promesa?</h2>
 
 Una de las primeras formas de trabajar con promesas es mediante __`.then()`__ y __`.catch()`__, que permiten gestionar respuestas exitosas y errores de manera asíncrona.
@@ -64,7 +68,7 @@ Una de las primeras formas de trabajar con promesas es mediante __`.then()`__ y 
 
 <div>
 
-```js
+```js run
 // Consumir una promesa
 promesa
   .then((respuesta) => {
@@ -93,7 +97,7 @@ promesa
 
 <h2 class="text-glow r-fit-text">Enfoque moderno con async/await</h2>
 
-Una forma más moderna de trabajar con promesas es mediante __`async`__ y __`await`__, lo que permite escribir código asíncrono de manera más fácil.
+<p class="r-fit-text">Una forma más moderna de trabajar con promesas es mediante <code>async</code> y <code>await</code>, lo que permite escribir código asíncrono de manera más fácil.</p>
 
 <div style="display:flex; gap:2rem;">
 
@@ -178,7 +182,41 @@ Esta estructura permite mantener un código más ordenado, reutilizable y fácil
 
 ---
 
+## Componente compusto
+
+Para mantener una estructura modular, implementaremos la tarjeta como un componente compuesto, es decir, un componente formado por otros componentes más pequeños.
+
 <img src="/assets/media/react/card-component-rick.webp" class="r-stretch"/>
+
+---
+
+### Esquema del personaje
+
+<font size="5">
+
+| Clave | Tipo | Descripción |
+| :-- | :-- | :-- |
+| id | int | El identificador único del personaje. |
+| name | string | El nombre del personaje. |
+| status | string | El estado del personaje ('Vivo', 'Muerto' o 'Desconocido'). |
+| species | string | La especie del personaje. |
+| type | string | El tipo o subespecie del personaje. |
+| gender | string | El género del personaje ('Femenino', 'Masculino', 'Sin género' o 'Desconocido'). |
+| origin | object | Nombre y enlace a la ubicación de origen del personaje. |
+| location | object | Nombre y enlace a la última ubicación conocida del personaje. |
+| image | string (url) | Enlace a la imagen del personaje. Todas las imágenes tienen un tamaño de 300x300 px y la mayoría son planos medios o retratos, ya que están diseñadas para utilizarse como avatares. |
+| episode | array (urls) | Lista de episodios en los que aparece el personaje. |
+| url | string (url) | Enlace al endpoint correspondiente al personaje. |
+| created | string | Fecha y hora en que el personaje fue creado en la base de datos. |
+
+</font>
+
+---
+
+
+Para la construcción de nuestra tarjeta de personaje, utilizaremos algunos de los atributos proporcionados por el esquema de la API. En particular, se mostrarán: `name`, `status`, `origin`, `image`.
+
+Ya que son los datos necesarios para representar visualmente la información principal de cada personaje.
 
 ---
 

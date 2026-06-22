@@ -245,6 +245,7 @@
 
         const pre = codeBlock.querySelector('code');
 
+
         // Solo agregar botón a bloques ejecutables
         if (!pre?.classList.contains('run')) return;
 
@@ -255,6 +256,21 @@
         runBtn.className = 'cc-run-btn';
         runBtn.innerHTML = '<i class="fa fa-play-circle"></i>';
         runBtn.title = 'Ejecutar código';
+
+        const slide = codeBlock.closest('section');
+        const previewId = slide?.dataset.preview;
+        if (!previewId) return;
+        const url = `https://onecompiler.com/embed/javascript/${previewId}?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false`;
+        runBtn.addEventListener('click', () => {
+          const a = document.createElement('a');
+          a.href = url;
+          a.setAttribute('data-preview-link', '');
+          a.style.display = 'none';
+          slide.appendChild(a);
+          a.click();
+          a.remove();
+        });
+
         toolbar.insertBefore(runBtn, toolbar.firstChild);
       });
     });

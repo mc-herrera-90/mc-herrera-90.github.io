@@ -85,15 +85,7 @@ section.has-dark-background h6 {
   text-align: right;
 }
 
-.cc-run-btn {
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-  height: 100%;
-  background-color: transparent;
-  padding: 0 10px;
-  font-size: 1.2rem;
-}
+
 /* Listas */
 .reveal ol {
   list-style-type: decimal;
