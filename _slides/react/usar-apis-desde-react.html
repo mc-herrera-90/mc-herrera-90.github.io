@@ -1,4 +1,5 @@
 ---
+mode: dark
 ---
 
 <!-- .slide: data-background-image="/assets/media/slides/conectar-api-desde-react.webp" -->
@@ -116,6 +117,8 @@ async function iniciarSesion() {
     console.error(error.message);
   }
 }
+
+iniciarSesion();
 ```
 
 </div>
@@ -125,6 +128,146 @@ async function iniciarSesion() {
 ¿Qué ocurre aquí?
 
 <font size="5">La palabra clave __await__ espera el resultado de la promesa. Si ocurre un error, este puede gestionarse fácilmente mediante un bloque __try/catch__.</font>
+
+</div>
+
+</div>
+
+---
+
+
+<h2 class="text-glow">¿Qué son los Hooks?</h2>
+
+<div style="display: flex;">
+<div style="flex: 2">
+
+Los **Hooks** son funciones especiales de React ( su nombre siempre comienza con <span class="text-glow">use</span> ) que permiten agregar funcionalidades a los componentes.
+
+Sus principales objetivos son:
+
+* **Simplificar** la lógica de los componentes.
+* **Reutilizar** lógica y estado entre componentes.
+* **Organizar** mejor el código y escribir menos líneas.
+
+</div>
+<div style="flex: 1"><img src="/assets/media/react/react-hook.webp" /></div>
+
+</div>
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+--
+
+<!-- .slide: data-preview="44t7n83k6" data-lang="react" -->
+
+<h2>El Hook <code class="text-glow">useState</code></h2>
+
+El **hook `useState`** permite manejar estado en componentes funcionales. El estado es información que puede cambiar, y cuando cambia, React vuelve a renderizar el componente.
+
+__Ejemplo típico__: un contador que se actualiza en pantalla.
+
+
+<div style="display: flex; gap: 1rem;">
+
+```jsx run [1-12]
+import { useState } from 'react'
+
+function Counter() {
+  const [counter, setCounter] = useState(0);
+
+  return (
+    <div>
+      <p>El contador está en: {counter}</p>
+      <button onClick={() => setCounter(counter + 1)}>Aumentar</button>
+    </div>
+  );
+}
+```
+
+<div>
+<img src="/assets/media/react/react-contador.gif" style="object-fit: contain;"/><br/>
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+</div>
+</div>
+
+--
+
+<h2>El Hook <code class="text-glow">useEffect</code></h2>
+
+El hook **`useEffect`** se ejecuta después del **montaje** y cuando cambian sus **dependencias**, para manejar efectos como llamadas a **APIs**, temporizadores o eventos externos.
+
+
+<div style="display: flex; gap: 1.5rem; align-items: start">
+<div>
+
+### Estructura
+
+```jsx
+useEffect(() => {
+  /* Montaje */
+
+  return () => { /* Desmontaje */ }
+}, [/* dependencias */]);
+```
+</div>
+
+<div>
+
+### Array de dependencias
+
+|Deps|Cuándo corre|Montaje|Renderizado|
+|---|---|---|---|
+|[]|Una vez|Sí|No|
+|[dep1]|Al cambiar dep1|Sí|Sí|
+|[dep1,dep2]|Al cambiar cualquiera|Sí|Sí|
+|sin []|Siempre|Sí|Sí|
+
+</div>
+</div><br/>
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+--
+
+<!-- .slide: data-preview="44t7xyb36" data-lang="react" -->
+
+<h2 class="r-fit-text">Ejemplo práctico: <span class="text-glow">consumo de API + limpieza</span></h2>
+
+`useState` y `useEffect` son fundamentales para consumir datos desde una API en componentes funcionales.
+
+A continuación, se realiza una **llamada a API en el montaje** del componente y su **limpieza en el desmontaje**.
+
+<div style="display: flex; gap: 1.5rem; align-items: start">
+
+<div>
+
+```jsx run
+useEffect(() => {
+  const controller = new AbortController();
+
+  fetch("https://jsonplaceholder.typicode.com/users", {
+    signal: controller.signal
+  })
+    .then(res => res.json())
+    .then(data => setUsers(data))
+    .catch(err => {
+      if (err.name !== "AbortError") console.error(err);
+    });
+
+  return () => controller.abort(); // limpieza al desmontar
+}, []);
+````
+
+</div>
+
+<div>
+
+### Qué ocurre
+
+| Etapa | Acción |
+| :- | :- |
+| Montaje| Se hace la petición a la API |
+| Render | Se guarda la data en estado  |
+| Desmontaje| Se cancela la petición |
+| Sin array [] | Solo se ejecuta una vez |
 
 </div>
 
@@ -282,23 +425,6 @@ getCharacters().then(console.log);
 ```
 
 ---
-
-
-## `Hook useState`
-
-Al pedir información, tenemos que crear un estado que se encarhará de guardar el resultado de la petición.
-
-```jsx
-import { useState } from 'react';
-
-export default () => {
-  const [characters, setCharacters] = useState([]);
-}
-```
-
-
----
-
 
 ```jsx
 import { useState, useEffect } from "react";

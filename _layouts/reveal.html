@@ -230,8 +230,9 @@
 
         const slide = codeBlock.closest('section');
         const previewId = slide?.dataset.preview;
+        const lang = slide?.dataset.lang || 'javascript';
         if (!previewId) return;
-        const url = `https://onecompiler.com/embed/javascript/${previewId}?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false`;
+        const url = `https://onecompiler.com/embed/${lang}/${previewId}?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false`;
         runBtn.addEventListener('click', () => {
           const a = document.createElement('a');
           a.href = url;

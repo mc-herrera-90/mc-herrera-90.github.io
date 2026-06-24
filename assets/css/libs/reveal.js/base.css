@@ -26,6 +26,21 @@
   font-style: italic;
 }
 
+:root {
+  --r-main-font-size: 28px;
+  --r-heading1-size: 2.5em;
+  --r-heading2-size: 1.6em;
+  --r-heading3-size: 1.3em;
+  --r-heading4-size: 1em;
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: 400;
+  color: var(--r-main-color);
+}
+
 section.has-dark-background,
 section.has-dark-background h1,
 section.has-dark-background h2,
@@ -34,6 +49,31 @@ section.has-dark-background h4,
 section.has-dark-background h5,
 section.has-dark-background h6 {
   color: #fff;
+}
+
+/* HEADING */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: var(--r-heading-margin);
+  color: var(--r-heading-color);
+  font-family: var(--r-heading-font);
+  font-weight: var(--r-heading-font-weight);
+  line-height: var(--r-heading-line-height);
+  letter-spacing: var(--r-heading-letter-spacing);
+  text-transform: var(--r-heading-text-transform);
+  text-shadow: var(--r-heading-text-shadow);
+  word-wrap: break-word;
+}
+
+.reveal table {
+  border-collapse: collapse;
+  font-size: .75em;
+  width: 100%;
+  margin: 0;
 }
 
 .reveal dl,
