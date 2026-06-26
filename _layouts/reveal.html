@@ -18,7 +18,6 @@
   <link rel="stylesheet" href="{{ 'assets/css/libs/reveal.js/custom.css' | relative_url }}">
   <link rel="stylesheet" href="{{ 'assets/css/libs/reveal.js/syntax.css' | relative_url }}">
   <style>
-
     kbd {
       display: inline-block;
       padding: 0 5px;
@@ -138,29 +137,34 @@
     const highlightTheme = document.getElementById("highlight-theme");
 
     function setTheme() {
-      const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const systemIsDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-      const theme = isDark ? "black" : "white";
+      // prioridad: front matter (page.theme)
+      const pageTheme = "{{ page.theme | default: '' }}";
 
-      themeLink.href =
-        `/assets/css/libs/reveal.js/theme/${theme}.css`;
+      let theme;
 
-      highlightTheme.href = isDark
-        ? "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css"
-        : "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css";
+      if (pageTheme === "black" || pageTheme === "white") {
+        theme = pageTheme;
+      } else {
+        theme = systemIsDark ? "black" : "white"; // fallback sistema
+      }
+
+      themeLink.href = `/assets/css/libs/reveal.js/theme/${theme}.css`;
+
+      highlightTheme.href =
+        theme === "black"
+          ? "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css"
+          : "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css";
 
       document.querySelectorAll("section[data-bg-light]").forEach(slide => {
-
         slide.setAttribute(
           "data-background-image",
-          isDark
-            ? slide.dataset.bgDark
-            : slide.dataset.bgLight
+          theme === "black" ? slide.dataset.bgDark : slide.dataset.bgLight
         );
-
       });
-
     }
+
     window.addEventListener("load", setTheme);
     window.matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", setTheme);

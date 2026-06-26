@@ -1,17 +1,39 @@
 ---
-mode: dark
+theme: black
 ---
 
 <!-- .slide: data-background-image="/assets/media/slides/conectar-api-desde-react.webp" -->
 
 ---
 
+<h2 class="text-glow r-fit-text">¿Qué son las Promesas en JavaScript?</h2>
+
+<div style="display: flex; gap: 1rem">
+
+<div style="flex: 2">
+
+Como su propio nombre indica, en programación, una promesa es algo que en principio esperamos que se cumpla en el futuro.
+
+Mientras esperamos, una promesa puede estar en tres estados:
+
+* <span class="text-glow">Pending</span> ( pendiente )
+* <span class="text-glow">Fulfilled</span> ( cumplida )
+* <span class="text-glow">Rejected</span> ( rechazada )
+
+</div>
+<img src="/assets/media/javascript/promise-js.avif" alt="promesas en js" class="r-stretch" />
+
+</div>
+
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+--
 
 <!-- .slide: data-preview="44syxrb27" -->
 
-<h2 class="text-glow" align="center">¿Qué es una Promesa?</h2>
+<h2 class="text-glow">¿Cómo se crea una promesa?</h2>
 
-<p class="f-fit-text">Promise es un objeto que proporciona una construcción útil cuando se trabaja con tareas asincrónicas.</p>
+Una promesa se crea usando el constructor <span class="text-glow">Promise</span>, el cual recibe una función con dos parámetros: <span class="text-glow">resolve</span> y <span class="text-glow">reject</span>. Estos permiten definir qué pasa cuando la operación tiene éxito o falla.
 
 <div style="display: flex; gap: 2rem;">
 
@@ -42,30 +64,26 @@ const promesa = new Promise((resolve, reject) => {
 
 <div>
 
-¿Qué ocurre aquí?
+En este ejemplo creamos una promesa que simula un inicio de sesión tras 1 segundo y configuramos las respuestas para:
 
-<font size="5">
+- <span class="text-glow">resolve()</span>: cuando todo sale bien ( estado *fulfilled* )
+- <span class="text-glow">reject()</span>: cuando ocurre un error ( estado *rejected* )
 
-Se crea una promesa que simula un inicio de sesión tras 1 segundo. Todas las promesas, manejan dos funciones:
-
-- __`resolve()`__: se ejecuta si todo sale bien (retorna 200 OK)
-- __`reject()`__: se ejecuta si hay error (retorna 401 Unauthorized)
-
-</font>
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
 
 </div>
 
 </div>
 
----
+--
 
 <!-- .slide: data-preview="44syxrb27" -->
 
 <h2 class="text-glow">¿Cómo se consume una promesa?</h2>
 
-Una de las primeras formas de trabajar con promesas es mediante __`.then()`__ y __`.catch()`__, que permiten gestionar respuestas exitosas y errores de manera asíncrona.
+Una de las primeras formas de trabajar con promesas es mediante <span class="text-glow">.then()</span> y <span class="text-glow">.catch()</span>, que permiten gestionar respuestas exitosas y errores de manera asíncrona.
 
-<div style="display:flex; gap:2rem;">
+<div style="display:flex; gap:2rem; align-items: center">
 
 <div>
 
@@ -82,29 +100,33 @@ promesa
   });
 ````
 
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
 </div>
 
 <div>
 
-¿Qué ocurre aquí?
+Una vez creada la promesa, podemos manejar con <span class="text-glow">.then()</span> los casos exitosos y <span class="text-glow">.catch()</span> para capturar errores durante la ejecución.
 
-<font size="5">Una vez creada la promesa, podemos manejar con __.then()__ los casos exitosos y __.catch()__ para capturar posibles errores durante la ejecución.</font>
-
+<img src="/assets/media/javascript/promise-then-catch.avif" alt="then y catch">
 </div>
 
 </div>
 
----
+--
+
+<!-- .slide: data-preview="44tfq7cb9" -->
 
 <h2 class="text-glow r-fit-text">Enfoque moderno con async/await</h2>
 
-<p class="r-fit-text">Una forma más moderna de trabajar con promesas es mediante <code>async</code> y <code>await</code>, lo que permite escribir código asíncrono de manera más fácil.</p>
+Una forma más moderna de trabajar con promesas es mediante <span class="text-glow">async</span> y <span class="text-glow">await</span>, lo que permite escribir código asíncrono de manera más fácil.
 
 <div style="display:flex; gap:2rem;">
 
 <div style="width: 60%;">
 
-```js
+```js [2-15] run
+const promesa = new Promise(...);
 // Consumir una promesa
 async function iniciarSesion() {
   try {
@@ -125,16 +147,14 @@ iniciarSesion();
 
 <div>
 
-¿Qué ocurre aquí?
+La palabra clave <span class="text-glow">await</span> espera el resultado de la promesa. Si ocurre un error, este puede gestionarse fácilmente mediante un bloque <span class="text-glow">try/catch</span>.
 
-<font size="5">La palabra clave __await__ espera el resultado de la promesa. Si ocurre un error, este puede gestionarse fácilmente mediante un bloque __try/catch__.</font>
-
+<img src="/assets/media/javascript/promise-async-await.avif" alt="async await" style="object-fit: contain;">
 </div>
 
 </div>
 
 ---
-
 
 <h2 class="text-glow">¿Qué son los Hooks?</h2>
 
@@ -231,7 +251,7 @@ useEffect(() => {
 
 <h2 class="r-fit-text">Ejemplo práctico: <span class="text-glow">consumo de API + limpieza</span></h2>
 
-`useState` y `useEffect` son fundamentales para consumir datos desde una API en componentes funcionales.
+<span class="text-glow">useState</span> y <span class="text-glow">useEffect</span> son fundamentales para consumir datos desde una API en componentes funcionales.
 
 A continuación, se realiza una **llamada a API en el montaje** del componente y su **limpieza en el desmontaje**.
 
@@ -325,7 +345,7 @@ Esta estructura permite mantener un código más ordenado, reutilizable y fácil
 
 ---
 
-## Componente compusto
+## Componente compuesto
 
 Para mantener una estructura modular, implementaremos la tarjeta como un componente compuesto, es decir, un componente formado por otros componentes más pequeños.
 
