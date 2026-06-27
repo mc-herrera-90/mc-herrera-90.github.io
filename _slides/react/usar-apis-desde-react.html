@@ -2,7 +2,7 @@
 theme: black
 ---
 
-<!-- .slide: data-background-image="/assets/media/slides/conectar-api-desde-react.webp" -->
+<!-- .slide: data-background-image="/assets/media/slides/conectar-api-desde-react.webp" data-background-size="contain" -->
 
 ---
 
@@ -325,9 +325,9 @@ Esta estructura permite mantener un código más ordenado, reutilizable y fácil
 
 ---
 
-<h2 class="text-glow r-fit-text">Arquitectura basada en Componentes</h2>
+<h2 class="text-glow r-fit-text" style="text-transform: uppercase;">Arquitectura basada en Componentes</h2>
 
-<p class="r-fit-text">En React, resolvemos problemas mediante componentes reutilizables. Si un componente se vuelve muy complejo, lo desglosamos en componentes más pequeños.</p>
+En React, resolvemos problemas mediante componentes reutilizables. Si un componente se vuelve muy complejo, lo desglosamos en componentes más pequeños.
 
 <img class="r-stretch" src="/assets/media/react/components-react.webp" data-preview-image width="100%">
 
@@ -352,7 +352,9 @@ Para mantener una estructura modular, implementaremos la tarjeta como un compone
 
 ---
 
-### Esquema del personaje
+<h2 class="text-glow">Esquema del personaje</h2>
+
+Antes de crear el componente, es necesario conocer la información que entrega cada personaje.
 
 <font size="5">
 
@@ -375,14 +377,25 @@ Para mantener una estructura modular, implementaremos la tarjeta como un compone
 
 ---
 
+<h2 class="text-glow">Campos utilizados para la tarjeta</h2>
 
-Para la construcción de nuestra tarjeta de personaje, utilizaremos algunos de los atributos proporcionados por el esquema de la API. En particular, se mostrarán: `name`, `status`, `origin`, `image`.
+Para la construcción de nuestra tarjeta de personaje, utilizaremos algunos de los atributos proporcionados por el esquema de la API. En particular, se mostrarán: <span class="text-glow">name</span>, <span class="text-glow">status</span>, <span class="text-glow">origin</span>, <span class="text-glow">image</span>.
 
 Ya que son los datos necesarios para representar visualmente la información principal de cada personaje.
 
 ---
 
-```jsx
+<h2 class="text-glow">EL componente base</h2>
+
+__CharacterCard__ es el componente principal de la tarjeta. Se encarga de recibir la información del personaje y transmitir los datos necesarios a los componentes hijos para su representación.
+
+
+<div style="display: flex; gap: 1em">
+
+<div class="code">
+<font size="5" color="#ff8"><i class="fa-brands fa-react" style="color: rgb(116, 192, 252);"></i> src/components/CharacterCard/CharacterCard.jsx</font>
+
+```jsx [1-21]
 import styles from "./CharacterCard.module.css";
 import { CharacterImage, CharacterInfo } from "./";
 
@@ -405,6 +418,14 @@ export default function CharacterCard({ character }) {
   );
 }
 ```
+</div>
+<div class="text">
+<font size="5">
+Además de importar los estilos y los componentes hijos, recibimos el objeto <span class="text-glow">character</span> y verificamos que exista antes de renderizar. Finalmente, organizamos la estructura de la tarjeta y pasamos la información del personaje mediante <span class="text-glow">props</span> a <span class="text-glow">CharacterImage</span> y <span class="text-glow">CharacterInfo</span>, encargados de mostrar la imagen y los datos, respectivamente.
+</font>
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+</div>
+</div>
 
 ---
 
