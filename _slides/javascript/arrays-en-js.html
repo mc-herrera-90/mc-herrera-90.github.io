@@ -1,5 +1,6 @@
 ---
 theme: black
+glow_color: "#F0DB4F"
 ---
 <h3 class="r-fit-text">JavaScript</h3>
 
@@ -20,17 +21,15 @@ Estos métodos sirven para **insertar nuevos elementos** en un array, ya sea al 
 
 <!-- .slide: data-preview="44q9cacgb" -->
 
-<h1><span class="text-glow">PUSH</span>: Agregar al final</h1>
+<h2><span class="text-glow">PUSH</span>: Agregar al final</h2>
 
-El método `.push()` agrega un nuevo elemento al final del arreglo y modifica el original.
+Este método agrega uno o más elementos al final del array y modifica el original.
 
 ### Ejemplo
 
-<div style="display: flex; gap: 1em">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em">
 
-<div style="width: 50%;">
-
-```javascript run
+```javascript [1,3,5,7] run
 const heroesDC = ["batgirl", "green arrow"];
 
 console.log(heroesDC);
@@ -39,35 +38,31 @@ heroesDC.push("catwoman", "shazam");
 
 console.log(heroesDC);
 ```
+
+<div class="card-info">
+<center><a data-preview-image="/assets/media/javascript/arrays/push-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a></center>
+En el ejemplo agregamos nuevos héroes al final del array usando <span class="text-glow">.push()</span> y mostramos el resultado antes y después por consola.
 </div>
 
-<div class="explain" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between">
-<div>En el ejemplo agregamos nuevos héroes al final del arreglo usando con <span class="text-glow">.push()</span>.</div>
-<a data-preview-image="/assets/media/javascript/arrays/push-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-<div style="display: flex; justify-content: space-evenly">
-<a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
-<a onclick="Reveal.down()" class="nav-btn">UNSHIFT <i class="fa-solid fa-arrow-down"></i></a>
-<a class="nav-btn" onclick="Reveal.right()"><span id="nextTitle">ELIMINAR</span> <i class="fa-solid fa-arrow-right"></i></a>
-</div>
-</div>
-
+{% include reveal/navigate.html
+    down="UNSHIFT"
+    next="ELIMINAR"
+%}
 </div>
 
 --
 
 <!-- .slide: data-preview="44q9jmpw7" -->
 
-<h1><span class="text-glow">UNSHIFT</span>: Agregar al inicio</h1>
+<h2><span class="text-glow">UNSHIFT</span>: Agregar al inicio</h2>
 
-El método `.unshift()` agrega uno o más elementos al inicio del arreglo y modifica el original.
+Este método agrega uno o más elementos al inicio del array y modifica el original.
 
 ### Ejemplo
 
-<div style="display: flex; gap: 1em">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em">
 
-<div style="width: 50%;">
-
-```javascript run
+```javascript [1,3,5,7] run
 const equipo = ["Messi", "Suárez"];
 
 console.log(equipo);
@@ -77,17 +72,14 @@ equipo.unshift("Neymar", "Iniesta");
 console.log(equipo);
 ```
 
+<div class="card-info">
+<center><a data-preview-image="/assets/media/javascript/arrays/unshift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a></center>
+<br>En el ejemplo agregamos nuevos elementos al inicio del array usando <span class="text-glow">.unshift()</span>.
 </div>
-
-<div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center">
-<div>En el ejemplo agregamos nuevos jugadores al inicio del equipo usando <span class="text-glow">.unshift()</span>.</div>
-<a data-preview-image="/assets/media/javascript/arrays/unshift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-<div style="display: flex; justify-content: space-evenly">
-<a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
-<a onclick="Reveal.up()" class="nav-btn">PUSH <i class="fa-solid fa-arrow-up"></i></a>
-<a class="nav-btn" onclick="Reveal.right()"><span id="nextTitle">ELIMINAR</span> <i class="fa-solid fa-arrow-right"></i></a>
-</div>
-</div>
+{% include reveal/navigate.html
+    up="PUSH"
+    next="ELIMINAR"
+%}
 </div>
 
 ---
@@ -103,17 +95,15 @@ Se utilizan para __remover elementos existentes__, ya sea al inicio, final o en 
 
 <!-- .slide: data-preview="44q9m9sv3" -->
 
-<h1><span class="text-glow">POP</span>: Eliminar el último</h1>
+<h2><span class="text-glow">POP</span>: Eliminar el último</h2>
 
-El método `.pop()` elimina el último elemento del arreglo y modifica el original.
+Este método elimina el último elemento del array y modifica el original.
 
 ### Ejemplo
 
-<div style="display: flex; gap: 1em">
+<div style="display: grid; grid-template-columns: 2fr 2fr; gap: 1em">
 
-<div style="width: 50%">
-
-```javascript run
+```javascript [1,3,5,7] run
 const equipo = ["Messi", "Suárez", "Neymar"];
 
 console.log(equipo);
@@ -123,16 +113,13 @@ equipo.pop();
 console.log(equipo);
 ```
 
-</div>
-<div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center">
-<div>En el siguiente ejemplo eliminaremos el último jugador del equipo usando <span class="text-glow">.pop()</span>.</div>
-<a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-<div style="display: flex; justify-content: space-evenly">
-<a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
-<a onclick="Reveal.down()" class="nav-btn">SHIFT <i class="fa-solid fa-arrow-down"></i></a>
-<a class="nav-btn" onclick="Reveal.right()"><span id="nextTitle">FILTRAR Y BUSCAR</span> <i class="fa-solid fa-arrow-right"></i></a>
-</div>
-</div>
+<div class="card-info">
+<center><a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a></center>
+En el ejemplo eliminamos el último elemento del array usando <span class="text-glow">.pop()</span> y mostramos el resultados antes y después por consola.</div>
+{% include reveal/navigate.html
+    down="SHIFT"
+    next="FILTRAR Y BUSCAR"
+%}
 </div>
 
 
@@ -140,15 +127,13 @@ console.log(equipo);
 
 <!-- .slide: data-preview="44q98kyrf" -->
 
-<h1><span class="text-glow">SHIFT</span>: Eliminar el primero</h1>
+<h2><span class="text-glow">SHIFT</span>: Eliminar el primero</h2>
 
-El método `.shift()` elimina el primer elemento del arreglo y desplaza los demás elementos hacia atrás.
+Este método elimina el primer elemento del array y desplaza los demás elementos hacia atrás.
 
 ### Ejemplo
 
-<div style="display: flex; gap: 1em">
-
-<div style="width: 50%;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em">
 
 ```js run
 const tareas = ["Despertar", "Desayunar", "Estudiar", "Dormir"];
@@ -160,16 +145,13 @@ tareas.shift();
 console.log(Object.entries(tareas));
 ```
 
-</div>
-
 <div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center">
-<div>En el siguiente ejemplo eliminaremos la primera tarea del arreglo y veremos cómo cambian sus índices.</div>
+<div>En el ejemplo eliminamos la primera tarea del array y mostramos en consola cómo cambian sus índices.</div>
 <a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-<div style="display: flex; justify-content: space-evenly">
-<a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
-<a onclick="Reveal.up()" class="nav-btn">POP <i class="fa-solid fa-arrow-up"></i></a>
-<a class="nav-btn" onclick="Reveal.right()"><span id="nextTitle">FILTRAR Y BUSCAR</span> <i class="fa-solid fa-arrow-right"></i></a>
-</div>
+{% include reveal/navigate.html
+    up="POP"
+    next="FILTRAR Y BUSCAR"
+%}
 </div>
 </div>
 
@@ -188,33 +170,31 @@ Permiten consultar información dentro del array sin modificarlo directamente o 
 
 <h1><span class="text-glow">INCLUDES</span>: Verificar existencia</h1>
 
-El método `.includes()` verifica si un valor existe dentro de un arreglo o una cadena de texto, devolviendo <span class="text-glow">true</span> si lo encuentra y <span class="text-glow">false</span> si no está presente.
+Este método verifica si un valor existe dentro de un array o una cadena de texto, devolviendo <span class="text-glow">true</span> si lo encuentra y <span class="text-glow">false</span> si no está presente.
 
 ### Ejemplo
 
-<div style="display: flex; gap: 1em">
+<div style="display:grid;grid-template-columns:1.2fr 1fr;gap:1em">
 
-<div style="width: 50%;">
+```js [1,3-5,7-9] run
+const frutas = ["🍎", "🍌", "🍇", "🍓", "🍍", "🍑"];
 
-```js run
-const frutas = ["manzana", "plátano", "naranja"];
-
-const existePlatano = frutas.includes("plátano");
-const existeUva = frutas.includes("uva");
+const existePlatano = frutas.includes("🍌");
+const existeUva = frutas.includes("🍇");
+const existeMango = frutas.includes("🥭");
 
 console.log(existePlatano);
 console.log(existeUva);
+console.log(existeMango);
 ```
 
-</div>
 <div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 1em">
-<div>En el siguiente ejemplo comprobamos si una fruta está dentro del arreglo usando <span class="text-glow">.includes()</span>.</div>
+<div>En el ejemplo comprobamos si una fruta está dentro del array usando <span class="text-glow">.includes()</span>.</div>
 <a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-<div style="display: flex; justify-content: space-evenly">
-<a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
-<a onclick="Reveal.down()" class="nav-btn">INDEXOF <i class="fa-solid fa-arrow-down"></i></a>
-<a class="nav-btn" onclick="Reveal.right()"><span id="nextTitle">FILTRAR Y BUSCAR</span> <i class="fa-solid fa-arrow-right"></i></a>
-</div>
+{% include reveal/navigate.html
+    down="INDEXOF"
+    next="TRANSFORMAR"
+%}
 </div>
 </div>
 
@@ -224,31 +204,33 @@ console.log(existeUva);
 
 <h1><span class="text-glow">INDEXOF</span>: Conocer la posición</h1>
 
-El método `.indexOf()` devuelve la posición ( índice ) de la primera aparición de un elemento dentro de un arreglo o cadena de texto, o `-1` si no lo encuentra.
+Este método devuelve la posición ( índice ) de la primera aparición de un elemento dentro del array o cadena de texto, o `-1` si no lo encuentra.
 
 ### Ejemplo
 
-<div style="display: flex; gap: 1em">
+<div style="display:grid;grid-template-columns: 0.8fr 1.2fr; gap: 1em">
 
-<div style="width: 50%">
 
 ```javascript run
-const equipos = ["Colo Colo", "U de Chile", "Universidad Católica", "O'Higgins"];
+const animales = ["🐶", "🐱", "🐭", "🐹", "🐰"];
 
-console.log(equipos.indexOf("Universidad Católica"));
-console.log(equipos.indexOf("Palestino"));
+const indicePerro = animales.indexOf("🐶");
+const indiceGato = animales.indexOf("🐱");
+const indiceLeon = animales.indexOf("🦁");
+
+console.log(indicePerro); // 0
+console.log(indiceGato);  // 1
+console.log(indiceLeon);  // -1
 ```
 
-</div>
 <div class="eplain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 1em">
-<div>En el siguiente ejemplo buscamos la posición de dos equipos dentro del arreglo usando <span class="text-glow">.indexOf()</span> y vemos el índice que devuelve en consola.</div>
+<div>En el ejemplo buscamos la posición de los animales dentro del array usando <span class="text-glow">.indexOf()</span> y vemos el resultado en consola.</div>
 <a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-<div style="display: flex; justify-content: space-evenly">
-<a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
-<a onclick="Reveal.up()" class="nav-btn">INCLUDES <i class="fa-solid fa-arrow-up"></i></a>
-<a onclick="Reveal.down()" class="nav-btn">FIND <i class="fa-solid fa-arrow-down"></i></a>
-<a class="nav-btn" onclick="Reveal.right()"><span id="nextTitle">TRANSFORMAR</span> <i class="fa-solid fa-arrow-right"></i></a>
-</div>
+{% include reveal/navigate.html
+    up="INCLUDES"
+    down="FIND"
+    next="TRANSFORMAR"
+%}
 </div>
 </div>
 
@@ -257,33 +239,36 @@ console.log(equipos.indexOf("Palestino"));
 <!-- .slide: data-preview="44qakv9kf" -->
 <h1><span class="text-glow">FIND</span>: Buscar el primer match</h1>
 
-El método `.find()` devuelve el primer elemento de un arreglo que cumpla con una condición, o `undefined` si no encuentra ninguno.
+Este método devuelve el primer elemento de un array que cumpla con una condición, o `undefined` si no encuentra ninguno.
 
 ### Ejemplo
 
-<div style="display: flex; gap: 1em">
+<div style="display:grid; grid-template-columns: 1.3fr 0.7fr; gap: 1em">
 
-<div style="width: 50%;">
 
-```javascript run
-const edades = [12, 18, 25, 17, 30];
+```javascript [] run
+const productos = [
+  { nombre: "⌨️ Teclado", stock: 0 },
+  { nombre: "🖱️ Mouse", stock: 5 },
+  { nombre: "🖥️ Monitor", stock: 3 },
+  { nombre: "🎧 Audífonos", stock: 10 }
+];
 
-const mayorEdad = edades.find(edad => edad >= 18);
+// buscar el primer producto con stock disponible
+const disponible = productos.find(p => p.stock > 0);
 
-console.log(mayorEdad);
+console.log(disponible.nombre, "➡️", disponible.stock);
 ```
 
-</div>
-<div class="explain" style="display: flex; flex-direction: column; justify-content: space-betweem; gap: 1em; align-items: center">
-<div>En el siguiente ejemplo buscamos el primer número que sea mayor o igual a 18 dentro del arreglo usando <span class="text-glow">.find()</span> y mostramos el resultado en consola.</div>
+<div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; gap: 1em; align-items: center">
+<div>En el ejemplo buscamos el primer producto con stock mayor a 0 dentro del array usando <span class="text-glow">.find()</span> y mostramos el resultado en consola.</div>
 <a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-<div style="display: flex; justify-content: space-evenly">
-<a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
-<a onclick="Reveal.up()" class="nav-btn">INDEXOF <i class="fa-solid fa-arrow-up"></i></a>
-<a onclick="Reveal.down()" class="nav-btn">FILTER <i class="fa-solid fa-arrow-down"></i></a>
-<a class="nav-btn" onclick="Reveal.right()"><span id="nextTitle">TRANSFORMAR</span> <i class="fa-solid fa-arrow-right"></i></a>
 </div>
-</div>
+{% include reveal/navigate.html
+    up="INDEXOF"
+    down="FILTER"
+    next="TRANSFORMAR"
+%}
 </div>
 
 --
@@ -292,13 +277,12 @@ console.log(mayorEdad);
 
 <h1><span class="text-glow">FILTER</span>: Buscar todos los match</h1>
 
-El método `.filter()` crea un nuevo arreglo con los elementos que cumplen una condición
+Este método crea un nuevo array con los elementos que cumplen una condición.
 
 ### Ejemplo
 
-<div style="display: flex; gap: 1em">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap: 1em">
 
-<div style="width: 50%;">
 
 ```js run
 const numbers = [10, 20, 55.33, 23];
@@ -312,16 +296,14 @@ const pares = numbers.filter(numberIsEven);
 console.log(pares);
 ```
 
-</div>
 <div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center">
 <div>En el siguiente ejemplo usamos <span class="text-glow">.filter()</span> para obtener un nuevo arreglo con solo los números pares, redondeando cada valor antes de evaluarlo.</div>
 <a data-preview-image="/assets/media/javascript/arrays/filter-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-<div style="display: flex; justify-content: space-evenly">
-<a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
-<a onclick="Reveal.up()" class="nav-btn">FIND <i class="fa-solid fa-arrow-up"></i></a>
-<a class="nav-btn" onclick="Reveal.right()"><span id="nextTitle">TRANSFORMAR</span> <i class="fa-solid fa-arrow-right"></i></a>
 </div>
-</div>
+{% include reveal/navigate.html
+    up="FIND"
+    next="TRANSFORMAR"
+%}
 
 </div>
 

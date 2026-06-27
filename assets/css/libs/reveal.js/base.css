@@ -35,7 +35,7 @@
 }
 
 .reveal {
-  font-family: var(--r-main-font);
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
   font-size: var(--r-main-font-size);
   font-weight: 400;
   color: var(--r-main-color);
@@ -67,6 +67,15 @@ section.has-dark-background h6 {
   text-transform: var(--r-heading-text-transform);
   text-shadow: var(--r-heading-text-shadow);
   word-wrap: break-word;
+}
+
+.reveal h1:last-child,
+.reveal h2:last-child,
+.reveal h3:last-child,
+.reveal h4:last-child,
+.reveal h5:last-child,
+.reveal h6:last-child {
+  margin-bottom: 0;
 }
 
 .reveal table {

@@ -78,8 +78,6 @@ text-shadow:
   font-weight: inherit;
 }
 
-
-
 .reveal p {
   margin: var(--r-block-margin) 0;
   text-align: left;
@@ -230,7 +228,6 @@ text-shadow:
 .reveal a:hover {
   color: var(--r-link-color-hover);
   text-shadow: none;
-  border: none;
 }
 
 .reveal .roll span:after {

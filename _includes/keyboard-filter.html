@@ -7,7 +7,7 @@
     <kbd class="alphabet-btn special-btn" role="button" tabindex="0" data-letter="ESC">
       ESC
     </kbd>
-    {% assign row1 = "ABCDEFGHIJK" | split: "" %}
+    {% assign row1 = "QWERTYUIOP" | split: "" %}
     {% for letter in row1 %}
     <kbd class="alphabet-btn" role="button" tabindex="0" data-letter="{{ letter }}">
       {{ letter }}
@@ -17,7 +17,7 @@
 
   <!-- Segunda fila: L–T -->
   <div class="alphabet-row">
-    {% assign row2 = "LMNOPQRST" | split: "" %}
+    {% assign row2 = "ASDFGHJKLÑ" | split: "" %}
     {% for letter in row2 %}
     <kbd class="alphabet-btn" role="button" tabindex="0" data-letter="{{ letter }}">
       {{ letter }}
@@ -27,7 +27,7 @@
 
   <!-- Tercera fila: U–Z + “Todos” -->
   <div class="alphabet-row">
-    {% assign row3 = "UVWXYZ" | split: "" %}
+    {% assign row3 = "ZXCVBNM" | split: "" %}
     {% for letter in row3 %}
     <kbd class="alphabet-btn" role="button" tabindex="0" data-letter="{{ letter }}">
       {{ letter }}

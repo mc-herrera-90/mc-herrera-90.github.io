@@ -1,0 +1,31 @@
+<div style="display:flex; justify-content: flex-start; gap:0.3em; flex-wrap: wrap;">
+  <a href="javascript:void(0)"
+      class="nav-btn"
+      onclick="Reveal.toggleOverview();">
+      <i class="fa-solid fa-layer-group"></i>
+  </a>
+  {% if include.up %}
+  <a class="nav-btn" onclick="Reveal.up()">
+      {{ include.up }}
+      <i class="fa-solid fa-arrow-up"></i>
+  </a>
+  {% endif %}
+  {% if include.down %}
+  <a class="nav-btn" onclick="Reveal.down()">
+      {{ include.down }}
+      <i class="fa-solid fa-arrow-down"></i>
+  </a>
+  {% endif %}
+  {% if include.prev %}
+  <a class="nav-btn" onclick="Reveal.left()">
+      <i class="fa-solid fa-arrow-left"></i>
+      {{ include.prev }}
+  </a>
+  {% endif %}
+  {% if include.next %}
+  <a class="nav-btn" onclick="Reveal.right()">
+      {{ include.next }}
+      <i class="fa-solid fa-arrow-right"></i>
+  </a>
+  {% endif %}
+</div>
