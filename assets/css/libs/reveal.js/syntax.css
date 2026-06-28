@@ -3,6 +3,13 @@
   src: url("../../../fonts/VictorMono-Regular.woff2") format("woff2");
 }
 
+@font-face {
+    font-family: 'Monocraft';
+    src: url('https://cdn.jsdelivr.net/gh/IdreesInc/Monocraft@main/dist/Monocraft-ttf/Monocraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .codeblock {
   display: flex;
   flex-direction: column;
@@ -44,14 +51,9 @@
   border: 0
 }
 
-/*
-.reveal pre code {
-  display: block;
-  padding: 5px;
-  overflow: auto;
-  max-height: 400px;
-  word-wrap: normal;
-} */
+.pixel-font {
+  font-family: 'Monocraft', console !important;
+}
 
 .reveal .hljs-ln-numbers {
   opacity: .6;

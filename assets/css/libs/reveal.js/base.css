@@ -26,6 +26,12 @@
   font-style: italic;
 }
 
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../../../fonts/SourceSansPro-Bold.ttf.woff2') format('woff');
+  font-weight: bold;
+}
+
 :root {
   --r-main-font-size: 28px;
   --r-heading1-size: 2.5em;
@@ -40,7 +46,10 @@
   font-weight: 400;
   color: var(--r-main-color);
 }
-
+.reveal strong {
+  color: var(--r-font-strong-color, #ccc);
+  font-weight: bold;
+}
 section.has-dark-background,
 section.has-dark-background h1,
 section.has-dark-background h2,

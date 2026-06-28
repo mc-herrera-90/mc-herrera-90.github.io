@@ -25,23 +25,36 @@ Estos métodos sirven para **insertar nuevos elementos** en un array, ya sea al 
 
 Este método agrega uno o más elementos al final del array y modifica el original.
 
-### Ejemplo
+<h3><span class="text-glow">Ejemplo</span>:</h3>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: center">
 
 ```javascript [1,3,5,7] run
-const heroesDC = ["batgirl", "green arrow"];
+const mascotas = ["🐶", "🐱"];
 
-console.log(heroesDC);
+console.log("Antes:", mascotas);
 
-heroesDC.push("catwoman", "shazam");
+mascotas.push("🐰", "🐹");
 
-console.log(heroesDC);
+console.log("Después:", mascotas);
 ```
 
-<div class="card-info">
-<center><a data-preview-image="/assets/media/javascript/arrays/push-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a></center>
-En el ejemplo agregamos nuevos héroes al final del array usando <span class="text-glow">.push()</span> y mostramos el resultado antes y después por consola.
+<div class="card pixel-font" style="display: flex; flex-direction: column">
+<span style="text-align: left; font-size: 1.5rem">["🐶","🐱"].<span class="hljs-title function_">push</span>("🐰","🐹")</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span><span style="color: #0f0;">+</span> ➡️ 🐰🐹</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>["🐶", "🐱","🐰", "🐹"]</span>
 </div>
 
 {% include reveal/navigate.html
@@ -58,29 +71,43 @@ En el ejemplo agregamos nuevos héroes al final del array usando <span class="te
 
 Este método agrega uno o más elementos al inicio del array y modifica el original.
 
-### Ejemplo
+<h3><span class="text-glow">Ejemplo</span>:</h3>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: center">
 
 ```javascript [1,3,5,7] run
-const equipo = ["Messi", "Suárez"];
+const planetas = ["🌍", "🪐"];
 
-console.log(equipo);
+console.log("Antes:", planetas);
 
-equipo.unshift("Neymar", "Iniesta");
+planetas.unshift("☀️", "🌕");
 
-console.log(equipo);
+console.log("Después:", planetas);
 ```
 
-<div class="card-info">
-<center><a data-preview-image="/assets/media/javascript/arrays/unshift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a></center>
-<br>En el ejemplo agregamos nuevos elementos al inicio del array usando <span class="text-glow">.unshift()</span>.
+<div class="card pixel-font" style="display: flex; flex-direction: column">
+<span style="text-align: left; font-size: 1.5rem">["🌍","🪐"].<span class="hljs-title function_">unshift</span>("☀️","🌕")</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span><span style="color: #0f0;">+</span> ☀️🌕  ⬅️</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>["☀️","🌕","🌍", "🪐"]</span>
 </div>
 {% include reveal/navigate.html
     up="PUSH"
     next="ELIMINAR"
 %}
 </div>
+
 
 ---
 
@@ -99,23 +126,39 @@ Se utilizan para __remover elementos existentes__, ya sea al inicio, final o en 
 
 Este método elimina el último elemento del array y modifica el original.
 
-### Ejemplo
+<h3><span class="text-glow">Ejemplo</span>:</h3>
 
-<div style="display: grid; grid-template-columns: 2fr 2fr; gap: 1em">
+<div style="display: grid; grid-template-columns: 2fr 2fr; gap: 1em; align-items: center">
 
-```javascript [1,3,5,7] run
-const equipo = ["Messi", "Suárez", "Neymar"];
+```javascript [] run
+const carrito = ["🍎", "🥛", "🍞"];
 
-console.log(equipo);
+console.log("Antes:", carrito);
 
-equipo.pop();
+const eliminado = animales.pop();
 
-console.log(equipo);
+console.log("Eliminado:", eliminado);
+
+console.log("Después:", carrito);
 ```
 
-<div class="card-info">
-<center><a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a></center>
-En el ejemplo eliminamos el último elemento del array usando <span class="text-glow">.pop()</span> y mostramos el resultados antes y después por consola.</div>
+<div class="card pixel-font" style="display: flex; flex-direction: column">
+<span>["🍎", "🥛", "🍞"].<span class="hljs-title function_">pop</span>()</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span><span style="color: #f00">❌</span> 🍞</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>["🍎", "🥛"]</span>
+</div>
 {% include reveal/navigate.html
     down="SHIFT"
     next="FILTRAR Y BUSCAR"
@@ -131,28 +174,99 @@ En el ejemplo eliminamos el último elemento del array usando <span class="text-
 
 Este método elimina el primer elemento del array y desplaza los demás elementos hacia atrás.
 
-### Ejemplo
+<h3><span class="text-glow">Ejemplo</span>:</h3>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: center">
 
-```js run
-const tareas = ["Despertar", "Desayunar", "Estudiar", "Dormir"];
+```js [] run
+const animales = ["🐶", "🐱", "🐰"];
 
-console.log(Object.entries(tareas));
+console.log("Antes:", animales);
 
-tareas.shift();
+const eliminado = animales.shift();
 
-console.log(Object.entries(tareas));
+console.log("Eliminado:", eliminado);
+
+console.log("Después:", animales);
 ```
 
-<div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center">
-<div>En el ejemplo eliminamos la primera tarea del array y mostramos en consola cómo cambian sus índices.</div>
-<a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
+<div class="card pixel-font" style="display: flex; flex-direction: column;">
+<span>["🐶","🐱","🐰"].<span class="hljs-title function_">shift</span>()</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span><span style="color: #f00">❌</span> 🐶</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>["🐱","🐰"]</span>
+</div>
 {% include reveal/navigate.html
     up="POP"
+    down="SPLICE"
     next="FILTRAR Y BUSCAR"
 %}
 </div>
+</div>
+
+--
+
+<!-- .slide: data-preview="44tkc423a" -->
+<h2><span class="text-glow">SPLICE</span>: Eliminar por posición</h2>
+
+Este método elimina uno o varios elementos del array indicando la posición inicial y la cantidad de elementos que se eliminarán.
+
+<h3><span class="text-glow">Ejemplo</span>:</h3>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: center">
+
+```js [] run
+const animales = ["🐶", "🐱", "🐰"];
+
+console.log("Antes:", animales);
+
+const eliminado = animales.splice(1, 1);
+
+console.log("Eliminado:", eliminado);
+
+console.log("Después:", animales);
+```
+<div style="display: flex; flex-direction: column; gap: 0.5rem">
+<div class="card pixel-font" style="display: flex; flex-direction: column;">
+<span style="font-size: 1.5rem">["🐶","🐱","🐰"].<span class="hljs-title function_">splice</span>(1, 1)</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span><span style="color: #f00">❌</span> 🐱</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>["🐶","🐰"]</span>
+</div>
+
+<div class="card-info pixel-font" style="font-size: 1.2rem">
+["🐶","🐱","🐰"].splice(1)
+<span style="color: #f00">❌</span> 🐱🐰<br>
+<strong>Si no se indica la cantidad, se eliminarán todos desde esa posición</strong>
+</div>
+</div>
+
+{% include reveal/navigate.html
+    up="SHIFT"
+    next="FILTRAR Y BUSCAR"
+%}
 </div>
 
 ---
@@ -168,29 +282,50 @@ Permiten consultar información dentro del array sin modificarlo directamente o 
 
 <!-- .slide: data-preview="44qah35m2" -->
 
-<h1><span class="text-glow">INCLUDES</span>: Verificar existencia</h1>
+<h2><span class="text-glow">INCLUDES</span>: Verificar existencia</h2>
 
 Este método verifica si un valor existe dentro de un array o una cadena de texto, devolviendo <span class="text-glow">true</span> si lo encuentra y <span class="text-glow">false</span> si no está presente.
 
-### Ejemplo
+<h3><span class="text-glow">Ejemplo</span>:</h3>
 
 <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:1em">
 
 ```js [1,3-5,7-9] run
-const frutas = ["🍎", "🍌", "🍇", "🍓", "🍍", "🍑"];
+const frutas = ["🍎", "🍌", "🍇", "🍍"];
 
 const existePlatano = frutas.includes("🍌");
 const existeUva = frutas.includes("🍇");
 const existeMango = frutas.includes("🥭");
 
-console.log(existePlatano);
-console.log(existeUva);
-console.log(existeMango);
+console.log("🍌 ❓", existePlatano);
+console.log("🍇 ❓", existeUva);
+console.log("🥭 ❓", existeMango);
 ```
 
-<div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 1em">
-<div>En el ejemplo comprobamos si una fruta está dentro del array usando <span class="text-glow">.includes()</span>.</div>
-<a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
+<div class="card pixel-font" style="display: flex; flex-direction: column;font-size: 1.5rem;">
+<span>["🍎", "🍌", "🍇", "🍍"]</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>🔎 🍌 .<span class="hljs-title function_">includes</span>(🍌) ✅</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>🔎 🍇 .<span class="hljs-title function_">includes</span>(🍇) ✅</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>🔎 🥭 .<span class="hljs-title function_">includes</span>(🥭) <span style="color: #f00">❌</span></span>
+</div>
 {% include reveal/navigate.html
     down="INDEXOF"
     next="TRANSFORMAR"
