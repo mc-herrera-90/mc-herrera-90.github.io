@@ -29,6 +29,8 @@ Este método agrega uno o más elementos al final del array y modifica el origin
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: center">
 
+<div>
+
 ```javascript [1,3,5,7] run
 const mascotas = ["🐶", "🐱"];
 
@@ -39,8 +41,22 @@ mascotas.push("🐰", "🐹");
 console.log("Después:", mascotas);
 ```
 
+<br>
+{% include reveal/navigate.html
+    down="UNSHIFT"
+    next="ELIMINAR"
+%}
+</div>
+
 <div class="card pixel-font" style="display: flex; flex-direction: column">
-<span style="text-align: left; font-size: 1.5rem">["🐶","🐱"].<span class="hljs-title function_">push</span>("🐰","🐹")</span>
+<span>["🐶","🐱"]</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>.<span class="hljs-title function_">push</span>("🐰","🐹")</span>
 <span>
   <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
 	<path d="M0 0h24v24H0z" fill="none" />
@@ -56,11 +72,6 @@ console.log("Después:", mascotas);
 </span>
 <span>["🐶", "🐱","🐰", "🐹"]</span>
 </div>
-
-{% include reveal/navigate.html
-    down="UNSHIFT"
-    next="ELIMINAR"
-%}
 </div>
 
 --
@@ -75,6 +86,8 @@ Este método agrega uno o más elementos al inicio del array y modifica el origi
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: center">
 
+<div>
+
 ```javascript [1,3,5,7] run
 const planetas = ["🌍", "🪐"];
 
@@ -85,8 +98,23 @@ planetas.unshift("☀️", "🌕");
 console.log("Después:", planetas);
 ```
 
-<div class="card pixel-font" style="display: flex; flex-direction: column">
-<span style="text-align: left; font-size: 1.5rem">["🌍","🪐"].<span class="hljs-title function_">unshift</span>("☀️","🌕")</span>
+<br>
+{% include reveal/navigate.html
+    up="PUSH"
+    next="ELIMINAR"
+%}
+
+</div>
+
+<div class="card pixel-font" style="display: flex; flex-direction: column;">
+<span>["🌍","🪐"]</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>.<span class="hljs-title function_">unshift</span>("☀️","🌕")</span>
 <span>
   <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
 	<path d="M0 0h24v24H0z" fill="none" />
@@ -102,10 +130,6 @@ console.log("Después:", planetas);
 </span>
 <span>["☀️","🌕","🌍", "🪐"]</span>
 </div>
-{% include reveal/navigate.html
-    up="PUSH"
-    next="ELIMINAR"
-%}
 </div>
 
 
@@ -128,7 +152,9 @@ Este método elimina el último elemento del array y modifica el original.
 
 <h3><span class="text-glow">Ejemplo</span>:</h3>
 
-<div style="display: grid; grid-template-columns: 2fr 2fr; gap: 1em; align-items: center">
+<div style="display: grid; grid-template-columns: 2fr 2fr; gap: 1em; align-items: flex-start">
+
+<div>
 
 ```javascript [] run
 const carrito = ["🍎", "🥛", "🍞"];
@@ -141,9 +167,22 @@ console.log("Eliminado:", eliminado);
 
 console.log("Después:", carrito);
 ```
+<br>
+{% include reveal/navigate.html
+    down="SHIFT"
+    next="FILTRAR Y BUSCAR"
+%}
+</div>
 
 <div class="card pixel-font" style="display: flex; flex-direction: column">
-<span>["🍎", "🥛", "🍞"].<span class="hljs-title function_">pop</span>()</span>
+<span>["🍎", "🥛", "🍞"]</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>.<span class="hljs-title function_">pop</span>()</span>
 <span>
   <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
 	<path d="M0 0h24v24H0z" fill="none" />
@@ -159,12 +198,7 @@ console.log("Después:", carrito);
 </span>
 <span>["🍎", "🥛"]</span>
 </div>
-{% include reveal/navigate.html
-    down="SHIFT"
-    next="FILTRAR Y BUSCAR"
-%}
 </div>
-
 
 --
 
@@ -176,7 +210,9 @@ Este método elimina el primer elemento del array y desplaza los demás elemento
 
 <h3><span class="text-glow">Ejemplo</span>:</h3>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: center">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: flex-start">
+
+<div>
 
 ```js [] run
 const animales = ["🐶", "🐱", "🐰"];
@@ -189,9 +225,23 @@ console.log("Eliminado:", eliminado);
 
 console.log("Después:", animales);
 ```
+<br>
+{% include reveal/navigate.html
+    up="POP"
+    down="SPLICE"
+    next="FILTRAR Y BUSCAR"
+%}
+</div>
 
 <div class="card pixel-font" style="display: flex; flex-direction: column;">
-<span>["🐶","🐱","🐰"].<span class="hljs-title function_">shift</span>()</span>
+<span>["🐶","🐱","🐰"].</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span><span class="hljs-title function_">shift</span>()</span>
 <span>
   <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
 	<path d="M0 0h24v24H0z" fill="none" />
@@ -207,11 +257,6 @@ console.log("Después:", animales);
 </span>
 <span>["🐱","🐰"]</span>
 </div>
-{% include reveal/navigate.html
-    up="POP"
-    down="SPLICE"
-    next="FILTRAR Y BUSCAR"
-%}
 </div>
 </div>
 
@@ -224,7 +269,9 @@ Este método elimina uno o varios elementos del array indicando la posición ini
 
 <h3><span class="text-glow">Ejemplo</span>:</h3>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: center">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: flex-start">
+
+<div>
 
 ```js [] run
 const animales = ["🐶", "🐱", "🐰"];
@@ -237,9 +284,23 @@ console.log("Eliminado:", eliminado);
 
 console.log("Después:", animales);
 ```
+<br>
+{% include reveal/navigate.html
+    up="SHIFT"
+    next="FILTRAR Y BUSCAR"
+%}
+</div>
+
 <div style="display: flex; flex-direction: column; gap: 0.5rem">
 <div class="card pixel-font" style="display: flex; flex-direction: column;">
-<span style="font-size: 1.5rem">["🐶","🐱","🐰"].<span class="hljs-title function_">splice</span>(1, 1)</span>
+<span style="font-size: 1.5rem">["🐶","🐱","🐰"]</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>.<span class="hljs-title function_">splice</span>(1, 1)</span>
 <span>
   <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
 	<path d="M0 0h24v24H0z" fill="none" />
@@ -262,11 +323,6 @@ console.log("Después:", animales);
 <strong>Si no se indica la cantidad, se eliminarán todos desde esa posición</strong>
 </div>
 </div>
-
-{% include reveal/navigate.html
-    up="SHIFT"
-    next="FILTRAR Y BUSCAR"
-%}
 </div>
 
 ---

@@ -190,7 +190,7 @@
         <span>Vista previa</span>
       </div>
 
-      <a class="resource__btn" target="_blank" href="{{ include.src }}">
+      <a id="resourceOpen" class="resource__btn" target="_blank" href="{{ include.src }}">
         <i class="fa-solid fa-up-right-from-square"></i>
         Abrir
       </a>
@@ -198,7 +198,7 @@
     </div>
     {% endif %}
 
-    <iframe allowfullscreen src="{{ include.src | relative-url }}"></iframe>
+    <iframe id="resourceFrame" allowfullscreen src="{{ include.src | relative-url }}"></iframe>
 {% include resource-sharing.html url=include.src title=page.title %}
 
 
@@ -281,5 +281,29 @@ document.addEventListener('keydown', function(e) {
   if (e.key === "Escape") {
     document.getElementById('resourceModal').style.display = 'none';
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const iframe = document.getElementById("resourceFrame");
+  const button = document.getElementById("resourceOpen");
+
+  iframe.addEventListener("load", () => {
+
+    const reveal = iframe.contentWindow.Reveal;
+
+    const updateLink = () => {
+      const { h, v } = reveal.getIndices();
+      button.href = `${iframe.contentWindow.location.pathname}#/${h}/${v}`;
+    };
+
+    updateLink();
+
+    ["slidechanged", "fragmentshown", "fragmenthidden"].forEach(event =>
+      reveal.on(event, updateLink)
+    );
+
+  });
+
 });
 </script>
