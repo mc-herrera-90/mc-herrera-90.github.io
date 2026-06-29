@@ -53,6 +53,7 @@
 
 .pixel-font {
   font-family: 'Monocraft', console !important;
+  font-size: 0.9em;
 }
 
 .reveal .hljs-ln-numbers {

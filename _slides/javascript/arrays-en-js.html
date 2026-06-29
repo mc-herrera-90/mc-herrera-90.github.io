@@ -21,13 +21,13 @@ Estos métodos sirven para **insertar nuevos elementos** en un array, ya sea al 
 
 <!-- .slide: data-preview="44q9cacgb" -->
 
-<h2><span class="text-glow">PUSH</span>: Agregar al final</h2>
+<h2><span class="warning">PUSH</span>: Agregar al final</h2>
 
 Este método agrega uno o más elementos al final del array y modifica el original.
 
-<h3><span class="text-glow">Ejemplo</span>:</h3>
+<h3><span class="warning">Ejemplo</span>:</h3>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: center">
+<div style="display: grid; grid-template-columns: 55% 45%; gap: 1em; align-items: start">
 
 <div>
 
@@ -48,29 +48,14 @@ console.log("Después:", mascotas);
 %}
 </div>
 
-<div class="card pixel-font" style="display: flex; flex-direction: column">
-<span>["🐶","🐱"]</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
-<span>.<span class="hljs-title function_">push</span>("🐰","🐹")</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<div class="card" style="display: flex; flex-direction: column">
+<span>["🐶", "🐱"]</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>.<span class="hljs-title function_">push</span>("🐰", "🐹")</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span><span style="color: #0f0;">+</span> ➡️ 🐰🐹</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
-<span>["🐶", "🐱","🐰", "🐹"]</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>["🐶", "🐱", "🐰", "🐹"]</span>
 </div>
 </div>
 
@@ -78,13 +63,13 @@ console.log("Después:", mascotas);
 
 <!-- .slide: data-preview="44q9jmpw7" -->
 
-<h2><span class="text-glow">UNSHIFT</span>: Agregar al inicio</h2>
+<h2><span class="warning">UNSHIFT</span>: Agregar al inicio</h2>
 
 Este método agrega uno o más elementos al inicio del array y modifica el original.
 
-<h3><span class="text-glow">Ejemplo</span>:</h3>
+<h3><span class="warning">Ejemplo</span>:</h3>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: center">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: start">
 
 <div>
 
@@ -103,35 +88,18 @@ console.log("Después:", planetas);
     up="PUSH"
     next="ELIMINAR"
 %}
-
 </div>
 
-<div class="card pixel-font" style="display: flex; flex-direction: column;">
-<span>["🌍","🪐"]</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
-<span>.<span class="hljs-title function_">unshift</span>("☀️","🌕")</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
-<span><span style="color: #0f0;">+</span> ☀️🌕  ⬅️</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
-<span>["☀️","🌕","🌍", "🪐"]</span>
+<div class="card" style="display: flex; flex-direction: column;">
+<span>["🌍", "🪐"]</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>.<span class="hljs-title function_">unshift</span>("☀️", "🌕")</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span><span style="color: #0f0;">+</span> ☀️ 🌕  ⬅️</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>["☀️", "🌕", "🌍", "🪐"]</span>
 </div>
 </div>
-
 
 ---
 
@@ -146,11 +114,11 @@ Se utilizan para __remover elementos existentes__, ya sea al inicio, final o en 
 
 <!-- .slide: data-preview="44q9m9sv3" -->
 
-<h2><span class="text-glow">POP</span>: Eliminar el último</h2>
+<h2><span class="warning">POP</span>: Eliminar el último</h2>
 
 Este método elimina el último elemento del array y modifica el original.
 
-<h3><span class="text-glow">Ejemplo</span>:</h3>
+<h3><span class="warning">Ejemplo</span>:</h3>
 
 <div style="display: grid; grid-template-columns: 2fr 2fr; gap: 1em; align-items: flex-start">
 
@@ -174,28 +142,13 @@ console.log("Después:", carrito);
 %}
 </div>
 
-<div class="card pixel-font" style="display: flex; flex-direction: column">
+<div class="card" style="display: flex; flex-direction: column">
 <span>["🍎", "🥛", "🍞"]</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span>.<span class="hljs-title function_">pop</span>()</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span><span style="color: #f00">❌</span> 🍞</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span>["🍎", "🥛"]</span>
 </div>
 </div>
@@ -204,11 +157,11 @@ console.log("Después:", carrito);
 
 <!-- .slide: data-preview="44q98kyrf" -->
 
-<h2><span class="text-glow">SHIFT</span>: Eliminar el primero</h2>
+<h2><span class="warning">SHIFT</span>: Eliminar el primero</h2>
 
 Este método elimina el primer elemento del array y desplaza los demás elementos hacia atrás.
 
-<h3><span class="text-glow">Ejemplo</span>:</h3>
+<h3><span class="warning">Ejemplo</span>:</h3>
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: flex-start">
 
@@ -233,28 +186,13 @@ console.log("Después:", animales);
 %}
 </div>
 
-<div class="card pixel-font" style="display: flex; flex-direction: column;">
-<span>["🐶","🐱","🐰"].</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
-<span><span class="hljs-title function_">shift</span>()</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<div class="card" style="display: flex; flex-direction: column;">
+<span>["🐶", "🐱", "🐰"].</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>.<span class="hljs-title function_">shift</span>()</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span><span style="color: #f00">❌</span> 🐶</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span>["🐱","🐰"]</span>
 </div>
 </div>
@@ -263,11 +201,11 @@ console.log("Después:", animales);
 --
 
 <!-- .slide: data-preview="44tkc423a" -->
-<h2><span class="text-glow">SPLICE</span>: Eliminar por posición</h2>
+<h2><span class="warning">SPLICE</span>: Eliminar por posición</h2>
 
 Este método elimina uno o varios elementos del array indicando la posición inicial y la cantidad de elementos que se eliminarán.
 
-<h3><span class="text-glow">Ejemplo</span>:</h3>
+<h3><span class="warning">Ejemplo</span>:</h3>
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: flex-start">
 
@@ -292,35 +230,20 @@ console.log("Después:", animales);
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 0.5rem">
-<div class="card pixel-font" style="display: flex; flex-direction: column;">
-<span style="font-size: 1.5rem">["🐶","🐱","🐰"]</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<div class="card" style="display: flex; flex-direction: column;">
+<span>["🐶" ,"🐱", "🐰"]</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span>.<span class="hljs-title function_">splice</span>(1, 1)</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span><span style="color: #f00">❌</span> 🐱</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
-<span>["🐶","🐰"]</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>["🐶", "🐰"]</span>
 </div>
 
-<div class="card-info pixel-font" style="font-size: 1.2rem">
+<div class="card-info" style="font-size: 0.9em">
 ["🐶","🐱","🐰"].splice(1)
 <span style="color: #f00">❌</span> 🐱🐰<br>
-<strong>Si no se indica la cantidad, se eliminarán todos desde esa posición</strong>
+Si no se indica la cantidad, se eliminarán todos desde esa posición
 </div>
 </div>
 </div>
@@ -338,13 +261,15 @@ Permiten consultar información dentro del array sin modificarlo directamente o 
 
 <!-- .slide: data-preview="44qah35m2" -->
 
-<h2><span class="text-glow">INCLUDES</span>: Verificar existencia</h2>
+<h2><span class="warning">INCLUDES</span>: Verificar existencia</h2>
 
 Este método verifica si un valor existe dentro de un array o una cadena de texto, devolviendo <span class="text-glow">true</span> si lo encuentra y <span class="text-glow">false</span> si no está presente.
 
-<h3><span class="text-glow">Ejemplo</span>:</h3>
+<h3><span class="warning">Ejemplo</span>:</h3>
 
-<div style="display:grid;grid-template-columns:1.2fr 1fr;gap:1em">
+<div style="display:grid;grid-template-columns:1.2fr 1fr;gap:1em; align-items: flex-start">
+
+<div>
 
 ```js [1,3-5,7-9] run
 const frutas = ["🍎", "🍌", "🍇", "🍍"];
@@ -357,35 +282,21 @@ console.log("🍌 ❓", existePlatano);
 console.log("🍇 ❓", existeUva);
 console.log("🥭 ❓", existeMango);
 ```
-
-<div class="card pixel-font" style="display: flex; flex-direction: column;font-size: 1.5rem;">
-<span>["🍎", "🍌", "🍇", "🍍"]</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
-<span>🔎 🍌 .<span class="hljs-title function_">includes</span>(🍌) ✅</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
-<span>🔎 🍇 .<span class="hljs-title function_">includes</span>(🍇) ✅</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
-<span>🔎 🥭 .<span class="hljs-title function_">includes</span>(🥭) <span style="color: #f00">❌</span></span>
-</div>
+<br>
 {% include reveal/navigate.html
     down="INDEXOF"
     next="TRANSFORMAR"
 %}
+</div>
+
+<div class="card" style="display: flex; flex-direction: column;">
+<span>["🍎", "🍌", "🍇", "🍍"]</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>🔎 🍌 .<span class="hljs-title function_">includes</span>(🍌) ✅</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>🔎 🍇 .<span class="hljs-title function_">includes</span>(🍇) ✅</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>🔎 🥭 .<span class="hljs-title function_">includes</span>(🥭) <span style="color: #f00">❌</span></span>
 </div>
 </div>
 
@@ -393,13 +304,13 @@ console.log("🥭 ❓", existeMango);
 
 <!-- .slide: data-preview="44qaked7f" -->
 
-<h2><span class="text-glow">INDEXOF</span>: Conocer la posición</h2>
+<h2><span class="warning">INDEXOF</span>: Conocer la posición</h2>
 
 Este método devuelve la posición ( índice ) de la primera aparición de un elemento dentro del array o cadena de texto, o __-1__ si no lo encuentra.
 
-<h3><span class="text-glow">Ejemplo</span>:</h3>
+<h3><span class="warning">Ejemplo</span>:</h3>
 
-<div style="display:grid;grid-template-columns: 1fr 1fr; gap: 0.6em; align-items: flex-start">
+<div style="display:grid;grid-template-columns: 53% 47%; gap: 0.6em; align-items: flex-start">
 
 <div>
 
@@ -420,31 +331,15 @@ console.log(indiceLeon);  // -1
     down="FIND"
     next="TRANSFORMAR"
 %}
-
 </div>
 
-<div class="card pixel-font" style="display: flex; flex-direction: column">
+<div class="card" style="display: flex; flex-direction: column">
 <span>["🐶","🐱","🐭","🐹","🐰"]</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span>🐶❓ .<span class="hljs-title function_">indexof</span>(🐶) 📍 <span style="color: #f59e0b;">0</span></span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span>🐱❓ .<span class="hljs-title function_">indexof</span>(🐱) 📍 <span style="color: #f59e0b;">1</span></span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span>🦁❓ .<span class="hljs-title function_">indexof</span>(🦁) 📍 <span style="color: #f59e0b;">-1</span></span>
 </div>
 </div>
@@ -452,13 +347,13 @@ console.log(indiceLeon);  // -1
 --
 
 <!-- .slide: data-preview="44qakv9kf" -->
-<h2><span class="text-glow">FIND</span>: Buscar el primer match</h2>
+<h2><span class="warning">FIND</span>: Buscar el primer match</h2>
 
 Este método devuelve el primer elemento de un array que cumpla con una condición, o __undefined__ si no encuentra ninguno.
 
-<h3><span class="text-glow">Ejemplo</span>:</h3>
+<h3><span class="warning">Ejemplo</span>:</h3>
 
-<div style="display:grid; grid-template-columns: 50% 50%; gap: 1em; align-items: flex-start">
+<div style="display:grid; grid-template-columns: 57% 43%; gap: 1em; align-items: flex-start">
 
 <div>
 
@@ -481,47 +376,34 @@ console.log("Primer match:", disponible);
 %}
 </div>
 
-<div class="card pixel-font" style="display: flex; flex-direction: column; width: 100%">
-<span style="text-align: left;">[</span>
-<span>{ item:"⌨️", stock: 0 },</span>
+<div class="card" style="display: flex; flex-direction: column;">
+<span>[  { item:"⌨️", stock: 0 },</span>
 <span>{ item:"🖱️", stock: 5 },</span>
-<span>{ item:"🖥️", stock: 3 }&nbsp;</span>
-<span style="text-align: left;">]</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{ item:"🖥️", stock: 3 }  ]</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span>.<span class="hljs-title function_">find</span>(i  => i.<span style="color: #ff8">stock > 0</span>)</span></span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span>{ item:"⌨️", <span style="color: #f00">stock</span>: 0 } <span style="color: #f00">❌</span></span>
 <span>{ <span style="color: #0f0">item</span>:"🖱️", <span style="color: #0f0">stock</span>: 5 } ✅</span>
 </div>
 
 </div>
 
-
 --
 
 <!-- .slide: data-preview="44tgz6vge" -->
 
-<h2><span class="text-glow">FILTER</span>: Buscar todos los match</h2>
+<h2><span class="warning">FILTER</span>: Buscar todos los match</h2>
 
 Este método crea un nuevo array con los elementos que cumplen una condición.
 
-<h3><span class="text-glow">Ejemplo</span>:</h3>
+<h3><span class="warning">Ejemplo</span>:</h3>
 
 <div style="display:grid;grid-template-columns:1fr 1fr;gap: 1em">
 
 <div>
 
-```js run
+```js [] run
 const numeros = [10, 20, 55, 23];
 
 function esPar(num) {
@@ -540,57 +422,27 @@ console.log(pares);
 </div>
 
 
-<div class="card pixel-font" style="display: flex; flex-direction: column;">
+<div class="card" style="display: flex; flex-direction: column;">
 <span>[10, 20, 55, 23]</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span>.<span class="hljs-title function_">filter</span>(<span class="hljs-keyword">esPar</span>)</span></span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span><span class="hljs-keyword">esPar</span> ? <span style="color: #ff8">num</span> % 2 = 0</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span style="text-align: left; padding-left: 1em">
 <span style="display: flex; align-tems: center; margin: auto">
-<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
-</svg>
-<span>10 % 2 = 0 ? ✅</span>
+{% include icon/right.svg %} 10 % 2 = 0 ? ✅ -> [10]
 </span>
 <span style="display: flex; align-tems: center; margin: auto">
-<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
-</svg>
-<span>20 % 2 = 0 ? ✅</span>
+{% include icon/right.svg %} 20 % 2 = 0 ? ✅ -> [10, 20]
 </span>
 <span style="display: flex; align-tems: center; margin: auto">
-<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
-</svg>
-<span>55 % 2 = 0 ? <span style="color: #f00">❌</span></span>
+{% include icon/right.svg %} 55 % 2 = 0 ? ❌ -> [10, 20]
 </span>
 <span style="display: flex; align-tems: center; margin: auto">
-<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
-</svg>
-<span>23 % 2 = 0 ? <span style="color: #f00">❌</span></span>
+{% include icon/right.svg %} 23 % 2 = 0 ? ❌ -> [10, 20]
 </span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
 </span>
-[10, 20]
 </div>
 
 </div>
@@ -608,12 +460,12 @@ Estos métodos permiten recorrer los elementos de un array, transformarlos y gen
 
 <!-- .slide: data-preview="44th2j4ej" -->
 
-<h2><span class="text-glow">MAP</span>: Crear un nuevo array</h2>
+<h2><span class="warning">MAP</span>: Crear un nuevo array</h2>
 
 Este método crea un nuevo array aplicando una función a cada elemento del array original, transformando sus valores sin modificar el original.
 
 
-<h3><span class="text-glow">Ejemplo</span>:</h3>
+<h3><span class="warning">Ejemplo</span>:</h3>
 
 <div style="display: grid;grid-template-columns: 1fr 1fr; gap: 1em">
 
@@ -636,49 +488,26 @@ console.log(conSable);
 %}
 
 </div>
-<div class="card pixel-font" style="display: flex; flex-direction: column;">
-<span>[<span class="hljs-string">"Anakin"</span>,<span class="hljs-string">"Luke"</span>,<span class="hljs-string">"Rey"</span>]</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<div class="card" style="display: flex; flex-direction: column; font-size: 0.9em">
+<span>[<span class="hljs-string">"Anakin"</span>, <span class="hljs-string">"Luke"</span>, <span class="hljs-string">"Rey"</span>]</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span>.<span class="hljs-title function_">map</span>(<span class="hljs-keyword">conSable</span>)</span></span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
-</span>
+<span>{% include icon/pixel-plus.svg %}</span>
 <span><span class="hljs-keyword">conSable</span> ➜ <span style="color: #ff8">jedi</span> + usa ⚔️</span>
-<span>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
-</svg>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span style="text-align: left; padding-left: 0.6em;">
+<span style="display: flex; align-tems: center; margin: auto">
+{% include icon/right.svg %} <span class="hljs-string">"Anakin"</span> ➜ <span class="hljs-string">"Anakin usa ⚔️"</span>
 </span>
 <span style="display: flex; align-tems: center; margin: auto">
-<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
-</svg>
-<span><span class="hljs-string">"Anakin usa ⚔️"</span></span>
+{% include icon/right.svg %} <span class="hljs-string">"Luke"</span> ➜ <span class="hljs-string">"Luke usa ⚔️"</span>
 </span>
 <span style="display: flex; align-tems: center; margin: auto">
-<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
-</svg>
-<span><span class="hljs-string">"Luke usa ⚔️"</span>&nbsp;&nbsp;</span>
+{% include icon/right.svg %} <span class="hljs-string">"Rey"</span> ➜ <span class="hljs-string">"Rey usa ⚔️"</span>
 </span>
-<span style="display: flex; align-tems: center; margin: auto">
-<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
-</svg>
-<span><span class="hljs-string">"Rey usa ⚔️"</span>&nbsp;&nbsp;&nbsp;</span>
 </span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>[<span class="hljs-string">"Anakin usa ⚔️"</span>, <span class="hljs-string">"Luke ..."</span>, <span class="hljs-string">"Rey ..."</span>]</span>
 </div>
 </div>
 
@@ -686,35 +515,61 @@ console.log(conSable);
 
 <!-- .slide: data-preview="44qbh3cq9" -->
 
-<h1><span class="text-glow">FOREACH</span>: Recorrer un array</h1>
+<h2><span class="warning">FOREACH</span>: Recorrer un array</h2>
 
-Este método recorre cada elemento de un arreglo y ejecuta una función para cada uno, sin crear un nuevo arreglo.
+Este método recorre cada elemento del array y ejecuta una función ( callback ) a cada uno, sin crear un nuevo array.
 
-### Ejemplo
+<h3><span class="warning">Ejemplo</span>:</h3>
 
-<div style="display: flex; gap: 1em">
+<div style="display: grid; grid-template-columns: 1fr 1fr;gap: 1em">
 
-<div style="width: 50%;">
+<div>
 
 ```javascript run
-const heroes = ["Iron Man", "Thor", "Hulk"];
+const plantas = ["🌵", "🌿", "🌷"];
+
+function mostrar(item, index) {
+  console.log(index, item);
+}
 
 // Recorrer cada elemento del arreglo
-heroes.forEach(hero => {
-  console.log(hero);
-});
+plantas.forEach(mostrar);
 ```
-
+<br>
+{% include reveal/navigate.html
+    up="MAP"
+    down="REDUCE"
+    next="ORDENAR"
+%}
 </div>
-<div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 1em">
-<div>En el ejemplo recorremos el array de héroes usando <span class="text-glow">.forEach()</span> y mostramos cada elemento en consola.</div>
-<a data-preview-image="/assets/media/javascript/arrays/filter-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-<div style="display: flex; justify-content: space-evenly">
-<a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
-<a onclick="Reveal.up()" class="nav-btn">MAP <i class="fa-solid fa-arrow-up"></i></a>
-<a onclick="Reveal.down()" class="nav-btn">REDUCE <i class="fa-solid fa-arrow-down"></i></a>
-<a class="nav-btn" onclick="Reveal.right()"><span id="nextTitle">ORDENAR</span> <i class="fa-solid fa-arrow-right"></i></a>
-</div>
+<div class="card" style="display: flex; flex-direction: column;">
+<span>["🌵", "🌿", "🌷"]</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-keyword">mostrar</span>)</span></span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span><span class="hljs-keyword">mostrar</span> ➜ <span style="color: #ff8">index</span> + <span style="color: #ff8">item</span></span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span style="display: flex; align-tems: center; margin: auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
+</svg>
+<span><span class="hljs-string">"0 🌵"</span></span>
+</span>
+<span style="display: flex; align-tems: center; margin: auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
+</svg>
+<span><span class="hljs-string">"1 🌿"</span></span>
+</span>
+<span style="display: flex; align-tems: center; margin: auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
+</svg>
+<span><span class="hljs-string">"2 🌷"</span></span>
+</span>
 </div>
 
 </div>
@@ -723,15 +578,17 @@ heroes.forEach(hero => {
 
 <!-- .slide: data-preview="44qbhzbkr" -->
 
-<h1><span class="text-glow">REDUCE</span>: Reducir todo a un valor acumulado</h1>
+<h2><span class="warning">REDUCE</span>: Reducir todo a un valor acumulado</h2>
 
-El método `.reduce()` recorre un array y lo reduce a un solo valor acumulando resultados en cada iteración.
+Este método recorre un array y lo reduce a un solo valor acumulando el resultado en cada iteración.
 
-<div style="display: flex; gap: 1em">
+<h3><span class="warning">Ejemplo</span>:</h3>
 
-<div style="width: 50%;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items;:flex-start">
 
-```javascript run
+<div>
+
+```javascript [] run
 const numeros = [10, 20, 30, 40];
 
 const suma = numeros.reduce((acumulador, numero) => {
@@ -740,36 +597,53 @@ const suma = numeros.reduce((acumulador, numero) => {
 
 console.log(suma);
 ```
-
+<br>
+{% include reveal/navigate.html
+    up="FOREACH"
+    next="ORDENAR"
+%}
 </div>
-<div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 1em">
-<div>En el siguiente ejemplo sumamos todos los números de un arreglo usando `.reduce()` y mostramos el resultado en consola.</div>
-<a data-preview-image="/assets/media/javascript/arrays/reduce-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-<div style="display: flex; justify-content: space-evenly">
-<a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
-<a onclick="Reveal.up()" class="nav-btn">FOREACH <i class="fa-solid fa-arrow-up"></i></a>
-<a class="nav-btn" onclick="Reveal.right()"><span id="nextTitle">ORDENAR</span> <i class="fa-solid fa-arrow-right"></i></a>
-</div>
+<div class="card" style="display: flex; flex-direction: column">
+<span>[10, 20, 30, 40]</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>acumulador + valorActual</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span style="text-align: left; padding-left: 1em;">
+<span style="display: flex; align-tems: center; margin: auto">
+{% include icon/right.svg %}  0 + 10 ➜ acc = 10
+</span>
+<span style="display: flex; align-tems: center; margin: auto">
+{% include icon/right.svg %}  10 + 20 ➜ acc = 30
+</span>
+<span style="display: flex; align-tems: center; margin: auto">
+{% include icon/right.svg %}  30 + 30 ➜ acc = 60
+</span>
+<span style="display: flex; align-tems: center; margin: auto">
+{% include icon/right.svg %}  60 + 40 ➜ acc = 100
+</span>
+</span>
+<span>{% include icon/pixel-plus.svg %}</span>
+<span>100</span>
 </div>
 </div>
 
 ---
 
-# <i class="fa-solid fa-arrow-down-up-across-line" style="color:#4f46e5;"></i><br/>Ordenar
+<h1 align="center"><i class="fa-solid fa-arrow-down-up-across-line" style="color:#4f46e5;"></i><br/>Ordenar</h1>
 
----
-
-# Sort
-
-El método `.sort()` se utiliza para ordenar los elementos de un arreglo, ya sea en orden alfabético o numérico, modificando el arreglo original según una función de comparación o el orden Unicode por defecto.
-
-<a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+<br><br>
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
 
 --
 
-## Ordenar de mayor a menor
+<h2><span class="warning">Sort</span>: Orden ascendente y descendente</h2>
 
-En el siguiente ejemplo ordenamos un arreglo de números de mayor a menor usando `.sort()` y mostramos el resultado en consola.
+Este método se utiliza para ordenar un array, ya sea en orden alfabético o numérico, modificando el array original según una función de comparación o el orden Unicode por defecto.
+
+
+<h3><span class="warning">Ejemplo</span>:</h3>
+
+<div style="display: grid;">
 
 ```javascript
 const numeros = [5, 120, 12, 1, 45];
@@ -779,9 +653,4 @@ numeros.sort((a, b) => b - a);
 console.log(numeros);
 ```
 
-<div style="display: flex; justify-content: space-evenly">
-<a href="https://onecompiler.com/embed/javascript/44qc2earz?fontSize=15&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false" data-preview-link>
-<i class="fa-solid fa-circle-play fa-xl" title="Ejecutar"></i>
-</a>
-<a data-preview-image="/assets/media/javascript/arrays/reduce-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
 </div>
