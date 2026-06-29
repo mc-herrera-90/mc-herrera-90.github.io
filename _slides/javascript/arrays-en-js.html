@@ -393,14 +393,15 @@ console.log("🥭 ❓", existeMango);
 
 <!-- .slide: data-preview="44qaked7f" -->
 
-<h1><span class="text-glow">INDEXOF</span>: Conocer la posición</h1>
+<h2><span class="text-glow">INDEXOF</span>: Conocer la posición</h2>
 
-Este método devuelve la posición ( índice ) de la primera aparición de un elemento dentro del array o cadena de texto, o `-1` si no lo encuentra.
+Este método devuelve la posición ( índice ) de la primera aparición de un elemento dentro del array o cadena de texto, o __-1__ si no lo encuentra.
 
-### Ejemplo
+<h3><span class="text-glow">Ejemplo</span>:</h3>
 
-<div style="display:grid;grid-template-columns: 0.8fr 1.2fr; gap: 1em">
+<div style="display:grid;grid-template-columns: 1fr 1fr; gap: 0.6em; align-items: flex-start">
 
+<div>
 
 ```javascript run
 const animales = ["🐶", "🐱", "🐭", "🐹", "🐰"];
@@ -413,48 +414,66 @@ console.log(indicePerro); // 0
 console.log(indiceGato);  // 1
 console.log(indiceLeon);  // -1
 ```
-
-<div class="eplain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 1em">
-<div>En el ejemplo buscamos la posición de los animales dentro del array usando <span class="text-glow">.indexOf()</span> y vemos el resultado en consola.</div>
-<a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
+<br>
 {% include reveal/navigate.html
     up="INCLUDES"
     down="FIND"
     next="TRANSFORMAR"
 %}
+
+</div>
+
+<div class="card pixel-font" style="display: flex; flex-direction: column">
+<span>["🐶","🐱","🐭","🐹","🐰"]</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>🐶❓ .<span class="hljs-title function_">indexof</span>(🐶) 📍 <span style="color: #f59e0b;">0</span></span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>🐱❓ .<span class="hljs-title function_">indexof</span>(🐱) 📍 <span style="color: #f59e0b;">1</span></span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>🦁❓ .<span class="hljs-title function_">indexof</span>(🦁) 📍 <span style="color: #f59e0b;">-1</span></span>
 </div>
 </div>
 
 --
 
 <!-- .slide: data-preview="44qakv9kf" -->
-<h1><span class="text-glow">FIND</span>: Buscar el primer match</h1>
+<h2><span class="text-glow">FIND</span>: Buscar el primer match</h2>
 
-Este método devuelve el primer elemento de un array que cumpla con una condición, o `undefined` si no encuentra ninguno.
+Este método devuelve el primer elemento de un array que cumpla con una condición, o __undefined__ si no encuentra ninguno.
 
-### Ejemplo
+<h3><span class="text-glow">Ejemplo</span>:</h3>
 
-<div style="display:grid; grid-template-columns: 1.3fr 0.7fr; gap: 1em">
+<div style="display:grid; grid-template-columns: 50% 50%; gap: 1em; align-items: flex-start">
 
+<div>
 
 ```javascript [] run
 const productos = [
-  { nombre: "⌨️ Teclado", stock: 0 },
-  { nombre: "🖱️ Mouse", stock: 5 },
-  { nombre: "🖥️ Monitor", stock: 3 },
-  { nombre: "🎧 Audífonos", stock: 10 }
+  { item: "⌨️", stock: 0 },
+  { item: "🖱️", stock: 5 },
+  { item: "🖥️", stock: 3 }
 ];
 
-// buscar el primer producto con stock disponible
-const disponible = productos.find(p => p.stock > 0);
+const disponible = productos.find(p => p.stock > 0 );
 
-console.log(disponible.nombre, "➡️", disponible.stock);
+console.log("Primer match:", disponible);
 ```
-
-<div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; gap: 1em; align-items: center">
-<div>En el ejemplo buscamos el primer producto con stock mayor a 0 dentro del array usando <span class="text-glow">.find()</span> y mostramos el resultado en consola.</div>
-<a data-preview-image="/assets/media/javascript/arrays/shift-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-</div>
+<br>
 {% include reveal/navigate.html
     up="INDEXOF"
     down="FILTER"
@@ -462,39 +481,117 @@ console.log(disponible.nombre, "➡️", disponible.stock);
 %}
 </div>
 
+<div class="card pixel-font" style="display: flex; flex-direction: column; width: 100%">
+<span style="text-align: left;">[</span>
+<span>{ item:"⌨️", stock: 0 },</span>
+<span>{ item:"🖱️", stock: 5 },</span>
+<span>{ item:"🖥️", stock: 3 }&nbsp;</span>
+<span style="text-align: left;">]</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>.<span class="hljs-title function_">find</span>(i  => i.<span style="color: #ff8">stock > 0</span>)</span></span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>{ item:"⌨️", <span style="color: #f00">stock</span>: 0 } <span style="color: #f00">❌</span></span>
+<span>{ <span style="color: #0f0">item</span>:"🖱️", <span style="color: #0f0">stock</span>: 5 } ✅</span>
+</div>
+
+</div>
+
+
 --
 
 <!-- .slide: data-preview="44tgz6vge" -->
 
-<h1><span class="text-glow">FILTER</span>: Buscar todos los match</h1>
+<h2><span class="text-glow">FILTER</span>: Buscar todos los match</h2>
 
 Este método crea un nuevo array con los elementos que cumplen una condición.
 
-### Ejemplo
+<h3><span class="text-glow">Ejemplo</span>:</h3>
 
 <div style="display:grid;grid-template-columns:1fr 1fr;gap: 1em">
 
+<div>
 
 ```js run
-const numbers = [10, 20, 55.33, 23];
+const numeros = [10, 20, 55, 23];
 
-function numberIsEven(num) {
-  return Math.round(num) % 2 === 0;
+function esPar(num) {
+  return num % 2 === 0;
 }
 
-const pares = numbers.filter(numberIsEven);
+const pares = numbers.filter(esPar);
 
 console.log(pares);
 ```
-
-<div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center">
-<div>En el siguiente ejemplo usamos <span class="text-glow">.filter()</span> para obtener un nuevo arreglo con solo los números pares, redondeando cada valor antes de evaluarlo.</div>
-<a data-preview-image="/assets/media/javascript/arrays/filter-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-</div>
+<br>
 {% include reveal/navigate.html
     up="FIND"
     next="TRANSFORMAR"
 %}
+</div>
+
+
+<div class="card pixel-font" style="display: flex; flex-direction: column;">
+<span>[10, 20, 55, 23]</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>.<span class="hljs-title function_">filter</span>(<span class="hljs-keyword">esPar</span>)</span></span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span><span class="hljs-keyword">esPar</span> ? <span style="color: #ff8">num</span> % 2 = 0</span>
+<span style="display: flex; align-tems: center; margin: auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
+</svg>
+<span>10 % 2 = 0 ? ✅</span>
+</span>
+<span style="display: flex; align-tems: center; margin: auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
+</svg>
+<span>20 % 2 = 0 ? ✅</span>
+</span>
+<span style="display: flex; align-tems: center; margin: auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
+</svg>
+<span>55 % 2 = 0 ? <span style="color: #f00">❌</span></span>
+</span>
+<span style="display: flex; align-tems: center; margin: auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
+</svg>
+<span>23 % 2 = 0 ? <span style="color: #f00">❌</span></span>
+</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+[10, 20]
+</div>
 
 </div>
 
@@ -511,38 +608,78 @@ Estos métodos permiten recorrer los elementos de un array, transformarlos y gen
 
 <!-- .slide: data-preview="44th2j4ej" -->
 
-<h1><span class="text-glow">MAP</span>: Crear un nuevo array</h1>
+<h2><span class="text-glow">MAP</span>: Crear un nuevo array</h2>
 
-El método `.map()` crea un nuevo array aplicando una función a cada elemento del array original, transformando sus valores sin modificar el original.
+Este método crea un nuevo array aplicando una función a cada elemento del array original, transformando sus valores sin modificar el original.
 
-### Ejemplo
 
-<div style="display: flex; gap: 1em">
+<h3><span class="text-glow">Ejemplo</span>:</h3>
 
-<div style="width: 50%;">
+<div style="display: grid;grid-template-columns: 1fr 1fr; gap: 1em">
 
-```javascript run
-const nombresJedi = ["Anakin", "Luke", "Rey"];
+<div>
 
-// Crear un nuevo arreglo agregando un texto a cada nombre
-const mensajesJedi = nombresJedi.map((nombreJedi) => {
-    return `${nombreJedi} usa la Fuerza`;
+```javascript [] run
+const jedis = ["Anakin", "Luke", "Rey"];
+
+// asignar sable
+const conSable = jedis.map(jedi => {
+  return `${jedi} usa ⚔️`
 });
 
-// Mostrar el nuevo arreglo en la consola
-console.log(mensajesJedi);
+console.log(conSable);
 ```
-</div>
-<div class="explain" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 1em">
-<div>En el ejemplo usamos un array de nombres y creamos uno nuevo usando <span class="text-glow">.map()</span>.</div>
-<a data-preview-image="/assets/media/javascript/arrays/filter-explicado.webp"><i class="fa-solid fa-circle-info fa-xl" title="Explicación"></i></a>
-<div style="display: flex; justify-content: space-evenly">
-<a href="javascript:void(0)" class="nav-btn" onclick="Reveal.toggleOverview(); return false;"><i class="fa-solid fa-layer-group"></i></a>
-<a onclick="Reveal.down()" class="nav-btn">FOREACH <i class="fa-solid fa-arrow-down"></i></a>
-<a class="nav-btn" onclick="Reveal.right()"><span id="nextTitle">ORDENAR</span> <i class="fa-solid fa-arrow-right"></i></a>
-</div>
-</div>
+<br>
+{% include reveal/navigate.html
+    down="FOREACH"
+    next="ORDENAR"
+%}
 
+</div>
+<div class="card pixel-font" style="display: flex; flex-direction: column;">
+<span>[<span class="hljs-string">"Anakin"</span>,<span class="hljs-string">"Luke"</span>,<span class="hljs-string">"Rey"</span>]</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span>.<span class="hljs-title function_">map</span>(<span class="hljs-keyword">conSable</span>)</span></span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span><span class="hljs-keyword">conSable</span> ➜ <span style="color: #ff8">jedi</span> + usa ⚔️</span>
+<span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="#f67efc" d="M13 12h6v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2h6V4h2z" />
+</svg>
+</span>
+<span style="display: flex; align-tems: center; margin: auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
+</svg>
+<span><span class="hljs-string">"Anakin usa ⚔️"</span></span>
+</span>
+<span style="display: flex; align-tems: center; margin: auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
+</svg>
+<span><span class="hljs-string">"Luke usa ⚔️"</span>&nbsp;&nbsp;</span>
+</span>
+<span style="display: flex; align-tems: center; margin: auto">
+<svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="m10 17l5-5l-5-5z" />
+</svg>
+<span><span class="hljs-string">"Rey usa ⚔️"</span>&nbsp;&nbsp;&nbsp;</span>
+</span>
+</div>
 </div>
 
 --
@@ -551,7 +688,7 @@ console.log(mensajesJedi);
 
 <h1><span class="text-glow">FOREACH</span>: Recorrer un array</h1>
 
-El método `.forEach()` recorre cada elemento de un arreglo y ejecuta una función para cada uno, sin crear un nuevo arreglo.
+Este método recorre cada elemento de un arreglo y ejecuta una función para cada uno, sin crear un nuevo arreglo.
 
 ### Ejemplo
 

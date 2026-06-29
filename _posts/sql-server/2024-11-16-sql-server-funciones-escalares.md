@@ -8,7 +8,9 @@ image:
 pin: true
 ---
 
-En SQL Server, las funciones escalares son rutinas que devuelven un único valor (numérico, texto, fecha, etc.) definido en la cláusula `RETURNS`.
+En SQL Server, las funciones escalares son rutinas que devuelven un único valor, como número, texto o fecha, definido en la cláusula `RETURNS`.
+
+Las funciones escalares SQL son útiles cuando hay un beneficio identificable al encapsular una pieza de lógica reutilizable. Estas funciones son llamadas por sentencias SQL que se utilizan dentro de aplicaciones y objetos de base de datos.
 
 ## Crear una función escalar
 
