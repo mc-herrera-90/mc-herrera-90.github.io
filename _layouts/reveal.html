@@ -170,6 +170,7 @@
           a.setAttribute('data-preview-link', '');
           a.style.display = 'none';
           slide.appendChild(a);
+          Reveal.sync();
           a.click();
           a.remove();
         });
@@ -208,7 +209,6 @@
               sendCode(iframe, code);
           };
 
-          // 🔥 BOTÓN REINICIAR
           btn?.addEventListener("click", () => {
 
               iframe.contentWindow.postMessage({
