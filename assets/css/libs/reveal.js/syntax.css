@@ -19,6 +19,17 @@
   margin: 0;
 }
 
+.reveal p code {
+  font-family: 'Victor Mono', monospace;
+  font-size: .9em;
+  border-radius: 7px;
+  padding: 0 8px;
+}
+
+.reveal h2 code {
+  font-family: 'Victor Mono', monospace;
+}
+
 .codeblock[data-cc-window] {
   --cc-window-padding: 0 !important;
 }

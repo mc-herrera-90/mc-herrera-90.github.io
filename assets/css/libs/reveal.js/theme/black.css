@@ -39,6 +39,10 @@
   color: #0beaf5 !important;
 }
 
+.reveal p code {
+  background-color: #222;
+}
+
 .codeblock {
   --cc-code-bg: #333;
 }
