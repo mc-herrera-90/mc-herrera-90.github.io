@@ -1,0 +1,68 @@
+<style>
+.reveal .slides .slide-nav{
+    display:flex;
+    gap:.6rem;
+    flex-wrap:wrap;
+    margin-top:1rem;
+}
+
+.reveal .slides .slide-nav__btn{
+    display:flex;
+    align-items:center;
+    gap:.45rem;
+
+    padding:.55rem .9rem;
+
+    text-decoration:none !important;
+
+    background:#2d2a2e !important;
+    color:#ffd54f !important;
+
+    border:1px solid #ffd54f55 !important;
+    border-radius:999px;
+
+    transition:.2s;
+}
+
+.reveal .slides .slide-nav__btn:hover{
+    background:#3b373d !important;
+    border-color:#ffd54f !important;
+}
+
+.reveal .slides .slide-nav__btn i{
+    transition:transform .2s;
+}
+
+.reveal .slides .slide-nav__btn--left:hover i{
+    transform:translateX(-5px);
+}
+
+.reveal .slides .slide-nav__btn--right:hover i{
+    transform:translateX(5px);
+}
+
+.reveal .slides .slide-nav__btn--up:hover i{
+    transform:translateY(-4px);
+}
+
+.reveal .slides .slide-nav__btn--down:hover i{
+    transform:translateY(4px);
+}
+</style>
+<div class="slide-nav">
+  <a href="javascript:void(0)" class="slide-nav__btn" onclick="Reveal.toggleOverview()">
+    <i class="fa-solid fa-layer-group"></i>
+  </a>
+  {% if include.prev %}
+  <a href="javascript:void(0)" class="slide-nav__btn slide-nav__btn--left" onclick="Reveal.left()">
+    <i class="fa-solid fa-arrow-left"></i>
+    <span>{{ include.prev }}</span>
+  </a>
+  {% endif %}
+  {% if include.next %}
+  <a href="javascript:void(0)" class="slide-nav__btn slide-nav__btn--right" onclick="Reveal.right()">
+    <span>{{ include.next }}</span>
+    <i class="fa-solid fa-arrow-right"></i>
+  </a>
+  {% endif %}
+</div>

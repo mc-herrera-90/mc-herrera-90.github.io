@@ -70,18 +70,24 @@
 
       let theme;
 
-      if (pageTheme === "black" || pageTheme === "white") {
+      if (
+        pageTheme === "black" ||
+        pageTheme === "white" ||
+        pageTheme === "black-js"
+      ) {
         theme = pageTheme;
       } else {
-        theme = systemIsDark ? "black" : "white"; // fallback sistema
+        theme = systemIsDark ? "black" : "white";
       }
 
       themeLink.href = `/assets/css/libs/reveal.js/theme/${theme}.css`;
 
       highlightTheme.href =
-        theme === "black"
-          ? "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css"
-          : "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css";
+        theme === "black-js"
+          ? "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/monokai-sublime.min.css"
+          : theme === "black"
+            ? "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css"
+            : "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css";
 
       document.querySelectorAll("section[data-bg-light]").forEach(slide => {
         slide.setAttribute(
@@ -141,88 +147,135 @@
       })
     })
 
-    Reveal.on('ready', () => {
+    // Reveal.on('ready', () => {
 
-      document.querySelectorAll('.codeblock').forEach(codeBlock => {
+    //   document.querySelectorAll('.codeblock').forEach(codeBlock => {
 
-        const pre = codeBlock.querySelector('code');
+    //     const pre = codeBlock.querySelector('code');
 
 
-        // Solo agregar botón a bloques ejecutables
-        if (!pre?.classList.contains('run')) return;
+    //     // Solo agregar botón a bloques ejecutables
+    //     if (!pre?.classList.contains('run')) return;
 
-        const toolbar = codeBlock.querySelector('.cc-window-right');
+    //     const toolbar = codeBlock.querySelector('.cc-window-right');
+    //     if (!toolbar) return;
+
+    //     const runBtn = document.createElement('button');
+    //     runBtn.className = 'cc-run-btn';
+    //     runBtn.innerHTML = '<i class="fa fa-play-circle"></i>';
+    //     runBtn.title = 'Ejecutar código';
+
+    //     const slide = codeBlock.closest('section');
+
+    //     function extractCode(codeBlock) {
+
+    //       const lines = codeBlock.querySelectorAll("td.hljs-ln-code");
+
+    //       return Array.from(lines)
+    //         .map(td => td.innerText)   // importante: innerText aquí sí
+    //         .join("\n");
+    //     }
+
+    //     runBtn.addEventListener("click", () => {
+
+    //       const codeEl = codeBlock.querySelector("code");
+    //       if (!codeEl) return;
+
+    //       const code = extractCode(codeBlock);
+
+    //       console.log(code);
+
+    //       const iframe = codeBlock.closest("section")?.querySelector(".console-frame");
+    //       if (!iframe) return;
+
+    //       iframe.contentWindow.postMessage({
+    //         type: "run",
+    //         code
+    //       }, "*");
+
+    //     });
+
+    //     toolbar.insertBefore(runBtn, toolbar.firstChild);
+    //   });
+    // });
+
+    Reveal.on("ready", initConsoles);
+    Reveal.on("slidechanged", initConsoles);
+
+    function sendCode(iframe, code) {
+      iframe.contentWindow.postMessage(
+        {
+          type: "run",
+          code,
+        },
+        "https://mcherrera.dev/mc-eruda-monokai-pro"
+      );
+    }
+
+    function extractCode(codeBlock) {
+      return [...codeBlock.querySelectorAll("td.hljs-ln-code")]
+        .map(td => td.innerText)
+        .join("\n");
+    }
+
+    function initConsoles() {
+
+      // ===== Bloques ejecutables (.codeblock) =====
+      document.querySelectorAll(".codeblock").forEach(codeBlock => {
+
+        if (codeBlock.dataset.initialized) return;
+        codeBlock.dataset.initialized = "true";
+
+        // Solo agregar botón a bloques ejecutables con la clase .run
+        const code = codeBlock.querySelector("code");
+        if (!code?.classList.contains("run")) return;
+
+        const toolbar = codeBlock.querySelector(".cc-window-right");
         if (!toolbar) return;
 
-        const runBtn = document.createElement('button');
-        runBtn.className = 'cc-run-btn';
-        runBtn.innerHTML = '<i class="fa fa-play-circle"></i>';
-        runBtn.title = 'Ejecutar código';
 
-        const slide = codeBlock.closest('section');
-        const previewId = slide?.dataset.preview;
-        const lang = slide?.dataset.lang || 'javascript';
-        if (!previewId) return;
-        const url = `https://onecompiler.com/embed/${lang}/${previewId}?fontSize=20&hideEditorOptions=false&theme=dark&hideStdin=true&hideResult=false`;
-        runBtn.addEventListener('click', () => {
-          const a = document.createElement('a');
-          a.href = url;
-          a.setAttribute('data-preview-link', '');
-          a.style.display = 'none';
-          slide.appendChild(a);
-          Reveal.sync();
-          a.click();
-          a.remove();
+        const runBtn = document.createElement("button");
+        runBtn.className = "cc-run-btn";
+        runBtn.innerHTML = '<i class="fa fa-play-circle"></i>';
+        runBtn.title = "Ejecutar código";
+
+        const iframe = codeBlock
+          .closest("section")
+          ?.querySelector(".console-frame");
+
+        if (!iframe) return;
+        iframe.onload = () => sendCode(iframe, extractCode(codeBlock));
+
+        runBtn.addEventListener("click", () => {
+          if (!iframe) return;
+          sendCode(iframe, extractCode(codeBlock));
         });
 
-        toolbar.insertBefore(runBtn, toolbar.firstChild);
+        toolbar.prepend(runBtn);
+
+        console.log('Hola');
+
       });
-    });
 
-  Reveal.on("ready", initConsoles);
-  Reveal.on("slidechanged", initConsoles);
-
-  function sendCode(iframe, code) {
-
-      iframe.contentWindow.postMessage({
-          type: "run",
-          code
-      }, "https://mcherrera911.oneapp.dev");
-
-  }
-  function initConsoles() {
+      // ===== Consolas =====
       document.querySelectorAll(".console-frame").forEach(iframe => {
 
-          if (iframe.dataset.ready) return;
-          iframe.dataset.ready = "true";
+        if (iframe.dataset.initialized) return;
+        iframe.dataset.initialized = "true";
 
-          const wrapper = iframe.closest(".console-wrapper");
-          const codeEl = wrapper.querySelector(".console-code");
-          const btn = wrapper.querySelector(".console-restart");
+        const wrapper = iframe.closest(".console-wrapper");
 
-          if (!codeEl) return;
+        const btn = wrapper?.querySelector(".console-restart");
 
-          const code = codeEl.textContent.trim();
+        // iframe.onload = () => sendCode(iframe, extractCode(codeBlock));
 
-          console.log(code);
-          iframe.onload = () => {
-              sendCode(iframe, code);
-          };
-
-          btn?.addEventListener("click", () => {
-
-              iframe.contentWindow.postMessage({
-                  type: "clear"
-              }, "https://mcherrera911.oneapp.dev");
-
-              setTimeout(() => {
-                  sendCode(iframe, code);
-              }, 100);
-
-          });
+        btn?.addEventListener("click", () => {
+          iframe.src = iframe.src.split("?")[0] + "?t=" + Date.now();
+        });
 
       });
-  }
+
+    }
   </script>
 
 </body>

@@ -1,5 +1,5 @@
 ---
-theme: black
+theme: "black-js"
 glow_color: "#F0DB4F"
 eruda: true
 ---
@@ -32,7 +32,7 @@ eruda: true
 ---
 
 <h1 class="text-center">
-  <i class="fa-solid fa-cubes" style="color: rgb(59, 130, 246)"></i><br/>
+  <i class="fa-solid fa-cubes" style="color: rgb(244, 232, 63)"></i><br/>
   Métodos estáticos
 </h1>
 
@@ -46,56 +46,60 @@ Estos métodos pertenecen a la clase <span class="warning">Array</span>, por lo 
 
 --
 
-<h2><code>Array.<span class="warning">isArray</span>(<span class="hljs-title function_">valor</span>):<span class="hljs-literal">Boolean</span></code><br/><small>· Comprobar si es un array ·</small></h2>
+<h2 class="text-center"><code>Array.<span class="warning">isArray</span>(<span class="hljs-title function_">valor</span>):<span class="hljs-literal">Boolean</span></code><br/><small>· <span class="warning">Comprobar si es un array</span> ·</small></h2>
 
-Este método verifica si un valor es realmente un array y devuelve `true` o `false`.
 
-<h3><span class="warning">Ejemplo</span>:</h3>
+> Usa `Array.isArray()` para comprobar arrays
+>
+> <pre data-cc-window="false" data-cc-button="false">
+> <code class="language-js">if (Array.isArray(valor)) {
+>    valor.forEach(item => console.log(item));
+> }</code></pre>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em">
 
-<div>
+<h3 align="center">· <span class="warning">Playground</span> ·</h3>
 
-```js
-const numeros = [10, 20, 30];
-const texto = "Hola";
-const cantidad = 100;
-const persona = { nombre: "Ana" };
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: flex-start">
 
-console.log(Array.isArray(numeros));  // true
-console.log(Array.isArray(texto));    // false
-console.log(Array.isArray(cantidad)); // false
-console.log(Array.isArray(persona));  // false
+
+```js [] run
+const valor = ["🍎", "🍌", "🍇"];
+
+if (Array.isArray(valor)) {
+  console.log("Es un array.");
+  valor.forEach(item => console.log(item));
+} else {
+  console.log("No es un array.");
+}
 ```
-</div>
 
-{% capture code %}
-Array.isArray([10,20,30]);
-Array.isArray("Hola");
-Array.isArray(100);
-Array.isArray({ nombre: "Ana" });
-{% endcapture %}
-
-{% include reveal/console.html id="demo" code=code %}
+{% include reveal/console.html id="demo" %}
 
 </div>
 
 --
 
-<h2>
+<h2 class="text-center">
   <code>
     Array.<span class="warning">from</span>(<span class="hljs-title function_">iterable</span>):<span class="hljs-literal">Array</span>
   </code>
   <br/>
-  <small>· Crear un array desde un iterable ·</small>
+  <small>· <span class="warning">Crear un array desde un iterable</span> ·</small>
 </h2>
 
-Este método crea un array a partir de un iterable o valor similar.
+
+> Convierte un iterable en un array real.
+>
+> <pre data-cc-window="false" data-cc-button="false">
+> <code class="language-js">const letras = Array.from("JS");
+> letras.forEach(l => console.log(l));</code></pre>
+
+<h3 align="center">· <span class="warning">Playground</span> ·</h3>
 
 <div style="display: grid; grid-template-columns: 50% 50%; gap: 1em">
 <div>
 
-```js
+```js [] run
 const a = Array.from("JS");
 const b = Array.from({ length: 5 }, (_, i) => i + 1);
 
@@ -103,12 +107,8 @@ console.log(a);
 console.log(b);
 ```
 </div>
-{% capture code %}
-Array.from("JS");
-Array.from({ length: 5 }, (_, i) => i + 1);
-{% endcapture %}
 
-{% include reveal/console.html id="Arrayfrom" code=code %}
+{% include reveal/console.html id="Arrayfrom" %}
 
 </div>
 
@@ -125,11 +125,25 @@ Estos métodos sirven para **insertar nuevos elementos** en un array, ya sea al 
 
 <!-- .slide: data-preview="44q9cacgb" -->
 
-<h2><span class="warning">PUSH</span>: Agregar al final</h2>
+<h2 class="text-center">
+  <code>
+    Array.prototype.<span class="warning">push</span>(<span class="hljs-title function_">items</span>):<span class="hljs-literal">Number</span>
+  </code>
+  <br/>
+  <small>· <span class="warning">Agregar elementos al final del array</span> ·</small>
+</h2>
 
-Este método agrega uno o más elementos al final del array y modifica el original.
 
-<h3><span class="warning">Ejemplo</span>:</h3>
+> Agrega uno o más elementos al final del array.
+>
+> <pre data-cc-window="false" data-cc-button="false">
+> <code>const frutas = ["🍎", "🍌"];
+>
+> frutas.push("🍇");
+>
+> frutas.forEach(f => console.log(f));</code></pre>
+
+<h3 align="center">· <span class="warning">Playground</span> ·</h3>
 
 <div style="display: grid; grid-template-columns: 55% 45%; gap: 1em; align-items: start">
 
@@ -152,26 +166,33 @@ console.log("Después:", mascotas);
 %}
 </div>
 
-<div class="card" style="display: flex; flex-direction: column">
-<span>["🐶", "🐱"]</span>
-<span>{% include icon/pixel-plus.svg %}</span>
-<span>.<span class="hljs-title function_">push</span>("🐰", "🐹")</span>
-<span>{% include icon/pixel-plus.svg %}</span>
-<span><span style="color: #0f0;">+</span> ➡️ 🐰🐹</span>
-<span>{% include icon/pixel-plus.svg %}</span>
-<span>["🐶", "🐱", "🐰", "🐹"]</span>
-</div>
+{% include reveal/console.html id="ArrayPush" %}
+
 </div>
 
 --
 
 <!-- .slide: data-preview="44q9jmpw7" -->
+{% comment %} UNSHIFT {% endcomment %}
 
-<h2><span class="warning">UNSHIFT</span>: Agregar al inicio</h2>
+<h2 class="text-center">
+  <code>
+    Array.prototype.<span class="warning">unshift</span>(<span class="hljs-title function_">items</span>):<span class="hljs-literal">Number</span>
+  </code>
+  <br/>
+  <small>· <span class="warning">Agregar elementos al inicio del array</span> ·</small>
+</h2>
 
-Este método agrega uno o más elementos al inicio del array y modifica el original.
+> Agrega uno o más elementos al inicio del array.
+>
+> <pre data-cc-window="false" data-cc-button="false">
+> <code>const notificaciones = ["📧 Correo", "🔔 Recordatorio"];
+>
+> notificaciones.unshift("🚨 Alerta urgente");
+>
+> notificaciones.forEach(n => console.log(n));</code></pre>
 
-<h3><span class="warning">Ejemplo</span>:</h3>
+<h3 align="center">· <span class="warning">Playground</span> ·</h3>
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: start">
 
@@ -194,15 +215,9 @@ console.log("Después:", planetas);
 %}
 </div>
 
-<div class="card" style="display: flex; flex-direction: column;">
-<span>["🌍", "🪐"]</span>
-<span>{% include icon/pixel-plus.svg %}</span>
-<span>.<span class="hljs-title function_">unshift</span>("☀️", "🌕")</span>
-<span>{% include icon/pixel-plus.svg %}</span>
-<span><span style="color: #0f0;">+</span> ☀️ 🌕  ⬅️</span>
-<span>{% include icon/pixel-plus.svg %}</span>
-<span>["☀️", "🌕", "🌍", "🪐"]</span>
-</div>
+{% include reveal/console.html id="ArrayUnShift" %}
+
+
 </div>
 
 ---

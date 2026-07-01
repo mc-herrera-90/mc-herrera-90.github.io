@@ -82,7 +82,7 @@
 .hljs table,
 pre,
 .codeblock code {
-  --font-size: 1.15rem;
+  --font-size: 1.05rem;
   font-family: "Victor Mono", monospace !important;
   font-size: var(--font-size, 0.6em) !important;
   line-height: calc(var(--font-size) * 1.4);
