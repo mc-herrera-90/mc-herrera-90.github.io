@@ -127,3 +127,7 @@
 .warning {
   color: #F0DB4F;
 }
+
+.text-upper {
+  text-transform: uppercase;
+}

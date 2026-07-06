@@ -1,0 +1,87 @@
+---
+---
+
+<style>
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 190px;
+  gap: 1rem;
+}
+
+.gallery-item {
+  position: relative;
+  margin: 0;
+  border: 2px solid var(--main-border-color);
+  border-radius: .75rem;
+  overflow: visible;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.num-badge {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+
+  width: 2rem;
+  height: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--heading-color, #d9c);
+  color: var(--card-bg);
+
+  font-size: .85rem;
+  font-weight: 700;
+  line-height: 1;
+
+  border: 2px solid var(--card-bg);
+  box-shadow: 0 0 0 2px var(--main-border-color);
+
+  user-select: none;
+  z-index: 10;
+}
+</style>
+
+<!-- .slide: data-background="/assets/media/extras/bg-blue-gold.webp" -->
+
+<h2 class="r-fit-text text-upper" style="color: #fff;">Instalación y configuración</h2>
+
+<center class="r-stretch"><img src="/assets/media/poster/ws-2025-datacenter.webp" alt="portada" style="filter: drop-shadow(1px 2px 10px #fc8) drop-shadow(-5px -4px 0px #fc8)"></center>
+
+<h3 class="r-fit-text text-upper" style="color: #fc8;">Windows Server Datacenter</h3>
+
+---
+
+<h2 align="center">Configuración de la Máquina Virtual</h2>
+
+---
+
+<h2 align="center">Asistente de instalación</h2>
+
+{% assign imagenes = site.static_files | where_exp: "item", "item.path contains '/assets/media/windows/ws-2025/asistente-de-instalacion/'" %}
+
+{% capture grid %}
+<div class="gallery-grid r-stretch">
+  {% for imagen in imagenes %}
+    <figure class="gallery-item">
+      <span class="num-badge">{{ forloop.index }}</span>
+      <img src="{{ imagen.path }}" alt="{{ imagen.name }}" data-preview-image>
+    </figure>
+  {% endfor %}
+</div>
+{% endcapture %}
+
+{{ grid | strip_newlines }}

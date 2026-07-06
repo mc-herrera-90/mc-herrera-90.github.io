@@ -4,7 +4,13 @@ title: "Detalle"
 toc: false
 ---
 
+
+{% if page.image %}
+<center><img src="{{ page.image | relative_url }}" alt="" width="220" style="object-fit: contain;"></center>
+{% endif %}
+
 <h2 class="fw-bold display-6 text-center">{{ page.title }}</h2>
+
 
 <p class="fs-5">{{ page.description }}</p>
 

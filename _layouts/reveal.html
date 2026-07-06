@@ -44,7 +44,7 @@
     <div class="slides">
       <section data-markdown data-separator-vertical="^\n--\n$">
         <textarea data-template>
-            {{ content }}
+            {{- content -}}
           </textarea>
       </section>
     </div>
@@ -146,58 +146,6 @@
         title.textContent = language
       })
     })
-
-    // Reveal.on('ready', () => {
-
-    //   document.querySelectorAll('.codeblock').forEach(codeBlock => {
-
-    //     const pre = codeBlock.querySelector('code');
-
-
-    //     // Solo agregar botón a bloques ejecutables
-    //     if (!pre?.classList.contains('run')) return;
-
-    //     const toolbar = codeBlock.querySelector('.cc-window-right');
-    //     if (!toolbar) return;
-
-    //     const runBtn = document.createElement('button');
-    //     runBtn.className = 'cc-run-btn';
-    //     runBtn.innerHTML = '<i class="fa fa-play-circle"></i>';
-    //     runBtn.title = 'Ejecutar código';
-
-    //     const slide = codeBlock.closest('section');
-
-    //     function extractCode(codeBlock) {
-
-    //       const lines = codeBlock.querySelectorAll("td.hljs-ln-code");
-
-    //       return Array.from(lines)
-    //         .map(td => td.innerText)   // importante: innerText aquí sí
-    //         .join("\n");
-    //     }
-
-    //     runBtn.addEventListener("click", () => {
-
-    //       const codeEl = codeBlock.querySelector("code");
-    //       if (!codeEl) return;
-
-    //       const code = extractCode(codeBlock);
-
-    //       console.log(code);
-
-    //       const iframe = codeBlock.closest("section")?.querySelector(".console-frame");
-    //       if (!iframe) return;
-
-    //       iframe.contentWindow.postMessage({
-    //         type: "run",
-    //         code
-    //       }, "*");
-
-    //     });
-
-    //     toolbar.insertBefore(runBtn, toolbar.firstChild);
-    //   });
-    // });
 
     Reveal.on("ready", initConsoles);
     Reveal.on("slidechanged", initConsoles);
