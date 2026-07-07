@@ -65,9 +65,29 @@
 
 ---
 
-<h2 align="center">Configuración de la Máquina Virtual</h2>
+{% include reveal/instalacion-virt-manager.html %}
 
 ---
+
+<h2 align="center">Configuración de la Máquina Virtual</h2>
+
+{% assign imagenes = site.static_files | where_exp: "item", "item.path contains '/assets/media/windows/ws-2025/virt-manager/'" %}
+
+{% capture grid %}
+<div class="gallery-grid r-stretch">
+  {% for imagen in imagenes %}
+    <figure class="gallery-item">
+      <span class="num-badge">{{ forloop.index }}</span>
+      <img src="{{ imagen.path }}" alt="{{ imagen.name }}" data-preview-image>
+    </figure>
+  {% endfor %}
+</div>
+{% endcapture %}
+
+{{ grid | strip_newlines }}
+
+---
+
 
 <h2 align="center">Asistente de instalación</h2>
 

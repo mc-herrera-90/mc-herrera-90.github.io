@@ -1,0 +1,155 @@
+<h2 align="center">¿Qué es y por qué usar Virt Manager?</h2>
+
+Es una interfaz de escritorio para entornos Linux que permite administrar máquinas virtuales mediante <a href="https://linux-kvm.org/page/Main_Page" target="_blank">KVM</a>, <a href="https://www.qemu.org/" target="_blank">QEMU</a> y <a href="https://libvirt.org/" target="_blank">libvirt</a>.
+
+Se utiliza porque facilita la gestión de máquinas virtuales a través de una interfaz gráfica, evitando el  uso exclusivo de la terminal y permitiendo configurar recursos, redes, almacenamiento y snapshots de forma sencilla.
+
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 2.5rem auto; cursor: pointer"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+--
+
+<h3 align="center">Instalación de Virt Manager</h3>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; text-align: center">
+
+#### En Ubuntu <i class="fa-brands fa-ubuntu"></i>/ Debian <i class="fa-brands fa-debian"></i>
+
+#### En Fedora <i class="fa-brands fa-fedora"></i>/ RHEL <i class="fa-brands fa-redhat"></i>/ CentOS <i class="fa-brands fa-centos"></i>
+
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em">
+
+```bash
+sudo apt update && sudo apt upgrade
+sudo apt install virt-manager
+```
+
+```bash
+sudo dnf update
+sudo dnf install virt-manager
+```
+
+</div>
+
+<br>
+<h3 align="center">Habilitar el servicio de virtualización</h3>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; text-align: center">
+
+#### En Ubuntu <i class="fa-brands fa-ubuntu"></i>/ Debian <i class="fa-brands fa-debian"></i>
+
+#### En Fedora <i class="fa-brands fa-fedora"></i>/ RHEL <i class="fa-brands fa-redhat"></i>/ CentOS <i class="fa-brands fa-centos"></i>
+
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em">
+
+```bash
+sudo systemctl enable --now libvirtd
+```
+
+```bash
+sudo systemctl enable --now libvirtd
+```
+
+</div>
+
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 2.5rem auto; cursor: pointer"><i class="fa-solid fa-down-long fa-bounce fa-2xl"></i></a>
+
+--
+
+### Buscar la aplicación
+
+Una vez instalado, busca la aplicación _"Virtual Machine Manager"_:
+
+<div style="display:flex; align-items:center; justify-content:center; gap:20px;">
+  <img
+    src="/assets/media/ubuntu/buscar-virtual-machine-manager.webp"
+    width="55%"
+    data-preview-image
+    data-preview-fit="contain"
+  >
+  <a onclick="Reveal.down(); return false;">
+    <img
+      class="r-frame"
+      style="background: rgba(255,255,255,0.1); cursor:pointer;"
+      src="https://static.slid.es/reveal/arrow.png"
+      width="120"
+      alt="Down arrow"
+    >
+  </a>
+</div>
+
+--
+
+### Primer inicio de Virt-Manager
+
+Al abrir __Virt-Manager__ por primera vez, es normal ver un error de conexión a la API de virtualización <a href="https://libvirt.org/" target="_blank">libvirt</a>.
+
+<div style="display:flex; align-items:center; justify-content:center; gap:20px;">
+  <img
+    src="/assets/media/ubuntu/error-al-conectar-con-libvirt.webp"
+    width="55%"
+    data-preview-image
+    data-preview-fit="contain"
+  >
+  <a onclick="Reveal.down(); return false;">
+    <img
+      class="r-frame"
+      style="background: rgba(255,255,255,0.1); cursor:pointer;"
+      src="https://static.slid.es/reveal/arrow.png"
+      width="120"
+      alt="Down arrow"
+    >
+  </a>
+</div>
+
+--
+
+<!-- .slide: style="text-align: left" -->
+
+<h3 align="center">Solución</h3>
+
+Esto ocurre porque el usuario aún no tiene permisos para acceder al servicio. Para solucionarlo ejecuta el siguiente comando:
+
+```bash
+sudo usermod -aG libvirt $USER
+sudo usermod -aG kvm $USER
+```
+
+Luego, cierra sesión y vuelve a entrar o reinicia el sistema
+
+<a onclick="Reveal.down(); return false;" style="display: table; margin: auto">
+  <img
+    class="r-frame"
+    style="background: rgba(255,255,255,0.1); cursor:pointer;"
+    src="https://static.slid.es/reveal/arrow.png"
+    width="120"
+    alt="Down arrow"
+  >
+</a>
+
+--
+
+### Crear una nueva máquina virtual
+
+Al entrar nuevamente a __virt-manager__, continua con el proceso de crear una nueva máquina virtual:
+
+<div style="display:flex; align-items:center; justify-content:center; gap:20px;">
+  <img
+    src="/assets/media/ubuntu/crear-una-nueva-maquina-con-virt-manager-paso-1.webp"
+    width="55%"
+    data-preview-image
+    data-preview-fit="contain"
+  >
+  <a onclick="Reveal.down(); return false;">
+    <img
+      class="r-frame"
+      style="background: rgba(255,255,255,0.1); cursor:pointer;"
+      src="https://static.slid.es/reveal/arrow.png"
+      width="120"
+      alt="Down arrow"
+    >
+  </a>
+</div>
