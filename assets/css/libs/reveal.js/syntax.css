@@ -4,10 +4,10 @@
 }
 
 @font-face {
-    font-family: 'Monocraft';
-    src: url('https://cdn.jsdelivr.net/gh/IdreesInc/Monocraft@main/dist/Monocraft-ttf/Monocraft.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Monocraft';
+  src: url('https://cdn.jsdelivr.net/gh/IdreesInc/Monocraft@main/dist/Monocraft-ttf/Monocraft.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .codeblock {
@@ -51,6 +51,20 @@
 
 .cc-window-bar {
   margin: 0 !important;
+}
+
+/* Boton copy  */
+.codeblock button[data-cc] {
+  padding: 0 .3em;
+}
+
+.codeblock[data-cc-window] .cc-window-bar .cc-window-left span {
+  width: calc(var(--cc-scale, 1) * 13px);
+  height: calc(var(--cc-scale, 1) * 13px)
+}
+
+.codeblock[data-cc-window] .cc-window-bar .cc-window-title {
+  font-size: calc(var(--cc-scale, 1) * 1.3rem)
 }
 
 .codeblock[data-cc-window] pre {}
