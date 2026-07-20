@@ -1,155 +1,110 @@
 ---
 title: "Instalación de MongoDB y MongoDB Compass"
+theme: "black"
 ---
+
+<style>
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 190px;
+  gap: 1rem;
+}
+
+.gallery-item {
+  position: relative;
+  margin: 0;
+  border: 2px solid var(--main-border-color);
+  border-radius: .75rem;
+  overflow: visible;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.num-badge {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+
+  width: 2rem;
+  height: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--heading-color, #d9c);
+  color: var(--card-bg);
+
+  font-size: .85rem;
+  font-weight: 700;
+  line-height: 1;
+
+  border: 2px solid var(--card-bg);
+  box-shadow: 0 0 0 2px var(--main-border-color);
+
+  user-select: none;
+  z-index: 10;
+}
+</style>
 
 <!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green.webp" data-background-size="cover" data-background-position="center" class="white" -->
 
 ![](/assets/media/mongodb/mongodb-proto.avif)
 
-## Instalar MongoDB Community Server
+
+<h1 class="r-fit-text">Instalar MongoDB Community Server</h1>
 
 ---
 
-## Elige tu entorno
+<h1 class="text-center text-upper text-glow">Elige tu entorno</h1>
+
+<p class="text-center">En esta presentación encontrarás las instrucciones de instalación para:</p>
 
 {% include markdown/reveal/os_system.liquid os_linux='ubuntu' color_linux='#E95420' %}
 
 ---
 
-<!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green.webp" data-background-size="cover" data-background-position="center" class="white" id="windows" -->
+<!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green-windows.webp" data-background-size="cover" data-background-position="center" class="white" id="windows" -->
 
-## Instalación en Windows <i class="fa-brands fa-windows fa-2xl" style="color: #08A1F7 !important"></i>
+<h1 class="text-center">Instalación en Windows</h1>
 
-### Descarga el archivo `.msi` 👇
+<p class="text-center">Descarga el archivo <code>.msi</code> desde 👉 <a href="https://www.mongodb.com/try/download/community" style="color: #ff8 !important" title="Página oficial de descarga" target="_blank">página oficial de descargas</a></p>
 
-<a href="https://www.mongodb.com/try/download/community" style="color: #ff8 !important" target="_blank">
-  https://www.mongodb.com/try/download/community
+<center><img src="/assets/media/mongodb/website-download-comunnity.webp" width="75%" data-preview-image></center>
+
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide">
+  <i class="fa-solid fa-down-long fa-bounce fa-2xl"></i>
 </a>
 
-<a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
-
 --
 
-<!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green.webp" data-background-size="cover" data-background-position="center" class="white" -->
+<!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green-windows.webp" data-background-size="cover" data-background-position="center" class="white" -->
+<h2 align="center">Asistente de instalación</h2>
 
-### 1. Descargar y ejecutar el asistente
+{% assign imagenes = site.static_files | where_exp: "item", "item.path contains '/assets/media/mongodb/instalacion-windows/'" %}
 
-<div style="display:flex; align-items:center; justify-content:center; gap:10px;">
-<a onclick="Reveal.up(); return false;"><img class="r-frame" style="transform: rotate(180deg); background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow"/></a>
-
-<img src="/assets/media/mongodb/instalacion-windows/_01.webp" width="80%" data-preview-image data-preview-fit="cover">
-
-<a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+{% capture grid %}
+<div class="gallery-grid">
+  {% for imagen in imagenes %}
+    <figure class="gallery-item">
+      <span class="num-badge">{{ forloop.index }}</span>
+      <img src="{{ imagen.path }}" alt="{{ imagen.name }}" data-preview-image style="border: 3px solid rgb(192, 225, 232)">
+    </figure>
+  {% endfor %}
 </div>
+{% endcapture %}
 
---
-
-<!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green.webp" data-background-size="cover" data-background-position="center" class="white" -->
-
-### 2. Aceptar términos
-
-
-<div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
-
-<a onclick="Reveal.up(); return false;"><img class="r-frame" style="transform: rotate(180deg); background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow"/></a>
-
-<img src="/assets/media/mongodb/instalacion-windows/_02.webp" data-preview-image data-preview-fit="cover" width="80%">
-
-<a onclick="Reveal.down(); return false;"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
-</div>
-
---
-
-<!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green.webp" data-background-size="cover" data-background-position="center" class="white" -->
-
-### 3. Tipo de instalación
-
-<div style="display:flex; align-items:center; justify-content:center; gap:10px;">
-
-<a onclick="Reveal.up(); return false;"><img class="r-frame" style="transform: rotate(180deg); background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow"/></a>
-
-<img src="/assets/media/mongodb/instalacion-windows/_03.webp" width="80%" data-preview-image data-preview-fit="cover">
-
-<a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
-</div>
-
---
-
-<!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green.webp" data-background-size="cover" data-background-position="center" class="white" -->
-
-### 4. Destino de instalación
-
-<div style="display:flex; align-items:center; justify-content:center; gap:10px;">
-
-<a onclick="Reveal.up(); return false;"><img class="r-frame" style="transform: rotate(180deg); background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow"/></a>
-
-<img src="/assets/media/mongodb/instalacion-windows/_04.webp" width="80%" data-preview-image data-preview-fit="cover">
-
-<a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
-</div>
-
---
-
-<!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green.webp" data-background-size="cover" data-background-position="center" class="white" -->
-
-### 5. Configurar el servicio de MongoDB
-
-<div style="display:flex; align-items:center; justify-content:center; gap:10px;">
-
-<a onclick="Reveal.up(); return false;"><img class="r-frame" style="transform: rotate(180deg); background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow"/></a>
-
-<img src="/assets/media/mongodb/instalacion-windows/_05.webp" width="80%" data-preview-image data-preview-fit="cover">
-
-<a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
-</div>
-
---
-
-<!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green.webp" data-background-size="cover" data-background-position="center" class="white" -->
-
-### 6. Agregar MongoDB Compass a la instalación
-
-<p align="center">( Herramienta gráfica para administrar bases de datos en MongoDB )</p>
-
-<div style="display:flex; align-items:center; justify-content:center; gap:10px;">
-
-<a onclick="Reveal.up(); return false;"><img class="r-frame" style="transform: rotate(180deg); background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow"/></a>
-
-<img src="/assets/media/mongodb/instalacion-windows/_06.webp" width="80%" data-preview-image data-preview-fit="cover">
-
-<a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
-</div>
-
---
-
-<!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green.webp" data-background-size="cover" data-background-position="center" class="white" -->
-
-### 7. Esperar a que termine del proceso
-
-<div style="display:flex; align-items:center; justify-content:center; gap:10px;">
-
-<a onclick="Reveal.up(); return false;"><img class="r-frame" style="transform: rotate(180deg); background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow"/></a>
-
-<img src="/assets/media/mongodb/instalacion-windows/_07.webp" width="80%" data-preview-image data-preview-fit="cover">
-
-<a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
-</div>
-
---
-
-<!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green.webp" data-background-size="cover" data-background-position="center" class="white" -->
-
-### 8. Buscar y abrir el programa MongoDB Compass
-
-<div style="display:flex; align-items:center; justify-content:center; gap:10px;">
-
-<a onclick="Reveal.up(); return false;"><img class="r-frame" style="transform: rotate(180deg); background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow"/></a>
-
-<img src="/assets/media/mongodb/instalacion-windows/_08.webp" width="80%" data-preview-image data-preview-fit="cover">
-
-<a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
-</div>
-
+{{ grid | strip_newlines }}
 
 --
 
@@ -157,32 +112,40 @@ title: "Instalación de MongoDB y MongoDB Compass"
 
 ---
 
-<!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green.webp" data-background-size="cover" data-background-position="center" class="white" id="linux" -->
+<!-- .slide: data-background="#300A24" id="linux" -->
 
-### Instalar en Debian/Ubuntu <i class="fa-brands fa-ubuntu fa-2xl" style="color: #E95420 !important"></i>
+<h1 class="text-center">Instalación en Ubuntu</h1>
 
-<a onclick="Reveal.down(); return false;" style="display: table; margin: auto"><img class="r-frame" style="background: rgba(255, 255, 255, 0.1); cursor: pointer" width="100%" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"/></a>
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide">
+  <i class="fa-solid fa-down-long fa-bounce fa-2xl"></i>
+</a>
 
 --
 
 <!-- .slide: data-background="#300A24" -->
 
-### 1. Preparar el sistema
+### Pasos de ejecución en orden
 
-Actualizar e instalar las herramientas necesarias para manejar paquetes vía HTTPS y verificar firmas digitales:
+<div style="display: grid; grid-template-columns: 50% 50%; gap: 1.2rem;">
+
+
+<div>
+
+
+<div class="warning" style="position: relative;"><span class="num-badge" style="bottom:0; left: 0">1</span><span style="padding-left: 1.2rem;"></span>Preparar el sistema</div>
 
 
 ```bash
 sudo apt update && sudo apt install gnupg curl -y
 ```
 
---
+</div>
 
-<!-- .slide: data-background="#300A24" -->
 
-### 2. Importar la llave GPG pública
+<div>
 
-Esto permite que el sistema confíe en los paquetes que vienen de MongoDB:
+<div class="warning" style="position: relative;"><span class="num-badge" style="bottom: 0; left: 0">2</span><span style="padding-left: 1.2rem;"></span>Importar la llave GPG pública</div>
+
 
 ```bash
 curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \
@@ -190,13 +153,17 @@ curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \
   --dearmor
 ```
 
---
+</div>
 
-<!-- .slide: data-background="#300A24" -->
+</div>
 
-### 3. Crear el archivo de repositorio
+<br/>
 
-Ahora, se debe crear un archivo de lista para que `apt` sepa dónde buscar.
+<div style="display: grid; grid-template-columns: 50% 50%; gap: 1.2rem;">
+
+<div>
+
+<div class="warning" style="position: relative;"><span class="num-badge" style="bottom: 0; left: 0">3</span><span style="padding-left: 1.2rem;"></span>Agregar el repositorio</div>
 
 ```bash
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] \
@@ -205,16 +172,25 @@ bookworm/mongodb-org/8.0 main" | \
 sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 ```
 
---
+</div>
 
-### 4. Instalar MongoDB
+<div>
 
-Actualiza tu base de datos local e instala el metapaquete que incluye la base de datos, las herramientas y el shell ( con el que puedes conectarte a MongoDB ):
+
+<div class="warning" style="position: relative;"><span class="num-badge" style="bottom: 0; left: 0">4</span><span style="padding-left: 1.2rem;"></span>Actualizar e instalar</div>
 
 ```bash
 sudo apt update
 sudo apt install -y mongodb-org
 ```
+
+</div>
+
+</div>
+
+--
+
+<a href="#/conectar-a-mongodb"><h2>Conectar a MongoDB <i class="fa-solid fa-angles-right fa-2xl"></i></h2></a>
 
 ---
 
@@ -244,7 +220,7 @@ brew install mongodb-community@7.0
   <div style="text-align:center;">
     <h3>1</h3>
     <font size="5">Crear una nueva conexión</font>
-    <img src="/assets/media/mongodb/instalacion-windows/_09.webp"
+    <img src="/assets/media/mongodb/conectar-mongodb-compass/_09.webp"
         width="100%"
         data-preview-image
         data-preview-fit="cover">
@@ -253,7 +229,7 @@ brew install mongodb-community@7.0
   <div style="text-align:center;">
     <h3>2</h3>
     <font size="5">Completar la información</font>
-    <img src="/assets/media/mongodb/instalacion-windows/_10.webp"
+    <img src="/assets/media/mongodb/conectar-mongodb-compass/_10.webp"
         width="100%"
         data-preview-image
         data-preview-fit="cover">
@@ -262,7 +238,7 @@ brew install mongodb-community@7.0
   <div style="text-align:center;">
     <h3>3</h3>
     <font size="5">Guardar y conectar</font>
-    <img src="/assets/media/mongodb/instalacion-windows/_11.webp"
+    <img src="/assets/media/mongodb/conectar-mongodb-compass/_11.webp"
         width="100%"
         data-preview-image
         data-preview-fit="cover">

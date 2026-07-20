@@ -1,8 +1,8 @@
 ---
-title: "MySQL: Cliente de línea de comandos"
+title: "MySQL: Cliente de línea de comandos de MySQL"
 emoji: 🐬
 pin: true
-description: "conecta a servidores locales o remotos, gestiona bases de datos y automatiza tareas"
+description: "Conecta a servidores locales o remotos, gestiona bases de datos y automatiza tareas"
 categories: [MySQL, "MySQL-Básico"]
 tags: [Bases de Datos]
 image:
