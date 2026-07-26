@@ -89,7 +89,7 @@ theme: "black"
 --
 
 <!-- .slide: data-background-image="/assets/media/extras/bg-gradient-green-windows.webp" data-background-size="cover" data-background-position="center" class="white" -->
-<h2 align="center">Asistente de instalación</h2>
+<h2 align="center" class="r-fit-text">Pasos en el asistente de instalación</h2>
 
 {% assign imagenes = site.static_files | where_exp: "item", "item.path contains '/assets/media/mongodb/instalacion-windows/'" %}
 
@@ -104,7 +104,20 @@ theme: "black"
 </div>
 {% endcapture %}
 
+<div style="display: flex; align-items:center; gap: 1rem">
+
+<a onclick="Reveal.up(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide">
+  <i class="fa-solid fa-up-long fa-2xl"></i>
+</a>
+
 {{ grid | strip_newlines }}
+
+<a onclick="Reveal.down(); return false;" style="display: table; margin: 1rem auto; cursor: pointer" class="next-slide">
+  <i class="fa-solid fa-down-long fa-bounce fa-2xl"></i>
+</a>
+
+</div>
+
 
 --
 
