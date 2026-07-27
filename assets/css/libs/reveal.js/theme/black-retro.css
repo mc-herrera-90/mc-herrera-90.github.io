@@ -1,0 +1,134 @@
+:root {
+  --r-background-color: #111;
+  --r-main-font-size: 31px;
+  --r-main-color: #fff;
+  --r-heading-color: #7CFF6B;
+  --r-link-color: #55FF99;
+  --r-font-strong-color: #FFB000;
+}
+
+.reveal{
+    background:
+        radial-gradient(
+            ellipse at center,
+            #222 0%,
+            #111 55%,
+            #050505 100%
+        );
+    position:relative;
+}
+
+.reveal::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:999;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.035) 0px,
+            rgba(255,255,255,.035) 1px,
+            transparent 2px,
+            transparent 5px
+        );
+}
+
+.reveal::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:998;
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 40%,
+            rgba(0,0,0,.65) 100%
+        );
+}
+
+h2 {
+  color: var(--r-heading-color);
+}
+
+blockquote{
+    position:relative;
+
+    margin:2rem 0;
+
+    padding:1rem 1.2rem;
+
+    background:#151515;
+
+    color:#e8e8d8;
+
+    border:3px solid #777;
+
+    box-shadow:
+        4px 4px 0 #000,
+        inset 0 0 0 2px #333;
+    font-size:1.2rem;
+    line-height: 1.5rem;
+}
+
+
+/* esquina estilo pixel */
+blockquote::before{
+
+    content:">_";
+
+    position:absolute;
+
+    top:-18px;
+
+    left:12px;
+
+    padding:0 8px 3px 8px;
+
+    background:#151515;
+
+    color:#7cff6b;
+
+    border:2px solid #777;
+
+    font-size:1.2rem;
+
+}
+
+blockquote .typewriter-text{
+    display:inline;
+    overflow:hidden;
+    border-right:3px solid #7CFF6B;
+    animation:cursor-blink .8s infinite;
+}
+
+@keyframes cursor-blink{
+    50%{
+        border-color:transparent;
+    }
+
+}
+
+
+.reveal strong {
+  color: var(--r-font-strong-colo);
+}
+
+/* LINKS */
+.reveal a {
+  color: var(--r-link-color);
+    text-shadow:
+        0 0 4px rgba(85,255,153,.4);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.reveal a:hover{
+  color:#7CFF6B;
+}
+
+/* CONTROLS */
+.controls-arrow {
+  color: var(--r-link-color);
+}

@@ -45,6 +45,7 @@
   font-size: var(--r-main-font-size);
   font-weight: 400;
   color: var(--r-main-color);
+  background-color: var(--r-background-color);
 }
 .reveal strong {
   color: var(--r-font-strong-color, #ccc);

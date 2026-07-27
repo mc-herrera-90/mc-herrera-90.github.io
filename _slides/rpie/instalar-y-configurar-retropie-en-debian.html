@@ -1,19 +1,16 @@
 ---
-theme: black
+theme: "black-retro"
 ---
-
 
 <!-- .slide: data-background-image="/assets/media/extras/bg-debian-red.webp" data-background-size="cover" class="pixel-font" -->
 
-
 <div style="display: grid; grid-template-columns: 25% 75%; align-items: center; gap: 1rem">
-<img src="/assets/media/pixels/rpie.webp" alt="logo rpie">
+<img src="/assets/media/pixels/rpie.webp" alt="logo rpie" width="100%">
 <div class="text">
 <h2><span style="color: #d0c9bc">RetroPie</span>: Debian GNU/Linux</h2>
 <p class="pixel-font" style="font-size: 1.2em">Instalación y configuración de RetroPie en sistemas basados en Debian</p>
 </div>
 </div>
-
 
 <p class="" style="color:#64ff64; position: absolute; bottom: 0; right: 0">
     Por <strong>@mcherrera</strong> |
@@ -36,8 +33,7 @@ theme: black
 }
 </style>
 
-
-<div style="display: flex; justify-content: center; gap: 1.6em">
+<div style="display: flex; justify-content: center; gap: 1.6em; margin-top: 1em">
 <div style="display: flex; flex-direction: column; align-items: center">
   <img src="/assets/media/pixels/lubuntu.webp" alt="logo lubuntu" class="pixel-logo">
   <a href="https://cdimage.ubuntu.com/lubuntu/releases/18.04/release/" target="_blank">Lubuntu</a>
@@ -59,7 +55,7 @@ Con cualquiera de estas distribuciones instaladas, ya podemos continuar con la i
 
 ---
 
-<!-- .slide: data-background-image="/assets/media/extras/bg-debian-red.webp" data-background-size="cover" class="pixel-font" -->
+<!-- .slide: data-background-size="cover" class="pixel-font" -->
 
 <h2 class="r-fit-text">Realiza los siguientes pasos en la Terminal</h2>
 
@@ -81,13 +77,30 @@ Con cualquiera de estas distribuciones instaladas, ya podemos continuar con la i
 
 ---
 
-<!-- .slide: data-background-image="/assets/media/extras/bg-debian-red.webp" data-background-size="cover" class="pixel-font" data-transition="convex" style="align-items: center" -->
+<!-- .slide: data-background="#151515" data-background-size="cover" class="pixel-font" data-transition="convex" style="align-items: center" -->
 
 El script comenzará a ejecutarse e instalará paquetes adicionales, tras unos breves momentos, aparecerá el menú como se muestra a continuación:
 
-<center><img src="/assets/media/linux/retropie-setup-1.webp" alt="logo linux mint" width="50%" class="r-stretch"></center>
+<center><img src="/assets/media/linux/retropie-setup-1.webp" alt="logo linux mint" width="50%" class="r-stretch" data-preview-image></center>
 
 <p class="r-fit-text">Presiona <kbd class="pixel-key">Enter</kbd> para continuar con la siguiente ventana.</p>
 
+---
 
+<!-- .slide: class="pixel-font" data-transition="zoom" -->
 
+Ahora, selecciona "__Basic install__" y presiona <kbd class="pixel-key">Enter</kbd>
+
+<center><img src="/assets/media/linux/retropie-setup-2.webp" alt="logo linux mint" width="60%" class="r-stretch" data-preview-image></center>
+
+> Esto instalará los paquetes principales equivalentes a la imagen de RetroPie que se distribuye, pero en su versión de 32 bits. Esto significa que algunos emuladores no funcionarán ya que solo funcionan con la versión de 64 bits.
+
+---
+
+<!-- .slide: class="pixel-font" data-transition="concave" -->
+
+En la siguiente ventana, presiona nuevamente <kbd class="pixel-key">Enter</kbd> para confirmar e iniciar la instalación.
+
+<center><img src="/assets/media/linux/retropie-setup-3.webp" alt="logo linux mint" width="60%" class="r-stretch" data-preview-image></center>
+
+> El proceso puede tardar entre 20 y 30 minutos, dependiendo del hardware y la conexión a internet.
