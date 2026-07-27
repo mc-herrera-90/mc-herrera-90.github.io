@@ -10,6 +10,9 @@
   font-style: normal;
 }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
 .codeblock {
   display: flex;
   flex-direction: column;
@@ -101,6 +104,13 @@ pre,
   font-size: var(--font-size, 0.6em) !important;
   line-height: calc(var(--font-size) * 1.4);
   font-weight: bolder;
+}
+
+.pixel-font .hljs table,
+.pixel-font .hljs pre,
+.pixel-font .codeblock code
+{
+  font-family: 'Monocraft', console !important;
 }
 
 .cc-window-right {

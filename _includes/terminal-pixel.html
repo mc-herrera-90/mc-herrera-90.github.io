@@ -1,0 +1,174 @@
+<style>
+.rp-terminal{
+    margin:2rem 0;
+    background:#252525;
+    border:2px solid #565656;
+    overflow:hidden;
+    box-shadow:
+        0 0 0 2px #1a1a1a,
+        6px 6px 0 rgba(0,0,0,.35);
+    position:relative;
+}
+
+.rp-terminal-body{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#1d1d1d;
+    gap:.5rem;
+    position:relative;
+    padding: .2em .6em;
+    z-index:2;
+    overflow-x:auto;
+}
+
+.rp-terminal-body code{
+    display:block;
+
+    flex:1;
+    margin:0;
+
+    font-size:1.45rem;
+    line-height:1;
+
+    white-space:nowrap;
+    overflow-x:auto;
+
+    color:#ececec;
+}
+
+.rp-copy-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:34px;
+    height:34px;
+
+    padding:0;
+
+    border:none;
+    background:transparent;
+
+    cursor:pointer;
+
+    flex-shrink:0;
+}
+
+.rp-copy-btn img{
+    width:20px;
+    height:20px;
+
+    image-rendering:pixelated;
+    image-rendering:crisp-edges;
+
+    transform:scale(1.4);
+
+    display:block;
+
+    transition:.15s;
+}
+
+.rp-copy-btn:hover img{
+    transform:scale(1.5);
+}
+
+.rp-copy-btn img{
+
+    width:20px;
+    height:20px;
+
+    image-rendering:pixelated;
+    image-rendering:crisp-edges;
+
+    transform:scale(1.4);
+
+    display:block;
+
+    transition:.15s;
+}
+
+.rp-user{
+    color:#6cb6ff;
+}
+
+.rp-path{
+    color:#ffffff;
+}
+/* efecto CRT retro */
+
+.rp-terminal::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:4;
+    pointer-events:none;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.04) 0px,
+            rgba(255,255,255,.04) 1px,
+            transparent 2px,
+            transparent 4px
+        );
+}
+
+/* brillo interior */
+.rp-terminal::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 40%,
+            rgba(0,0,0,.45) 100%
+        );
+
+}
+/* scrollbar retro pixel */
+.rp-terminal-body::-webkit-scrollbar{
+    height:12px;
+}
+
+.rp-terminal-body::-webkit-scrollbar-track{
+    background:#111;
+    border-top:2px solid #333;
+}
+
+.rp-terminal-body::-webkit-scrollbar-thumb{
+    background:#666;
+    border:2px solid #aaa;
+}
+
+.rp-terminal-body::-webkit-scrollbar-thumb:hover{
+    background:#888;
+}
+
+/* Firefox */
+.rp-terminal-body{
+    scrollbar-width:thin;
+    scrollbar-color:#666 #111;
+}
+</style>
+
+<div class="rp-terminal">
+<div class="rp-terminal-body">
+<code class="pixel-font"><span class="rp-user">user@debian</span><span class="rp-path">:~</span>$ {{ include.command }}</code>
+<button class="rp-copy-btn" data-command="{{ include.command | escape }}" title="Copiar comando">
+<img src="/assets/media/pixels/clipboard.webp" alt="copy">
+</button>
+</div>
+</div>

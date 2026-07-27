@@ -224,6 +224,29 @@
       });
 
     }
+
+    document.addEventListener("click", (e) => {
+
+      const btn = e.target.closest(".rp-copy-btn");
+
+      if (!btn) return;
+
+      navigator.clipboard.writeText(btn.dataset.command);
+
+      const img = btn.querySelector("img");
+
+      img.src = "/assets/media/pixels/clipboard-check.webp";
+      img.alt = "Copiado";
+      btn.title = "¡Copiado!";
+
+      setTimeout(() => {
+        img.src = "/assets/media/pixels/clipboard.webp";
+        img.alt = "Copiar";
+        btn.title = "Copiar comando";
+      }, 1500);
+
+    });
+
   </script>
 
 </body>

@@ -1,0 +1,88 @@
+---
+theme: black
+---
+
+
+<!-- .slide: data-background-image="/assets/media/extras/bg-debian-red.webp" data-background-size="cover" class="pixel-font" -->
+
+
+<div style="display: grid; grid-template-columns: 25% 75%; align-items: center; gap: 1rem">
+<img src="/assets/media/pixels/rpie.webp" alt="logo rpie">
+<div class="text">
+<h2><span style="color: #d0c9bc">RetroPie</span>: Debian GNU/Linux</h2>
+<p class="pixel-font" style="font-size: 1.2em">Instalación y configuración de RetroPie en sistemas basados en Debian</p>
+</div>
+</div>
+
+
+<p class="" style="color:#64ff64; position: absolute; bottom: 0; right: 0">
+    Por <strong>@mcherrera</strong> |
+    <a href="mailto:contacto@mcherrera.dev">contacto@mcherrera.dev</a>
+</p>
+
+
+---
+
+<!-- .slide: data-background-image="/assets/media/extras/bg-debian-red.webp" data-background-size="cover" class="pixel-font" -->
+
+<h2 class="r-fit-text">Tener una Distribución basada en Debian</h2>
+
+<style>
+.pixel-logo {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  width: 100px;
+  filter: contrast(1.2) saturate(1.3);
+}
+</style>
+
+
+<div style="display: flex; justify-content: center; gap: 1.6em">
+<div style="display: flex; flex-direction: column; align-items: center">
+  <img src="/assets/media/pixels/lubuntu.webp" alt="logo lubuntu" class="pixel-logo">
+  <a href="https://cdimage.ubuntu.com/lubuntu/releases/18.04/release/" target="_blank">Lubuntu</a>
+  <p>18.04 LTS <span style="color: #64ff64;">+</span></p>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center">
+  <img src="/assets/media/pixels/ubuntu.webp" alt="logo ubuntu" class="pixel-logo">
+  <a href="https://releases.ubuntu.com/18.04/" target="_blank">Ubuntu</a>
+  <p>18.04 LTS <span style="color: #64ff64;">+</span></p>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center">
+  <img src="/assets/media/pixels/linux-mint.webp" alt="logo linux mint" class="pixel-logo">
+  <a href="https://www.linuxmint.com/rel_ulyana_cinnamon.php" target="_blank">Linux Mint</a>
+  <p>20 LTS <span style="color: #64ff64;">+</span></p>
+</div>
+</div>
+
+Con cualquiera de estas distribuciones instaladas, ya podemos continuar con la instalación de RetroPie.
+
+---
+
+<!-- .slide: data-background-image="/assets/media/extras/bg-debian-red.webp" data-background-size="cover" class="pixel-font" -->
+
+<h2 class="r-fit-text">Realiza los siguientes pasos en la Terminal</h2>
+
+<font size="5"><span style="color: rgb(171, 0, 0);">1.</span> Actualiza el sistema</font>
+{% include terminal-pixel.html command="sudo apt update && sudo apt upgrade -y" %}
+
+<font size="5"><span style="color: rgb(171, 0, 0);">2.</span> Instala los paquetes necesarios</font>
+
+{% include terminal-pixel.html command="sudo apt install -y git dialog unzip xmlstarlet" %}
+
+<font size="5"><span style="color: rgb(171, 0, 0);">3.</span> Descarga el script de configuración de RetroPie</font>
+
+{% include terminal-pixel.html command="git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git" %}
+
+<font size="5"><span style="color: rgb(171, 0, 0);">4.</span> Ingresa a la carpeta y ejecuta el instalador</font>
+
+{% include terminal-pixel.html command="cd RetroPie-Setup && sudo ./retropie_setup.sh" %}
+
+
+---
+
+<!-- .slide: data-background-image="/assets/media/extras/bg-debian-red.webp" data-background-size="cover" class="pixel-font" data-transition="convex" -->
+
+El script comenzará a ejecutarse e instalará paquetes adicionales, tras unos breves momentos, aparecerá el menú como se muestra a continuación:
+
+<center class="r-stretch"><img src="/assets/media/linux/retropie-setup-1.webp" alt="logo linux mint" width="60%"></center>
