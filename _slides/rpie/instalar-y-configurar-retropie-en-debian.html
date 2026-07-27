@@ -8,50 +8,103 @@ theme: "black-retro"
 <img src="/assets/media/pixels/rpie.webp" alt="logo rpie" width="100%">
 <div class="text">
 <h2><span style="color: #d0c9bc">RetroPie</span>: Debian GNU/Linux</h2>
-<p class="pixel-font" style="font-size: 1.2em">Instalación y configuración de RetroPie en sistemas basados en Debian</p>
-</div>
-</div>
-
-<p class="" style="color:#64ff64; position: absolute; bottom: 0; right: 0">
+<p style="text-align: right;">
     Por <strong>@mcherrera</strong> |
     <a href="mailto:contacto@mcherrera.dev">contacto@mcherrera.dev</a>
 </p>
+<blockquote style="font-size: 1.1em; line-height: 1.3em; padding-top: 1em;">Instalación y configuración de RetroPie en sistemas basados en Debian</blockquote>
+</div>
+</div>
 
+Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd> para continuar
 
 ---
 
-<!-- .slide: data-background-image="/assets/media/extras/bg-debian-red.webp" data-background-size="cover" class="pixel-font" -->
+<!-- .slide: class="pixel-font" -->
 
 <h2 class="r-fit-text">Tener una Distribución basada en Debian</h2>
 
 <style>
-.pixel-logo {
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  width: 100px;
-  filter: contrast(1.2) saturate(1.3);
+.pixel-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    transition:
+        transform .12s steps(3),
+        filter .12s steps(3);
+}
+
+.pixel-logo{
+    image-rendering:pixelated;
+    image-rendering:crisp-edges;
+    width:100px;
+    filter:contrast(1.15) saturate(1.2);
+    transition:inherit;
+}
+
+.pixel-card p{
+    margin:.4em 0 0;
+}
+
+.pixel-card:hover{
+    transform:translateY(-8px) scale(1.12);
+    filter:brightness(1.25);
+    animation:pixelSelect .18s steps(2) infinite alternate;
+}
+
+.pixel-card:hover .pixel-logo{
+    filter:
+        brightness(1.35)
+        contrast(1.6)
+        saturate(1.6)
+        drop-shadow(4px 4px 0 #000);
+}
+
+.pixel-card:hover,
+.pixel-card:hover p,
+.pixel-card:hover span{
+    text-shadow:
+        2px 2px 0 #000,
+        0 0 8px rgba(255,255,255,.25);
+}
+
+@keyframes pixelSelect{
+    from{
+        transform:translateY(-6px) scale(1.10);
+    }
+    to{
+        transform:translateY(-10px) scale(1.14);
+    }
 }
 </style>
 
 <div style="display: flex; justify-content: center; gap: 1.6em; margin-top: 1em">
-<div style="display: flex; flex-direction: column; align-items: center">
+<a href="https://cdimage.ubuntu.com/lubuntu/releases/18.04/release/" target="_blank">
+<div class="pixel-card">
   <img src="/assets/media/pixels/lubuntu.webp" alt="logo lubuntu" class="pixel-logo">
-  <a href="https://cdimage.ubuntu.com/lubuntu/releases/18.04/release/" target="_blank">Lubuntu</a>
-  <p>18.04 LTS <span style="color: #64ff64;">+</span></p>
+  Lubuntu
+  <p><span style="color: #fefefe;">18.04 LTS</span> +</p>
 </div>
-<div style="display: flex; flex-direction: column; align-items: center">
+</a>
+<a href="https://releases.ubuntu.com/18.04/" target="_blank">
+<div class="pixel-card">
   <img src="/assets/media/pixels/ubuntu.webp" alt="logo ubuntu" class="pixel-logo">
-  <a href="https://releases.ubuntu.com/18.04/" target="_blank">Ubuntu</a>
-  <p>18.04 LTS <span style="color: #64ff64;">+</span></p>
+  Ubuntu
+  <p><span style="color: #fefefe;">18.04 LTS</span> +</p>
 </div>
-<div style="display: flex; flex-direction: column; align-items: center">
+</a>
+<a href="https://www.linuxmint.com/rel_ulyana_cinnamon.php" target="_blank">
+<div class="pixel-card">
   <img src="/assets/media/pixels/linux-mint.webp" alt="logo linux mint" class="pixel-logo">
-  <a href="https://www.linuxmint.com/rel_ulyana_cinnamon.php" target="_blank">Linux Mint</a>
-  <p>20 LTS <span style="color: #64ff64;">+</span></p>
+  Linux Mint
+  <p><span style="color: #fefefe;">20 LTS</span> +</p>
 </div>
+</a>
 </div>
 
-Con cualquiera de estas distribuciones instaladas, ya podemos continuar con la instalación de RetroPie.
+> __Con cualquiera de estas distribuciones instaladas__, ya podemos continuar con la instalación de RetroPie.
+
+Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd> para continuar
 
 ---
 
@@ -74,33 +127,37 @@ Con cualquiera de estas distribuciones instaladas, ya podemos continuar con la i
 
 {% include terminal-pixel.html command="cd RetroPie-Setup && sudo ./retropie_setup.sh" %}
 
+Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd> para continuar
 
 ---
 
 <!-- .slide: data-background="#151515" data-background-size="cover" class="pixel-font" data-transition="convex" style="align-items: center" -->
 
-El script comenzará a ejecutarse e instalará paquetes adicionales, tras unos breves momentos, aparecerá el menú como se muestra a continuación:
+> El script comenzará a ejecutarse e instalará paquetes adicionales, tras unos breves momentos, aparecerá el menú como se muestra a continuación.
 
-<center><img src="/assets/media/linux/retropie-setup-1.webp" alt="logo linux mint" width="50%" class="r-stretch" data-preview-image></center>
+{% assign imagenes = site.static_files | where_exp: "item", "item.path contains '/assets/media/rpie/run-script-setup/'" %}
 
-<p class="r-fit-text">Presiona <kbd class="pixel-key">Enter</kbd> para continuar con la siguiente ventana.</p>
+{% capture grid %}
+<div class="gallery-grid">
+  {% for imagen in imagenes %}
+    <figure class="gallery-item">
+      <span class="num-badge">{{ forloop.index }}</span>
+      <img src="{{ imagen.path }}" alt="{{ imagen.name }}" data-preview-image data-caption="Carga de la imagen ISO de Windows Server 2025 y asignación de recursos.">
+    </figure>
+  {% endfor %}
+</div>
+{% endcapture %}
+
+{{ grid | strip_newlines }}
+
+> Ahora, selecciona "__Basic install__" y presiona Enter nuevamente hasta comenzar la instalación.
+
+Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd> para continuar
 
 ---
 
-<!-- .slide: class="pixel-font" data-transition="zoom" -->
-
-Ahora, selecciona "__Basic install__" y presiona <kbd class="pixel-key">Enter</kbd>
-
-<center><img src="/assets/media/linux/retropie-setup-2.webp" alt="logo linux mint" width="60%" class="r-stretch" data-preview-image></center>
-
-> Esto instalará los paquetes principales equivalentes a la imagen de RetroPie que se distribuye, pero en su versión de 32 bits. Esto significa que algunos emuladores no funcionarán ya que solo funcionan con la versión de 64 bits.
-
----
-
-<!-- .slide: class="pixel-font" data-transition="concave" -->
-
-En la siguiente ventana, presiona nuevamente <kbd class="pixel-key">Enter</kbd> para confirmar e iniciar la instalación.
-
-<center><img src="/assets/media/linux/retropie-setup-3.webp" alt="logo linux mint" width="60%" class="r-stretch" data-preview-image></center>
+<!-- .slide: class="pixel-font" data-transition="convex" style="align-items: center" -->
 
 > El proceso puede tardar entre 20 y 30 minutos, dependiendo del hardware y la conexión a internet.
+
+> Una vez finalizada la instalación, el sistema regresará al menú principal del script. En ese momento, simplemente cierra la ventana y busca __rpie__ (o ejecuta __emulationstation__ desde la terminal).
