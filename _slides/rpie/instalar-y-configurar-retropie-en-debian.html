@@ -5,18 +5,21 @@ theme: "black-retro"
 <!-- .slide: data-background-image="/assets/media/extras/bg-debian-red.webp" data-background-size="cover" class="pixel-font" -->
 
 <div style="display: grid; grid-template-columns: 25% 75%; align-items: center; gap: 1rem">
-<img src="/assets/media/pixels/rpie.webp" alt="logo rpie" width="100%">
+<img src="/assets/media/pixels/avatar-2.webp" alt="logo rpie" width="100%" style="filter: drop-shadow(4px 4px 0 #1a1a1a) drop-shadow(0 0 6px rgba(180,180,180,.25)); image-rendering: pixelated;">
 <div class="text">
-<h2><span style="color: #d0c9bc">RetroPie</span>: Debian GNU/Linux</h2>
-<p style="text-align: right;">
+<br>
+
+<blockquote style="padding-top: 1em; font-size: 1.2em; line-height: 1.4em;">Instalación y configuración de <strong>RetroPie en sistemas basados en Debian</strong>.</blockquote>
+<p style="text-align: left;">
     Por <strong>@mcherrera</strong> |
-    <a href="mailto:contacto@mcherrera.dev">contacto@mcherrera.dev</a>
+    <a href="//mcherrera.dev" target="_blank">mcherrera.dev</a>
 </p>
-<blockquote style="font-size: 1.1em; line-height: 1.3em; padding-top: 1em;">Instalación y configuración de RetroPie en sistemas basados en Debian</blockquote>
 </div>
 </div>
 
 Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd> para continuar
+
+<img src="/assets/media/pixels/rpie.webp" alt="logo rpie" width="16%" style="position: absolute; bottom: 0; right: 0">
 
 ---
 
@@ -79,18 +82,18 @@ Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd>
 </style>
 
 <div style="display: flex; justify-content: center; gap: 1.6em; margin-top: 1em">
-<a href="https://cdimage.ubuntu.com/lubuntu/releases/18.04/release/" target="_blank">
+<a href="/slides/instalacion-lubuntu20.html" data-preview-link>
 <div class="pixel-card">
   <img src="/assets/media/pixels/lubuntu.webp" alt="logo lubuntu" class="pixel-logo">
   Lubuntu
-  <p><span style="color: #fefefe;">18.04 LTS</span> +</p>
+  <p><span style="color: #fefefe;">20.04 LTS</span> +</p>
 </div>
 </a>
 <a href="https://releases.ubuntu.com/18.04/" target="_blank">
 <div class="pixel-card">
   <img src="/assets/media/pixels/ubuntu.webp" alt="logo ubuntu" class="pixel-logo">
   Ubuntu
-  <p><span style="color: #fefefe;">18.04 LTS</span> +</p>
+  <p><span style="color: #fefefe;">20.04 LTS</span> +</p>
 </div>
 </a>
 <a href="https://www.linuxmint.com/rel_ulyana_cinnamon.php" target="_blank">
@@ -108,9 +111,36 @@ Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd>
 
 ---
 
-<!-- .slide: data-background-size="cover" class="pixel-font" -->
+<!-- .slide: class="pixel-font" -->
 
+<div style="display: grid; grid-template-columns: 20% 80%;gap: 1em; align-items: center">
+<img src="/assets/media/pixels/link.gif" alt="link" width="100%">
+
+> **Ojo**: El script de RetroPie para Debian **solo funciona en sistemas x86** (**32** y **64 bits**). Si usas un equipo ARM, deberás ejecutar una máquina virtual **x86**; en una máquina virtual ARM no funcionará.
+
+</div>
+
+---
+
+<!-- .slide: data-background-size="cover" class="pixel-font" -->
 <h2 class="r-fit-text">Realiza los siguientes pasos en la Terminal</h2>
+
+
+<div style="display: grid; grid-template-columns: 70% 30%;gap: 1em; align-items: center; margin-top: 1.2em">
+
+> Recuerda abrir la Terminal con:
+>
+> <kbd class="pixel-key">Ctrl</kbd> + <kbd class="pixel-key">Alt</kbd> + <kbd class="pixel-key">T</kbd>
+
+<img src="/assets/media/pixels/hacker.gif" alt="hacker" width="100%">
+</div>
+
+
+Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd> para continuar
+
+---
+
+<!-- .slide: data-background-size="cover" class="pixel-font" -->
 
 <font size="5"><span style="color: rgb(171, 0, 0);">1.</span> Actualiza el sistema</font>
 {% include terminal-pixel.html command="sudo apt update && sudo apt upgrade -y" %}
@@ -150,7 +180,7 @@ Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd>
 
 {{ grid | strip_newlines }}
 
-> Ahora, selecciona "__Basic install__" y presiona Enter nuevamente hasta comenzar la instalación.
+> El proceso puede tardar entre 20 y 30 minutos, dependiendo del hardware y la conexión a internet.
 
 Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd> para continuar
 
@@ -158,6 +188,74 @@ Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd>
 
 <!-- .slide: class="pixel-font" data-transition="convex" style="align-items: center" -->
 
-> El proceso puede tardar entre 20 y 30 minutos, dependiendo del hardware y la conexión a internet.
-
 > Una vez finalizada la instalación, el sistema regresará al menú principal del script. En ese momento, simplemente cierra la ventana y busca __rpie__ (o ejecuta __emulationstation__ desde la terminal).
+
+---
+
+<!-- .slide: class="pixel-font" data-transition="convex" -->
+
+<style>
+  .pixel-gamepad {
+    width: 140px;
+    height: auto;
+
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+
+    opacity: .95;
+
+    filter:
+        drop-shadow(0 0 10px rgba(0, 255, 255, .45))
+        drop-shadow(0 15px 25px rgba(0,0,0,.75));
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+
+    animation: gamepadFloat 4s ease-in-out infinite;
+}
+
+.pixel-gamepad:hover {
+    transform: scale(1.08) rotate(-4deg);
+
+    filter:
+        drop-shadow(0 0 18px rgba(0,255,255,.85))
+        drop-shadow(0 20px 35px rgba(0,0,0,.9));
+}
+
+
+@keyframes gamepadFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+</style>
+
+<h2 class="r-fit-text">Configurar controles inalambrico en Retropie</h2>
+
+
+> Configura tu gamepad inalámbrico favorito en RetroPie vía Bluetooh y prepáralo para disfrutar tus juegos clásicos con total libertad.
+
+<br>
+
+<div style="display: flex; justify-content: center; gap: 1.6em; margin-top: 1em">
+
+<a href="/slides/rpie/configurar-dualshock4.html" data-preview-link>
+<div class="pixel-card">
+  <img src="/assets/media/pixels/ps4-gamepad.webp" alt="ps4 gamepad" class="pixel-gamepad">
+  ps4
+  <p><span style="color: #fefefe;">gamepad</span> ⚙</p>
+</div>
+</a>
+<a data-preview-image="https://cloud.githubusercontent.com/assets/10035308/22185415/f12ff342-e099-11e6-8adb-d18e9c638e94.png">
+<div class="pixel-card">
+  <img src="/assets/media/pixels/xbox-controller.webp" alt="ps4 gamepad" class="pixel-gamepad">
+  Xbox
+  <p><span style="color: #fefefe;">controller</span> ⚙</p>
+</div>
+</a>
+</div>

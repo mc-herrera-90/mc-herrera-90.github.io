@@ -1,53 +1,130 @@
 ---
 title: Instalación de Lubuntu 20.04
+theme: "black-retro"
 ---
 
-# Instalación de Lubuntu 20.04
-Guía paso a paso
+<!-- .slide: class="pixel-font" -->
+
+<h1 class="r-fit-text">Instalación de Lubuntu 20.04</h1>
+
+<p style="text-align: right;">
+    Por <strong>@mcherrera</strong> |
+    <a href="mailto:contacto@mcherrera.dev">contacto@mcherrera.dev</a>
+</p>
 ---
-## Requisitos mínimos
-- 1 GB RAM (2 GB recomendado)
-- 10 GB de disco
-- CPU 64-bit
+
+<!-- .slide: class="pixel-font" -->
+<style>
+.pixel-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    transition:
+        transform .12s steps(3),
+        filter .12s steps(3);
+}
+
+.pixel-logo{
+    image-rendering:pixelated;
+    image-rendering:crisp-edges;
+    width:100px;
+    filter:contrast(1.15) saturate(1.2);
+    transition:inherit;
+}
+
+.pixel-card p{
+    margin:.4em 0 0;
+}
+
+.pixel-card:hover{
+    transform:translateY(-8px) scale(1.12);
+    filter:brightness(1.25);
+    animation:pixelSelect .18s steps(2) infinite alternate;
+}
+
+.pixel-card:hover .pixel-logo{
+    filter:
+        brightness(1.35)
+        contrast(1.6)
+        saturate(1.6)
+        drop-shadow(4px 4px 0 #000);
+}
+
+.pixel-card:hover,
+.pixel-card:hover p,
+.pixel-card:hover span{
+    text-shadow:
+        2px 2px 0 #000,
+        0 0 8px rgba(255,255,255,.25);
+}
+
+@keyframes pixelSelect{
+    from{
+        transform:translateY(-6px) scale(1.10);
+    }
+    to{
+        transform:translateY(-10px) scale(1.14);
+    }
+}
+</style>
+
+<h2 align="center">REQUISITOS</h2>
+
+<br/>
+<h3 align="center">HARDWARE</h3>
+
+<div style="display: flex; justify-content: center; gap: 1.6em; margin-top: 1em">
+<div class="pixel-card">
+  <img src="/assets/media/pixels/ram.webp" alt="logo lubuntu" class="pixel-logo">
+  <p><span style="color: #fefefe;">1 GB RAM</span> +</p>
+</div>
+
+<div class="pixel-card">
+  <img src="/assets/media/pixels/hard-disk.webp" alt="logo lubuntu" class="pixel-logo">
+  <p><span style="color: #fefefe;">15 GB</span> +</p>
+</div>
+
+<div class="pixel-card">
+  <img src="/assets/media/pixels/cpu.webp" alt="logo lubuntu" class="pixel-logo">
+  <p><span style="color: #fefefe;">64 bits (x86_64)</span></p>
+</div>
+</div>
+
 <br/><br/>
+<h3 align="center">HERRAMIENTAS</h3>
+
+<div style="display: flex; gap: 1em; align-items: center">
+<img src="/assets/media/pixels/lubuntu.webp" alt="logo lubuntu" class="pixel-logo">
 <small>Descarga la imagen desde este enlace: <a target='_blank' href='https://cdimage.ubuntu.com/lubuntu/releases/focal/release/'>https://cdimage.ubuntu.com/lubuntu/releases/focal/release/</a></small>
+</div>
+
+
+<div style="display: flex; gap: 1em; align-items: center">
+
+<img src="/assets/media/pixels/virtualbox.webp" alt="logo lubuntu" class="pixel-logo">
+<small>Descarga la VirtualBox desde este enlace: <a target='_blank' href='https://www.virtualbox.org/wiki/Downloads'>https://www.virtualbox.org/wiki/Downloads</a></small>
+</div>
+
+
 ---
-<!-- .slide: 
-  data-background-image="/assets/media/linux/instalacion-lubuntu20/02-seleccionar-region.webp"
-  data-background-size="contain"
-  data-background-position="center"
--->
----
-<!-- .slide: 
-  data-background-image="/assets/media/linux/instalacion-lubuntu20/03-seleccionar-distribucion-de-teclado.webp"
-  data-background-size="cover"
-  data-background-position="center"
--->
----
-<!-- .slide: 
-  data-background-image="/assets/media/linux/instalacion-lubuntu20/04-seleccionar-el-disco.webp"
-  data-background-size="contain"
-  data-background-position="center"
--->
----
-<!-- .slide: 
-  data-background-image="/assets/media/linux/instalacion-lubuntu20/05-definir-el-usuario-y-nombre-del-equipo.webp"
-  data-background-size="contain"
-  data-background-position="center"
--->
----
-<!-- .slide: 
-  data-background-image="/assets/media/linux/instalacion-lubuntu20/06-iniciar-la-instalacion.webp"
-  data-background-size="contain"
-  data-background-position="center"
--->
----
-<!-- .slide: 
-  data-background-image="/assets/media/linux/instalacion-lubuntu20/07-reiniciar-el-equipo.webp"
-  data-background-size="contain"
-  data-background-position="center"
--->
----
-# Último paso
-## Al reiniciar el equipo  
-### Retira el pendrive USB
+<!-- .slide: class="pixel-font" -->
+
+<h1 class="r-fit-text" style="margin-bottom: 1em;">Asistente de instalación</h1>
+
+
+{% assign imagenes = site.static_files | where_exp: "item", "item.path contains '/assets/media/linux/instalacion-lubuntu20/'" %}
+
+{% capture grid %}
+<div class="gallery-grid">
+  {% for imagen in imagenes %}
+    <figure class="gallery-item">
+      <span class="num-badge">{{ forloop.index }}</span>
+      <img src="{{ imagen.path }}" alt="{{ imagen.name }}" data-preview-image data-caption="Carga de la imagen ISO de Windows Server 2025 y asignación de recursos.">
+    </figure>
+  {% endfor %}
+</div>
+{% endcapture %}
+
+{{ grid | strip_newlines }}
+
+> Como último paso, retira la imagen ISO de la unidad para reiniciar.

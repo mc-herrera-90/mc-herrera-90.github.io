@@ -1,0 +1,18 @@
+---
+theme: "black-retro"
+---
+
+{% assign imagenes = site.static_files | where_exp: "item", "item.path contains '/assets/media/rpie/config-bluetooh-dualshock4/'" %}
+
+{% capture grid %}
+<div class="gallery-grid">
+  {% for imagen in imagenes %}
+    <figure class="gallery-item">
+      <span class="num-badge">{{ forloop.index }}</span>
+      <img src="{{ imagen.path }}" alt="{{ imagen.name }}" data-preview-image data-caption="Carga de la imagen ISO de Windows Server 2025 y asignación de recursos.">
+    </figure>
+  {% endfor %}
+</div>
+{% endcapture %}
+
+{{ grid | strip_newlines }}
