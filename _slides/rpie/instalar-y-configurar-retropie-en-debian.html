@@ -188,7 +188,36 @@ Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd>
 
 <!-- .slide: class="pixel-font" data-transition="convex" style="align-items: center" -->
 
+<h2 class="r-fit-text">Ejecutar EmulationStation por primera vez</h2>
+
 > Una vez finalizada la instalación, el sistema regresará al menú principal del script. En ese momento, simplemente cierra la ventana y busca __rpie__ (o ejecuta __emulationstation__ desde la terminal).
+
+<font size="5"><span style="color: rgb(171, 0, 0);">1.</span> Ejecuta desde la Terminal <strong>EmulationStation</strong>:</font>
+
+{% include terminal-pixel.html command="emulationstation" %}
+
+---
+
+<!-- .slide: class="pixel-font" data-transition="zoom" -->
+
+<h2 class="r-fit-text">Configurar control al iniciar EmulationStation</h2>
+
+> Al iniciar **EmulationStation** por primera vez, se te pedirá configurar un dispositivo de entrada. Por ahora puedes configurar el teclado y, más adelante, conectar y configurar un control.
+
+{% assign imagenes = site.static_files | where_exp: "item", "item.path contains '/assets/media/rpie/first-run/'" %}
+
+{% capture grid %}
+<div class="gallery-grid">
+  {% for imagen in imagenes %}
+    <figure class="gallery-item">
+      <span class="num-badge">{{ forloop.index }}</span>
+      <img src="{{ imagen.path }}" alt="{{ imagen.name }}" data-preview-image data-caption="Carga de la imagen ISO de Windows Server 2025 y asignación de recursos.">
+    </figure>
+  {% endfor %}
+</div>
+{% endcapture %}
+
+{{ grid | strip_newlines }}
 
 ---
 

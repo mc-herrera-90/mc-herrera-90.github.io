@@ -217,6 +217,7 @@ blockquote .typewriter-text{
   animation:badgePulse .45s steps(2) infinite alternate;
 }
 
+
 @keyframes badgePulse{
   from{
     transform:scale(1);
