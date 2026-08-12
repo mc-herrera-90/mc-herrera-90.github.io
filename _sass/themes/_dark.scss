@@ -2,7 +2,8 @@
   color-scheme: dark;
 
   /* Framework color */
-  --main-bg: #1f242b;
+  // --main-bg: #1f242b;
+  --main-bg: #191e25;
   // --mask-bg: rgb(68, 69, 70);
   --mask-bg: rgb(45, 51, 59);
   // --main-border-color: rgb(44, 45, 45);
@@ -343,7 +344,7 @@ h2 strong,
 h3 strong,
 h4 strong {
   color: #9cc4ff;
-  text-shadow: 
+  text-shadow:
     0 0 6px rgba(156, 196, 255, 0.35),
     0 0 2px rgba(156, 196, 255, 0.25);
 }

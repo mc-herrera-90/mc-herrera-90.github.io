@@ -1,0 +1,259 @@
+<style>
+  .github-card {
+    --github-muted: #8b949e;
+    --github-text: #f0f6fc;
+    --github-accent: #58a6ff;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    width: 100%;
+    min-height: 86px;
+    box-sizing: border-box;
+
+    padding: 1rem 1.1rem;
+
+    overflow: hidden;
+
+    color: var(--github-text);
+    text-decoration: none;
+
+    background: var(--main-bg);
+
+    border: 1px solid var(--main-border-color);
+    border-radius: 14px;
+
+    margin-bottom: 15px;
+
+    transition:
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+
+  .github-card:hover {
+    color: var(--text-muted-color);
+    text-decoration: none;
+
+    border-color: rgba(88, 166, 255, 0.45);
+    background-color: var(--main-border-color);
+  }
+
+  .github-card:hover .github-card__icon {
+    transform: scale(1.05) rotate(-2deg);
+    background: #21262d;
+  }
+
+  /* Content */
+  .github-card__content {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    flex: 1;
+  }
+
+  .github-card__label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    margin-bottom: 0.25rem;
+
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: var(--github-muted);
+  }
+
+  .github-card__label::before {
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    background: #3fb950;
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 8px rgba(63, 185, 80, 0.5);
+  }
+
+  .github-card__repo {
+    display: block;
+
+    overflow: hidden;
+
+    font-size: 1rem;
+    font-weight: 650;
+    line-height: 1.4;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .github-card__owner {
+    color: var(--github-muted);
+    font-weight: 400;
+  }
+
+  /* Branch */
+
+  .github-card__branch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+
+    width: fit-content;
+
+    margin-top: 0.45rem;
+    padding: 0.22rem 0.55rem;
+
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.68rem;
+    line-height: 1.2;
+
+    color: var(--text-color);
+
+    background: var(--main-border-color);
+
+    border-radius: 999px;
+  }
+
+  .github-card__branch-icon {
+    display: flex;
+
+    color: var(--github-accent);
+
+    font-size: 0.75rem;
+  }
+
+  /* Arrow */
+
+  .github-card__arrow {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    flex: 0 0 36px;
+
+    color: var(--github-muted);
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 50%;
+
+    font-size: 1.1rem;
+    line-height: 1;
+
+    transition:
+      transform 180ms ease,
+      color 180ms ease,
+      background 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .github-card:hover .github-card__arrow {
+    transform: translateX(4px);
+
+    color: #fff;
+
+    background: rgba(88, 166, 255, 0.14);
+
+    border-color: rgba(88, 166, 255, 0.25);
+  }
+
+  /* Mobile */
+
+  @media (max-width: 480px) {
+    .github-card {
+      min-height: 76px;
+
+      gap: 0.8rem;
+
+      padding: 0.85rem;
+    }
+
+    .github-card__icon {
+      width: 43px;
+      height: 43px;
+
+      flex-basis: 43px;
+    }
+
+    .github-card__icon svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    .github-card__repo {
+      font-size: 0.9rem;
+    }
+
+    .github-card__arrow {
+      width: 32px;
+      height: 32px;
+
+      flex-basis: 32px;
+    }
+  }
+</style>
+
+{% assign github_owner = include.owner %}
+{% assign github_repo = include.repo %}
+{% assign github_branch = include.branch %}
+
+{% if github_branch %}
+  {% assign github_url = "https://github.com/" | append: github_owner | append: "/" | append: github_repo | append: "/tree/" | append: github_branch %}
+{% else %}
+  {% assign github_url = "https://github.com/" | append: github_owner | append: "/" | append: github_repo %}
+{% endif %}
+
+<div class="github-card-wrapper">
+  <a
+    class="github-card"
+    href="{{ github_url }}"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Abrir {{ github_owner }}/{{ github_repo }} en GitHub"
+  >
+    <i class="fa-brands fa-square-github fa-2xl" style="color: var(--text-color);"></i>
+
+    <div class="github-card__content">
+      <span class="github-card__label">
+        GitHub repository
+      </span>
+
+      <strong class="github-card__repo">
+        <span class="github-card__owner">{{ github_owner }}/</span>{{ github_repo }}
+      </strong>
+
+      {% if github_branch %}
+        <span class="github-card__branch">
+          <span class="github-card__branch-icon">⑂</span>
+          {{ github_branch }}
+        </span>
+      {% endif %}
+    </div>
+
+    <div class="github-card__arrow" aria-hidden="true">
+      →
+    </div>
+  </a>
+</div>
