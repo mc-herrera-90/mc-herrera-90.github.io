@@ -44,7 +44,7 @@ bundle install
 
 De esta forma, **Bundler se encargará de instalar Jekyll junto con todas las gemas y dependencias necesarias para ejecutar el proyecto**, resolviendo automáticamente las dependencias entre ellas y dejando las versiones utilizadas registradas en `Gemfile.lock`.
 
-<img src="jekyll/declarar-jekyll-en-gemfile.webp" width="90%" class="rounded border mx-auto"/>
+<img src="jekyll/declarar-jekyll-en-gemfile.webp" alt="ilustración 01" width="90%" class="rounded border mx-auto"/>
 
 Por último, puedes ejecutar el servidor de desarrollo usando el comando:
 
@@ -90,7 +90,7 @@ Este archivo **sí se compila a CSS**, por eso va en `assets/css/` y se usa para
 
 En la siguiente ilustración se pueden observar los **archivos parciales de Sass** y el **archivo principal que actúa como punto de entrada** para Jekyll.
 
-<img src="jekyll/uso-de-parciales-y-punto-de-entrada.webp" width="90%" class="rounded border mx-auto"/>
+<img src="jekyll/uso-de-parciales-y-punto-de-entrada.webp" alt="ilustración 02" width="90%" class="rounded border mx-auto"/>
 
 Se puede usar `@use` siempre que la versión de `jekyll-sass-converter` sea relativamente moderna y lo permita. A partir de `jekyll-sass-converter` 3.0, Jekyll utiliza `sass-embedded` que implementa Dart Sass, y esta versión está disponible con Jekyll 4.3+.
 
@@ -170,4 +170,4 @@ Opciones disponibles:
 
 Ya con eso, pasamos de tener un archivo lleno de espacios y saltos de líneas a un archivo comprimido de una sola línea:
 
-![](jekyll/demo-comprimir-sass.webp)
+![ilustración 03](jekyll/demo-comprimir-sass.webp)
