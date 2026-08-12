@@ -1,19 +1,26 @@
 ---
-title: "Jekyll: Cómo configurar Sass en Jekyll"
+title: "Jekyll: Configuración moderna con Dart Sass usando jekyll-sass-converter y sass-embedded en Jekyll"
 categories: [Jekyll, Jekyll-Integraciones]
 image: poster/jekyll-sass.avif
+tags: [jekyll]
+scripts:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---
 
+Jekyll tiene soporte nativo para Sass, por lo que no necesitas configurar un procesador de Sass por separado. Al instalar Jekyll, las dependencias necesarias para procesar hojas de estilo Sass forman parte de su ecosistema.
 
-Jekyll tiene **soporte nativo para Sass**, por lo que no necesitas instalar nada adicional: las dependencias necesarias se instalan junto con Jekyll al configurar el proyecto.
-
-> Un detalle importante sobre Sass en Jekyll es que __Jekyll delega Sass en la gema `jekyll-sass-converter`__, que forma parte del ecosistema de Jekyll y se encarga de tomar archivos __`.sass`__ o __`.scss`__ y convertirlos en CSS.
+> Jekyll delega la conversión de Sass en la gema `jekyll-sass-converter`, que se encarga de transformar archivos `.sass` y `.scss` en CSS durante el proceso de build.
 {:.prompt-info}
 
+Las principales gemas involucradas en esta cadena, junto con sus versiones vigentes al momento de publicar o actualizar este post **(consultadas en RubyGems)**, son:
+
+{% include resource-version/gem-version.html gem="jekyll" %}
+{% include resource-version/gem-version.html gem="jekyll-sass-converter" %}
+{% include resource-version/gem-version.html gem="sass-embedded" %}
 
 ## 1. Estructura y configuración del proyecto
 
-Para crear la estructura mínima de un proyecto y comenzar con las pruebas, podemos generarla desde la línea de comandos, siempre que tengamos instalada la gema `jekyll` y pasarle el parámetro `--blank` qye evita crear scaffolding innecesario de archivos:
+Para crear la estructura mínima de un proyecto y comenzar con las pruebas, podemos generarla desde la línea de comandos, siempre que tengamos instalada la gema `jekyll` y pasarle el parámetro `--blank` que evita crear scaffolding innecesario de archivos:
 
 ```bash
 jekyll new --blank <nombre-proyecto>
@@ -24,7 +31,11 @@ Si no tienes la gema instalada, puedes clonar este proyecto, que contiene la mis
 
 {% include repo/github-card.html owner="mc-herrera-90" repo="template-jekyll-blank" branch="main" %}
 
-Luego, creamos un archivo `Gemfile` para gestionar las dependencias del proyecto con **Bundler**. Asegúrate de especificar una versión de Jekyll igual o superior a la `4.3`:
+Al abrir el proyecto debes tener al menos, los siguientes archivos:
+
+{% include file-viewer.html files=site.data.generated.repo-template-jekyll-blank.files name="repo" %}
+
+Luego, creamos un archivo `Gemfile` para gestionar las dependencias del proyecto. Por ejemplo:
 
 ```ruby
 # frozen_string_literal: true
@@ -35,7 +46,10 @@ gem "jekyll", "~> 4.3"
 ```
 {: file="Gemfile" }
 
-Después, instala las dependencias con:
+> Asegúrate de especificar una versión de Jekyll igual o superior a la `4.3`, ya que las versiones antiguas pueden no implementar correctamente las reglas y características modernas de Sass.
+{: .prompt-tip .d-inline-block }
+
+Después, instala las dependencias con **Bundler** (Gestor de dependencias):
 
 ```bash
 bundle install

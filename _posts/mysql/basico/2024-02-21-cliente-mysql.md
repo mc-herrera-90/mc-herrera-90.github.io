@@ -4,7 +4,7 @@ emoji: 🐬
 pin: true
 description: "Conecta a servidores locales o remotos, gestiona bases de datos y automatiza tareas"
 categories: [MySQL, "MySQL-Básico"]
-tags: [Bases de Datos]
+tags: [mysql]
 image:
     path: poster/mysql-cliente-terminal.webp
     lqip: data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJQAXf+A765PmdR4q07gAA/uqLJcRZMeZLMqSqqNHxfbqvYo6tqfPV1md4ZJcvyyr2o1Cmv1GQxsB76tOaGDaVRvrfisE2NnJfBGEmCMTHmRwAAAA=

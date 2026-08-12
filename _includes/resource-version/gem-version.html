@@ -1,0 +1,29 @@
+{% assign gem_name = include.gem | default: "" %}
+{% assign version = gem_name | gem_version %}
+
+{% if gem_name != "" %}
+<div class="card mb-4 shadow-sm" style="border: 1px solid var(--main-border-color); background: var(--highlight-bg-color)">
+<div class="card-body">
+<div class="d-flex align-items-center justify-content-between gap-3">
+<div class="d-flex align-items-center gap-3">
+<div class="text-primary fs-3">
+<i class="fas fa-gem"></i>
+</div>
+<div>
+<div class="fw-semibold">
+<a href="https://rubygems.org/gems/{{ gem_name }}" target="_blank" rel="noopener noreferrer">
+{{ gem_name }}
+</a>
+</div>
+<small class="text-muted">RubyGem</small>
+</div>
+</div>
+{% if version %}
+<span class="badge text-bg-primary">
+v{{ version }}
+</span>
+{% endif %}
+</div>
+</div>
+</div>
+{% endif %}

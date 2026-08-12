@@ -1,1 +1,57 @@
 files:
+  - name: "template-jekyll-blank/_layouts/default.html"
+    language: "html"
+    content_file: |
+      <!DOCTYPE html>
+      <html lang="{{ site.lang | default: "en-US" }}">
+        <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta charset="utf-8">
+          <title>{{ page.title }} - {{ site.title }}</title>
+          <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+        </head>
+        <body>
+          {{ content }}
+        </body>
+      </html>
+
+  - name: "template-jekyll-blank/_sass/base.scss"
+    language: "scss"
+    content_file: |
+      $backgroundColor: #ffffff;
+      $bodyColor: #000000;
+      $bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      
+      body {
+        background: $backgroundColor;
+        color: $bodyColor;
+        font-family: $bodyFont;
+      }
+
+  - name: "template-jekyll-blank/assets/css/main.scss"
+    language: "scss"
+    content_file: |
+      ---
+      ---
+      
+      @import "base";
+
+  - name: "template-jekyll-blank/_config.yml"
+    language: "yml"
+    content_file: |
+      url: "" # the base hostname & protocol for your site, e.g. http://example.com
+      baseurl: "" # the subpath of your site, e.g. /blog
+      title: "" # the name of your site, e.g. ACME Corp.
+
+  - name: "template-jekyll-blank/index.md"
+    language: "md"
+    content_file: |
+      ---
+      layout: default
+      title: "Happy Jekylling!"
+      ---
+      
+      ## You're ready to go!
+      
+      Start developing your Jekyll website.
+
