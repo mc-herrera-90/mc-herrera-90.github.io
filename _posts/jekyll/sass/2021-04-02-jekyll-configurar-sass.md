@@ -107,7 +107,7 @@ bundle info sass-embedded
 
 A continuación, puedes observar la salida de los comandos y ver rápidamente las versiones instaladas;
 
-<img src="jekyll/revisar-gema-sass-embedded.webp" width="90%" class="rounded border mx-auto"/>
+<img src="jekyll/revisar-gema-sass-embedded.webp" alt="ilustración 03" width="90%" class="rounded border mx-auto"/>
 
 Si el proyecto utiliza una versión antigua de `jekyll-sass-converter`, deberíamos utilizar la sintaxis tradicional con `@import`.
 
@@ -170,4 +170,4 @@ Opciones disponibles:
 
 Ya con eso, pasamos de tener un archivo lleno de espacios y saltos de líneas a un archivo comprimido de una sola línea:
 
-![ilustración 03](jekyll/demo-comprimir-sass.webp)
+![ilustración 04](jekyll/demo-comprimir-sass.webp)
