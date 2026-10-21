@@ -8,7 +8,6 @@ image:
   path: poster/mysql-comandos-basicos.webp
   lqip: data:image/webp;base64,UklGRoAAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSBUAAAABF9D/iAgQZNtMYmi7v88FIvqfSy4AVlA4IEQAAAAQAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQAALJSVN7wAA/uqMZSCDGYI3LG5n8dklI+kzvPrch/tg24u7I+SCEAAAAA==
 tags: [mysql]
-pin: true
 ---
 
 Como probablemente ya sabes, [**SQL**](https://es.wikipedia.org/wiki/SQL "Ir a definición"){: target="_blank" } es un lenguaje estándar para trabajar y gestionar bases de datos. Nos permite realizar una variedad de operaciones, como crear estructuras, consultar información, modificar datos y gestionar el acceso. Dentro de SQL, __los comandos se agrupan en distintos sublenguajes__, cada uno con un propósito específico. Estos sublenguajes están pensados para facilitar tareas concretas, desde definir la estructura de una base de datos, hasta manipular sus datos o gestionar permisos de acceso, todo de forma más ordenada y eficiente.

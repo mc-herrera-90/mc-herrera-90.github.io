@@ -2,6 +2,7 @@
 title: "Jekyll: Archivos estáticos"
 badge: jekyll
 categories: [Jekyll, Jekyll-Colecciones]
+tags: [jekyll]
 ---
 
 Un archivo estático es un archivo que no contiene __front matter__. Estos incluye imágenes, archivos PDF y otros contenidos no renderizados.

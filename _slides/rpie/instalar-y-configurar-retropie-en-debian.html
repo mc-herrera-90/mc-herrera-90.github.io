@@ -25,7 +25,18 @@ Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd>
 
 <!-- .slide: class="pixel-font" -->
 
-<h2 class="r-fit-text">Tener una Distribución basada en Debian</h2>
+<h2 class="text-center">¿Cómo nacio RetroPie?</h2>
+
+> <a href="https://retropie.org.uk" target="_blank">RetroPie</a> nació como un proyecto de la comunidad alrededor de <a href="https://es.wikipedia.org/wiki/Raspberry_Pi" target="_blank">Raspberry Pi</a>, que buscaba nuevos usos para estas pequeñas computadoras que podían ejecutar emuladores de sistemas retro a un costo muy bajo.
+
+> Sin embargo, a partir de __RetroPie 3__.x, el proyecto comenzó a incorporar soporte para plataformas x86/x86_64, permitiendo utilizarlo también en PC convencional.
+
+---
+
+<!-- .slide: class="pixel-font" -->
+<h2 class="text-center">¿Qué necesitamos?</h2>
+
+> Tener un PC y contar con una distribución Linux compatible, principalmente aquellas **basadas en Debian**, como las siguientes.
 
 <style>
 .pixel-card{
@@ -120,6 +131,8 @@ Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd>
 
 </div>
 
+Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd> para continuar
+
 ---
 
 <!-- .slide: data-background-size="cover" class="pixel-font" -->
@@ -211,7 +224,7 @@ Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd>
   {% for imagen in imagenes %}
     <figure class="gallery-item">
       <span class="num-badge">{{ forloop.index }}</span>
-      <img src="{{ imagen.path }}" alt="{{ imagen.name }}" data-preview-image data-caption="Carga de la imagen ISO de Windows Server 2025 y asignación de recursos.">
+      <img src="{{ imagen.path }}" alt="{{ imagen.name }}" data-preview-image data-caption="{{ forloop.index }}">
     </figure>
   {% endfor %}
 </div>
@@ -224,11 +237,33 @@ Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd>
 <!-- .slide: class="pixel-font" data-transition="convex" -->
 <h2 class="r-fit-text">Cargar juegos en RetroPie</h2>
 
-> Las ROMs deben copiarse en el directorio del usuario en la siguiente ruta. Por ejemplo:
-> __`📁 /home/user/RetroPie/roms`__
+> Los ROMs deben copiarse dentro de la carpeta correspondiente a cada plataforma:
+>
+> __`📁 /home/{tu-usuario}/RetroPie/roms/{plataforma}`__
+
+<div style="display: grid; grid-template-columns: 60% 40%;gap: 1em; align-items: center; margin-top: 1.2em">
+
+> Por ejemplo, para **NES**, las ROMs descargadas deben copiarse en su carpeta correspondiente, como se ilustra en la imagen.
+
+<img src="/assets/media/extras/copiar-roms-en-nes-light.webp" alt="Copiar Roms" data-preview-image width="100%">
+</div>
 
 ---
 
+<!-- .slide: class="pixel-font" data-transition="convex" -->
+<h2 class="text-center">Visualizando los juegos</h2>
+
+
+<div style="display: grid; grid-template-columns: 50% 50%;gap: 1em; align-items: center; margin-top: 1.2em">
+
+> Al abrir nuevamente **EmulationStation**, se mostrará la plataforma **NES**, desde donde podremos acceder al listado de juegos disponibles.
+
+<img src="/assets/media/rpie/scraping/nes-roms.webp" alt="Roms cargados" data-preview-image width="100%">
+
+</div>
+
+
+---
 
 <!-- .slide: class="pixel-font" data-transition="convex" -->
 
@@ -297,3 +332,29 @@ Presiona <kbd class="pixel-key" onclick="Reveal.next(); return false;">→</kbd>
 </div>
 </a>
 </div>
+
+---
+
+<!-- .slide: class="pixel-font" data-transition="convex" -->
+<h2 class="text-center">¿Qué es el Scraping?</h2>
+
+> El scraping es una técnica que permite extraer información de forma automatizada desde sitios web u otras fuentes de datos.
+
+> En el contexto de RetroPie, scrapear juegos es __obtener información y recursos multimedia de las ROMs__, como carátulas, capturas de pantalla, descripciones, año de lanzamiento, género y otros metadatos.
+
+---
+
+<!-- .slide: class="pixel-font" data-transition="convex" -->
+
+<h2 class="text-center">Dándole vida a nuestra biblioteca</h2>
+
+> Pasaremos de tener simplemente **los nombres de nuestros juegos** a disponer de una **biblioteca visual**, con información y contenido adicional de cada uno.
+
+
+---
+
+<!-- .slide: class="pixel-font" data-transition="convex" -->
+
+<h2 class="text-center">¿Qué es Skyscraper?</h2>
+
+> <a target="_blank" href="https://gemba.github.io/skyscraper/">Skyscraper</a> es una herramienta de scraping para automatizar la catalogación de ROMs: toma una carpeta de juegos, busca información en distintas fuentes y genera los metadatos y recursos necesarios para mostrarlos en un frontend.

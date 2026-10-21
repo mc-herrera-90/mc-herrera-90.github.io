@@ -5,7 +5,6 @@ tags: [Bases de Datos, "Relacionales", "SQL"]
 image:
    path: poster/sql-server-funciones-ecalares.webp
    lqip: data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoUAAoAPzmIulOvKSWisAgB4CcJYwCuHBuDM9O4IBSAAPb0pCMXQPNKwFHieDMpwzltavl8Ea1AXfcdri3lpATAAAA=
-pin: true
 ---
 
 En SQL Server, las funciones escalares son rutinas que devuelven un único valor, como número, texto o fecha, definido en la cláusula `RETURNS`.

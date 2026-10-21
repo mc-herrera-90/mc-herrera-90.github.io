@@ -7,7 +7,6 @@ categories: [MySQL, "MySQL-Básico"]
 image:
   path: poster/mysql-limit-y-offset.webp
   lqip: data:image/webp;base64,UklGRpQAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSEAAAAABd6CobSOJP9h537umEREh+QNBFlTTthW995p+QwhhksgniwyuTAQhpHO/Eojo/wScS18QmhOrf0VWNoA5xhgLVlA4IC4AAACwAgCdASoUAAsAPzmGulOvKSWisAgB4CcJZwAAeyAA/u3GcM2Jni56py+qUAAA
-pin: true
 tags: [mysql]
 ---
 
@@ -18,7 +17,7 @@ En MySQL, cuando trabajas con grandes cantidades de datos, puede que no siempre 
 
 En este post, veremos cómo usar **`LIMIT`** para limitar los resultados de las consultas en MySQL, con ejemplos prácticos utilizando una base de datos de tienda y su tabla de productos.
 
-## Sintaxis
+## 1. Sintaxis
 
 La sintaxis de `LIMIT` es la siguiente:
 
@@ -27,11 +26,25 @@ SELECT columna1, columna2, ...
 FROM tabla
 LIMIT n;
 ```
-{: .nolineno }
+{: .nolineno .typing }
 
 - **`n`**: El número de registros que deseas obtener.
 
-## Ejemplo práctico
+La sintaxis con `LIMIT` y `OFFSET` es:
+
+```sql
+SELECT columna1, columna2, ...
+FROM tabla
+LIMIT n OFFSET m;
+```
+{: .nolineno .typing }
+
+- **n**: El número de registros que deseas obtener.
+- **m**: El número de registros a omitir.
+
+---
+
+## 2. Ejemplo práctico
 
 Supongamos que tenemos una tabla llamada **`productos`** en la base de datos **`tienda`** con los siguientes datos:
 
@@ -74,15 +87,8 @@ LIMIT 3;
 ```
 {: .nolineno }
 
-{% tabs ex_limit_output %}
-{% tab ex_limit_output resultado %}
-|id|nombre|precio|cantidad|
-|:-|:-|:-|:-|
-|1|Laptop|499990|25|
-|2|Mouse|19990|40|
-|3|Teclado|29900|60|
-{% endtab %}
-{% tab ex_limit_output mysql %}
+Como resultado, obtendremos los primeros tres registros.
+
 {% capture code %}
 <span class="hl">root@localhost [tienda]&gt; SELECT * FROM productos LIMIT 3;</span>
 +----+---------+--------+----------+
@@ -95,26 +101,9 @@ LIMIT 3;
 3 rows in set (0.01 sec)
 {% endcapture %}
 {% include terminal-wrapper.html content=code %}
-{% endtab %}
-{% endtabs %}
-
-## Usar LIMIT y OFFSET
+![example limit](mysql/mysql-example-limit.gif)
 
 Además de limitar el número de resultados, puedes usar **`OFFSET`** para omitir una cierta cantidad de registros antes de devolver los resultados.
-
-La sintaxis con `LIMIT` y `OFFSET` es:
-
-```sql
-SELECT columna1, columna2, ...
-FROM tabla
-LIMIT n OFFSET m;
-```
-{: .nolineno }
-
-- **n**: El número de registros que deseas obtener.
-- **m**: El número de registros a omitir.
-
-#### Ejemplo con OFFSET:
 
 Supongamos que deseamos omitir los primeros 2 productos y obtener los siguientes 3:
 
@@ -124,17 +113,8 @@ LIMIT 3 OFFSET 2;
 ```
 {: .nolineno }
 
-**Resultado:**
+Como resultado, obtendremos los tres registros omitiendo los 2 primeros.
 
-{% tabs ex_limit_offset %}
-{% tab ex_limit_offset resultado %}
-|id|nombre|precio|cantidad|
-|:-|:-|:-|:-|
-|3|Teclado|29900|60|
-|4|Monitor|120000|15|
-|5|Tablet|109000|30|
-{% endtab %}
-{% tab ex_limit_offset mysql %}
 {% capture code %}
 <span class="hl">root@localhost [tienda]&gt; SELECT * FROM productos LIMIT 3 OFFSET 2;</span>
 +----+---------+--------+----------+
@@ -147,16 +127,15 @@ LIMIT 3 OFFSET 2;
 3 rows in set (0.01 sec)
 {% endcapture %}
 {% include terminal-wrapper.html content=code %}
-{% endtab %}
-{% endtabs %}
+![example limit](mysql/mysql-example-limit-offset.gif)
 
 > En MySQL, `LIMIT 3 OFFSET 2` y `LIMIT 2, 3` son equivalentes.
 > La razón es que MySQL interpreta `LIMIT inicio, cantidad`, donde el primer número es el *offset* (desde dónde empezar) y el segundo cuántas filas devolver.
 {: .prompt-info }
 
-## Aplicaciones comunes de LIMIT
+## 3. Usos comunes de LIMIT y OFFSET
 
-1. **Paginación de Resultados:**
+1. **Paginación:**
    Si estás mostrando resultados en una aplicación web, como productos en una tienda online, puedes utilizar `LIMIT` junto con `OFFSET` para paginar los resultados. De esta forma, solo se muestran un número limitado de productos por página.
 
    **Ejemplo**:
@@ -176,10 +155,10 @@ LIMIT 3 OFFSET 2;
    ```
    {: .nolineno }
 
-2. Mejorar el Rendimiento:
+2. **Rendimiento**:
    Cuando trabajas con grandes bases de datos, las consultas sin `LIMIT` pueden tardar mucho. Si solo necesitas una pequeña muestra de resultados, usar `LIMIT` puede acelerar considerablemente la consulta.
 
-3. Consultas de Muestra:
+3. **Consultas de Muestra**:
    Si necesitas revisar o probar algo rápidamente en la base de datos, puedes usar `LIMIT` para obtener solo un subconjunto de los registros.
 
 Para profundizar y ver más ejemplos prácticos, puede consultar el siguiente video:

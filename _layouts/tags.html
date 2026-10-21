@@ -1,9 +1,63 @@
 ---
 layout: page
-# All the Tags of posts.
 ---
 
-<div id="tags" class="d-flex flex-wrap mx-xl-2">
+<style>
+.tags-view-sticky {
+  position: sticky;
+  top: 1rem;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  pointer-events: none;
+}
+
+.tags-view-switch {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tags-view-btn {
+  border: 0;
+  background: transparent;
+  color: var(--text-muted-color);
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.35rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.tags-view-btn:hover {
+  color: var(--text-color);
+}
+
+.tags-view-btn.active {
+  color: var(--text-color);
+  background: var(--main-bg);
+}
+</style>
+
+<div class="tags-view-sticky">
+  <div class="tags-view-switch" role="group" aria-label="Vista de tags">
+    <button type="button" class="tags-view-btn active" data-tags-view="alphabetical">
+      A–Z
+    </button>
+    <button type="button" class="tags-view-btn" data-tags-view="all">
+      Todos
+    </button>
+  </div>
+</div>
+
+<div id="tags">
   {% assign tags = '' | split: '' %}
   {% for t in site.tags %}
     {% assign tags = tags | push: t[0] %}
@@ -11,12 +65,72 @@ layout: page
 
   {% assign sorted_tags = tags | sort_natural %}
 
-  {% for t in sorted_tags %}
-    <div>
-      <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
-        {{ t -}}
-        <span class="text-muted">{{ site.tags[t].size }}</span>
-      </a>
-    </div>
-  {% endfor %}
+  <div id="tags-alphabetical" class="d-flex flex-wrap mx-xl-2">
+    {% assign current_letter = '' %}
+
+    {% for t in sorted_tags %}
+      {% assign first_letter = t | slice: 0 | upcase %}
+
+      {% if first_letter != current_letter %}
+        {% assign current_letter = first_letter %}
+
+        <div class="w-100 mt-4 mb-2">
+          <h3 class="mb-0">{{ current_letter }}</h3>
+        </div>
+      {% endif %}
+
+      <div>
+        <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
+          {{ t -}}
+          <span class="text-muted">{{ site.tags[t].size }}</span>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div id="tags-all" class="d-none flex-wrap mx-xl-2">
+    {% for t in sorted_tags %}
+      <div>
+        <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
+          {{ t -}}
+          <span class="text-muted">{{ site.tags[t].size }}</span>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll("[data-tags-view]");
+  const alphabetical = document.getElementById("tags-alphabetical");
+  const all = document.getElementById("tags-all");
+
+  function setView(view) {
+    const isAlphabetical = view === "alphabetical";
+
+    alphabetical.classList.toggle("d-none", !isAlphabetical);
+    all.classList.toggle("d-none", isAlphabetical);
+    all.classList.toggle("d-flex", !isAlphabetical);
+
+    buttons.forEach((button) => {
+      button.classList.toggle(
+        "active",
+        button.dataset.tagsView === view
+      );
+    });
+
+    localStorage.setItem("tags-view", view);
+  }
+
+  const savedView = localStorage.getItem("tags-view") || "alphabetical";
+
+  setView(savedView);
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setView(button.dataset.tagsView);
+    });
+  });
+});
+</script>

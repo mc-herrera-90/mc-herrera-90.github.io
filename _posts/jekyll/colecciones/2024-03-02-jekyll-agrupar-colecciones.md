@@ -1,6 +1,7 @@
 ---
 title: "Jekyll: Agrupar colecciones en un directorio superior"
 categories: [Jekyll, Jekyll-Colecciones]
+tags: [jekyll]
 image: poster/jekyll-collections.avif
 ---
 

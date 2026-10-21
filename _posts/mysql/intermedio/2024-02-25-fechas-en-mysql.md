@@ -4,7 +4,6 @@ icon: icon/mysql.svg
 emoji: 🐬
 categories: [MySQL, "MySQL-Intermedio"]
 tags: [mysql]
-pin: true
 image:
     path: poster/mysql-trabajar-con-fechas.webp
     lqip: data:image/webp;base64,UklGRpwAAABXRUJQVlA4WAoAAAAQAAAAEwAACgAAQUxQSEAAAAABd6CobSOJP9h537umEREh+QNBFlTTthW995p+QwhhksgniwyuTAQhpHO/Eojo/wScS18QmhOrf0VWNoA5xhgLVlA4IDYAAADwAgCdASoUAAsAPzmGulQvKSWjMAgB4CcJZwAAetCIAAD+7Yd0zh+qer1kfKhiOlQMOTAAAAA=

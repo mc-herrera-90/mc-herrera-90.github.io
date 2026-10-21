@@ -3,6 +3,7 @@ title: "Jekyll: Desplegar en GitHub Pages"
 description: Desplegar en GitHub Pages (sin GitHub Actions)
 categories: [Jekyll, Jekyll-Deploy]
 badge: jekyll
+tags: [jekyll]
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js
 ---

@@ -1,42 +1,52 @@
 ---
 title: "WSL: Potencia de Linux en Windows"
 categories: [WSL, "WSL-Introducción"]
-tags: [Sistemas Operativos]
 image:
   path: 'poster/wsl-en-windows.webp'
   lqip: data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABwAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQAAJVvuVJGQltyAA/rCoUQqszueRpcn8FJvx5Majkpl9G/NL0qDSsaRuPXzCqeIWn7HVABw9RNn8Nm6ltnLmIAA=
+tags: [wsl]
+pin: true
 ---
 
-Si eres un desarrollador o entusiasta de Linux y trabajas en Windows, **Windows Subsystem for Linux (comunmente denominado WSL)** es una herramienta imprescindible. En este artículo cubriremos los siguientes puntos:
+Si eres un desarrollador o entusiasta de Linux y trabajas en Windows, te tengo buenas noticias, porque tu nueva herramienta imprescindible se llama Windows Subsystem for Linux (comúnmente conocido como WSL). En este artículo cubriremos los siguientes puntos:
 
-- **¿Qué es WSL?** y sus ventajas
-- **Cómo instalarlo**
-- **Cómo usarlo y personalizarlo**
+- [x] **¿Qué es WSL?** y **¿Por qué usar WSL?**
+- [x] **Cómo instalarlo**
+- [x] **Cómo usarlo y personalizarlo**
 
 Ahora es posible utilizar algunas distribuciones de GNU/Linux como [__Ubuntu__](https://ubuntu.com/desktop/wsl){:target='_blank'} o [__Debian__](https://wiki.debian.org/InstallingDebianOn/Microsoft/Windows/SubsystemForLinux){:target='_blank'} en nuestro __Windows__.
 
-> Olvidate de máquinas virtuales ni configuraciones complicadas y __disfruta de una experiencia nativa de GNU/Linux dentro de Windows__.
+> Olvidate de máquinas virtuales y **disfruta de una experiencia nativa de GNU/Linux dentro de Windows**.
 {: .prompt-tip }
 
-## ¿Qué es WSL?
+## 1. ¿Qué es WSL?
 
-WSL es una capa de compatibilidad que permite ejecutar un entorno Linux directamente en Windows, sin necesidad de una máquina virtual o un arranque dual. Esto significa que puedes utilizar aplicaciones de Linux junto con aplicaciones de Windows, todo desde la misma interfaz. En la siguiente captura, podemos ver un sistema GNU/Linux Debian, ejecutándose en Windows Terminal:
+WSL es una capa de compatibilidad que permite ejecutar un entorno Linux directamente en Windows, sin necesidad de una máquina virtual o un arranque dual. Esto significa que puedes utilizar aplicaciones de Linux junto con aplicaciones de Windows, todo desde la misma interfaz.
+
+En la siguiente captura, podemos ver un sistema GNU/Linux Debian, ejecutándose en Windows Terminal:
 
 ![WSL debian neofetch](wsl/wsl-debian-neofetch-light.webp){:.light}
 ![WSL debian neofetch](wsl/wsl-debian-neofetch-dark.webp){:.dark}
 _WSL debian en Windows_
 
-## ¿Por qué usar WSL?
+---
+
+## 2. ¿Por qué usar WSL?
 
 Aquí te dejo 3 razones por las que deberías empezar a usarlo.
 
-1. **Desarrollo Simplificado**: Si eres un desarrollador que trabaja en aplicaciones web o software que utiliza herramientas de Linux, WSL te permite acceder a esas herramientas sin salir de Windows.
+**1. Desarrollo Simplificado** 
+: Si eres un desarrollador que trabaja en aplicaciones web o software que utiliza herramientas de Linux, WSL te permite acceder a esas herramientas sin salir de Windows.
 
-2. **Sin Virtualización**: A diferencia de las máquinas virtuales, WSL tiene un rendimiento casi nativo, lo que significa que puedes ejecutar aplicaciones de Linux rápidamente y sin las penalizaciones de rendimiento.
+**2. Sin Virtualización**
+: A diferencia de las máquinas virtuales, WSL tiene un rendimiento casi nativo, lo que significa que puedes ejecutar aplicaciones de Linux rápidamente y sin las penalizaciones de rendimiento.
 
-3. **Acceso a Herramientas de Línea de Comandos**: WSL te da acceso a potentes herramientas de línea de comandos de Linux, como `bash`, `git`, `ssh` y muchas más, facilitando tareas de desarrollo y administración.
+**3. Acceso a Herramientas de Línea de Comandos**
+: WSL te da acceso a potentes herramientas de línea de comandos de Linux, como `bash`, `git`, `ssh` y muchas más, facilitando tareas de desarrollo y administración.
 
-## Instalar y habilitar WSL
+---
+
+## 3. Instalación
 
 Primero, abre PowerShell como administrador y ejecuta el siguiente comando:
 
@@ -60,16 +70,22 @@ Esto instalará la última versión de WSL y la distribución de Linux predeterm
 > Este comando mostrará todas las distribuciones de Linux disponibles para instalar en tu sistema.
 {: .prompt-tip }
 
-## Elegir una distribución de Linux
+---
 
-Puedes instalar diferentes distribuciones de Linux. Si quieres elegir una distribución específica, la forma más sencilla es abrir [Microsoft Store](https://apps.microsoft.com/search?query=wsl&hl=es-ES&gl=CL){:target='_blank'} y buscar "Linux". Allí encontraremos opciones como Ubuntu, Debian y Kali Linux. A continuación un ejemplo para instalar Debian desde la Terminal de Windows:
+## 4. Elegir una distribución de Linux
+
+Puedes instalar diferentes distribuciones de Linux. Si quieres elegir una distribución específica, la forma más sencilla es abrir [Microsoft Store](https://apps.microsoft.com/search?query=wsl&hl=es-ES&gl=CL){:target='_blank'} y buscar "Linux". Allí encontraremos opciones como Ubuntu, Debian y Kali Linux.
+
+A continuación, te dejo el comando para instalar Debian desde la Terminal de Windows:
 
 ```powershell
 wsl --install -d Debian
 ```
 {: .nolineno .typing }
 
-## Configurar una nueva distribución
+---
+
+## 5. Configurar una nueva distribución
 
 Cuando se termina de instalar la nueva distribución de WSL, se le pedirá que cree un nombre de usuario y una contraseña para la distribución de Linux:
 

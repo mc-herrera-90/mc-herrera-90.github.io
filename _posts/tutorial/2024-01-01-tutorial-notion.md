@@ -9,20 +9,23 @@ image:
 pin: true
 ---
 
-
 [__Notion__](https://www.notion.com/){:target='_blank'} es una de las herramientas de productividad de más rápido crecimiento en los últimos tiempos. Su __versatibilidad__ y __capacidad para adaptarse a diferentes flujos de trabajo__ han hecho   que muchos usuarios avanzados se enamoren de esta herramienta. Aunque en los últimos años ha enfrentado ciertas limitaciones derivadas de cambios en su modelo de negocio (restricciones en algunas funciones que antes eran gratuitas), sigue siendo una opción muy sólida para organizar información y proyectos.
 
 > Lo genial de Notion, es que puedes usarlo para crear exactamente la interfaz que necesitas para mantenerte organizado con las cosas importantes del día a día.
 ![pagina documentos](notion/propiedad-checkbox.webp)
 {: .prompt-tip }
 
-## Qué es Notion
+## 1. ¿Qué es Notion?
 
-__Notion es una herramienta todo-en-uno__ que permite gestionar notas, proyectos, crear bases de datos y colaborar en equipo. Su capacidad de adaptación permite que se use tanto para organización personal como para trabajo en equipo. En lugar de cambiar entre diferentes aplicaciones, puedes usar Notion como una única plataforma para gestionar tus proyectos, estudios, etc.
+Notion es una herramienta "*todo-en-uno*" que permite gestionar notas, proyectos, crear bases de datos pero orientadas a gestionar información dentro de un espacio de trabajo (incorporando propiedades, filtros y relaciones entre registros) y colaborar en equipo. Su capacidad de adaptación permite que se use tanto para organización personal como para trabajo en equipo.
 
-![web oficial Notion](notion/pagina-principal.webp)
+> En lugar de cambiar entre diferentes aplicaciones, puedes usar Notion como una única plataforma para gestionar tus proyectos, estudios, etc.
+> ![web oficial Notion](notion/pagina-principal.webp)
+{: .prompt-tip }
 
-### ¿Es Notion gratuito?
+---
+
+## 2. ¿Es Notion gratuito?
 
 Notion es gratuito, pero también ofrece [planes de pago](https://www.notion.com/es/pricing){:target="_blank"}: 
 
@@ -61,7 +64,9 @@ Revisemos las principales __limitaciones__ de Notion en su versión gratuita.
 3\. Funcionalidades Avanzadas
 : Opciones como el historial de versiones, integraciones avanzadas y mayor almacenamiento están bloqueadas en la versión gratuita.
 
-## Empezando en Notion
+---
+
+## 3. Empezando en Notion
 
 Lo primero que se debe hacer es crear una cuenta. Para esto, se debe ingresar a la [página de registro Notion](https://www.notion.so/signup){: target='_blank'}. Una vez allí, selecciona la opción con la cual te quieres registrar.
 
@@ -69,13 +74,17 @@ Lo primero que se debe hacer es crear una cuenta. Para esto, se debe ingresar a 
 
 Enseguida te llegará un código de registro al correo ingresado, el cual puedes copiar y pegar.
 
-Una vez creamos una cuenta para usar Notion, la primera vez que iniciamos sesión en Notion nos va a ayudar a configurar un espacio de trabajo. Para ello debes seleccionar las opciones que más se adaptan a tus necesidades:
+{% include embed/video.html src="notion/registrarse-en-notion.mp4" %}
+
+Una vez creada la cuenta para usar Notion, la primera vez que iniciamos sesión en Notion nos va a ayudar a configurar un espacio de trabajo. Para ello debes seleccionar las opciones que más se adaptan a tus necesidades:
 
 ![Setup notion](notion/seleccionar-uso.webp)
 
-## Personalizar Notion
+---
 
-Desde la barra lateral izquierda, en la parte superior, podemos encontrar el botón para ir a la configuraciones.
+## 4. Personalizar Notion
+
+Desde la barra lateral izquierda, en la parte superior, podemos encontrar el botón para ir a configuraciones.
 
 ![Ir a configuraciones](notion/ir-a-configuraciones.webp)
 
@@ -88,7 +97,14 @@ En **Preferencias** vamos a la sección de **Apariencia** y podemos cambiar entr
 
 ![Cambiar de tema](notion/custom-theme.webp)
 
-## Páginas y Bloques
+
+> Puedes alternar entre el modo claro y oscuro en Notion usando el atajo de teclado <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> en Windows o <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> en Mac.
+> ![Alternar tema](notion/alternar-tema.gif)
+{: .prompt-tip }
+
+---
+
+## 5. Páginas y Bloques
 
 En Notion, entender la diferencia entre **páginas** y **bloques** es la clave para organizar tu información. Aunque pueden parecer similares al principio, cumplen funciones distintas. Por eso, te explicaré estas diferencias.
 
@@ -103,33 +119,35 @@ Cada una de esas páginas puede contener más información, incluso otras págin
 
 ### Bloques en Notion
 
-En notion, **todo es un bloque**. Cada texto, imagen, lista o base de datos o cualquier cosa que agregas dentro de una página es un bloque individual. Si volvemos al ejemplo anterior, dentro de la página "**Trabajo**" ya tenemos varios bloques:
+En notion, **todo es un bloque** y todo bloque se puede mover, editar, duplicar o eliminar fácilmente, lo que te permite organizar tu espacio de trabajo con total flexibilidad. Cada texto, imagen, lista o base de datos o cualquier cosa que agregas dentro de una página es un bloque individual. Si volvemos al ejemplo anterior, dentro de la página "**Trabajo**" ya tenemos varios bloques:
 
 - El título principal (**nombre de la página**) ➝ Es un bloque de encabezado especial.
 - Cada página dentro de otra ➝ Es un bloque de tipo "página".
 - Saltos de líneas ➝ Es un bloque de texto vácio.
 
-La mejor manera de familiarizarse con Notion es probar algunos bloques, simplemente escriba `/` y verá todas las opciones:
+La mejor manera de familiarizarte con Notion es experimentar con los bloques. Simplemente, comienza escribiendo una barra diagonal (`/`) y verás todas las opciones disponibles para insertar títulos, listas, imágenes, tablas y mucho más.
 
 {% include embed/video.html src="notion/despliegue-de-bloques.mp4" %}
 
-## Tipos de Bloques
+---
+
+## 6. Tipos de Bloques
 
 Como sabemos, todo en Notion funciona con "bloques", un bloque puede ser texto, imágenes, listas, bases de datos y más.
 
-### De Texto
+### Texto
 
 Simple, con opciones de formato (`/h1`, `/bold`, `/citas`, etc):
 
 ![Bloques de texto](notion/bloques-de-texto.webp)
 
-### De Listas
+### Listas
 
 Viñetas, numeradas o listas de tareas (`/todo`):
 
 ![Bloques de listas](notion/bloques-listas.webp)
 
-### De Imágenes y Videos
+### Imágenes y Videos
 
 Adjunta archivos o incrusta enlaces (`/imagen`, `/video`):
 
@@ -138,19 +156,25 @@ Adjunta archivos o incrusta enlaces (`/imagen`, `/video`):
 > Los videos e imágenes que deseas subir desde tu equipo, deben ser menor a **5 MB** usando la versión gratuita.
 {: .prompt-info }
 
-## Transforma Bloques
+---
+
+## 7. Transformar Bloques
 
 En Notion, todos los bloques se pueden convertir en bloques de otro tipo, para usar, ver o profundizar en esa misma información de una forma distinta:
 
 ![convertir bloques](notion/convertir-bloque.webp)
 
-## Organizar Bloques
+Basta con pasar el cursor sobre el bloque, hacer clic en «Convertir en» y seleccionar la opción que quieras.
+
+![convertir bloque](notion/convertir-bloque.gif)
+
+## 8. Organizar Bloques
 
 En Notion, podemos organizar la información de muchas maneras, usando páginas, listas, tablas y más. Pero una de las formas más efectivas para estructurar contenido de manera visual es **usando columnas**.
 
-### Cómo crear columnas
+### Organizar en columnas
 
-Aunque Notion no tiene un botón directo para crear columnas, podemos hacerlo de forma muy sencilla con **arrastrar y soltar**:
+Para organizar bloques en columnas, basta con arrastrar un bloque hacia un lado de otro hasta que aparezca una línea vertical azul y soltarlo.
 
 ![Poner contenido en columnas](notion/organizar-bloques-horizontal.webp)
 
@@ -164,7 +188,9 @@ Sin embargo, esta no es la única forma de organizar el contenido. Si necesitas 
 
 A continuación, veremos qué son las bases de datos en Notion. 🚀
 
-## Bases de Datos en Notion
+---
+
+## 9. Bases de Datos en Notion
 
 Las bases de datos en Notion son los tipos de bloques más poderosos y que más funcionalidades nos ofrecen ya que nos permiten **estructurar información y visualizarla de diferentes maneras**, así como **categorizarla**, **filtrarla** y **organizarla** de la manera que más nos convenga en cada contexto.
 
@@ -211,7 +237,9 @@ Estos son algunos ejemplos de propiedades:
 > En resumen, una base de datos es una colección de páginas y puede crearse dentro de un bloque o ser una página completa.
 {: .prompt-info }
 
-## Formularios de Notion
+---
+
+## 10. Formularios de Notion
 
 Los formularios de Notion permiten recopilar información directamente en tus bases de datos. En Notion el formulario es una __vista especial de una base de datos__ que permite a los usuarios completar campos.
 
@@ -226,19 +254,21 @@ Una vez se crea el formulario, podemos ir completando las preguntas y añadir el
 > Desde 2024, Notion permite formularios públicos, es decir, cualquier persona con el enlace puede completarlos, aunque no tenga cuenta de Notion siempre que el formulario esté configurado como "público" mediante la opción “Compartir en la web”.
 {: .prompt-tip }
 
+---
 
-## Publicar Páginas
+## 11 Publicar Páginas
 
 En Notion, puedes compartir tus páginas con otras personas haciéndola pública. Esto es útil para difundir información con otras personas o crear documentos accesibles en línea.
 
-### Instrucciones:
+Para ello, abre el documento que desees compartir y haz lo siguiente:
 
-- Abre la página en Notion.  
 - Haz clic en **"Compartir"** (arriba a la derecha).  
 - Activa **"Compartir en la web"**.  
 - Ajusta los permisos según lo que necesites.  
 - Copia el enlace y compártelo.
- 
+
+![compartir página](notion/compartir-pagina.gif)
+
 > Para dejar de compartir, desactiva **"Compartir en la web"** que la puedes desplegar al presionar nuevamente en el botón **Compartir**.
 {: .prompt-info }
 
@@ -248,7 +278,9 @@ En la versión gratuita, tu dominio siempre tendrá `notion.site`, pero se puede
 
 ![Cambiar el nombre de dominio](notion/update-domain.webp)
 
-## Atajos de Teclado
+---
+
+## 12. Atajos de Teclado
 
 Aunque Notion permite hacer __casi todo en clics__ y menús, aprender sus atajos de teclado puede aumentar tu flujo de trabajo.
 

@@ -205,7 +205,8 @@ rmvirtualenv <nombre-entorno>
 
 ### 3. Con Pipenv
 
-[__Pipenv__](https://pipenv-es.readthedocs.io/es/latest/){: target='_blank'} es una gran herramienta para gestionar entornos virtuales y dependencias, destacando frente a otras alternativas gracias a sus características más integradas, flexibles y fáciles de usar.
+[__Pipenv__](https://pipenv-es.readthedocs.io/es/latest/){: target='_blank'} es una gran herramienta para gestionar entornos virtuales y dependencias de Python, destacando por integrar ambas tareas de forma flexible y sencilla.
+
 
 > __Pipenv__ automáticamente crea y maneja un entorno virtual para tus proyectos, también como *agregar/remover* paquetes desde un archivo `Pipfile.lock`, que es usado para producir un determinado build.
 {: .prompt-tip}

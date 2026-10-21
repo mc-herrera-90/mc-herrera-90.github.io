@@ -4,7 +4,6 @@ emoji: 🐬
 categories:  [MySQL, "MySQL-Intermedio"]
 icon: icon/mysql.svg
 tags: [mysql]
-pin: true
 image:
     path: poster/mysql-triggers.webp
     alt: "Trabajar con Triggers en MySQL"

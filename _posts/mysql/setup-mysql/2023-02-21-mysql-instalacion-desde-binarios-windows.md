@@ -7,7 +7,6 @@ tags: [mysql]
 image:
     path: poster/mysql-instalacion-windows-zip.webp
     lqip: data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACwAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJbABTAAejVz1+BSCCwAD+6orJ8TNtGqWlCMWHJIyIWC/PVwbuT8qoz/2Hf7zJHK8eFejr6144UmKddNMtKhxEwnBsWf6PkorZGgAA
-pin: true
 ---
 
 Existen varias formas de instalar MySQL en Windows, descargando el instalador oficial, mediante paquetes como [XAMP](https://www.apachefriends.org/es/index.html) o [WAMPSERVER](https://www.wampserver.com/){:target='_blank'} o incluso usando contenedores de Docker. Sin embargo instalar MySQL desde los binarios en Windows es una excelente opción para usuarios que desean un mayor control sobre la configuración, evitar software adicional innecesario y comprender mejor su funcionamiento interno. En este post, cubriremos los pasos detallados para lograrlo de manera fácil y efectiva.
